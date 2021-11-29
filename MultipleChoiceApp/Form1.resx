@@ -117,4 +117,112 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bunifuButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAOcAAAA1CAYAAAC6AvwEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFCSURBVHhe7dWxTQNREEXRLYVSqIBGiUkpxQ0Q0cCaxb49
+        +AXnSF8jzcRX/wCG3e/3t/M8P68JvNDV4dc13krzOK7F9/MEvNrV4600Hz8nMKQ0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0
+        xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOc
+        sKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlrSlOcsKY0xQlr
+        SlOcsKY0xQlrSlOcsKY0j+M8z1s74MWuHn9L8/Fzvl+Ln+cJeJX/MK/3UZrAnuP4AxJFy4YjxgqpAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="animation1.BlindCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
+        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
+</value>
+  </data>
+  <data name="animation1.MosaicCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
+        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
+</value>
+  </data>
+  <data name="animation1.MosaicShift" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
+        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
+</value>
+  </data>
+  <data name="animation1.ScaleCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
+        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAAAAL
+</value>
+  </data>
+  <data name="animation1.SlideCoeff" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFFTeXN0ZW0uRHJhd2luZywgVmVyc2lvbj00LjAuMC4wLCBDdWx0
+        dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWIwM2Y1ZjdmMTFkNTBhM2EFAQAAABVTeXN0ZW0uRHJh
+        d2luZy5Qb2ludEYCAAAAAXgBeQAACwsCAAAAAAAAAAAAgD8L
+</value>
+  </data>
 </root>

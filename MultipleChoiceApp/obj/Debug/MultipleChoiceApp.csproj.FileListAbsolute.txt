@@ -2,7 +2,6 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\MultipleChoiceApp.exe
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\MultipleChoiceApp.pdb
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.Core.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.csproj.AssemblyReference.cache
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Form1.resources
@@ -12,3 +11,14 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.csproj.CopyComplete
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.exe
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.pdb
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu_UI_v1.5.3.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu_UI_v1.5.3.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.exe.config
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.xml
