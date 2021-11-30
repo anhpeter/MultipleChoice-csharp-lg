@@ -68,6 +68,7 @@
       <HintPath>..\..\..\..\..\download\pass is 123 azadeducation_Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
@@ -83,8 +84,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\QuestionBUS.cs" />
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Common\Helpers\DBHelper.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />
+    <Compile Include="Common\Models\Answer.cs" />
+    <Compile Include="Common\Models\Question.cs" />
+    <Compile Include="DAL\BaseDAO.cs" />
+    <Compile Include="DAL\QuestionDAO.cs" />
     <Compile Include="Forms\BaseForm.cs" />
     <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>
