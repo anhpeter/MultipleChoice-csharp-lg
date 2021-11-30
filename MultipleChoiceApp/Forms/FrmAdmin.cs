@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.UserControls;
+﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,15 +22,8 @@ namespace MultipleChoiceApp
         private void FrmAdmin_Load(object sender, EventArgs e)
         {
             changeControl(new QuestionControl(), "Questions");
-            makeFullScreen();
+            FormHelper.MakeFullScreen(this);
         }
-
-        protected void makeFullScreen()
-        {
-            this.TopMost = true;
-            this.WindowState = FormWindowState.Maximized;
-        }
-
 
         private void btn_questions_Click(object sender, EventArgs e)
         {

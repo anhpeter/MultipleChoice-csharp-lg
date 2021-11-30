@@ -47,7 +47,7 @@ namespace MultipleChoiceApp.Forms
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_start = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -280,41 +280,42 @@ namespace MultipleChoiceApp.Forms
             this.label8.TabIndex = 4;
             this.label8.Text = "Exam:";
             // 
-            // bunifuFlatButton1
+            // btn_start
             // 
-            this.bunifuFlatButton1.Active = false;
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "Start";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(275, 453);
-            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(250, 60);
-            this.bunifuFlatButton1.TabIndex = 5;
-            this.bunifuFlatButton1.Text = "Start";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_start.Active = false;
+            this.btn_start.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_start.BorderRadius = 0;
+            this.btn_start.ButtonText = "Start";
+            this.btn_start.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_start.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_start.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_start.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_start.Iconimage")));
+            this.btn_start.Iconimage_right = null;
+            this.btn_start.Iconimage_right_Selected = null;
+            this.btn_start.Iconimage_Selected = null;
+            this.btn_start.IconMarginLeft = 0;
+            this.btn_start.IconMarginRight = 0;
+            this.btn_start.IconRightVisible = true;
+            this.btn_start.IconRightZoom = 0D;
+            this.btn_start.IconVisible = true;
+            this.btn_start.IconZoom = 90D;
+            this.btn_start.IsTab = false;
+            this.btn_start.Location = new System.Drawing.Point(275, 453);
+            this.btn_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_start.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_start.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_start.selected = false;
+            this.btn_start.Size = new System.Drawing.Size(250, 60);
+            this.btn_start.TabIndex = 5;
+            this.btn_start.Text = "Start";
+            this.btn_start.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_start.Textcolor = System.Drawing.Color.White;
+            this.btn_start.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // bunifuFlatButton2
             // 
@@ -359,7 +360,7 @@ namespace MultipleChoiceApp.Forms
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1071, 556);
             this.Controls.Add(this.bunifuFlatButton2);
-            this.Controls.Add(this.bunifuFlatButton1);
+            this.Controls.Add(this.btn_start);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -396,7 +397,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label lbl_duration;
         private System.Windows.Forms.Label lbl_question_qty;
         private System.Windows.Forms.Label label8;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_start;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
     }
 }

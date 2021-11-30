@@ -17,5 +17,11 @@ namespace MultipleChoiceApp.Forms
             InitializeComponent();
         }
 
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            FrmTakingExam examFrm = new FrmTakingExam();
+            examFrm.Show();
+            this.Hide();
+        }
     }
 }

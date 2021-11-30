@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace MultipleChoiceApp.Forms
         public FrmTakingExam()
         {
             InitializeComponent();
+            FormHelper.MakeFullScreen(this);
+        }
+
+        private void pnl_answer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

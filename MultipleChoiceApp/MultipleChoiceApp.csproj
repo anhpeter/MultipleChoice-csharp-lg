@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Forms\BaseForm.cs" />
     <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>
@@ -149,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTakingExam.resx">
+      <DependentUpon>FrmTakingExam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
