@@ -37,3 +37,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.StudentControl.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.ManagerControl.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.ExamControl.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmLogin.resources

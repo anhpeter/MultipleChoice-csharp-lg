@@ -84,11 +84,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
-    <Compile Include="FrmAdmin.cs">
+    <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAdmin.Designer.cs">
+    <Compile Include="Forms\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,8 +128,11 @@
     <Compile Include="UserControls\SubjectControl.Designer.cs">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmAdmin.resx">
+    <EmbeddedResource Include="Forms\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -162,8 +171,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

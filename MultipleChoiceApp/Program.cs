@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace MultipleChoiceApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAdmin());
+            //Application.Run(new FrmAdmin());
+            Application.Run(new FrmLogin());
         }
     }
 }
