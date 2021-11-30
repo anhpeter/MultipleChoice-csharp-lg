@@ -11,12 +11,7 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp
 {
-    public partial class BaseForm : Form
+    public partial class BaseForm 
     {
-        protected void makeFullScreen()
-        {
-            this.TopMost = true;
-            this.WindowState = FormWindowState.Maximized;
-        }
     }
 }

@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms
 {
-    public partial class FrmTakingExam : BaseForm
+    public partial class FrmTakingExam : Form
     {
         public FrmTakingExam()
         {
             InitializeComponent();
-            makeFullScreen();
         }
     }
 }

@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Forms\BaseForm.cs" />
     <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +102,12 @@
     </Compile>
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTakingExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTakingExam.Designer.cs">
+      <DependentUpon>FrmTakingExam.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
