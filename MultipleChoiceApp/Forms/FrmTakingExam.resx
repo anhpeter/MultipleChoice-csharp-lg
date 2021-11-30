@@ -229,7 +229,7 @@
   <data name="label5.Text" xml:space="preserve">
     <value>Id quis nostrud veniam nostrud officia nostrud. Exercitation fugiat voluptate voluptate ex velit reprehenderit. Consequat dolor esse ullamco nostrud. Officia enim enim cillum occaecat enim labore nulla anim cillum fugiat deserunt non incididunt.</value>
   </data>
-  <data name="bunifuFlatButton2.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_submit.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAANJElEQVR4Xu3d

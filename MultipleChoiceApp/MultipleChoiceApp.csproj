@@ -92,6 +92,12 @@
     <Compile Include="Forms\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmExamFinish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmExamFinish.Designer.cs">
+      <DependentUpon>FrmExamFinish.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmExamStart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmExamFinish.resx">
+      <DependentUpon>FrmExamFinish.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamStart.resx">
       <DependentUpon>FrmExamStart.cs</DependentUpon>

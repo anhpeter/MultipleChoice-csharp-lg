@@ -62,7 +62,7 @@ namespace MultipleChoiceApp.Forms
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_submit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label10 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel1.SuspendLayout();
@@ -89,7 +89,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuShadowPanel1.Controls.Add(this.label8);
             this.bunifuShadowPanel1.Controls.Add(this.pnl_pagination);
             this.bunifuShadowPanel1.Location = new System.Drawing.Point(9, 10);
-            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuShadowPanel1.Name = "bunifuShadowPanel1";
             this.bunifuShadowPanel1.PanelColor = System.Drawing.Color.Empty;
             this.bunifuShadowPanel1.ShadowDept = 2;
@@ -117,7 +117,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_pagination.Controls.Add(this.bunifuImageButton2);
             this.pnl_pagination.Controls.Add(this.bunifuImageButton1);
             this.pnl_pagination.Location = new System.Drawing.Point(22, 15);
-            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_pagination.Name = "pnl_pagination";
             this.pnl_pagination.Size = new System.Drawing.Size(142, 30);
             this.pnl_pagination.TabIndex = 2;
@@ -129,7 +129,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
             this.bunifuImageButton4.ImageActive = null;
             this.bunifuImageButton4.Location = new System.Drawing.Point(105, 0);
-            this.bunifuImageButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton4.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton4.Name = "bunifuImageButton4";
             this.bunifuImageButton4.Size = new System.Drawing.Size(35, 30);
             this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -144,7 +144,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
             this.bunifuImageButton3.ImageActive = null;
             this.bunifuImageButton3.Location = new System.Drawing.Point(70, 0);
-            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton3.Name = "bunifuImageButton3";
             this.bunifuImageButton3.Size = new System.Drawing.Size(35, 30);
             this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -159,7 +159,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
             this.bunifuImageButton2.ImageActive = null;
             this.bunifuImageButton2.Location = new System.Drawing.Point(35, 0);
-            this.bunifuImageButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton2.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
             this.bunifuImageButton2.Size = new System.Drawing.Size(35, 30);
             this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -174,7 +174,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
             this.bunifuImageButton1.ImageActive = null;
             this.bunifuImageButton1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Size = new System.Drawing.Size(35, 30);
             this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +191,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_question.Controls.Add(this.tableLayoutPanel1);
             this.pnl_question.Controls.Add(this.lbl_question);
             this.pnl_question.Location = new System.Drawing.Point(9, 87);
-            this.pnl_question.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_question.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_question.Name = "pnl_question";
             this.pnl_question.Size = new System.Drawing.Size(897, 282);
             this.pnl_question.TabIndex = 1;
@@ -212,7 +212,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 83);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -359,7 +359,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_answer.Controls.Add(this.panel1);
             this.pnl_answer.Controls.Add(this.label10);
             this.pnl_answer.Location = new System.Drawing.Point(9, 387);
-            this.pnl_answer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_answer.Margin = new System.Windows.Forms.Padding(2);
             this.pnl_answer.Name = "pnl_answer";
             this.pnl_answer.Size = new System.Drawing.Size(897, 287);
             this.pnl_answer.TabIndex = 2;
@@ -375,7 +375,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(22, 47);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.42424F));
@@ -393,7 +393,7 @@ namespace MultipleChoiceApp.Forms
             this.label15.Location = new System.Drawing.Point(37, 1);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label15.Padding = new System.Windows.Forms.Padding(4);
             this.label15.Size = new System.Drawing.Size(25, 27);
             this.label15.TabIndex = 3;
             this.label15.Text = "1";
@@ -408,7 +408,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel3.Controls.Add(this.label19, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.label20, 0, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 38);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 4;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -426,7 +426,7 @@ namespace MultipleChoiceApp.Forms
             this.label17.Location = new System.Drawing.Point(2, 87);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label17.Padding = new System.Windows.Forms.Padding(4);
             this.label17.Size = new System.Drawing.Size(25, 30);
             this.label17.TabIndex = 4;
             this.label17.Text = "D.";
@@ -438,7 +438,7 @@ namespace MultipleChoiceApp.Forms
             this.label18.Location = new System.Drawing.Point(2, 0);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label18.Padding = new System.Windows.Forms.Padding(4);
             this.label18.Size = new System.Drawing.Size(25, 29);
             this.label18.TabIndex = 1;
             this.label18.Text = "A.";
@@ -450,7 +450,7 @@ namespace MultipleChoiceApp.Forms
             this.label19.Location = new System.Drawing.Point(2, 29);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label19.Padding = new System.Windows.Forms.Padding(4);
             this.label19.Size = new System.Drawing.Size(25, 29);
             this.label19.TabIndex = 0;
             this.label19.Text = "B.";
@@ -462,7 +462,7 @@ namespace MultipleChoiceApp.Forms
             this.label20.Location = new System.Drawing.Point(2, 58);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label20.Padding = new System.Windows.Forms.Padding(4);
             this.label20.Size = new System.Drawing.Size(25, 29);
             this.label20.TabIndex = 2;
             this.label20.Text = "C.";
@@ -478,7 +478,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel4.Controls.Add(this.radioButton1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(37, 38);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 4;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -493,9 +493,9 @@ namespace MultipleChoiceApp.Forms
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(2, 89);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton4.Padding = new System.Windows.Forms.Padding(4);
             this.radioButton4.Size = new System.Drawing.Size(22, 21);
             this.radioButton4.TabIndex = 3;
             this.radioButton4.TabStop = true;
@@ -505,9 +505,9 @@ namespace MultipleChoiceApp.Forms
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(2, 60);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton3.Padding = new System.Windows.Forms.Padding(4);
             this.radioButton3.Size = new System.Drawing.Size(22, 21);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
@@ -517,9 +517,9 @@ namespace MultipleChoiceApp.Forms
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(2, 31);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton2.Padding = new System.Windows.Forms.Padding(4);
             this.radioButton2.Size = new System.Drawing.Size(22, 21);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
@@ -529,9 +529,9 @@ namespace MultipleChoiceApp.Forms
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(2, 2);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButton1.Padding = new System.Windows.Forms.Padding(4);
             this.radioButton1.Size = new System.Drawing.Size(22, 21);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
@@ -541,49 +541,50 @@ namespace MultipleChoiceApp.Forms
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.bunifuFlatButton2);
+            this.panel1.Controls.Add(this.btn_submit);
             this.panel1.Controls.Add(this.bunifuFlatButton1);
             this.panel1.Location = new System.Drawing.Point(22, 230);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(858, 39);
             this.panel1.TabIndex = 10;
             // 
-            // bunifuFlatButton2
+            // btn_submit
             // 
-            this.bunifuFlatButton2.Active = false;
-            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton2.BorderRadius = 0;
-            this.bunifuFlatButton2.ButtonText = "Submit";
-            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
-            this.bunifuFlatButton2.Iconimage_right = null;
-            this.bunifuFlatButton2.Iconimage_right_Selected = null;
-            this.bunifuFlatButton2.Iconimage_Selected = null;
-            this.bunifuFlatButton2.IconMarginLeft = 0;
-            this.bunifuFlatButton2.IconMarginRight = 0;
-            this.bunifuFlatButton2.IconRightVisible = true;
-            this.bunifuFlatButton2.IconRightZoom = 0D;
-            this.bunifuFlatButton2.IconVisible = true;
-            this.bunifuFlatButton2.IconZoom = 90D;
-            this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(746, 0);
-            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
-            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(112, 39);
-            this.bunifuFlatButton2.TabIndex = 1;
-            this.bunifuFlatButton2.Text = "Submit";
-            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_submit.Active = false;
+            this.btn_submit.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_submit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_submit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_submit.BorderRadius = 0;
+            this.btn_submit.ButtonText = "Submit";
+            this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_submit.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_submit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_submit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_submit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_submit.Iconimage")));
+            this.btn_submit.Iconimage_right = null;
+            this.btn_submit.Iconimage_right_Selected = null;
+            this.btn_submit.Iconimage_Selected = null;
+            this.btn_submit.IconMarginLeft = 0;
+            this.btn_submit.IconMarginRight = 0;
+            this.btn_submit.IconRightVisible = true;
+            this.btn_submit.IconRightZoom = 0D;
+            this.btn_submit.IconVisible = true;
+            this.btn_submit.IconZoom = 90D;
+            this.btn_submit.IsTab = false;
+            this.btn_submit.Location = new System.Drawing.Point(746, 0);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btn_submit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btn_submit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_submit.selected = false;
+            this.btn_submit.Size = new System.Drawing.Size(112, 39);
+            this.btn_submit.TabIndex = 1;
+            this.btn_submit.Text = "Submit";
+            this.btn_submit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_submit.Textcolor = System.Drawing.Color.White;
+            this.btn_submit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // bunifuFlatButton1
             // 
@@ -642,7 +643,7 @@ namespace MultipleChoiceApp.Forms
             this.Controls.Add(this.pnl_answer);
             this.Controls.Add(this.pnl_question);
             this.Controls.Add(this.bunifuShadowPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmTakingExam";
             this.Text = "FrmTakingExam";
             this.bunifuShadowPanel1.ResumeLayout(false);
@@ -693,7 +694,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_submit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
