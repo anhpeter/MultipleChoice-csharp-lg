@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp
 {
-    public partial class FrmAdmin : Form
+    public partial class FrmAdmin : BaseForm
     {
         public FrmAdmin()
         {
@@ -23,13 +23,6 @@ namespace MultipleChoiceApp
             changeControl(new QuestionControl(), "Questions");
             makeFullScreen();
         }
-
-        private void makeFullScreen()
-        {
-            this.TopMost = true;
-            this.WindowState = FormWindowState.Maximized;
-        }
-
 
 
         private void btn_questions_Click(object sender, EventArgs e)
