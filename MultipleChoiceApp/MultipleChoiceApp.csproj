@@ -90,11 +90,17 @@
     <Compile Include="Forms\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login.cs">
+    <Compile Include="Forms\FrmExamStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Forms\FrmExamStart.Designer.cs">
+      <DependentUpon>FrmExamStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,8 +137,11 @@
     <EmbeddedResource Include="Forms\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmExamStart.resx">
+      <DependentUpon>FrmExamStart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

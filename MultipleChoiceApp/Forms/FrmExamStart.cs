@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms
 {
-    public partial class FrmLogin : Form
+    public partial class FrmExamStart : Form
     {
-        public FrmLogin()
+        public FrmExamStart()
         {
             InitializeComponent();
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
