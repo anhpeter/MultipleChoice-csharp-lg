@@ -41,29 +41,13 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public bool add(Answer item)
+        public int add(Answer item)
         {
-            try
-            {
-                String sqlStr = @"
-                        INSERT INTO Answers(QuestionId, No, Content) 
-                            VALUES (@QuestionId, @No, @Content);
-                        ";
-                SqlConnection con = dbHelper.getConnection();
-                con.Open();
-                SqlCommand com = new SqlCommand(sqlStr, con);
-                com.Parameters.Add(new SqlParameter("@QuestionId", item.QuestionId));
-                com.Parameters.Add(new SqlParameter("@No", item.No));
-                com.Parameters.Add(new SqlParameter("@Content", item.Content));
-                int affectedRows = com.ExecuteNonQuery();
-                con.Close();
-                return affectedRows > 0;
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "add");
-                return false;
-            }
+            Dictionary<String, String> dataDict = new Dictionary<String, String>();
+            dataDict.Add("QuestionId", item.QuestionId + "");
+            dataDict.Add("No", item.No + "");
+            dataDict.Add("Content", item.Content);
+            return addWithDic(dataDict);
         }
 
         public bool addManyForQuestion(List<Answer> list, int questionId)
@@ -72,7 +56,7 @@ namespace MultipleChoiceApp.DAL
             foreach (Answer item in list)
             {
                 item.QuestionId = questionId;
-                if (!add(item)) result = false;
+                if (add(item) < 1) result = false;
             }
             return result;
         }

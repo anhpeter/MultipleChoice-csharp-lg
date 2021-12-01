@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.UtilForms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -16,6 +17,12 @@ namespace MultipleChoiceApp.Common.Helpers
             frm.Top = 0;
             frm.Left = 0;
             frm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 8);
+        }
+
+        public static void notify(String msg)
+        {
+            Alert alert = new Alert(msg);
+            alert.Show();
         }
     }
 }

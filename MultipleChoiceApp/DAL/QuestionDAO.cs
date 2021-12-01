@@ -61,42 +61,25 @@ namespace MultipleChoiceApp.DAL
         // ADD
         public int add(Question item)
         {
-            try
-            {
-                String sqlStr = @"
-                    INSERT INTO Questions(Content, SubjectCode, Level, CorrectAnswerNo, Chapter) 
-                        OUTPUT Inserted.Id
-                        VALUES (@Content, @SubjectCode, @Level, @CorrectAnsNo);
-                    ";
-                SqlConnection con = dbHelper.getConnection();
-                con.Open();
-                SqlCommand com = new SqlCommand(sqlStr, con);
-                com.Parameters.Add(new SqlParameter("@Content", item.Content));
-                com.Parameters.Add(new SqlParameter("@SubjectCode", item.SubjectCode));
-                com.Parameters.Add(new SqlParameter("@Level", item.Level));
-                com.Parameters.Add(new SqlParameter("@CorrectAnsNo", item.CorrectAnswerNo));
-                com.Parameters.Add(new SqlParameter("@Chapter", item.Chapter));
-                int newID = (int)com.ExecuteScalar();
-                con.Close();
-                return newID;
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "add");
-                return -1;
-            }
+            Dictionary<String, String> dataDict = new Dictionary<String, String>();
+            dataDict.Add("Content", item.Content);
+            dataDict.Add("SubjectCode", item.SubjectCode);
+            dataDict.Add("Level", item.Level);
+            dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
+            dataDict.Add("Chapter", item.Chapter + "");
+            return addWithDic(dataDict, true);
         }
         // UPDATE
         public bool update(Question item)
         {
             try
             {
-                Dictionary<String, String> dataDict = new Dictionary<String,String>();
+                Dictionary<String, String> dataDict = new Dictionary<String, String>();
                 dataDict.Add("Content", item.Content);
                 dataDict.Add("SubjectCode", item.SubjectCode);
                 dataDict.Add("Level", item.Level);
-                dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo+"");
-                dataDict.Add("Chapter", item.Chapter+"");
+                dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
+                dataDict.Add("Chapter", item.Chapter + "");
                 return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
             }
             catch (Exception ex)

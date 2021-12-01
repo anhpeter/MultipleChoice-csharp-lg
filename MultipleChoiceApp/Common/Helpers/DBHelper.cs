@@ -35,6 +35,25 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
+        public int execWriteScalar(String sql)
+        {
+            try
+            {
+                con = getConnection();
+                con.Open();
+                SqlCommand com = new SqlCommand(sql, con);
+                int result = (int)com.ExecuteScalar();
+                closeConnection();
+                return result;
+                //
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return -1;
+            }
+        }
+
         public int execWrite(String sql)
         {
             try

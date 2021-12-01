@@ -76,6 +76,7 @@ namespace MultipleChoiceApp.UserControls
             bool result = mainBUS.add(question);
             if (result)
             {
+                FormHelper.notify(Msg.INSERTED);
                 clearForm();
                 refreshList();
             }
@@ -93,6 +94,7 @@ namespace MultipleChoiceApp.UserControls
             bool result = mainBUS.update(question);
             if (result)
             {
+                FormHelper.notify(Msg.UPDATED);
                 refreshList();
             }
         }
@@ -108,6 +110,7 @@ namespace MultipleChoiceApp.UserControls
             bool result = mainBUS.delete(formItem.Id);
             if (result)
             {
+                FormHelper.notify(Msg.DELETED);
                 clearForm();
                 refreshList();
             }

@@ -72,6 +72,34 @@ namespace MultipleChoiceApp.DAL
             }
 
         }
+
+        protected int addWithDic(Dictionary<String, String> dataDict, bool output = false)
+        {
+            try
+            {
+                // fields
+                String[] keys = new List<string>(dataDict.Keys).ToArray();
+
+                String updateFieldsStr = string.Join(" , ", keys);
+
+                // values
+                String[] values = new List<string>(dataDict.Values).ToArray();
+                values = values.Select(v => $"'{v}'").ToArray();
+                String valuesStr = string.Join(" , ", values);
+
+                String outputStr = output ? "OUTPUT Inserted.Id" : "";
+                String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) {outputStr} VALUES ({valuesStr})";
+                Debug.WriteLine(sqlStr);
+                if (output) return dbHelper.execWriteScalar(sqlStr);
+                return dbHelper.execWrite(sqlStr);
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "add");
+                return -1;
+            }
+
+        }
         public T getByField(String field, String value)
         {
             T item = default(T);
