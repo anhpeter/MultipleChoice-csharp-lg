@@ -22,7 +22,7 @@ namespace MultipleChoiceApp.BLL
         public Question getDetailsById(int id)
         {
             Debug.WriteLine(id);
-            Question item = mainDAO.getById(id);
+            Question item = mainDAO.getByPK(id+"");
             List<Answer> answers = answerDAO.getAnswersByQuestionId(id);
             item.Answers = answers;
             return item;

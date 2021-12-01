@@ -21,7 +21,7 @@ namespace MultipleChoiceApp.BLL
         public Subject getDetailsById(int id)
         {
             Debug.WriteLine(id);
-            Subject item = mainDAO.getById(id);
+            Subject item = mainDAO.getByPK(id+"");
             return item;
         }
     }

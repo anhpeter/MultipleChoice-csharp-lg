@@ -64,17 +64,9 @@ namespace MultipleChoiceApp.DAL
         // UPDATE
         public bool update(Answer item)
         {
-            try
-            {
-                Dictionary<String, String> dataDict = new Dictionary<String, String>();
-                dataDict.Add("Content", item.Content);
-                return base.updateWithDict(dataDict, $"WHERE QuestionId={item.QuestionId} AND No={item.No}");
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "update");
-                return false;
-            }
+            Dictionary<String, String> dataDict = new Dictionary<String, String>();
+            dataDict.Add("Content", item.Content);
+            return base.updateWithDict(dataDict, $"WHERE QuestionId={item.QuestionId} AND No={item.No}");
         }
 
         public bool updateManyForQuestion(List<Answer> list)

@@ -12,6 +12,7 @@ namespace MultipleChoiceApp.DAL
     abstract class BaseDAO<T>
     {
         protected DBHelper dbHelper = new DBHelper();
+        protected String primaryKey = "Id";
 
         protected String tableName;
         public BaseDAO(String tableName)
@@ -44,9 +45,9 @@ namespace MultipleChoiceApp.DAL
             }
         }
 
-        public T getById(int id)
+        public T getByPK(String value)
         {
-            return getByField("Id", id.ToString());
+            return getByField(primaryKey, value);
         }
 
         // UPDATES

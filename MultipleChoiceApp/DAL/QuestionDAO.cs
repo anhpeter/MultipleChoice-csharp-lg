@@ -68,21 +68,13 @@ namespace MultipleChoiceApp.DAL
         // UPDATE
         public bool update(Question item)
         {
-            try
-            {
-                Dictionary<String, String> dataDict = new Dictionary<String, String>();
-                dataDict.Add("Content", item.Content);
-                dataDict.Add("SubjectCode", item.SubjectCode);
-                dataDict.Add("Level", item.Level);
-                dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
-                dataDict.Add("Chapter", item.Chapter + "");
-                return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "update");
-                return false;
-            }
+            Dictionary<String, String> dataDict = new Dictionary<String, String>();
+            dataDict.Add("Content", item.Content);
+            dataDict.Add("SubjectCode", item.SubjectCode);
+            dataDict.Add("Level", item.Level);
+            dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
+            dataDict.Add("Chapter", item.Chapter + "");
+            return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
         }
     }
 }

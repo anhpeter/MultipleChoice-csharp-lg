@@ -18,7 +18,6 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class QuestionControl : UserControl
     {
-        String gvStatus = "idle";
 
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
@@ -33,40 +32,37 @@ namespace MultipleChoiceApp.UserControls
             this.Dock = DockStyle.Fill;
         }
 
+        // EVENTS
         private void QuestionControl_Load(object sender, EventArgs e)
         {
             LoadDrops();
             refreshList();
         }
 
-        private void LoadDrops()
+        private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            // SUBJECTS
-            if (subjectList == null) subjectList = subjectBUS.getAll();
-            drop_subject.DataSource = subjectList;
-            drop_subject.ValueMember = "Code";
-            drop_subject.DisplayMember = "Name";
+            clearForm();
+            refreshList();
+        }
 
-            // LEVELS
-            Dictionary<string, string> test = new Dictionary<string, string>();
-            test.Add("easy", "Easy");
-            test.Add("normal", "Normal");
-            test.Add("hard", "Hard");
-            drop_level.DataSource = new BindingSource(test, null);
-            drop_level.DisplayMember = "Value";
-            drop_level.ValueMember = "Key";
+        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            formItem = mainBUS.getDetailsById(getSelectedId());
+            txt_question.Text = formItem.Content.ToString();
+            txt_chapter.Text = formItem.Chapter.ToString();
+            txt_ans1.Text = formItem.Answers[0].Content.ToString();
+            txt_ans2.Text = formItem.Answers[1].Content.ToString();
+            txt_ans3.Text = formItem.Answers[2].Content.ToString();
+            txt_ans4.Text = formItem.Answers[3].Content.ToString();
+
+            drop_level.SelectedValue = formItem.Level;
+            checkRdoAnsCorrect(formItem.CorrectAnswerNo);
         }
 
         private void grid_main_SizeChanged(object sender, EventArgs e)
         {
             gv_main.Columns[0].Width = (int)(50);
             gv_main.Columns[1].Width = (int)(gv_main.Width * 0.5);
-        }
-
-        private int getSelectedId()
-        {
-            int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-            return id;
         }
 
         // ACTIONS
@@ -120,7 +116,13 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
-        // GET FORM DATA
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            clearForm();
+        }
+
+
+        // HELPER METHODS
         private Question getFormQuestion()
         {
             // ANSWER LIST
@@ -158,7 +160,6 @@ namespace MultipleChoiceApp.UserControls
         {
             return drop_subject.SelectedValue.ToString();
         }
-        //
 
         private int getCorrectAnsNo()
         {
@@ -168,10 +169,8 @@ namespace MultipleChoiceApp.UserControls
             return Util.parseToInt(radio.Tag.ToString(), 1);
         }
 
-        // HELPER METHODS
         private void refreshList()
         {
-            gvStatus = "loading";
             List<Question> list = mainBUS.getAllBySubjectCode(getFormSubjectCode());
             gv_main.Rows.Clear();
             foreach (var item in list)
@@ -181,7 +180,24 @@ namespace MultipleChoiceApp.UserControls
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
             }
-            gvStatus = "succeeded";
+        }
+
+        private void LoadDrops()
+        {
+            // SUBJECTS
+            if (subjectList == null) subjectList = subjectBUS.getAll();
+            drop_subject.DataSource = subjectList;
+            drop_subject.ValueMember = "Code";
+            drop_subject.DisplayMember = "Name";
+
+            // LEVELS
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("easy", "Easy");
+            test.Add("normal", "Normal");
+            test.Add("hard", "Hard");
+            drop_level.DataSource = new BindingSource(test, null);
+            drop_level.DisplayMember = "Value";
+            drop_level.ValueMember = "Key";
         }
 
         private void clearForm()
@@ -198,27 +214,6 @@ namespace MultipleChoiceApp.UserControls
 
         }
 
-        private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            clearForm();
-            refreshList();
-        }
-
-
-        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            formItem = mainBUS.getDetailsById(getSelectedId());
-            txt_question.Text = formItem.Content.ToString();
-            txt_chapter.Text = formItem.Chapter.ToString();
-            txt_ans1.Text = formItem.Answers[0].Content.ToString();
-            txt_ans2.Text = formItem.Answers[1].Content.ToString();
-            txt_ans3.Text = formItem.Answers[2].Content.ToString();
-            txt_ans4.Text = formItem.Answers[3].Content.ToString();
-
-            drop_level.SelectedValue = formItem.Level;
-            checkRdoAnsCorrect(formItem.CorrectAnswerNo);
-        }
-
         private void checkRdoAnsCorrect(int no)
         {
             BunifuRadioButton[] rdos = { rdo_ans1, rdo_ans2, rdo_ans3, rdo_ans4 };
@@ -229,9 +224,11 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
-        private void btn_clear_Click(object sender, EventArgs e)
+        private int getSelectedId()
         {
-            clearForm();
+            int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+            return id;
         }
+
     }
 }
