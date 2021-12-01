@@ -54,6 +54,7 @@ namespace MultipleChoiceApp.UserControls
             if (id > 0)
             {
                 formItem = mainBUS.getDetailsById(id);
+                lbl_id.Text = "#"+formItem.Id.ToString();
                 txt_question.Text = formItem.Content.ToString();
                 txt_chapter.Text = formItem.Chapter.ToString();
                 txt_ans1.Text = formItem.Answers[0].Content.ToString();
@@ -230,6 +231,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void clearForm()
         {
+            lbl_id.Text = "";
             txt_question.Text = "";
             txt_ans1.Text = "";
             txt_ans2.Text = "";
