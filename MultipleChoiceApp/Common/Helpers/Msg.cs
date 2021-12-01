@@ -14,7 +14,7 @@ namespace MultipleChoiceApp.Common.Helpers
         //
         public static String DELETE_CONFIRM = "Do you want to delete this one?";
         //
-        public static String CHOOSE_AN_ITEM = "Please choose an item";
+        public static String CHOOSE_AN_ITEM = "Please choose an item!";
         // VLD
         public static String VLD_REQURIED = "{0} must be not empty.";
         public static String VLD_LENGTH_BETWEEN = "{0} must have length between {1}-{2}.";

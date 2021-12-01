@@ -13,10 +13,12 @@ namespace MultipleChoiceApp.Common.UtilForms
     public partial class FormErrorMessages : Form
     {
 
+        String title;
         String msg;
-        public FormErrorMessages(String msg)
+        public FormErrorMessages(String title, String msg)
         {
             InitializeComponent();
+            this.title = title;
             this.msg = msg;
         }
 
@@ -24,6 +26,7 @@ namespace MultipleChoiceApp.Common.UtilForms
         private void FormErrorMessages_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            lbl_title.Text = title;
             lbl_msg.Text = msg;
         }
 

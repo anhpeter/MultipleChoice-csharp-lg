@@ -92,7 +92,7 @@ namespace MultipleChoiceApp.UserControls
         {
             if (formItem == null)
             {
-                MessageBox.Show("Please choose an item");
+                FormHelper.showErrorMsg(Msg.CHOOSE_AN_ITEM);
                 return;
             }
             //
@@ -112,7 +112,7 @@ namespace MultipleChoiceApp.UserControls
         {
             if (formItem == null)
             {
-                MessageBox.Show(Msg.CHOOSE_AN_ITEM);
+                FormHelper.showErrorMsg(Msg.CHOOSE_AN_ITEM);
                 return;
             }
             //

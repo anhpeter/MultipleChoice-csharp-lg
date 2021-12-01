@@ -32,10 +32,10 @@ namespace MultipleChoiceApp.Common.UtilForms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormErrorMessages));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_close = new Bunifu.Framework.UI.BunifuImageButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_close2 = new System.Windows.Forms.Button();
             this.lbl_msg = new System.Windows.Forms.Label();
+            this.btn_close2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
             this.panel2.SuspendLayout();
@@ -45,7 +45,7 @@ namespace MultipleChoiceApp.Common.UtilForms
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(4)))), ((int)(((byte)(4)))));
             this.panel1.Controls.Add(this.btn_close);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbl_title);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 59);
@@ -64,16 +64,16 @@ namespace MultipleChoiceApp.Common.UtilForms
             this.btn_close.Zoom = 10;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
-            // label1
+            // lbl_title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Validation Error";
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_title.ForeColor = System.Drawing.Color.White;
+            this.lbl_title.Location = new System.Drawing.Point(15, 13);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(183, 32);
+            this.lbl_title.TabIndex = 0;
+            this.lbl_title.Text = "Validation Error";
             // 
             // panel2
             // 
@@ -82,6 +82,17 @@ namespace MultipleChoiceApp.Common.UtilForms
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(545, 187);
             this.panel2.TabIndex = 1;
+            // 
+            // lbl_msg
+            // 
+            this.lbl_msg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_msg.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(4)))), ((int)(((byte)(4)))));
+            this.lbl_msg.Location = new System.Drawing.Point(0, 0);
+            this.lbl_msg.Name = "lbl_msg";
+            this.lbl_msg.Size = new System.Drawing.Size(545, 187);
+            this.lbl_msg.TabIndex = 0;
+            this.lbl_msg.Text = "Error mesage";
             // 
             // btn_close2
             // 
@@ -95,17 +106,6 @@ namespace MultipleChoiceApp.Common.UtilForms
             this.btn_close2.Text = "Close";
             this.btn_close2.UseVisualStyleBackColor = false;
             this.btn_close2.Click += new System.EventHandler(this.btn_close2_Click);
-            // 
-            // lbl_msg
-            // 
-            this.lbl_msg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_msg.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(4)))), ((int)(((byte)(4)))));
-            this.lbl_msg.Location = new System.Drawing.Point(0, 0);
-            this.lbl_msg.Name = "lbl_msg";
-            this.lbl_msg.Size = new System.Drawing.Size(545, 187);
-            this.lbl_msg.TabIndex = 0;
-            this.lbl_msg.Text = "Error mesage";
             // 
             // FormErrorMessages
             // 
@@ -131,7 +131,7 @@ namespace MultipleChoiceApp.Common.UtilForms
 
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuImageButton btn_close;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_close2;
         private System.Windows.Forms.Label lbl_msg;
