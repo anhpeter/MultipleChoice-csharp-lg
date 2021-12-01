@@ -76,9 +76,7 @@ namespace MultipleChoiceApp.UserControls
         private void btn_add_Click(object sender, EventArgs e)
         {
             Question question = getFormQuestion();
-            QuestionValidator validator = new QuestionValidator();
-            ValidationResult results = validator.Validate(question);
-            if (results.IsValid)
+            if (handleValidation())
             {
                 bool result = mainBUS.add(question);
                 if (result)
@@ -87,10 +85,6 @@ namespace MultipleChoiceApp.UserControls
                     clearForm();
                     refreshList();
                 }
-            }
-            else
-            {
-                FormHelper.showValidatorError(results.Errors);
             }
         }
 
@@ -103,11 +97,14 @@ namespace MultipleChoiceApp.UserControls
             }
             //
             Question question = getFormQuestion();
-            bool result = mainBUS.update(question);
-            if (result)
+            if (handleValidation())
             {
-                FormHelper.notify(Msg.UPDATED);
-                refreshList();
+                bool result = mainBUS.update(question);
+                if (result)
+                {
+                    FormHelper.notify(Msg.UPDATED);
+                    refreshList();
+                }
             }
         }
 
@@ -139,6 +136,21 @@ namespace MultipleChoiceApp.UserControls
 
 
         // HELPER METHODS
+        private bool handleValidation()
+        {
+            Question question = getFormQuestion();
+            QuestionValidator validator = new QuestionValidator();
+            ValidationResult results = validator.Validate(question);
+            if (results.IsValid)
+            {
+                return true;
+            }
+            else
+            {
+                FormHelper.showValidatorError(results.Errors);
+            }
+            return false;
+        }
         private Question getFormQuestion()
         {
             // ANSWER LIST
