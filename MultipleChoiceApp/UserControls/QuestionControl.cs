@@ -1,8 +1,11 @@
 ﻿using Bunifu.UI.WinForms;
 using Bunifu.UI.WinForms.BunifuTextbox;
+using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Models;
+using MultipleChoiceApp.Common.UtilForms;
+using MultipleChoiceApp.Common.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,12 +76,21 @@ namespace MultipleChoiceApp.UserControls
         private void btn_add_Click(object sender, EventArgs e)
         {
             Question question = getFormQuestion();
-            bool result = mainBUS.add(question);
-            if (result)
+            QuestionValidator validator = new QuestionValidator();
+            ValidationResult results = validator.Validate(question);
+            if (results.IsValid)
             {
-                FormHelper.notify(Msg.INSERTED);
-                clearForm();
-                refreshList();
+                bool result = mainBUS.add(question);
+                if (result)
+                {
+                    FormHelper.notify(Msg.INSERTED);
+                    clearForm();
+                    refreshList();
+                }
+            }
+            else
+            {
+                FormHelper.showValidatorError(results.Errors);
             }
         }
 
@@ -234,7 +246,8 @@ namespace MultipleChoiceApp.UserControls
             {
                 int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
                 return id;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return -1;
             }

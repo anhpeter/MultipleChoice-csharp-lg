@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Models
 {
-    class Subject
+    public class Subject
     {
         public String Code { get; set; }
         public String Name { get; set; }

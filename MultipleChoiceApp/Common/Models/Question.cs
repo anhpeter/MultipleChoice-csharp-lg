@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Models
 {
-    class Question
+    public class Question
     {
         public int Id { get; set; }
         public String Content { get; set; }

@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.Common.UtilForms;
+﻿using FluentValidation.Results;
+using MultipleChoiceApp.Common.UtilForms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,6 +24,13 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             Alert alert = new Alert(msg);
             alert.Show();
+        }
+        public static void showValidatorError(List<ValidationFailure> errorList)
+        {
+            String[] errArr = errorList.Select(v => $"• {v.ErrorMessage}").ToArray();
+            String msg = string.Join("\r\n", errArr);
+            FormErrorMessages errorForm = new FormErrorMessages(msg);
+            errorForm.Show();
         }
         public static DialogResult showDeleteConfirm()
         {
