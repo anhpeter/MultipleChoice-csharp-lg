@@ -1,4 +1,5 @@
 ﻿using Bunifu.UI.WinForms;
+using Bunifu.UI.WinForms.BunifuTextbox;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Models;
@@ -82,7 +83,18 @@ namespace MultipleChoiceApp.UserControls
 
         private void btn_update_Click(object sender, EventArgs e)
         {
-
+            if (formItem == null)
+            {
+                MessageBox.Show("Please choose an item");
+                return;
+            }
+            //
+            Question question = getFormQuestion();
+            bool result = mainBUS.update(question);
+            if (result)
+            {
+                refreshList();
+            }
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -105,32 +117,19 @@ namespace MultipleChoiceApp.UserControls
         // GET FORM DATA
         private Question getFormQuestion()
         {
+            // ANSWER LIST
             List<Answer> answerList = new List<Answer>();
             int questionId = formItem != null ? formItem.Id : -1;
-            answerList.Add(new Answer()
+            BunifuTextBox[] ansTxts = { txt_ans1, txt_ans2, txt_ans3, txt_ans4 };
+            for (int i = 0; i < ansTxts.Length; i++)
             {
-                QuestionId = questionId,
-                No = 1,
-                Content = txt_ans1.Text.ToString(),
-            });
-            answerList.Add(new Answer()
-            {
-                QuestionId = questionId,
-                No = 2,
-                Content = txt_ans1.Text.ToString(),
-            });
-            answerList.Add(new Answer()
-            {
-                QuestionId = questionId,
-                No = 3,
-                Content = txt_ans1.Text.ToString(),
-            });
-            answerList.Add(new Answer()
-            {
-                QuestionId = questionId,
-                No = 4,
-                Content = txt_ans1.Text.ToString(),
-            });
+                answerList.Add(new Answer()
+                {
+                    QuestionId = questionId,
+                    No = i + 1,
+                    Content = ansTxts[i].Text.ToString(),
+                });
+            }
 
             String level = drop_level.SelectedValue.ToString();
             int correctAnsNo = getCorrectAnsNo();
@@ -217,7 +216,7 @@ namespace MultipleChoiceApp.UserControls
         private void checkRdoAnsCorrect(int no)
         {
             BunifuRadioButton[] rdos = { rdo_ans1, rdo_ans2, rdo_ans3, rdo_ans4 };
-            for(int i = 0; i< rdos.Length; i++)
+            for (int i = 0; i < rdos.Length; i++)
             {
                 if (i == no - 1) rdos[i].Checked = true;
                 else rdos[i].Checked = false;

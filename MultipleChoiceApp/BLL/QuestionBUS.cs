@@ -38,6 +38,16 @@ namespace MultipleChoiceApp.BLL
             return false;
         }
 
+        public bool update(Question item)
+        {
+            bool updateQuestionResult = mainDAO.update(item);
+            if (updateQuestionResult)
+            {
+                return answerDAO.updateManyForQuestion(item.Answers);
+            }
+            return false;
+        }
+
         public bool delete(int id)
         {
             bool deleteQuestionResult = mainDAO.deleteById(id);

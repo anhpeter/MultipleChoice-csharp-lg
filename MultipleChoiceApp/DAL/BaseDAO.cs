@@ -49,7 +49,29 @@ namespace MultipleChoiceApp.DAL
             return getByField("Id", id.ToString());
         }
 
-        // 
+        // UPDATES
+        protected bool updateWithDict(Dictionary<String, String> dataDict, String whereClause)
+        {
+            try
+            {
+                String updateStr = "";
+                foreach (KeyValuePair<String, String> kvp in dataDict)
+                {
+                    updateStr += $" {kvp.Key} = '{kvp.Value}',";
+                }
+                updateStr = updateStr.Substring(0, updateStr.Length - 1);
+                String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
+                Debug.WriteLine(sqlStr);
+                int affectedRows = dbHelper.execWrite(sqlStr);
+                return affectedRows > 0;
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "update");
+                return false;
+            }
+
+        }
         public T getByField(String field, String value)
         {
             T item = default(T);
@@ -97,7 +119,7 @@ namespace MultipleChoiceApp.DAL
         // HELPER METHODS
         protected void handleError(Exception ex, String text)
         {
-                Debug.WriteLine($"{tableName}.{text}:" + ex.Message);
+            Debug.WriteLine($"{tableName}.{text}:" + ex.Message);
         }
     }
 }

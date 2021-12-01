@@ -64,7 +64,7 @@ namespace MultipleChoiceApp.DAL
             try
             {
                 String sqlStr = @"
-                    INSERT INTO Questions(Content, SubjectCode, Level, CorrectAnswerNo) 
+                    INSERT INTO Questions(Content, SubjectCode, Level, CorrectAnswerNo, Chapter) 
                         OUTPUT Inserted.Id
                         VALUES (@Content, @SubjectCode, @Level, @CorrectAnsNo);
                     ";
@@ -75,6 +75,7 @@ namespace MultipleChoiceApp.DAL
                 com.Parameters.Add(new SqlParameter("@SubjectCode", item.SubjectCode));
                 com.Parameters.Add(new SqlParameter("@Level", item.Level));
                 com.Parameters.Add(new SqlParameter("@CorrectAnsNo", item.CorrectAnswerNo));
+                com.Parameters.Add(new SqlParameter("@Chapter", item.Chapter));
                 int newID = (int)com.ExecuteScalar();
                 con.Close();
                 return newID;
@@ -85,9 +86,24 @@ namespace MultipleChoiceApp.DAL
                 return -1;
             }
         }
-
-        // DELETE
-
-        // HELPER METHODS
+        // UPDATE
+        public bool update(Question item)
+        {
+            try
+            {
+                Dictionary<String, String> dataDict = new Dictionary<String,String>();
+                dataDict.Add("Content", item.Content);
+                dataDict.Add("SubjectCode", item.SubjectCode);
+                dataDict.Add("Level", item.Level);
+                dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo+"");
+                dataDict.Add("Chapter", item.Chapter+"");
+                return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "update");
+                return false;
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace MultipleChoiceApp.DAL
             List<Answer> list = new List<Answer>();
             try
             {
-                String sqlStr = $"Select * from {tableName} where QuestionId={id} order by No desc";
+                String sqlStr = $"Select * from {tableName} where QuestionId={id} order by No asc";
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
                 {
@@ -73,6 +73,32 @@ namespace MultipleChoiceApp.DAL
             {
                 item.QuestionId = questionId;
                 if (!add(item)) result = false;
+            }
+            return result;
+        }
+
+        // UPDATE
+        public bool update(Answer item)
+        {
+            try
+            {
+                Dictionary<String, String> dataDict = new Dictionary<String, String>();
+                dataDict.Add("Content", item.Content);
+                return base.updateWithDict(dataDict, $"WHERE QuestionId={item.QuestionId} AND No={item.No}");
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "update");
+                return false;
+            }
+        }
+
+        public bool updateManyForQuestion(List<Answer> list)
+        {
+            bool result = true;
+            foreach (Answer item in list)
+            {
+                if (!update(item)) result = false;
             }
             return result;
         }
