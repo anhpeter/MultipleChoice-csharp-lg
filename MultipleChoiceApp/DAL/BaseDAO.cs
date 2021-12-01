@@ -13,14 +13,13 @@ namespace MultipleChoiceApp.DAL
     {
         protected DBHelper dbHelper = new DBHelper();
         protected String primaryKey = "Id";
-
         protected String tableName;
         public BaseDAO(String tableName)
         {
             this.tableName = tableName;
         }
 
-        // abstract
+        // ABSTRACT
         protected abstract T fromDR(SqlDataReader dr);
 
         // FETCHES
@@ -44,36 +43,32 @@ namespace MultipleChoiceApp.DAL
                 return null;
             }
         }
-
         public T getByPK(String value)
         {
             return getByField(primaryKey, value);
         }
-
-        // UPDATES
-        protected bool updateWithDict(Dictionary<String, String> dataDict, String whereClause)
+        public T getByField(String field, String value)
         {
+            T item = default(T);
             try
             {
-                String updateStr = "";
-                foreach (KeyValuePair<String, String> kvp in dataDict)
+                String sqlStr = $"Select * from {tableName} where {field}={value}";
+                SqlDataReader dr = dbHelper.execRead(sqlStr);
+                if (dr.Read())
                 {
-                    updateStr += $" {kvp.Key} = '{kvp.Value}',";
+                    item = fromDR(dr);
                 }
-                updateStr = updateStr.Substring(0, updateStr.Length - 1);
-                String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
-                Debug.WriteLine(sqlStr);
-                int affectedRows = dbHelper.execWrite(sqlStr);
-                return affectedRows > 0;
+                dbHelper.closeConnection();
+                return item;
             }
             catch (Exception ex)
             {
-                handleError(ex, "update");
-                return false;
+                Debug.WriteLine($"get-by-id:{ex.Message}");
+                return default(T);
             }
-
         }
 
+        // ADD
         protected int addWithDic(Dictionary<String, String> dataDict, bool output = false)
         {
             try
@@ -101,27 +96,30 @@ namespace MultipleChoiceApp.DAL
             }
 
         }
-        public T getByField(String field, String value)
+
+        // UPDATES
+        protected bool updateWithDict(Dictionary<String, String> dataDict, String whereClause)
         {
-            T item = default(T);
             try
             {
-                String sqlStr = $"Select * from {tableName} where {field}={value}";
-                SqlDataReader dr = dbHelper.execRead(sqlStr);
-                if (dr.Read())
+                String updateStr = "";
+                foreach (KeyValuePair<String, String> kvp in dataDict)
                 {
-                    item = fromDR(dr);
+                    updateStr += $" {kvp.Key} = '{kvp.Value}',";
                 }
-                dbHelper.closeConnection();
-                return item;
+                updateStr = updateStr.Substring(0, updateStr.Length - 1);
+                String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
+                Debug.WriteLine(sqlStr);
+                int affectedRows = dbHelper.execWrite(sqlStr);
+                return affectedRows > 0;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"get-by-id:{ex.Message}");
-                return default(T);
+                handleError(ex, "update");
+                return false;
             }
-        }
 
+        }
         public bool deleteById(int id)
         {
             return deleteByField("Id", id.ToString());

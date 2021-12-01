@@ -10,7 +10,9 @@ namespace MultipleChoiceApp.DAL
 {
     class SubjectDAO:BaseDAO<Subject>
     {
-        public SubjectDAO() : base("Subjects") { }
+        public SubjectDAO() : base("Subjects") {
+            this.primaryKey = "Code";
+        }
 
         // IMPLEMENT ABSTRACTS
         protected override Subject fromDR(SqlDataReader dr)
