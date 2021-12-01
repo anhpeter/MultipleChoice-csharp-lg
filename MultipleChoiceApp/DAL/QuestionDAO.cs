@@ -51,7 +51,7 @@ namespace MultipleChoiceApp.DAL
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                handleError(ex, "get-all-by-subject-code");
                 return null;
             }
         }
@@ -59,6 +59,32 @@ namespace MultipleChoiceApp.DAL
         // UPDATE
 
         // ADD
+        public int add(Question item)
+        {
+            try
+            {
+                String sqlStr = @"
+                    INSERT INTO Questions(Content, SubjectCode, Level, CorrectAnswerNo) 
+                        OUTPUT Inserted.Id
+                        VALUES (@Content, @SubjectCode, @Level, @CorrectAnsNo);
+                    ";
+                SqlConnection con = dbHelper.getConnection();
+                con.Open();
+                SqlCommand com = new SqlCommand(sqlStr, con);
+                com.Parameters.Add(new SqlParameter("@Content", item.Content));
+                com.Parameters.Add(new SqlParameter("@SubjectCode", item.SubjectCode));
+                com.Parameters.Add(new SqlParameter("@Level", item.Level));
+                com.Parameters.Add(new SqlParameter("@CorrectAnsNo", item.CorrectAnswerNo));
+                int newID = (int)com.ExecuteScalar();
+                con.Close();
+                return newID;
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "add");
+                return -1;
+            }
+        }
 
         // DELETE
 

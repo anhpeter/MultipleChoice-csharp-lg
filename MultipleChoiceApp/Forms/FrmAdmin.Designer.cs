@@ -545,20 +545,20 @@ namespace MultipleChoiceApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.lbl_title);
-            this.panel3.Location = new System.Drawing.Point(308, 3);
+            this.panel3.Location = new System.Drawing.Point(308, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(785, 66);
+            this.panel3.Size = new System.Drawing.Size(785, 69);
             this.panel3.TabIndex = 2;
             // 
             // lbl_title
             // 
-            this.lbl_title.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.lbl_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(108)))), ((int)(((byte)(233)))));
             this.lbl_title.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_title.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title.ForeColor = System.Drawing.Color.White;
             this.lbl_title.Location = new System.Drawing.Point(0, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(785, 66);
+            this.lbl_title.Size = new System.Drawing.Size(785, 69);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "Questions";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

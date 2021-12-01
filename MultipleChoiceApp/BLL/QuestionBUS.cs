@@ -27,5 +27,13 @@ namespace MultipleChoiceApp.BLL
             item.Answers = answers;
             return item;
         }
+
+        public bool add(Question item)
+        {
+            bool result = true;
+            if (mainDAO.add(item)==-1) result = false;
+            if (answerDAO.addManyForQuestion(item.Answers, item.Id)) result = false;
+            return result;
+        }
     }
 }

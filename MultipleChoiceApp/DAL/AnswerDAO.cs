@@ -35,9 +35,44 @@ namespace MultipleChoiceApp.DAL
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                handleError(ex, "get-answers-by-question-id");
                 return null;
             }
+        }
+
+        // ADD
+        public int add(Answer item)
+        {
+            try
+            {
+                String sqlStr = @"
+                        INSERT INTO Answers(QuestionId, No, Content) VALUES (@QuestionId, @No, @Content);
+                    ";
+                SqlConnection con = dbHelper.getConnection();
+                con.Open();
+                SqlCommand com = new SqlCommand(sqlStr, con);
+                com.Parameters.Add(new SqlParameter("@QuestionId", item.QuestionId));
+                com.Parameters.Add(new SqlParameter("@No", item.No));
+                com.Parameters.Add(new SqlParameter("@Content", item.Content));
+                int newId = (int)com.ExecuteScalar();
+                con.Close();
+                return newId;
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "add");
+                return -1;
+            }
+        }
+
+        public bool addManyForQuestion(List<Answer> list, int questionId)
+        {
+            bool result = true;
+            foreach (Answer item in list)
+            {
+                if (add(item) == -1) result = false;
+            }
+            return result;
         }
     }
 }

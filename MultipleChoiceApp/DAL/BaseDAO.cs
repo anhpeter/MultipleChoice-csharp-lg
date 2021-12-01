@@ -84,5 +84,10 @@ namespace MultipleChoiceApp.DAL
                 return default(T);
             }
         }
+        // HELPER METHODS
+        protected void handleError(Exception ex, String text)
+        {
+                Debug.WriteLine($"{tableName}.{text}:" + ex.Message);
+        }
     }
 }

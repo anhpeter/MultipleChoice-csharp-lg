@@ -1,4 +1,6 @@
-﻿using MultipleChoiceApp.BLL;
+﻿using Bunifu.UI.WinForms;
+using MultipleChoiceApp.BLL;
+using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,10 @@ namespace MultipleChoiceApp.UserControls
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
 
+        //
+        Question formItem;
+        List<Subject> subjectList;
+
         public QuestionControl()
         {
             InitializeComponent();
@@ -28,19 +34,123 @@ namespace MultipleChoiceApp.UserControls
 
         private void QuestionControl_Load(object sender, EventArgs e)
         {
-            setupDropLevel();
-            //setupDropSubject();
-            loadCbxes();
+            LoadDrops();
             refreshList();
         }
 
-        private void loadCbxes()
+        private void LoadDrops()
         {
-            drop_subject.DataSource = subjectBUS.getAll();
+            // SUBJECTS
+            if (subjectList == null) subjectList = subjectBUS.getAll();
+            drop_subject.DataSource = subjectList;
             drop_subject.ValueMember = "Code";
             drop_subject.DisplayMember = "Name";
+
+            // LEVELS
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("easy", "Easy");
+            test.Add("normal", "Normal");
+            test.Add("hard", "Hard");
+            drop_level.DataSource = new BindingSource(test, null);
+            drop_level.DisplayMember = "Value";
+            drop_level.ValueMember = "Key";
         }
 
+        private void grid_main_SizeChanged(object sender, EventArgs e)
+        {
+            gv_main.Columns[0].Width = (int)(50);
+            gv_main.Columns[1].Width = (int)(gv_main.Width * 0.5);
+        }
+
+        private void grid_main_SelectionChanged(object sender, EventArgs e)
+        {
+            if (gvStatus.Equals("succeeded"))
+            {
+                int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+                formItem = mainBUS.getDetailsById(id);
+                txt_question.Text = formItem.Content.ToString();
+                txt_chapter.Text = formItem.Chapter.ToString();
+                txt_ans1.Text = formItem.Answers[0].Content.ToString();
+                txt_ans2.Text = formItem.Answers[1].Content.ToString();
+                txt_ans3.Text = formItem.Answers[2].Content.ToString();
+                txt_ans4.Text = formItem.Answers[3].Content.ToString();
+            }
+        }
+
+        // ACTIONS
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            Question question = getFormQuestion();
+            mainBUS.add(question);
+
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Question getFormQuestion()
+        {
+            List<Answer> answerList = new List<Answer>();
+            int questionId = formItem != null ? formItem.Id : -1;
+            answerList.Add(new Answer()
+            {
+                QuestionId = questionId,
+                No = 1,
+                Content = txt_ans1.Text.ToString(),
+            });
+            answerList.Add(new Answer()
+            {
+                QuestionId = questionId,
+                No = 2,
+                Content = txt_ans1.Text.ToString(),
+            });
+            answerList.Add(new Answer()
+            {
+                QuestionId = questionId,
+                No = 3,
+                Content = txt_ans1.Text.ToString(),
+            });
+            answerList.Add(new Answer()
+            {
+                QuestionId = questionId,
+                No = 4,
+                Content = txt_ans1.Text.ToString(),
+            });
+
+            String subjectCode = drop_subject.SelectedValue.ToString();
+            String level = drop_level.SelectedValue.ToString();
+            int correctAnsNo = getCorrectAnsNo();
+            int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
+
+            Question item = new Question()
+            {
+                Id = questionId,
+                Answers = answerList,
+                Content = txt_question.Text.ToString(),
+                SubjectCode = subjectCode,
+                Level = level,
+                CorrectAnswerNo = correctAnsNo,
+                Chapter = chapter
+            };
+            return item;
+        }
+
+        private int getCorrectAnsNo()
+        {
+            BunifuRadioButton radio = pnl_correct_ans_no.Controls.OfType<BunifuRadioButton>()
+                .FirstOrDefault(r => r.Checked);
+
+            return Util.parseToInt(radio.Tag.ToString(), 1);
+        }
+
+        // HELPER METHODS
         private void refreshList()
         {
             gvStatus = "loading";
@@ -56,55 +166,6 @@ namespace MultipleChoiceApp.UserControls
                 }
             }
             gvStatus = "succeeded";
-        }
-
-        private void setupDropLevel()
-        {
-
-            // Bind combobox to dictionary
-            Dictionary<string, string> test = new Dictionary<string, string>();
-            test.Add("easy", "Easy");
-            test.Add("normal", "Normal");
-            test.Add("hard", "Hard");
-            drop_level.DataSource = new BindingSource(test, null);
-            drop_level.DisplayMember = "Value";
-            drop_level.ValueMember = "Key";
-
-        }
-        private void grid_main_SizeChanged(object sender, EventArgs e)
-        {
-            gv_main.Columns[0].Width = (int)(50);
-            gv_main.Columns[1].Width = (int)(gv_main.Width * 0.5);
-        }
-
-        private void grid_main_SelectionChanged(object sender, EventArgs e)
-        {
-            if (gvStatus.Equals("succeeded"))
-            {
-                int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-                Question item = mainBUS.getDetailsById(id);
-                txt_question.Text = item.Content.ToString();
-                txt_chapter.Text = item.Chapter.ToString();
-                txt_ans1.Text = item.Answers[0].Content.ToString();
-                txt_ans2.Text = item.Answers[1].Content.ToString();
-                txt_ans3.Text = item.Answers[2].Content.ToString();
-                txt_ans4.Text = item.Answers[3].Content.ToString();
-            }
-        }
-
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

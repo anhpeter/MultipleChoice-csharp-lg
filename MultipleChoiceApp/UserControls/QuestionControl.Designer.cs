@@ -81,7 +81,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_update = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.btn_add = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnl_correct_ans_no = new System.Windows.Forms.Panel();
             this.bunifuRadioButton4 = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.bunifuRadioButton3 = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.bunifuRadioButton2 = new Bunifu.UI.WinForms.BunifuRadioButton();
@@ -106,7 +106,7 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnl_correct_ans_no.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -494,7 +494,7 @@ namespace MultipleChoiceApp.UserControls
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.pnl_correct_ans_no);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -502,18 +502,18 @@ namespace MultipleChoiceApp.UserControls
             this.panel2.Size = new System.Drawing.Size(787, 284);
             this.panel2.TabIndex = 0;
             // 
-            // panel5
+            // pnl_correct_ans_no
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.Controls.Add(this.bunifuRadioButton4);
-            this.panel5.Controls.Add(this.bunifuRadioButton3);
-            this.panel5.Controls.Add(this.bunifuRadioButton2);
-            this.panel5.Controls.Add(this.bunifuRadioButton1);
-            this.panel5.Location = new System.Drawing.Point(732, 59);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(52, 156);
-            this.panel5.TabIndex = 5;
+            this.pnl_correct_ans_no.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_correct_ans_no.Controls.Add(this.bunifuRadioButton4);
+            this.pnl_correct_ans_no.Controls.Add(this.bunifuRadioButton3);
+            this.pnl_correct_ans_no.Controls.Add(this.bunifuRadioButton2);
+            this.pnl_correct_ans_no.Controls.Add(this.bunifuRadioButton1);
+            this.pnl_correct_ans_no.Location = new System.Drawing.Point(732, 59);
+            this.pnl_correct_ans_no.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_correct_ans_no.Name = "pnl_correct_ans_no";
+            this.pnl_correct_ans_no.Size = new System.Drawing.Size(52, 156);
+            this.pnl_correct_ans_no.TabIndex = 5;
             // 
             // bunifuRadioButton4
             // 
@@ -525,6 +525,7 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuRadioButton4.RadioColor = System.Drawing.Color.Purple;
             this.bunifuRadioButton4.Size = new System.Drawing.Size(25, 25);
             this.bunifuRadioButton4.TabIndex = 3;
+            this.bunifuRadioButton4.Tag = "4";
             this.bunifuRadioButton4.Text = null;
             // 
             // bunifuRadioButton3
@@ -537,6 +538,7 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuRadioButton3.RadioColor = System.Drawing.Color.Purple;
             this.bunifuRadioButton3.Size = new System.Drawing.Size(25, 25);
             this.bunifuRadioButton3.TabIndex = 2;
+            this.bunifuRadioButton3.Tag = "3";
             this.bunifuRadioButton3.Text = null;
             // 
             // bunifuRadioButton2
@@ -549,6 +551,7 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuRadioButton2.RadioColor = System.Drawing.Color.Purple;
             this.bunifuRadioButton2.Size = new System.Drawing.Size(25, 25);
             this.bunifuRadioButton2.TabIndex = 1;
+            this.bunifuRadioButton2.Tag = "2";
             this.bunifuRadioButton2.Text = null;
             // 
             // bunifuRadioButton1
@@ -561,6 +564,7 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuRadioButton1.RadioColor = System.Drawing.Color.Purple;
             this.bunifuRadioButton1.Size = new System.Drawing.Size(25, 25);
             this.bunifuRadioButton1.TabIndex = 0;
+            this.bunifuRadioButton1.Tag = "1";
             this.bunifuRadioButton1.Text = null;
             // 
             // panel4
@@ -1169,7 +1173,7 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.pnl_correct_ans_no.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -1192,7 +1196,7 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_add;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_delete;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_update;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnl_correct_ans_no;
         private Bunifu.UI.WinForms.BunifuRadioButton bunifuRadioButton4;
         private Bunifu.UI.WinForms.BunifuRadioButton bunifuRadioButton3;
         private Bunifu.UI.WinForms.BunifuRadioButton bunifuRadioButton2;
