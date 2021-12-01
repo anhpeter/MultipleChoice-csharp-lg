@@ -43,12 +43,18 @@ namespace MultipleChoiceApp.DAL
                 return null;
             }
         }
+
         public T getById(int id)
+        {
+            return getByField("Id", id.ToString());
+        }
+
+        public T getByField(String field, String value)
         {
             T item = default(T);
             try
             {
-                String sqlStr = $"Select * from {tableName} where Id={id}";
+                String sqlStr = $"Select * from {tableName} where {field}={value}";
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 if (dr.Read())
                 {
@@ -60,27 +66,6 @@ namespace MultipleChoiceApp.DAL
             catch (Exception ex)
             {
                 Debug.WriteLine($"get-by-id:{ex.Message}");
-                return default(T);
-            }
-        }
-
-        public T getByCode(String code)
-        {
-            T item = default(T);
-            try
-            {
-                String sqlStr = $"Select * from {tableName} where Code={code}";
-                SqlDataReader dr = dbHelper.execRead(sqlStr);
-                if (dr.Read())
-                {
-                    item = fromDR(dr);
-                }
-                dbHelper.closeConnection();
-                return item;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"get-by-code:{ex.Message}");
                 return default(T);
             }
         }
