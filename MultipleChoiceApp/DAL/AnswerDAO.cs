@@ -41,27 +41,28 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(Answer item)
+        public bool add(Answer item)
         {
             try
             {
                 String sqlStr = @"
-                        INSERT INTO Answers(QuestionId, No, Content) VALUES (@QuestionId, @No, @Content);
-                    ";
+                        INSERT INTO Answers(QuestionId, No, Content) 
+                            VALUES (@QuestionId, @No, @Content);
+                        ";
                 SqlConnection con = dbHelper.getConnection();
                 con.Open();
                 SqlCommand com = new SqlCommand(sqlStr, con);
                 com.Parameters.Add(new SqlParameter("@QuestionId", item.QuestionId));
                 com.Parameters.Add(new SqlParameter("@No", item.No));
                 com.Parameters.Add(new SqlParameter("@Content", item.Content));
-                int newId = (int)com.ExecuteScalar();
+                int affectedRows = com.ExecuteNonQuery();
                 con.Close();
-                return newId;
+                return affectedRows > 0;
             }
             catch (Exception ex)
             {
                 handleError(ex, "add");
-                return -1;
+                return false;
             }
         }
 
@@ -70,7 +71,8 @@ namespace MultipleChoiceApp.DAL
             bool result = true;
             foreach (Answer item in list)
             {
-                if (add(item) == -1) result = false;
+                item.QuestionId = questionId;
+                if (!add(item)) result = false;
             }
             return result;
         }

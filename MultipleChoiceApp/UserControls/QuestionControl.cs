@@ -81,7 +81,12 @@ namespace MultipleChoiceApp.UserControls
         private void btn_add_Click(object sender, EventArgs e)
         {
             Question question = getFormQuestion();
-            mainBUS.add(question);
+            bool result = mainBUS.add(question);
+            if (result)
+            {
+                clearForm();
+                refreshList();
+            }
 
         }
 
@@ -95,6 +100,7 @@ namespace MultipleChoiceApp.UserControls
 
         }
 
+        // GET FORM DATA
         private Question getFormQuestion()
         {
             List<Answer> answerList = new List<Answer>();
@@ -124,7 +130,6 @@ namespace MultipleChoiceApp.UserControls
                 Content = txt_ans1.Text.ToString(),
             });
 
-            String subjectCode = drop_subject.SelectedValue.ToString();
             String level = drop_level.SelectedValue.ToString();
             int correctAnsNo = getCorrectAnsNo();
             int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
@@ -134,13 +139,19 @@ namespace MultipleChoiceApp.UserControls
                 Id = questionId,
                 Answers = answerList,
                 Content = txt_question.Text.ToString(),
-                SubjectCode = subjectCode,
+                SubjectCode = getFormSubjectCode(),
                 Level = level,
                 CorrectAnswerNo = correctAnsNo,
                 Chapter = chapter
             };
             return item;
         }
+
+        private String getFormSubjectCode()
+        {
+            return drop_subject.SelectedValue.ToString();
+        }
+        //
 
         private int getCorrectAnsNo()
         {
@@ -154,18 +165,33 @@ namespace MultipleChoiceApp.UserControls
         private void refreshList()
         {
             gvStatus = "loading";
-            List<Question> list = mainBUS.getAllBySubjectCode("MMT");
-            for (int i = 0; i < 10; i++)
+            List<Question> list = mainBUS.getAllBySubjectCode(getFormSubjectCode());
+            gv_main.Rows.Clear();
+            foreach (var item in list)
             {
-                foreach (var item in list)
-                {
-                    gv_main.Rows.Add(new object[] {
+                gv_main.Rows.Add(new object[] {
                     item.Id, item.Content,
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
-                }
             }
             gvStatus = "succeeded";
+        }
+
+        private void clearForm()
+        {
+            txt_question.Text = "";
+            txt_ans1.Text = "";
+            txt_ans2.Text = "";
+            txt_ans3.Text = "";
+            txt_ans4.Text = "";
+            txt_chapter.Text = "-1";
+            drop_level.SelectedIndex = 0;
+
+        }
+
+        private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            refreshList();
         }
     }
 }

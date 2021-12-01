@@ -141,6 +141,7 @@ namespace MultipleChoiceApp.UserControls
             this.drop_subject.Size = new System.Drawing.Size(343, 32);
             this.drop_subject.TabIndex = 1;
             this.drop_subject.Text = null;
+            this.drop_subject.SelectionChangeCommitted += new System.EventHandler(this.drop_subject_SelectionChangeCommitted);
             // 
             // gv_main
             // 

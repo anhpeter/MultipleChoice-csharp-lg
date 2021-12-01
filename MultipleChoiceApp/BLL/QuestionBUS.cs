@@ -30,10 +30,12 @@ namespace MultipleChoiceApp.BLL
 
         public bool add(Question item)
         {
-            bool result = true;
-            if (mainDAO.add(item)==-1) result = false;
-            if (answerDAO.addManyForQuestion(item.Answers, item.Id)) result = false;
-            return result;
+            int questionId = mainDAO.add(item);
+            if (questionId > -1)
+            {
+                return answerDAO.addManyForQuestion(item.Answers, questionId);
+            }
+            return false;
         }
     }
 }
