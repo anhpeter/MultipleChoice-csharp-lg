@@ -47,16 +47,20 @@ namespace MultipleChoiceApp.UserControls
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            formItem = mainBUS.getDetailsById(getSelectedId());
-            txt_question.Text = formItem.Content.ToString();
-            txt_chapter.Text = formItem.Chapter.ToString();
-            txt_ans1.Text = formItem.Answers[0].Content.ToString();
-            txt_ans2.Text = formItem.Answers[1].Content.ToString();
-            txt_ans3.Text = formItem.Answers[2].Content.ToString();
-            txt_ans4.Text = formItem.Answers[3].Content.ToString();
+            int id = getSelectedId();
+            if (id > 0)
+            {
+                formItem = mainBUS.getDetailsById(id);
+                txt_question.Text = formItem.Content.ToString();
+                txt_chapter.Text = formItem.Chapter.ToString();
+                txt_ans1.Text = formItem.Answers[0].Content.ToString();
+                txt_ans2.Text = formItem.Answers[1].Content.ToString();
+                txt_ans3.Text = formItem.Answers[2].Content.ToString();
+                txt_ans4.Text = formItem.Answers[3].Content.ToString();
 
-            drop_level.SelectedValue = formItem.Level;
-            checkRdoAnsCorrect(formItem.CorrectAnswerNo);
+                drop_level.SelectedValue = formItem.Level;
+                checkRdoAnsCorrect(formItem.CorrectAnswerNo);
+            }
         }
 
         private void grid_main_SizeChanged(object sender, EventArgs e)
@@ -226,8 +230,14 @@ namespace MultipleChoiceApp.UserControls
 
         private int getSelectedId()
         {
-            int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-            return id;
+            try
+            {
+                int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
+                return id;
+            }catch(Exception ex)
+            {
+                return -1;
+            }
         }
 
     }
