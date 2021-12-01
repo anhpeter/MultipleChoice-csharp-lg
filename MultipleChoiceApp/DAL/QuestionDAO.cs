@@ -28,25 +28,21 @@ namespace MultipleChoiceApp.DAL
             List<Question> list = new List<Question>();
             try
             {
-                String sqlStr = @"
+                String sqlStr = String.Format(@"
                     SELECT DISTINCT 
                         q.Id, CAST(q.Content as nvarchar(255)) as Content, q.Chapter, Q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
                         q.Level
                     FROM Questions as q 
                         INNER JOIN Subjects as s ON (q.SubjectCode = s.Code)
-                    WHERE s.Code = @code
+                    WHERE s.Code = '{0}'
                     ORDER BY q.Id DESC;
-                ";
-                SqlConnection con = dbHelper.getConnection();
-                con.Open();
-                SqlCommand com = new SqlCommand(sqlStr, con);
-                com.Parameters.Add(new SqlParameter("@code", code));
-                SqlDataReader dr = com.ExecuteReader();
+                ", code);
+                SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
                 {
                     list.Add(Question.fromDR(dr));
                 }
-                con.Close();
+                dbHelper.closeConnection();
                 return list;
             }
             catch (Exception ex)

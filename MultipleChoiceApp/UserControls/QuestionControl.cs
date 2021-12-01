@@ -103,18 +103,21 @@ namespace MultipleChoiceApp.UserControls
         {
             if (formItem == null)
             {
-                MessageBox.Show("Please choose an item");
+                MessageBox.Show(Msg.CHOOSE_AN_ITEM);
                 return;
             }
             //
-            bool result = mainBUS.delete(formItem.Id);
-            if (result)
+            DialogResult dialogResult = FormHelper.showDeleteConfirm();
+            if (dialogResult == DialogResult.Yes)
             {
-                FormHelper.notify(Msg.DELETED);
-                clearForm();
-                refreshList();
+                bool result = mainBUS.delete(formItem.Id);
+                if (result)
+                {
+                    FormHelper.notify(Msg.DELETED);
+                    clearForm();
+                    refreshList();
+                }
             }
-
         }
 
         // GET FORM DATA

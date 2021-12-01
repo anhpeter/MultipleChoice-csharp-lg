@@ -24,5 +24,9 @@ namespace MultipleChoiceApp.Common.Helpers
             Alert alert = new Alert(msg);
             alert.Show();
         }
+        public static DialogResult showDeleteConfirm()
+        {
+            return MessageBox.Show(Msg.DELETE_CONFIRM, "Confirmation", MessageBoxButtons.YesNo);
+        }
     }
 }
