@@ -62,19 +62,10 @@ namespace MultipleChoiceApp.UserControls
             gv_main.Columns[1].Width = (int)(gv_main.Width * 0.5);
         }
 
-        private void grid_main_SelectionChanged(object sender, EventArgs e)
+        private int getSelectedId()
         {
-            if (gvStatus.Equals("succeeded"))
-            {
-                int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-                formItem = mainBUS.getDetailsById(id);
-                txt_question.Text = formItem.Content.ToString();
-                txt_chapter.Text = formItem.Chapter.ToString();
-                txt_ans1.Text = formItem.Answers[0].Content.ToString();
-                txt_ans2.Text = formItem.Answers[1].Content.ToString();
-                txt_ans3.Text = formItem.Answers[2].Content.ToString();
-                txt_ans4.Text = formItem.Answers[3].Content.ToString();
-            }
+            int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+            return id;
         }
 
         // ACTIONS
@@ -87,7 +78,6 @@ namespace MultipleChoiceApp.UserControls
                 clearForm();
                 refreshList();
             }
-
         }
 
         private void btn_update_Click(object sender, EventArgs e)
@@ -97,6 +87,18 @@ namespace MultipleChoiceApp.UserControls
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
+            if (formItem == null)
+            {
+                MessageBox.Show("Please choose an item");
+                return;
+            }
+            //
+            bool result = mainBUS.delete(formItem.Id);
+            if (result)
+            {
+                clearForm();
+                refreshList();
+            }
 
         }
 
@@ -186,12 +188,45 @@ namespace MultipleChoiceApp.UserControls
             txt_ans4.Text = "";
             txt_chapter.Text = "-1";
             drop_level.SelectedIndex = 0;
+            checkRdoAnsCorrect(1);
+            formItem = null;
 
         }
 
         private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            clearForm();
             refreshList();
+        }
+
+
+        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            formItem = mainBUS.getDetailsById(getSelectedId());
+            txt_question.Text = formItem.Content.ToString();
+            txt_chapter.Text = formItem.Chapter.ToString();
+            txt_ans1.Text = formItem.Answers[0].Content.ToString();
+            txt_ans2.Text = formItem.Answers[1].Content.ToString();
+            txt_ans3.Text = formItem.Answers[2].Content.ToString();
+            txt_ans4.Text = formItem.Answers[3].Content.ToString();
+
+            drop_level.SelectedValue = formItem.Level;
+            checkRdoAnsCorrect(formItem.CorrectAnswerNo);
+        }
+
+        private void checkRdoAnsCorrect(int no)
+        {
+            BunifuRadioButton[] rdos = { rdo_ans1, rdo_ans2, rdo_ans3, rdo_ans4 };
+            for(int i = 0; i< rdos.Length; i++)
+            {
+                if (i == no - 1) rdos[i].Checked = true;
+                else rdos[i].Checked = false;
+            }
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            clearForm();
         }
     }
 }

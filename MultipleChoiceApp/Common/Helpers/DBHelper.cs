@@ -43,6 +43,7 @@ namespace MultipleChoiceApp.Common.Helpers
                 con.Open();
                 SqlCommand com = new SqlCommand(sql, con);
                 int result = com.ExecuteNonQuery();
+                closeConnection();
                 return result;
                 //
             }

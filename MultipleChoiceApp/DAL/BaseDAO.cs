@@ -49,6 +49,7 @@ namespace MultipleChoiceApp.DAL
             return getByField("Id", id.ToString());
         }
 
+        // 
         public T getByField(String field, String value)
         {
             T item = default(T);
@@ -69,6 +70,30 @@ namespace MultipleChoiceApp.DAL
                 return default(T);
             }
         }
+
+        public bool deleteById(int id)
+        {
+            return deleteByField("Id", id.ToString());
+        }
+        public bool deleteByCode(String code)
+        {
+            return deleteByField("Code", code);
+        }
+        public bool deleteByField(String field, String value)
+        {
+            try
+            {
+                String sqlStr = $"Delete from {tableName} where {field}={value}";
+                int affectedRows = dbHelper.execWrite(sqlStr);
+                return affectedRows > 0;
+            }
+            catch (Exception ex)
+            {
+                handleError(ex, "delete-by-field");
+                return false;
+            }
+        }
+
         // HELPER METHODS
         protected void handleError(Exception ex, String text)
         {

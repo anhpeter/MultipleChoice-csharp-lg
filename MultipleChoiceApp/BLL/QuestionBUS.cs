@@ -37,5 +37,15 @@ namespace MultipleChoiceApp.BLL
             }
             return false;
         }
+
+        public bool delete(int id)
+        {
+            bool deleteQuestionResult = mainDAO.deleteById(id);
+            if (deleteQuestionResult)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
