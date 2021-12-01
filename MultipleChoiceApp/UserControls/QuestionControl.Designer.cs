@@ -796,9 +796,9 @@ namespace MultipleChoiceApp.UserControls
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 23);
+            this.label5.Size = new System.Drawing.Size(79, 23);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Option 4";
+            this.label5.Text = "Answer 4";
             // 
             // label4
             // 
@@ -806,9 +806,9 @@ namespace MultipleChoiceApp.UserControls
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 145);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 23);
+            this.label4.Size = new System.Drawing.Size(79, 23);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Option 3";
+            this.label4.Text = "Answer 3";
             // 
             // label3
             // 
@@ -816,9 +816,9 @@ namespace MultipleChoiceApp.UserControls
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 23);
+            this.label3.Size = new System.Drawing.Size(79, 23);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Option 2";
+            this.label3.Text = "Answer 2";
             // 
             // label2
             // 
@@ -826,9 +826,9 @@ namespace MultipleChoiceApp.UserControls
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 63);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 23);
+            this.label2.Size = new System.Drawing.Size(79, 23);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Option 1";
+            this.label2.Text = "Answer 1";
             // 
             // label1
             // 
