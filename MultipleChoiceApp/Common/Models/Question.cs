@@ -15,7 +15,7 @@ namespace MultipleChoiceApp.Common.Models
         public String Content { get; set; }
         public String SubjectCode { get; set; }
         public String Level { get; set; }
-        public String Chapter { get; set; }
+        public int Chapter { get; set; }
         public int CorrectAnswerNo { get; set; }
         public DateTime CreatedAt { get; set; }
         //
@@ -25,14 +25,14 @@ namespace MultipleChoiceApp.Common.Models
         {
             Question item = new Question()
             {
-                Id = Convert.ToInt32(DataHelper.getDrValue(dr, "Id")),
-                Content = DataHelper.getDrValue(dr, "Content"),
-                SubjectCode = DataHelper.getDrValue(dr, "SubjectCode"),
-                Level = DataHelper.getDrValue(dr, "Level"),
-                Chapter = DataHelper.getDrValue(dr, "Chapter"),
-                CreatedAt = Convert.ToDateTime(DataHelper.getDrValue(dr, "CreatedAt")),
-                Lecturer = DataHelper.getDrValue(dr, "Lecturer"),
-                CorrectAnswerNo = Convert.ToInt32(DataHelper.getDrValue(dr, "CorrectAnswerNo", "1")),
+                Id = Convert.ToInt32(Util.getDrValue(dr, "Id")),
+                Content = Util.getDrValue(dr, "Content"),
+                SubjectCode = Util.getDrValue(dr, "SubjectCode"),
+                Level = Util.getDrValue(dr, "Level"),
+                Chapter = Util.parseToInt(Util.getDrValue(dr, "Chapter"), -1),
+                CreatedAt = Convert.ToDateTime(Util.getDrValue(dr, "CreatedAt")),
+                Lecturer = Util.getDrValue(dr, "Lecturer"),
+                CorrectAnswerNo = Util.parseToInt(Util.getDrValue(dr, "CorrectAnswerNo"), 1),
             };
             return item;
         }

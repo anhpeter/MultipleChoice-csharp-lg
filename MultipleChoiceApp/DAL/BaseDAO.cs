@@ -22,6 +22,27 @@ namespace MultipleChoiceApp.DAL
         // abstract
         protected abstract T fromDR(SqlDataReader dr);
 
+        // FETCHES
+        public List<T> getAll()
+        {
+            List<T> list = new List<T>();
+            try
+            {
+                String sqlStr = $"Select * from {tableName} order by Name asc";
+                SqlDataReader dr = dbHelper.execRead(sqlStr);
+                while (dr.Read())
+                {
+                    list.Add(fromDR(dr));
+                }
+                dbHelper.closeConnection();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return null;
+            }
+        }
         public T getById(int id)
         {
             T item = default(T);

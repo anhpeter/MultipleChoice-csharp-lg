@@ -17,9 +17,9 @@ namespace MultipleChoiceApp.Common.Models
         {
             Answer item = new Answer()
             {
-                QuestionId = Convert.ToInt32(DataHelper.getDrValue(dr, "QuestionId")),
-                No = Convert.ToInt32(DataHelper.getDrValue(dr, "No")),
-                Content = DataHelper.getDrValue(dr, "Content"),
+                QuestionId = Convert.ToInt32(Util.getDrValue(dr, "QuestionId")),
+                No = Convert.ToInt32(Util.getDrValue(dr, "No")),
+                Content = Util.getDrValue(dr, "Content"),
             };
             return item;
         }

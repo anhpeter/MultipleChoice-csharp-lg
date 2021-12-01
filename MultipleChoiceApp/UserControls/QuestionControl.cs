@@ -18,6 +18,7 @@ namespace MultipleChoiceApp.UserControls
         String gvStatus = "idle";
 
         QuestionBUS mainBUS = new QuestionBUS();
+        SubjectBUS subjectBUS = new SubjectBUS();
 
         public QuestionControl()
         {
@@ -28,8 +29,16 @@ namespace MultipleChoiceApp.UserControls
         private void QuestionControl_Load(object sender, EventArgs e)
         {
             setupDropLevel();
-            setupDropSubject();
+            //setupDropSubject();
+            loadCbxes();
             refreshList();
+        }
+
+        private void loadCbxes()
+        {
+            drop_subject.DataSource = subjectBUS.getAll();
+            drop_subject.ValueMember = "Code";
+            drop_subject.DisplayMember = "Name";
         }
 
         private void refreshList()
@@ -51,23 +60,17 @@ namespace MultipleChoiceApp.UserControls
 
         private void setupDropLevel()
         {
-            string[] items = { "Easy", "Normal", "Hard" };
-            foreach (var item in items)
-            {
-                drop_level.Items.Add(item);
-            }
-            drop_level.SelectedIndex = 1;
-        }
-        private void setupDropSubject()
-        {
-            string[] items = { "All subjects", "Toán rời rạc", "Mạng máy tính", "Kỹ thuật lập trình nâng cao" };
-            foreach (var item in items)
-            {
-                drop_subject.Items.Add(item);
-            }
-            drop_subject.SelectedIndex = 0;
-        }
 
+            // Bind combobox to dictionary
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("easy", "Easy");
+            test.Add("normal", "Normal");
+            test.Add("hard", "Hard");
+            drop_level.DataSource = new BindingSource(test, null);
+            drop_level.DisplayMember = "Value";
+            drop_level.ValueMember = "Key";
+
+        }
         private void grid_main_SizeChanged(object sender, EventArgs e)
         {
             gv_main.Columns[0].Width = (int)(50);
@@ -89,5 +92,19 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

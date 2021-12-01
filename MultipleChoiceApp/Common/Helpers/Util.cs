@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Helpers
 {
-    public class DataHelper
+    public class Util
     {
         public static String getDrValue(SqlDataReader dr, String field, String defaultVal = "")
         {
@@ -17,6 +17,18 @@ namespace MultipleChoiceApp.Common.Helpers
             }catch(Exception ex)
             {
                 return defaultVal;
+            }
+        }
+
+        public static int parseToInt(String stringToParse, int defaultValue)
+        {
+            try
+            {
+                return Convert.ToInt32(stringToParse);
+            }
+            catch (Exception ex)
+            {
+                return defaultValue; //Use default value if parsing failed
             }
         }
     }

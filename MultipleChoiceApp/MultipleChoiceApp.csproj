@@ -84,16 +84,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\SubjectBUS.cs" />
     <Compile Include="BLL\QuestionBUS.cs" />
     <Compile Include="Common\Constant.cs" />
-    <Compile Include="Common\Helpers\DataHelper.cs" />
+    <Compile Include="Common\Helpers\Util.cs" />
     <Compile Include="Common\Helpers\DBHelper.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Models\Answer.cs" />
     <Compile Include="Common\Models\Question.cs" />
+    <Compile Include="Common\Models\Subject.cs" />
     <Compile Include="DAL\AnswerDAO.cs" />
     <Compile Include="DAL\BaseDAO.cs" />
     <Compile Include="DAL\QuestionDAO.cs" />
+    <Compile Include="DAL\SubjectDAO.cs" />
     <Compile Include="Forms\BaseForm.cs" />
     <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>

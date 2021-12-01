@@ -12,10 +12,9 @@ namespace MultipleChoiceApp.Common.Helpers
     {
         public static void MakeFullScreen(Form frm)
         {
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.Top = 0;
             frm.Left = 0;
-
-
             frm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 8);
         }
     }
