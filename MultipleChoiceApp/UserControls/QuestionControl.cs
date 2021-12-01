@@ -29,6 +29,7 @@ namespace MultipleChoiceApp.UserControls
         {
             setupDropLevel();
             setupDropSubject();
+            Question item = mainBUS.getDetailsById(2);
             refreshList();
         }
 
@@ -76,6 +77,7 @@ namespace MultipleChoiceApp.UserControls
             if (gvStatus.Equals("succeeded"))
             {
                 int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+                Question item = mainBUS.getDetailsById(id);
             }
         }
 

@@ -90,6 +90,7 @@
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Models\Answer.cs" />
     <Compile Include="Common\Models\Question.cs" />
+    <Compile Include="DAL\AnswerDAO.cs" />
     <Compile Include="DAL\BaseDAO.cs" />
     <Compile Include="DAL\QuestionDAO.cs" />
     <Compile Include="Forms\BaseForm.cs" />

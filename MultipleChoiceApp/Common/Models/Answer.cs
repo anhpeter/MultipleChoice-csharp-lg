@@ -9,7 +9,6 @@ namespace MultipleChoiceApp.Common.Models
 {
     class Answer
     {
-        public int Id { get; set; }
         public int QuestionId { get; set; }
         public int No { get; set; }
         public String Content { get; set; }
@@ -17,7 +16,6 @@ namespace MultipleChoiceApp.Common.Models
         {
             Answer item = new Answer()
             {
-                Id = (int)dr["Id"],
                 QuestionId = (int)dr["QuestionId"],
                 No = (int)dr["No"],
                 Content = (String)dr["Content"],

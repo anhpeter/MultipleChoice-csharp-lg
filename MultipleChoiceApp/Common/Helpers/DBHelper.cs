@@ -10,18 +10,14 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Helpers
 {
-    abstract class DBHelper
+    public class DBHelper
     {
         String conStr = ConfigurationManager.ConnectionStrings["strCon"].ConnectionString;
         SqlConnection con;
 
-        private SqlConnection getConnection()
-        {
-            SqlConnection con = new SqlConnection(conStr);
-            return con;
-        }
 
-        public SqlDataReader read(String sql)
+        // EXECS
+        public SqlDataReader execRead(String sql)
         {
             try
             {
@@ -29,7 +25,6 @@ namespace MultipleChoiceApp.Common.Helpers
                 con.Open();
                 SqlCommand com = new SqlCommand(sql, con);
                 SqlDataReader dr = com.ExecuteReader();
-                con.Close();
                 return dr;
                 //
             }
@@ -48,7 +43,6 @@ namespace MultipleChoiceApp.Common.Helpers
                 con.Open();
                 SqlCommand com = new SqlCommand(sql, con);
                 int result = com.ExecuteNonQuery();
-                con.Close();
                 return result;
                 //
             }
@@ -57,6 +51,13 @@ namespace MultipleChoiceApp.Common.Helpers
                 Debug.WriteLine(ex.Message);
                 return -1;
             }
+        }
+
+        // HEPER METHODS
+        public SqlConnection getConnection()
+        {
+            con = new SqlConnection(conStr);
+            return con;
         }
 
         public bool closeConnection()
