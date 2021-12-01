@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,11 @@ namespace MultipleChoiceApp.Common.Helpers
     {
         public static void MakeFullScreen(Form frm)
         {
-            frm.TopMost = true;
-            frm.WindowState = FormWindowState.Maximized;
+            frm.Top = 0;
+            frm.Left = 0;
+
+
+            frm.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height - 8);
         }
     }
 }

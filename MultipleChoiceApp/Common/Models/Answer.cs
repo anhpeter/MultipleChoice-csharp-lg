@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -16,9 +17,9 @@ namespace MultipleChoiceApp.Common.Models
         {
             Answer item = new Answer()
             {
-                QuestionId = (int)dr["QuestionId"],
-                No = (int)dr["No"],
-                Content = (String)dr["Content"],
+                QuestionId = Convert.ToInt32(DataHelper.getDrValue(dr, "QuestionId")),
+                No = Convert.ToInt32(DataHelper.getDrValue(dr, "No")),
+                Content = DataHelper.getDrValue(dr, "Content"),
             };
             return item;
         }

@@ -29,7 +29,6 @@ namespace MultipleChoiceApp.UserControls
         {
             setupDropLevel();
             setupDropSubject();
-            Question item = mainBUS.getDetailsById(2);
             refreshList();
         }
 
@@ -37,12 +36,15 @@ namespace MultipleChoiceApp.UserControls
         {
             gvStatus = "loading";
             List<Question> list = mainBUS.getAllBySubjectCode("MMT");
-            foreach (var item in list)
+            for (int i = 0; i < 10; i++)
             {
-                gv_main.Rows.Add(new object[] {
+                foreach (var item in list)
+                {
+                    gv_main.Rows.Add(new object[] {
                     item.Id, item.Content,
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
+                }
             }
             gvStatus = "succeeded";
         }
@@ -78,6 +80,12 @@ namespace MultipleChoiceApp.UserControls
             {
                 int id = int.Parse(gv_main.SelectedRows[0].Cells[0].Value.ToString());
                 Question item = mainBUS.getDetailsById(id);
+                txt_question.Text = item.Content.ToString();
+                txt_chapter.Text = item.Chapter.ToString();
+                txt_ans1.Text = item.Answers[0].Content.ToString();
+                txt_ans2.Text = item.Answers[1].Content.ToString();
+                txt_ans3.Text = item.Answers[2].Content.ToString();
+                txt_ans4.Text = item.Answers[3].Content.ToString();
             }
         }
 

@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="BLL\QuestionBUS.cs" />
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Common\Helpers\DataHelper.cs" />
     <Compile Include="Common\Helpers\DBHelper.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Models\Answer.cs" />

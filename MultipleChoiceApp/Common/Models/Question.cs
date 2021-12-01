@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -22,29 +23,19 @@ namespace MultipleChoiceApp.Common.Models
 
         public static Question fromDR(SqlDataReader dr)
         {
-            try
+            Question item = new Question()
             {
-                Question item = new Question()
-                {
-                    Id = (int)dr["Id"],
-                    Content = (String)dr["Content"],
-                    SubjectCode = (String)dr["SubjectCode"],
-                    Level = (String)dr["Level"],
-                    //Chapter = (String)dr["Chapter"],
-                    CreatedAt = (DateTime)dr["CreatedAt"],
-                    //
-                    //Lecturer = (String)dr["Lecturer"],
-                    //CorrectAnswerNo = (int)dr["CorrectAnswerNo"],
-                };
-                return item;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Question.fromDr:Failed " + ex.Message);
-                return null;
-            }
+                Id = Convert.ToInt32(DataHelper.getDrValue(dr, "Id")),
+                Content = DataHelper.getDrValue(dr, "Content"),
+                SubjectCode = DataHelper.getDrValue(dr, "SubjectCode"),
+                Level = DataHelper.getDrValue(dr, "Level"),
+                Chapter = DataHelper.getDrValue(dr, "Chapter"),
+                CreatedAt = Convert.ToDateTime(DataHelper.getDrValue(dr, "CreatedAt")),
+                Lecturer = DataHelper.getDrValue(dr, "Lecturer"),
+                CorrectAnswerNo = Convert.ToInt32(DataHelper.getDrValue(dr, "CorrectAnswerNo", "1")),
+            };
+            return item;
         }
-        //
         public List<Answer> Answers { get; set; }
     }
 }
