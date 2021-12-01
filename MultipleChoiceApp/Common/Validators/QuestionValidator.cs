@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,16 @@ namespace MultipleChoiceApp.Common.Validators
         {
             RuleFor(p => p.Content)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage("Question is required")
-                .Length(2, 300).WithMessage("{PropertyName} length must between 2-300");
+                .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Question"))
+                .Length(2, 300).WithMessage(string.Format(Msg.VLD_LENGTH_BETWEEN, "Question", 2, 300));
 
             RuleForEach(p => p.Answers).SetValidator(new AnswerValidator());
+
+            RuleFor(p => p.Chapter)
+                .Cascade(CascadeMode.StopOnFirstFailure)
+                .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Chapter"))
+                .InclusiveBetween(1, 100).WithMessage(string.Format(Msg.VLD__BETWEEN, "Chapter", 1, 100));
+
         }
     }
 }
