@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using Bunifu.UI.WinForms.BunifuTextbox;
+using FluentValidation.Results;
 using MultipleChoiceApp.Common.UtilForms;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,13 @@ namespace MultipleChoiceApp.Common.Helpers
         public static DialogResult showDeleteConfirm()
         {
             return MessageBox.Show(Msg.DELETE_CONFIRM, "Confirmation", MessageBoxButtons.YesNo);
+        }
+
+        public static async Task<bool> getIdle(BunifuTextBox txb)
+        {
+            string txt = txb.Text;
+            await Task.Delay(1000);
+            return txt == txb.Text;
         }
     }
 }

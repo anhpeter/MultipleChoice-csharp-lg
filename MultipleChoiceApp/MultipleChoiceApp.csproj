@@ -94,6 +94,7 @@
     <Compile Include="Common\Helpers\Util.cs" />
     <Compile Include="Common\Helpers\DBHelper.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />
+    <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Models\Answer.cs" />
     <Compile Include="Common\Models\Question.cs" />
     <Compile Include="Common\Models\Subject.cs" />

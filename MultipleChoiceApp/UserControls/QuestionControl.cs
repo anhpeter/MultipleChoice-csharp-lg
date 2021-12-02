@@ -54,7 +54,7 @@ namespace MultipleChoiceApp.UserControls
             if (id > 0)
             {
                 formItem = mainBUS.getDetailsById(id);
-                lbl_id.Text = "#"+formItem.Id.ToString();
+                lbl_id.Text = "#" + formItem.Id.ToString();
                 txt_question.Text = formItem.Content.ToString();
                 txt_chapter.Text = formItem.Chapter.ToString();
                 txt_ans1.Text = formItem.Answers[0].Content.ToString();
@@ -201,6 +201,11 @@ namespace MultipleChoiceApp.UserControls
         private void refreshList()
         {
             List<Question> list = mainBUS.getAllBySubjectCode(getFormSubjectCode());
+            refreshList(list);
+        }
+
+        private void refreshList(List<Question> list)
+        {
             gv_main.Rows.Clear();
             foreach (var item in list)
             {
@@ -267,5 +272,13 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
+        async private void txt_search_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (await FormHelper.getIdle(txt_search))
+            {
+                List<Question> list = mainBUS.searchByKeyword(getFormSubjectCode(), txt_search.Text);
+                refreshList(list);
+            }
+        }
     }
 }

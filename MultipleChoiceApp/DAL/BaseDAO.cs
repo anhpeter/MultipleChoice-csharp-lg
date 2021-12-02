@@ -13,6 +13,7 @@ namespace MultipleChoiceApp.DAL
     {
         protected DBHelper dbHelper = new DBHelper();
         protected String primaryKey = "Id";
+        protected String searchField = "Name";
         protected String tableName;
         public BaseDAO(String tableName)
         {

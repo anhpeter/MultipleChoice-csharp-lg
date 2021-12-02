@@ -26,30 +26,42 @@ namespace MultipleChoiceApp.DAL
         public List<Question> getAllBySubjectCode(String code)
         {
             List<Question> list = new List<Question>();
-            try
+            String sqlStr = getAllBySujectCodeSqlStr(code);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            while (dr.Read())
             {
-                String sqlStr = String.Format(@"
+                list.Add(Question.fromDR(dr));
+            }
+            dbHelper.closeConnection();
+            return list;
+        }
+
+        public List<Question> searchByKeyWord(String code, String keyword)
+        {
+            List<Question> list = new List<Question>();
+            String searchCondStr = string.Format("AND q.Content like '%{0}%'", keyword);
+            String sqlStr = getAllBySujectCodeSqlStr(code, searchCondStr);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            while (dr.Read())
+            {
+                list.Add(Question.fromDR(dr));
+            }
+            dbHelper.closeConnection();
+            return list;
+        }
+
+        private String getAllBySujectCodeSqlStr(String code, String otherWhereStr = "")
+        {
+            String sqlStr = String.Format(@"
                     SELECT DISTINCT 
                         q.Id, CAST(q.Content as nvarchar(255)) as Content, q.Chapter, Q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
                         q.Level
                     FROM Questions as q 
                         INNER JOIN Subjects as s ON (q.SubjectCode = s.Code)
-                    WHERE s.Code = '{0}'
+                    WHERE s.Code = '{0}' {1}
                     ORDER BY q.Id DESC;
-                ", code);
-                SqlDataReader dr = dbHelper.execRead(sqlStr);
-                while (dr.Read())
-                {
-                    list.Add(Question.fromDR(dr));
-                }
-                dbHelper.closeConnection();
-                return list;
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "get-all-by-subject-code");
-                return null;
-            }
+                ", code, otherWhereStr);
+            return sqlStr;
         }
 
         // UPDATE

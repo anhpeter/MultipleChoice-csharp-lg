@@ -19,6 +19,11 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.getAllBySubjectCode(code);
         }
 
+        public List<Question> searchByKeyword(String code, String keyword)
+        {
+            return mainDAO.searchByKeyWord(code, keyword);
+        }
+
         public Question getDetailsById(int id)
         {
             Debug.WriteLine(id);
