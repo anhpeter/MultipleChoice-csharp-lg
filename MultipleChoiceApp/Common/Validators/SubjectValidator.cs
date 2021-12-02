@@ -37,7 +37,7 @@ namespace MultipleChoiceApp.Common.Validators
             RuleFor(p => p.Duration)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Duration"))
-                .InclusiveBetween(2, 300).WithMessage(string.Format(Msg.VLD_BETWEEN, "Duration", 5, 100));
+                .InclusiveBetween(1, 300).WithMessage(string.Format(Msg.VLD_BETWEEN, "Duration", 1, 300));
 
         }
     }

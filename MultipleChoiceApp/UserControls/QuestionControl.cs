@@ -187,7 +187,8 @@ namespace MultipleChoiceApp.UserControls
 
         private int getFormSubjectId()
         {
-            return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
+            if (drop_subject.SelectedValue != null) return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
+            return -1;
         }
 
         private int getCorrectAnsNo()
@@ -200,8 +201,12 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Question> list = mainBUS.getAllBySubjectId(getFormSubjectId());
-            refreshList(list);
+            int subjectId = getFormSubjectId();
+            if (subjectId > 0)
+            {
+                List<Question> list = mainBUS.getAllBySubjectId(subjectId);
+                refreshList(list);
+            }
         }
 
         private void refreshList(List<Question> list)

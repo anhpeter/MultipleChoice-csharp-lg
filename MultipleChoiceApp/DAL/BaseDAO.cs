@@ -83,7 +83,7 @@ namespace MultipleChoiceApp.DAL
 
                 // values
                 String[] values = new List<string>(dataDict.Values).ToArray();
-                values = values.Select(v => $"'{v}'").ToArray();
+                values = values.Select(v => $"N'{v}'").ToArray();
                 String valuesStr = string.Join(" , ", values);
 
                 String outputStr = output ? $"OUTPUT Inserted.{primaryKey}" : "";
@@ -108,7 +108,7 @@ namespace MultipleChoiceApp.DAL
                 String updateStr = "";
                 foreach (KeyValuePair<String, String> kvp in dataDict)
                 {
-                    updateStr += $" {kvp.Key} = '{kvp.Value}',";
+                    updateStr += $" {kvp.Key} = N'{kvp.Value}',";
                 }
                 updateStr = updateStr.Substring(0, updateStr.Length - 1);
                 String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
@@ -148,5 +148,6 @@ namespace MultipleChoiceApp.DAL
         {
             Debug.WriteLine($"{tableName}.{text}:" + ex.Message);
         }
+
     }
 }

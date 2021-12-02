@@ -215,10 +215,14 @@ namespace MultipleChoiceApp.UserControls
         {
             // SUBJECTS
             if (subjectList == null) subjectList = subjectBUS.getAllForSelectData();
-            drop_subject.DataSource = subjectList;
-            drop_subject.ValueMember = "Id";
-            drop_subject.DisplayMember = "Name";
-            drop_subject.SelectedIndex = 0;
+            else if (subjectList.Count > 0)
+            {
+                drop_subject.DataSource = subjectList;
+                drop_subject.ValueMember = "Id";
+                drop_subject.DisplayMember = "Name";
+                drop_subject.SelectedIndex = 0;
+            }
+
         }
 
         private int getFormSubjectId()
