@@ -74,55 +74,25 @@ namespace MultipleChoiceApp.DAL
         // ADD
         protected int addWithDic(Dictionary<String, String> dataDict, bool output = false)
         {
-            try
-            {
-                // fields
-                String[] keys = new List<string>(dataDict.Keys).ToArray();
-
-                String updateFieldsStr = string.Join(" , ", keys);
-
-                // values
-                String[] values = new List<string>(dataDict.Values).ToArray();
-                values = values.Select(v => $"N'{v}'").ToArray();
-                String valuesStr = string.Join(" , ", values);
-
-                String outputStr = output ? $"OUTPUT Inserted.{primaryKey}" : "";
-                String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) {outputStr} VALUES ({valuesStr})";
-                Debug.WriteLine(sqlStr);
-                if (output) return dbHelper.execWriteScalar(sqlStr);
-                return dbHelper.execWrite(sqlStr);
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "add");
-                return -1;
-            }
+            String sqlStr = genInsertSqlStr(dataDict, output);
+            SqlCommand com = new SqlCommand(sqlStr);
+            addParamValueToCom(dataDict, com);
+            if (output) return dbHelper.execWriteScalar(com);
+            return dbHelper.execWrite(com);
 
         }
+
 
         // UPDATES
         protected bool updateWithDict(Dictionary<String, String> dataDict, String whereClause)
         {
-            try
-            {
-                String updateStr = "";
-                foreach (KeyValuePair<String, String> kvp in dataDict)
-                {
-                    updateStr += $" {kvp.Key} = N'{kvp.Value}',";
-                }
-                updateStr = updateStr.Substring(0, updateStr.Length - 1);
-                String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
-                Debug.WriteLine(sqlStr);
-                int affectedRows = dbHelper.execWrite(sqlStr);
-                return affectedRows > 0;
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "update");
-                return false;
-            }
-
+            String sqlStr = genUpdateSqlStr(dataDict, whereClause);
+            SqlCommand com = new SqlCommand(sqlStr);
+            addParamValueToCom(dataDict, com);
+            int affectedRows = dbHelper.execWrite(com);
+            return affectedRows > 0;
         }
+
         public bool deleteByPK(String value)
         {
             return deleteByField(primaryKey, value);
@@ -149,5 +119,35 @@ namespace MultipleChoiceApp.DAL
             Debug.WriteLine($"{tableName}.{text}:" + ex.Message);
         }
 
+        private void addParamValueToCom(Dictionary<String, String> dataDict, SqlCommand com)
+        {
+            foreach (var key in dataDict.Keys.ToArray())
+            {
+                com.Parameters.Add(new SqlParameter($"@{key}", dataDict[key]));
+            }
+        }
+        private String genInsertSqlStr(Dictionary<String, String> dataDict, bool output = false)
+        {
+            String[] keys = new List<string>(dataDict.Keys).ToArray();
+            String updateFieldsStr = string.Join(" , ", keys);
+            String[] valueParams = keys.Select(k => $"@{k}").ToArray();
+            String valueParamsStr = string.Join(" , ", valueParams);
+            String outputStr = output ? $"OUTPUT Inserted.{primaryKey}" : "";
+            String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) {outputStr} VALUES ({valueParamsStr})";
+            return sqlStr;
+        }
+
+        private String genUpdateSqlStr(Dictionary<String, String> dataDict, String whereClause)
+        {
+
+            String updateStr = "";
+            foreach (KeyValuePair<String, String> kvp in dataDict)
+            {
+                updateStr += $" {kvp.Key} = @{kvp.Key},";
+            }
+            updateStr = updateStr.Substring(0, updateStr.Length - 1);
+            String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
+            return sqlStr;
+        }
     }
 }

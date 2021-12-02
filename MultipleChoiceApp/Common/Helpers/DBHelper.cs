@@ -37,11 +37,16 @@ namespace MultipleChoiceApp.Common.Helpers
 
         public int execWriteScalar(String sql)
         {
+            SqlCommand com = new SqlCommand(sql);
+            return execWriteScalar(com);
+        }
+        public int execWriteScalar(SqlCommand com)
+        {
             try
             {
                 con = getConnection();
                 con.Open();
-                SqlCommand com = new SqlCommand(sql, con);
+                com.Connection = con;
                 int result = (int)com.ExecuteScalar();
                 closeConnection();
                 return result;
@@ -56,11 +61,17 @@ namespace MultipleChoiceApp.Common.Helpers
 
         public int execWrite(String sql)
         {
+            SqlCommand com = new SqlCommand(sql);
+            return execWrite(com);
+        }
+
+        public int execWrite(SqlCommand com)
+        {
             try
             {
                 con = getConnection();
                 con.Open();
-                SqlCommand com = new SqlCommand(sql, con);
+                com.Connection = con;
                 int result = com.ExecuteNonQuery();
                 closeConnection();
                 return result;
