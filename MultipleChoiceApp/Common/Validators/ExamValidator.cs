@@ -28,7 +28,7 @@ namespace MultipleChoiceApp.Common.Validators
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Easy qty"))
                 .Must(v => v > -1).WithMessage(string.Format(Msg.VLD_NUMBER, "Easy qty"))
-                .Must((ex, easyQty) => ex.HardQty+easyQty<=ex.Subject.TotalQuestion).WithMessage((ex)=>$"Easy question qty + hard question qty must <= {ex.Subject.TotalQuestion}");
+                .Must((ex, easyQty) => ex.HardQty+easyQty<=ex.Subject.TotalQuestion).WithMessage((ex)=>$"Easy and hard question quantity must not exeeding total question ({ex.Subject.TotalQuestion} questions).");
 
             RuleFor(p => p.HardQty)
                 .Cascade(CascadeMode.StopOnFirstFailure)

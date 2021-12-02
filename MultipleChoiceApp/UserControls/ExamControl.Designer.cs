@@ -62,6 +62,8 @@ namespace MultipleChoiceApp.UserControls
             this.btn_clear = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.datepicker_end_at = new System.Windows.Forms.DateTimePicker();
+            this.datepicker_start_at = new System.Windows.Forms.DateTimePicker();
             this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -71,7 +73,7 @@ namespace MultipleChoiceApp.UserControls
             this.label4 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.text_easy_qty = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.txt_easy_qty = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_hard_qty = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_semester = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -87,8 +89,6 @@ namespace MultipleChoiceApp.UserControls
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.datepicker_start_at = new System.Windows.Forms.DateTimePicker();
-            this.datepicker_end_at = new System.Windows.Forms.DateTimePicker();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -98,7 +98,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel1.Controls.Add(this.btn_add);
             this.flowLayoutPanel1.Controls.Add(this.btn_update);
             this.flowLayoutPanel1.Controls.Add(this.btn_delete);
@@ -144,6 +144,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_add.Textcolor = System.Drawing.Color.White;
             this.btn_add.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
@@ -180,6 +181,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_update.Textcolor = System.Drawing.Color.White;
             this.btn_update.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -216,6 +218,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_delete.Textcolor = System.Drawing.Color.White;
             this.btn_delete.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_clear
             // 
@@ -252,6 +255,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_clear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_clear.Textcolor = System.Drawing.Color.White;
             this.btn_clear.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // panel2
             // 
@@ -277,7 +281,7 @@ namespace MultipleChoiceApp.UserControls
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.text_easy_qty);
+            this.panel4.Controls.Add(this.txt_easy_qty);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txt_hard_qty);
             this.panel4.Controls.Add(this.txt_semester);
@@ -285,6 +289,22 @@ namespace MultipleChoiceApp.UserControls
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(787, 239);
             this.panel4.TabIndex = 4;
+            // 
+            // datepicker_end_at
+            // 
+            this.datepicker_end_at.CustomFormat = "dd/MM/yyy HH:mm";
+            this.datepicker_end_at.Location = new System.Drawing.Point(113, 185);
+            this.datepicker_end_at.Name = "datepicker_end_at";
+            this.datepicker_end_at.Size = new System.Drawing.Size(287, 22);
+            this.datepicker_end_at.TabIndex = 30;
+            // 
+            // datepicker_start_at
+            // 
+            this.datepicker_start_at.CustomFormat = "dd/MM/yyy HH:mm";
+            this.datepicker_start_at.Location = new System.Drawing.Point(113, 145);
+            this.datepicker_start_at.Name = "datepicker_start_at";
+            this.datepicker_start_at.Size = new System.Drawing.Size(287, 22);
+            this.datepicker_start_at.TabIndex = 29;
             // 
             // drop_subject
             // 
@@ -461,78 +481,78 @@ namespace MultipleChoiceApp.UserControls
             this.label3.TabIndex = 8;
             this.label3.Text = "Start at";
             // 
-            // text_easy_qty
+            // txt_easy_qty
             // 
-            this.text_easy_qty.AcceptsReturn = false;
-            this.text_easy_qty.AcceptsTab = false;
-            this.text_easy_qty.AnimationSpeed = 200;
-            this.text_easy_qty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.text_easy_qty.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.text_easy_qty.BackColor = System.Drawing.Color.Transparent;
-            this.text_easy_qty.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("text_easy_qty.BackgroundImage")));
-            this.text_easy_qty.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.text_easy_qty.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.text_easy_qty.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.text_easy_qty.BorderColorIdle = System.Drawing.Color.Silver;
-            this.text_easy_qty.BorderRadius = 1;
-            this.text_easy_qty.BorderThickness = 1;
-            this.text_easy_qty.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.text_easy_qty.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_easy_qty.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.text_easy_qty.DefaultText = "";
-            this.text_easy_qty.FillColor = System.Drawing.Color.White;
-            this.text_easy_qty.HideSelection = true;
-            this.text_easy_qty.IconLeft = null;
-            this.text_easy_qty.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_easy_qty.IconPadding = 10;
-            this.text_easy_qty.IconRight = null;
-            this.text_easy_qty.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.text_easy_qty.Lines = new string[0];
-            this.text_easy_qty.Location = new System.Drawing.Point(535, 94);
-            this.text_easy_qty.MaxLength = 32767;
-            this.text_easy_qty.MinimumSize = new System.Drawing.Size(100, 35);
-            this.text_easy_qty.Modified = false;
-            this.text_easy_qty.Multiline = false;
-            this.text_easy_qty.Name = "text_easy_qty";
+            this.txt_easy_qty.AcceptsReturn = false;
+            this.txt_easy_qty.AcceptsTab = false;
+            this.txt_easy_qty.AnimationSpeed = 200;
+            this.txt_easy_qty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_easy_qty.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_easy_qty.BackColor = System.Drawing.Color.Transparent;
+            this.txt_easy_qty.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_easy_qty.BackgroundImage")));
+            this.txt_easy_qty.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txt_easy_qty.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txt_easy_qty.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txt_easy_qty.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txt_easy_qty.BorderRadius = 1;
+            this.txt_easy_qty.BorderThickness = 1;
+            this.txt_easy_qty.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_easy_qty.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_easy_qty.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.txt_easy_qty.DefaultText = "";
+            this.txt_easy_qty.FillColor = System.Drawing.Color.White;
+            this.txt_easy_qty.HideSelection = true;
+            this.txt_easy_qty.IconLeft = null;
+            this.txt_easy_qty.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_easy_qty.IconPadding = 10;
+            this.txt_easy_qty.IconRight = null;
+            this.txt_easy_qty.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_easy_qty.Lines = new string[0];
+            this.txt_easy_qty.Location = new System.Drawing.Point(535, 94);
+            this.txt_easy_qty.MaxLength = 32767;
+            this.txt_easy_qty.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txt_easy_qty.Modified = false;
+            this.txt_easy_qty.Multiline = false;
+            this.txt_easy_qty.Name = "txt_easy_qty";
             stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
             stateProperties5.FillColor = System.Drawing.Color.Empty;
             stateProperties5.ForeColor = System.Drawing.Color.Empty;
             stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.text_easy_qty.OnActiveState = stateProperties5;
+            this.txt_easy_qty.OnActiveState = stateProperties5;
             stateProperties6.BorderColor = System.Drawing.Color.Empty;
             stateProperties6.FillColor = System.Drawing.Color.White;
             stateProperties6.ForeColor = System.Drawing.Color.Empty;
             stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.text_easy_qty.OnDisabledState = stateProperties6;
+            this.txt_easy_qty.OnDisabledState = stateProperties6;
             stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties7.FillColor = System.Drawing.Color.Empty;
             stateProperties7.ForeColor = System.Drawing.Color.Empty;
             stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.text_easy_qty.OnHoverState = stateProperties7;
+            this.txt_easy_qty.OnHoverState = stateProperties7;
             stateProperties8.BorderColor = System.Drawing.Color.Silver;
             stateProperties8.FillColor = System.Drawing.Color.White;
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.text_easy_qty.OnIdleState = stateProperties8;
-            this.text_easy_qty.PasswordChar = '\0';
-            this.text_easy_qty.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.text_easy_qty.PlaceholderText = "";
-            this.text_easy_qty.ReadOnly = false;
-            this.text_easy_qty.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.text_easy_qty.SelectedText = "";
-            this.text_easy_qty.SelectionLength = 0;
-            this.text_easy_qty.SelectionStart = 0;
-            this.text_easy_qty.ShortcutsEnabled = true;
-            this.text_easy_qty.Size = new System.Drawing.Size(249, 35);
-            this.text_easy_qty.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.text_easy_qty.TabIndex = 2;
-            this.text_easy_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.text_easy_qty.TextMarginBottom = 0;
-            this.text_easy_qty.TextMarginLeft = 5;
-            this.text_easy_qty.TextMarginTop = 0;
-            this.text_easy_qty.TextPlaceholder = "";
-            this.text_easy_qty.UseSystemPasswordChar = false;
-            this.text_easy_qty.WordWrap = true;
+            this.txt_easy_qty.OnIdleState = stateProperties8;
+            this.txt_easy_qty.PasswordChar = '\0';
+            this.txt_easy_qty.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_easy_qty.PlaceholderText = "";
+            this.txt_easy_qty.ReadOnly = false;
+            this.txt_easy_qty.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_easy_qty.SelectedText = "";
+            this.txt_easy_qty.SelectionLength = 0;
+            this.txt_easy_qty.SelectionStart = 0;
+            this.txt_easy_qty.ShortcutsEnabled = true;
+            this.txt_easy_qty.Size = new System.Drawing.Size(249, 35);
+            this.txt_easy_qty.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_easy_qty.TabIndex = 2;
+            this.txt_easy_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_easy_qty.TextMarginBottom = 0;
+            this.txt_easy_qty.TextMarginLeft = 5;
+            this.txt_easy_qty.TextMarginTop = 0;
+            this.txt_easy_qty.TextPlaceholder = "";
+            this.txt_easy_qty.UseSystemPasswordChar = false;
+            this.txt_easy_qty.WordWrap = true;
             // 
             // label2
             // 
@@ -764,6 +784,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_search.TextPlaceholder = "Keyword";
             this.txt_search.UseSystemPasswordChar = false;
             this.txt_search.WordWrap = true;
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
             // 
             // panel1
             // 
@@ -850,6 +871,7 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.Size = new System.Drawing.Size(1052, 340);
             this.gv_main.TabIndex = 21;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
             // 
             // Column3
             // 
@@ -904,7 +926,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy hh:mm";
             dataGridViewCellStyle3.NullValue = null;
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Start At";
@@ -914,29 +936,13 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column9
             // 
-            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy hh:mm";
             dataGridViewCellStyle4.NullValue = null;
             this.Column9.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column9.HeaderText = "End At";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // datepicker_start_at
-            // 
-            this.datepicker_start_at.CustomFormat = "dd/MM/yyy HH:mm";
-            this.datepicker_start_at.Location = new System.Drawing.Point(113, 145);
-            this.datepicker_start_at.Name = "datepicker_start_at";
-            this.datepicker_start_at.Size = new System.Drawing.Size(287, 22);
-            this.datepicker_start_at.TabIndex = 29;
-            // 
-            // datepicker_end_at
-            // 
-            this.datepicker_end_at.CustomFormat = "dd/MM/yyy HH:mm";
-            this.datepicker_end_at.Location = new System.Drawing.Point(113, 185);
-            this.datepicker_end_at.Name = "datepicker_end_at";
-            this.datepicker_end_at.Size = new System.Drawing.Size(287, 22);
-            this.datepicker_end_at.TabIndex = 30;
             // 
             // ExamControl
             // 
@@ -976,6 +982,15 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
+        private System.Windows.Forms.Label lbl_id;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_name;
+        private Bunifu.UI.WinForms.BunifuDropdown drop_subject;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_easy_qty;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_hard_qty;
+        private System.Windows.Forms.DateTimePicker datepicker_start_at;
+        private System.Windows.Forms.DateTimePicker datepicker_end_at;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -985,14 +1000,5 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Label lbl_id;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_name;
-        private Bunifu.UI.WinForms.BunifuDropdown drop_subject;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox text_easy_qty;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_hard_qty;
-        private System.Windows.Forms.DateTimePicker datepicker_start_at;
-        private System.Windows.Forms.DateTimePicker datepicker_end_at;
     }
 }
