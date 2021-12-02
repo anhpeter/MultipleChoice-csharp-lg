@@ -76,6 +76,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_code = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,9 +94,9 @@ namespace MultipleChoiceApp.UserControls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(3, 400);
+            this.panel1.Location = new System.Drawing.Point(0, 453);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(909, 272);
+            this.panel1.Size = new System.Drawing.Size(909, 247);
             this.panel1.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -108,7 +109,7 @@ namespace MultipleChoiceApp.UserControls
             this.flowLayoutPanel1.Location = new System.Drawing.Point(677, 16);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(229, 257);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(229, 232);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // btn_add
@@ -146,6 +147,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_add.Textcolor = System.Drawing.Color.White;
             this.btn_add.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
@@ -182,6 +184,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_update.Textcolor = System.Drawing.Color.White;
             this.btn_update.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -218,6 +221,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_delete.Textcolor = System.Drawing.Color.White;
             this.btn_delete.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_clear
             // 
@@ -254,6 +258,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_clear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_clear.Textcolor = System.Drawing.Color.White;
             this.btn_clear.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // panel2
             // 
@@ -271,7 +276,7 @@ namespace MultipleChoiceApp.UserControls
             this.panel2.Controls.Add(this.txt_code);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(617, 292);
+            this.panel2.Size = new System.Drawing.Size(617, 244);
             this.panel2.TabIndex = 0;
             // 
             // txt_duration
@@ -303,7 +308,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_duration.IconRight = null;
             this.txt_duration.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_duration.Lines = new string[0];
-            this.txt_duration.Location = new System.Drawing.Point(146, 222);
+            this.txt_duration.Location = new System.Drawing.Point(146, 196);
             this.txt_duration.MaxLength = 32767;
             this.txt_duration.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_duration.Modified = false;
@@ -353,7 +358,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 231);
+            this.label5.Location = new System.Drawing.Point(3, 205);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 23);
             this.label5.TabIndex = 21;
@@ -388,7 +393,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_total_question.IconRight = null;
             this.txt_total_question.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_total_question.Lines = new string[0];
-            this.txt_total_question.Location = new System.Drawing.Point(146, 178);
+            this.txt_total_question.Location = new System.Drawing.Point(146, 152);
             this.txt_total_question.MaxLength = 32767;
             this.txt_total_question.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_total_question.Modified = false;
@@ -438,7 +443,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 187);
+            this.label4.Location = new System.Drawing.Point(3, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 23);
             this.label4.TabIndex = 19;
@@ -448,7 +453,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 57);
+            this.label1.Location = new System.Drawing.Point(3, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 23);
             this.label1.TabIndex = 6;
@@ -483,7 +488,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_lecturer.IconRight = null;
             this.txt_lecturer.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_lecturer.Lines = new string[0];
-            this.txt_lecturer.Location = new System.Drawing.Point(146, 133);
+            this.txt_lecturer.Location = new System.Drawing.Point(146, 107);
             this.txt_lecturer.MaxLength = 32767;
             this.txt_lecturer.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_lecturer.Modified = false;
@@ -533,7 +538,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 142);
+            this.label3.Location = new System.Drawing.Point(3, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 23);
             this.label3.TabIndex = 8;
@@ -568,7 +573,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_name.IconRight = null;
             this.txt_name.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_name.Lines = new string[0];
-            this.txt_name.Location = new System.Drawing.Point(146, 92);
+            this.txt_name.Location = new System.Drawing.Point(146, 66);
             this.txt_name.MaxLength = 32767;
             this.txt_name.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_name.Modified = false;
@@ -618,7 +623,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 101);
+            this.label2.Location = new System.Drawing.Point(3, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 23);
             this.label2.TabIndex = 7;
@@ -653,7 +658,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_code.IconRight = null;
             this.txt_code.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_code.Lines = new string[0];
-            this.txt_code.Location = new System.Drawing.Point(146, 48);
+            this.txt_code.Location = new System.Drawing.Point(146, 22);
             this.txt_code.MaxLength = 32767;
             this.txt_code.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_code.Modified = false;
@@ -773,6 +778,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_search.TextPlaceholder = "Keyword";
             this.txt_search.UseSystemPasswordChar = false;
             this.txt_search.WordWrap = true;
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
             // 
             // gv_main
             // 
@@ -783,8 +789,7 @@ namespace MultipleChoiceApp.UserControls
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.gv_main.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gv_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.gv_main.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -800,6 +805,7 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gv_main.ColumnHeadersHeight = 40;
             this.gv_main.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
             this.Column1,
             this.Column2,
             this.Column4,
@@ -842,9 +848,18 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.RowHeadersWidth = 51;
             this.gv_main.RowTemplate.Height = 40;
             this.gv_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gv_main.Size = new System.Drawing.Size(909, 288);
+            this.gv_main.Size = new System.Drawing.Size(909, 392);
             this.gv_main.TabIndex = 14;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Id";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
             // 
             // Column1
             // 
@@ -890,7 +905,7 @@ namespace MultipleChoiceApp.UserControls
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.panel1);
             this.Name = "SubjectControl";
-            this.Size = new System.Drawing.Size(909, 675);
+            this.Size = new System.Drawing.Size(909, 703);
             this.Load += new System.EventHandler(this.SubjectControl_Load);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -917,14 +932,15 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.Framework.UI.BunifuFlatButton btn_clear;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_duration;
+        private System.Windows.Forms.Label label5;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_total_question;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_duration;
-        private System.Windows.Forms.Label label5;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_total_question;
-        private System.Windows.Forms.Label label4;
     }
 }

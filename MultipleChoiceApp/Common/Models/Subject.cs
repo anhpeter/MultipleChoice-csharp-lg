@@ -10,6 +10,7 @@ namespace MultipleChoiceApp.Common.Models
 {
     public class Subject
     {
+        public int Id { get; set; }
         public String Code { get; set; }
         public String Name { get; set; }
         public int TotalQuestion { get; set; }
@@ -20,11 +21,12 @@ namespace MultipleChoiceApp.Common.Models
         {
             Subject item = new Subject()
             {
+                Id = Util.parseToInt(Util.getDrValue(dr, "Id"), -1),
                 Code = Util.getDrValue(dr, "Code"),
                 Name = Util.getDrValue(dr, "Name"),
                 Lecturer = Util.getDrValue(dr, "Lecturer"),
-                TotalQuestion = Util.parseToInt( Util.getDrValue(dr, "Lecturer"), -1),
-                Duration = Util.parseToInt( Util.getDrValue(dr, "Duration"), -1),
+                TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), -1),
+                Duration = Util.parseToInt(Util.getDrValue(dr, "Duration"), -1),
             };
             return item;
         }

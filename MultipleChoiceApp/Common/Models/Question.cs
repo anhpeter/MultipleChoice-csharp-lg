@@ -13,6 +13,7 @@ namespace MultipleChoiceApp.Common.Models
     {
         public int Id { get; set; }
         public String Content { get; set; }
+        public int SubjectId { get; set; }
         public String SubjectCode { get; set; }
         public String Level { get; set; }
         public int Chapter { get; set; }
@@ -27,6 +28,7 @@ namespace MultipleChoiceApp.Common.Models
             {
                 Id = Convert.ToInt32(Util.getDrValue(dr, "Id")),
                 Content = Util.getDrValue(dr, "Content"),
+                SubjectId = Util.parseToInt(Util.getDrValue(dr, "SubjedctId"), -1),
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
                 Level = Util.getDrValue(dr, "Level"),
                 Chapter = Util.parseToInt(Util.getDrValue(dr, "Chapter"), -1),

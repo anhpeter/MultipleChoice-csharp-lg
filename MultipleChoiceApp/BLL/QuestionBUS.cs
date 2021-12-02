@@ -14,14 +14,14 @@ namespace MultipleChoiceApp.BLL
         QuestionDAO mainDAO = new QuestionDAO();
         AnswerDAO answerDAO = new AnswerDAO();
 
-        public List<Question> getAllBySubjectCode(String code)
+        public List<Question> getAllBySubjectId(int id)
         {
-            return mainDAO.getAllBySubjectCode(code);
+            return mainDAO.getAllBySubjectId(id);
         }
 
-        public List<Question> searchByKeyword(String code, String keyword)
+        public List<Question> searchByKeyword(int id, String keyword)
         {
-            return mainDAO.searchByKeyWord(code, keyword);
+            return mainDAO.searchByKeyWord(id, keyword);
         }
 
         public Question getDetailsById(int id)

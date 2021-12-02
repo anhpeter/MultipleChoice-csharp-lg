@@ -177,7 +177,7 @@ namespace MultipleChoiceApp.UserControls
                 Id = questionId,
                 Answers = answerList,
                 Content = txt_question.Text.ToString(),
-                SubjectCode = getFormSubjectCode(),
+                SubjectId = getFormSubjectId(),
                 Level = level,
                 CorrectAnswerNo = correctAnsNo,
                 Chapter = chapter
@@ -185,9 +185,9 @@ namespace MultipleChoiceApp.UserControls
             return item;
         }
 
-        private String getFormSubjectCode()
+        private int getFormSubjectId()
         {
-            return drop_subject.SelectedValue.ToString();
+            return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
         }
 
         private int getCorrectAnsNo()
@@ -200,7 +200,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Question> list = mainBUS.getAllBySubjectCode(getFormSubjectCode());
+            List<Question> list = mainBUS.getAllBySubjectId(getFormSubjectId());
             refreshList(list);
         }
 
@@ -219,9 +219,9 @@ namespace MultipleChoiceApp.UserControls
         private void LoadDrops()
         {
             // SUBJECTS
-            if (subjectList == null) subjectList = subjectBUS.getAll();
+            if (subjectList == null) subjectList = subjectBUS.getAllForSelectData();
             drop_subject.DataSource = subjectList;
-            drop_subject.ValueMember = "Code";
+            drop_subject.ValueMember = "Id";
             drop_subject.DisplayMember = "Name";
 
             // LEVELS
@@ -276,7 +276,7 @@ namespace MultipleChoiceApp.UserControls
         {
             if (await FormHelper.getIdle(txt_search))
             {
-                List<Question> list = mainBUS.searchByKeyword(getFormSubjectCode(), txt_search.Text);
+                List<Question> list = mainBUS.searchByKeyword(getFormSubjectId(), txt_search.Text);
                 refreshList(list);
             }
         }

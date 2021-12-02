@@ -12,7 +12,7 @@ namespace MultipleChoiceApp.DAL
     {
         public SubjectDAO() : base("Subjects")
         {
-            this.primaryKey = "Code";
+            this.primaryKey = "Id";
         }
 
         // IMPLEMENT ABSTRACTS
@@ -22,6 +22,11 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public List<Subject> getAllForSelectData()
+        {
+            String sqlStr = $"select * from {tableName} order by Name desc";
+            return getAll(sqlStr);
+        }
         public List<Subject> getAll()
         {
             return getAll(getAllSqlStr());
@@ -35,7 +40,7 @@ namespace MultipleChoiceApp.DAL
         private String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
-                    select * from {0} {1} order by Name asc
+                    select * from {0} {1} order by Id desc
                 ", tableName, otherWhereStr);
             return sqlStr;
         }
@@ -49,7 +54,7 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("Lecturer", item.Lecturer + "");
             dataDict.Add("TotalQuestion", item.TotalQuestion + "");
             dataDict.Add("Duration", item.Duration + "");
-            return addWithDic(dataDict, true);
+            return addWithDic(dataDict);
         }
 
         // UPDATE
@@ -61,7 +66,7 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("Lecturer", item.Lecturer + "");
             dataDict.Add("TotalQuestion", item.TotalQuestion + "");
             dataDict.Add("Duration", item.Duration + "");
-            return base.updateWithDict(dataDict, $"WHERE {primaryKey}={item.Code}");
+            return base.updateWithDict(dataDict, $"WHERE {primaryKey}='{item.Id}'");
         }
 
         // DELETE

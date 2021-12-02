@@ -23,10 +23,10 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Question> getAllBySubjectCode(String code)
+        public List<Question> getAllBySubjectId(int id)
         {
             List<Question> list = new List<Question>();
-            String sqlStr = getAllBySujectCodeSqlStr(code);
+            String sqlStr = getAllBySujectIdSqlStr(id);
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             while (dr.Read())
             {
@@ -36,11 +36,11 @@ namespace MultipleChoiceApp.DAL
             return list;
         }
 
-        public List<Question> searchByKeyWord(String code, String keyword)
+        public List<Question> searchByKeyWord(int id, String keyword)
         {
             List<Question> list = new List<Question>();
             String searchCondStr = string.Format("AND q.Content like '%{0}%'", keyword);
-            String sqlStr = getAllBySujectCodeSqlStr(code, searchCondStr);
+            String sqlStr = getAllBySujectIdSqlStr(id, searchCondStr);
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             while (dr.Read())
             {
@@ -50,17 +50,17 @@ namespace MultipleChoiceApp.DAL
             return list;
         }
 
-        private String getAllBySujectCodeSqlStr(String code, String otherWhereStr = "")
+        private String getAllBySujectIdSqlStr(int id, String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
                     SELECT DISTINCT 
                         q.Id, CAST(q.Content as nvarchar(255)) as Content, q.Chapter, Q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
                         q.Level
                     FROM Questions as q 
-                        INNER JOIN Subjects as s ON (q.SubjectCode = s.Code)
-                    WHERE s.Code = '{0}' {1}
+                        INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
+                    WHERE s.Id = '{0}' {1}
                     ORDER BY q.Id DESC;
-                ", code, otherWhereStr);
+                ", id, otherWhereStr);
             return sqlStr;
         }
 
@@ -69,7 +69,7 @@ namespace MultipleChoiceApp.DAL
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
-            dataDict.Add("SubjectCode", item.SubjectCode);
+            dataDict.Add("SubjectId", item.SubjectId+"");
             dataDict.Add("Level", item.Level);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");
@@ -81,7 +81,7 @@ namespace MultipleChoiceApp.DAL
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
-            dataDict.Add("SubjectCode", item.SubjectCode);
+            dataDict.Add("SubjectId", item.SubjectId+"");
             dataDict.Add("Level", item.Level);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");

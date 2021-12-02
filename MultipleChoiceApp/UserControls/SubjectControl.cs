@@ -23,7 +23,6 @@ namespace MultipleChoiceApp.UserControls
         public SubjectControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
             this.MaximumSize = new Size(700, 1000);
         }
 
@@ -35,16 +34,16 @@ namespace MultipleChoiceApp.UserControls
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String code = getSelectedCode();
-            if (code != null)
+            int id = getSelectedId();
+            if (id > -1)
             {
-                formItem = mainBUS.getDetailsByCode(code);
+                formItem = mainBUS.getDetailsById(id);
                 if (formItem != null)
                 {
                     txt_code.Text = formItem.Code.ToString();
                     txt_name.Text = formItem.Name.ToString();
                     txt_lecturer.Text = formItem.Lecturer.ToString();
-                    txt_total_question.Text = formItem.ToString();
+                    txt_total_question.Text = formItem.TotalQuestion.ToString();
                     txt_duration.Text = formItem.Duration.ToString();
                 }
             }
@@ -75,10 +74,10 @@ namespace MultipleChoiceApp.UserControls
                 return;
             }
             //
-            Subject question = getFormItem();
+            Subject item = getFormItem();
             if (handleValidation())
             {
-                bool result = mainBUS.update(question);
+                bool result = mainBUS.update(item);
                 if (result)
                 {
                     FormHelper.notify(Msg.UPDATED);
@@ -98,12 +97,16 @@ namespace MultipleChoiceApp.UserControls
             DialogResult dialogResult = FormHelper.showDeleteConfirm();
             if (dialogResult == DialogResult.Yes)
             {
-                bool result = mainBUS.delete(formItem.Code);
+                bool result = mainBUS.delete(formItem.Id);
                 if (result)
                 {
                     FormHelper.notify(Msg.DELETED);
                     clearForm();
                     refreshList();
+                }
+                else
+                {
+                    FormHelper.showErrorMsg(Msg.DELETE_CONSTRAINT_ERROR);
                 }
             }
         }
@@ -135,6 +138,7 @@ namespace MultipleChoiceApp.UserControls
             // ANSWER LIST
             Subject item = new Subject()
             {
+                Id = formItem != null ? formItem.Id : -1,
                 Code = txt_code.Text.ToString(),
                 Name = txt_name.Text.ToString(),
                 Lecturer = txt_lecturer.Text.ToString(),
@@ -156,7 +160,7 @@ namespace MultipleChoiceApp.UserControls
             foreach (var item in list)
             {
                 gv_main.Rows.Add(new object[] {
-                    item.Code, item.Name,
+                    item.Id, item.Code, item.Name,
                     item.Lecturer, item.TotalQuestion, item.Duration
                 });
             }
@@ -172,16 +176,15 @@ namespace MultipleChoiceApp.UserControls
             formItem = null;
         }
 
-        private String getSelectedCode()
+        private int getSelectedId()
         {
             try
             {
-                String code = gv_main.SelectedRows[0].Cells[0].Value.ToString();
-                return code;
+                return Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
             }
             catch (Exception ex)
             {
-                return null;
+                return -1;
             }
         }
 

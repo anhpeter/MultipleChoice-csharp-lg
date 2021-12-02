@@ -55,7 +55,7 @@ namespace MultipleChoiceApp.DAL
             T item = default(T);
             try
             {
-                String sqlStr = $"Select * from {tableName} where {field}={value}";
+                String sqlStr = $"Select * from {tableName} where {field}='{value}'";
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 if (dr.Read())
                 {
@@ -86,7 +86,7 @@ namespace MultipleChoiceApp.DAL
                 values = values.Select(v => $"'{v}'").ToArray();
                 String valuesStr = string.Join(" , ", values);
 
-                String outputStr = output ? "OUTPUT Inserted.Id" : "";
+                String outputStr = output ? $"OUTPUT Inserted.{primaryKey}" : "";
                 String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) {outputStr} VALUES ({valuesStr})";
                 Debug.WriteLine(sqlStr);
                 if (output) return dbHelper.execWriteScalar(sqlStr);
@@ -132,7 +132,7 @@ namespace MultipleChoiceApp.DAL
         {
             try
             {
-                String sqlStr = $"Delete from {tableName} where {field}={value}";
+                String sqlStr = $"Delete from {tableName} where {field}='{value}'";
                 int affectedRows = dbHelper.execWrite(sqlStr);
                 return affectedRows > 0;
             }

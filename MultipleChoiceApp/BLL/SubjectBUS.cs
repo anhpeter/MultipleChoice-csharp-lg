@@ -13,14 +13,18 @@ namespace MultipleChoiceApp.BLL
     {
         SubjectDAO mainDAO = new SubjectDAO();
 
+        public List<Subject> getAllForSelectData()
+        {
+            return mainDAO.getAllForSelectData();
+        }
         public List<Subject> getAll()
         {
             return mainDAO.getAll();
         }
 
-        public Subject getDetailsByCode(String code)
+        public Subject getDetailsById(int id)
         {
-            Subject item = mainDAO.getByPK(code);
+            Subject item = mainDAO.getByPK(id+"");
             return item;
         }
 
@@ -40,9 +44,9 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.update(item);
         }
 
-        public bool delete(String code)
+        public bool delete(int id)
         {
-            return mainDAO.deleteByPK(code);
+            return mainDAO.deleteByPK(id+"");
         }
     }
 }
