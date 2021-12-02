@@ -296,7 +296,7 @@ namespace MultipleChoiceApp.UserControls
             this.datepicker_end_at.Location = new System.Drawing.Point(113, 185);
             this.datepicker_end_at.Name = "datepicker_end_at";
             this.datepicker_end_at.Size = new System.Drawing.Size(287, 22);
-            this.datepicker_end_at.TabIndex = 30;
+            this.datepicker_end_at.TabIndex = 6;
             // 
             // datepicker_start_at
             // 
@@ -304,7 +304,7 @@ namespace MultipleChoiceApp.UserControls
             this.datepicker_start_at.Location = new System.Drawing.Point(113, 145);
             this.datepicker_start_at.Name = "datepicker_start_at";
             this.datepicker_start_at.Size = new System.Drawing.Size(287, 22);
-            this.datepicker_start_at.TabIndex = 29;
+            this.datepicker_start_at.TabIndex = 5;
             // 
             // drop_subject
             // 
@@ -335,7 +335,7 @@ namespace MultipleChoiceApp.UserControls
             this.drop_subject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.drop_subject.Name = "drop_subject";
             this.drop_subject.Size = new System.Drawing.Size(249, 32);
-            this.drop_subject.TabIndex = 28;
+            this.drop_subject.TabIndex = 2;
             this.drop_subject.Text = null;
             // 
             // label5
@@ -422,7 +422,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_name.ShortcutsEnabled = true;
             this.txt_name.Size = new System.Drawing.Size(287, 35);
             this.txt_name.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_name.TabIndex = 25;
+            this.txt_name.TabIndex = 1;
             this.txt_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_name.TextMarginBottom = 0;
             this.txt_name.TextMarginLeft = 5;
@@ -545,7 +545,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_easy_qty.ShortcutsEnabled = true;
             this.txt_easy_qty.Size = new System.Drawing.Size(249, 35);
             this.txt_easy_qty.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_easy_qty.TabIndex = 2;
+            this.txt_easy_qty.TabIndex = 7;
             this.txt_easy_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_easy_qty.TextMarginBottom = 0;
             this.txt_easy_qty.TextMarginLeft = 5;
@@ -628,7 +628,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_hard_qty.ShortcutsEnabled = true;
             this.txt_hard_qty.Size = new System.Drawing.Size(249, 35);
             this.txt_hard_qty.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_hard_qty.TabIndex = 3;
+            this.txt_hard_qty.TabIndex = 8;
             this.txt_hard_qty.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_hard_qty.TextMarginBottom = 0;
             this.txt_hard_qty.TextMarginLeft = 5;
@@ -701,7 +701,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_semester.ShortcutsEnabled = true;
             this.txt_semester.Size = new System.Drawing.Size(287, 35);
             this.txt_semester.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_semester.TabIndex = 2;
+            this.txt_semester.TabIndex = 3;
             this.txt_semester.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_semester.TextMarginBottom = 0;
             this.txt_semester.TextMarginLeft = 5;

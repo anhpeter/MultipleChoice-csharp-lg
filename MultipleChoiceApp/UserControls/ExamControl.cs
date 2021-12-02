@@ -215,7 +215,7 @@ namespace MultipleChoiceApp.UserControls
         {
             // SUBJECTS
             if (subjectList == null) subjectList = subjectBUS.getAllForSelectData();
-            else if (subjectList.Count > 0)
+            if (subjectList.Count > 0)
             {
                 drop_subject.DataSource = subjectList;
                 drop_subject.ValueMember = "Id";

@@ -38,6 +38,8 @@ namespace MultipleChoiceApp.UserControls
         // EVENTS
         private void QuestionControl_Load(object sender, EventArgs e)
         {
+            drop_level.Visible = false;
+            drop_subject.Visible = false;
             LoadDrops();
             refreshList();
         }
@@ -228,6 +230,7 @@ namespace MultipleChoiceApp.UserControls
             drop_subject.DataSource = subjectList;
             drop_subject.ValueMember = "Id";
             drop_subject.DisplayMember = "Name";
+            drop_subject.SelectedIndex = 1;
 
             // LEVELS
             Dictionary<string, string> test = new Dictionary<string, string>();
@@ -237,6 +240,9 @@ namespace MultipleChoiceApp.UserControls
             drop_level.DataSource = new BindingSource(test, null);
             drop_level.DisplayMember = "Value";
             drop_level.ValueMember = "Key";
+
+            drop_level.Visible = true;
+            drop_subject.Visible = true;
         }
 
         private void clearForm()
@@ -247,7 +253,7 @@ namespace MultipleChoiceApp.UserControls
             txt_ans2.Text = "";
             txt_ans3.Text = "";
             txt_ans4.Text = "";
-            txt_chapter.Text = "-1";
+            txt_chapter.Text = "1";
             drop_level.SelectedIndex = 0;
             checkRdoAnsCorrect(1);
             formItem = null;

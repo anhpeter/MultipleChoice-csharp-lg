@@ -46,9 +46,10 @@ namespace MultipleChoiceApp.Common.UtilForms
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(4)))), ((int)(((byte)(4)))));
             this.panel1.Controls.Add(this.btn_close);
             this.panel1.Controls.Add(this.lbl_title);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(579, 59);
+            this.panel1.Size = new System.Drawing.Size(603, 64);
             this.panel1.TabIndex = 0;
             // 
             // btn_close

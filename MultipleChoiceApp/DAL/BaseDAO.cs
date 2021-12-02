@@ -75,11 +75,16 @@ namespace MultipleChoiceApp.DAL
         protected int addWithDic(Dictionary<String, String> dataDict, bool output = false)
         {
             String sqlStr = genInsertSqlStr(dataDict, output);
+            foreach (var key in dataDict.Keys.ToArray())
+            {
+                String value = standardizeValue(dataDict[key]);
+                sqlStr = sqlStr.Replace($"@{key}", $"N'{value}'");
+            }
+            Debug.WriteLine(sqlStr);
             SqlCommand com = new SqlCommand(sqlStr);
-            addParamValueToCom(dataDict, com);
+            //addParamValueToCom(dataDict, com);
             if (output) return dbHelper.execWriteScalar(com);
             return dbHelper.execWrite(com);
-
         }
 
 
@@ -87,8 +92,14 @@ namespace MultipleChoiceApp.DAL
         protected bool updateWithDict(Dictionary<String, String> dataDict, String whereClause)
         {
             String sqlStr = genUpdateSqlStr(dataDict, whereClause);
+            foreach (var key in dataDict.Keys.ToArray())
+            {
+                String value = standardizeValue(dataDict[key]);
+                sqlStr = sqlStr.Replace($"@{key}", $"N'{value}'");
+            }
+            Debug.WriteLine(sqlStr);
             SqlCommand com = new SqlCommand(sqlStr);
-            addParamValueToCom(dataDict, com);
+            //addParamValueToCom(dataDict, com);
             int affectedRows = dbHelper.execWrite(com);
             return affectedRows > 0;
         }
@@ -123,7 +134,7 @@ namespace MultipleChoiceApp.DAL
         {
             foreach (var key in dataDict.Keys.ToArray())
             {
-                com.Parameters.Add(new SqlParameter($"@{key}", dataDict[key]));
+                com.Parameters.Add(new SqlParameter($"@{key}", "N" + dataDict[key]));
             }
         }
         private String genInsertSqlStr(Dictionary<String, String> dataDict, bool output = false)
@@ -148,6 +159,11 @@ namespace MultipleChoiceApp.DAL
             updateStr = updateStr.Substring(0, updateStr.Length - 1);
             String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
             return sqlStr;
+        }
+
+        private String standardizeValue(String value)
+        {
+            return value.Replace("'", "''");
         }
     }
 }

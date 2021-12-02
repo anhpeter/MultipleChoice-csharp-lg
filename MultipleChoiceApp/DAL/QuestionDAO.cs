@@ -56,8 +56,7 @@ namespace MultipleChoiceApp.DAL
                     SELECT DISTINCT 
                         q.Id, CAST(q.Content as nvarchar(255)) as Content, q.Chapter, Q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
                         q.Level
-                    FROM Questions as q 
-                        INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
+                    FROM Questions as q INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
                     WHERE s.Id = '{0}' {1}
                     ORDER BY q.Id DESC;
                 ", id, otherWhereStr);
