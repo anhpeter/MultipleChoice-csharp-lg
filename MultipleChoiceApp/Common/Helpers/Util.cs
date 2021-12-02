@@ -34,7 +34,7 @@ namespace MultipleChoiceApp.Common.Helpers
 
         public static String toSqlFormattedDate(DateTime date)
         {
-            return date.ToString("yyyy-MM-dd HH:mm:ss.fff")
+            return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
     }
 }
