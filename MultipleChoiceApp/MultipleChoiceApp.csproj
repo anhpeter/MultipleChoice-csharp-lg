@@ -222,6 +222,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
@@ -252,6 +253,35 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assets\Icons\Exams.png" />
+    <Content Include="Assets\Icons\Exams_active.png" />
+    <Content Include="Assets\Icons\Exit.png" />
+    <Content Include="Assets\Icons\Exit_active.png" />
+    <Content Include="Assets\Icons\Managers.png" />
+    <Content Include="Assets\Icons\Managers_active.png" />
+    <Content Include="Assets\Icons\Questions.png" />
+    <Content Include="Assets\Icons\Question_active.png" />
+    <Content Include="Assets\Icons\Results.png" />
+    <Content Include="Assets\Icons\Results_active.png" />
+    <Content Include="Assets\Icons\Students.png" />
+    <Content Include="Assets\Icons\Students_active.png" />
+    <Content Include="Assets\Icons\Subjects.png" />
+    <Content Include="Assets\Icons\Subjects_active.png" />
+    <None Include="Resources\Subjects_active.png" />
+    <None Include="Resources\Subjects.png" />
+    <None Include="Resources\Students_active.png" />
+    <None Include="Resources\Students.png" />
+    <None Include="Resources\Results_active.png" />
+    <None Include="Resources\Results.png" />
+    <None Include="Resources\Questions.png" />
+    <None Include="Resources\Question_active.png" />
+    <None Include="Resources\Managers_active.png" />
+    <None Include="Resources\Managers.png" />
+    <None Include="Resources\Exit_active.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Exams_active.png" />
+    <None Include="Resources\Exams.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
