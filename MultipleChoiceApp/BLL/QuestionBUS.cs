@@ -55,7 +55,7 @@ namespace MultipleChoiceApp.BLL
 
         public bool delete(int id)
         {
-            bool deleteQuestionResult = mainDAO.deleteById(id);
+            bool deleteQuestionResult = mainDAO.deleteByPK(id+"");
             if (deleteQuestionResult)
             {
                 return true;

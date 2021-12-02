@@ -64,8 +64,6 @@ namespace MultipleChoiceApp.DAL
             return sqlStr;
         }
 
-        // UPDATE
-
         // ADD
         public int add(Question item)
         {
@@ -77,6 +75,7 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("Chapter", item.Chapter + "");
             return addWithDic(dataDict, true);
         }
+
         // UPDATE
         public bool update(Question item)
         {
@@ -88,5 +87,7 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("Chapter", item.Chapter + "");
             return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
         }
+
+        // DELETE
     }
 }

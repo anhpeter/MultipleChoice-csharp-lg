@@ -24,7 +24,7 @@ namespace MultipleChoiceApp.Common.Validators
             RuleFor(p => p.Chapter)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Chapter"))
-                .InclusiveBetween(1, 100).WithMessage(string.Format(Msg.VLD__BETWEEN, "Chapter", 1, 100));
+                .InclusiveBetween(1, 100).WithMessage(string.Format(Msg.VLD_BETWEEN, "Chapter", 1, 100));
 
         }
     }

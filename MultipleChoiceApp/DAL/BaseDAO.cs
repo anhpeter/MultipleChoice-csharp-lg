@@ -24,12 +24,14 @@ namespace MultipleChoiceApp.DAL
         protected abstract T fromDR(SqlDataReader dr);
 
         // FETCHES
-        public List<T> getAll()
+
+        public List<T> getAll(String sqlStr = null)
         {
             List<T> list = new List<T>();
             try
             {
-                String sqlStr = $"Select * from {tableName} order by Name asc";
+
+                sqlStr = sqlStr != null ? sqlStr : $"Select * from {tableName}";
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
                 {
@@ -121,14 +123,11 @@ namespace MultipleChoiceApp.DAL
             }
 
         }
-        public bool deleteById(int id)
+        public bool deleteByPK(String value)
         {
-            return deleteByField("Id", id.ToString());
+            return deleteByField(primaryKey, value);
         }
-        public bool deleteByCode(String code)
-        {
-            return deleteByField("Code", code);
-        }
+
         public bool deleteByField(String field, String value)
         {
             try

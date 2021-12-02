@@ -18,11 +18,31 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.getAll();
         }
 
-        public Subject getDetailsById(int id)
+        public Subject getDetailsByCode(String code)
         {
-            Debug.WriteLine(id);
-            Subject item = mainDAO.getByPK(id+"");
+            Subject item = mainDAO.getByPK(code);
             return item;
+        }
+
+        public List<Subject> searchByKeyword(String keyword)
+        {
+            return mainDAO.searchByKeyWord(keyword);
+        }
+
+        public bool add(Subject item)
+        {
+            return mainDAO.add(item) > 0;
+        }
+
+        public bool update(Subject item)
+        {
+
+            return mainDAO.update(item);
+        }
+
+        public bool delete(String code)
+        {
+            return mainDAO.deleteByPK(code);
         }
     }
 }
