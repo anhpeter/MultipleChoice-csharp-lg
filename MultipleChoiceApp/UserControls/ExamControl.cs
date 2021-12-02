@@ -18,9 +18,13 @@ namespace MultipleChoiceApp.UserControls
             this.Dock = DockStyle.Fill;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void ExamControl_Load(object sender, EventArgs e)
         {
 
+            datepicker_start_at.Format = DateTimePickerFormat.Custom;
+            datepicker_start_at.CustomFormat = "dd/MM/yyyy hh:mm";
+            datepicker_end_at.Format = DateTimePickerFormat.Custom;
+            datepicker_end_at.CustomFormat = "dd/MM/yyyy hh:mm";
         }
     }
 }
