@@ -43,6 +43,7 @@ namespace MultipleChoiceApp.DAL
                     SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion
                     FROM Exams as e
                         INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
+                        {0}
                     ORDER BY e.Id DESC;
                 ", otherWhereStr);
             return sqlStr;

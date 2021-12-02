@@ -182,8 +182,8 @@ namespace MultipleChoiceApp.UserControls
         {
             txt_name.Text = "";
             txt_semester.Text = "";
-            txt_easy_qty.Text = "";
-            txt_hard_qty.Text = "";
+            txt_easy_qty.Text = "0";
+            txt_hard_qty.Text = "0";
             datepicker_start_at.Text = DateTime.Now.ToString();
             datepicker_end_at.Text = DateTime.Now.ToString();
             drop_subject.SelectedIndex = 0;

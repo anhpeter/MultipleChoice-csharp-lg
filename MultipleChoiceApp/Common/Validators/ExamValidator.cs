@@ -26,14 +26,12 @@ namespace MultipleChoiceApp.Common.Validators
 
             RuleFor(p => p.EasyQty)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Easy qty"))
-                .Must(v => v > -1).WithMessage(string.Format(Msg.VLD_NUMBER, "Easy qty"))
-                .Must((ex, easyQty) => ex.HardQty+easyQty<=ex.Subject.TotalQuestion).WithMessage((ex)=>$"Easy and hard question quantity must not exeeding total question ({ex.Subject.TotalQuestion} questions).");
+                .Must((ex, easyQty) => (easyQty >= 0 && easyQty <= ex.Subject.TotalQuestion - ex.HardQty)).WithMessage((ex) => string.Format(Msg.VLD_BETWEEN, "Easy question qty", 0, ex.Subject.TotalQuestion - (ex.HardQty >= 0 ? ex.HardQty : 0)))
+                .Must((ex, easyQty) => ex.HardQty + easyQty <= ex.Subject.TotalQuestion).WithMessage((ex) => $"Easy and hard question quantity must not exeeding total question ({ex.Subject.TotalQuestion} questions).");
 
             RuleFor(p => p.HardQty)
                 .Cascade(CascadeMode.StopOnFirstFailure)
-                .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Hard qty"))
-                .Must(v => v > -1).WithMessage(string.Format(Msg.VLD_NUMBER, "Hard qty"));
+                .Must((ex, hardQty) => (hardQty >= 0 && hardQty <= ex.Subject.TotalQuestion - ex.EasyQty)).WithMessage((ex) => string.Format(Msg.VLD_BETWEEN, "Hard question qty", 0, ex.Subject.TotalQuestion - (ex.EasyQty >= 0 ? ex.EasyQty : 0)));
         }
     }
 }

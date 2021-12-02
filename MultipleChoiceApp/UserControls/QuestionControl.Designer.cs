@@ -317,7 +317,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_add.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_add.selected = false;
             this.btn_add.Size = new System.Drawing.Size(221, 42);
-            this.btn_add.TabIndex = 0;
+            this.btn_add.TabIndex = 12;
             this.btn_add.Text = "Add";
             this.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_add.Textcolor = System.Drawing.Color.White;
@@ -354,7 +354,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_edit.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_edit.selected = false;
             this.btn_edit.Size = new System.Drawing.Size(221, 42);
-            this.btn_edit.TabIndex = 0;
+            this.btn_edit.TabIndex = 13;
             this.btn_edit.Text = "Update";
             this.btn_edit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_edit.Textcolor = System.Drawing.Color.White;
@@ -391,7 +391,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_delete.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_delete.selected = false;
             this.btn_delete.Size = new System.Drawing.Size(221, 42);
-            this.btn_delete.TabIndex = 1;
+            this.btn_delete.TabIndex = 14;
             this.btn_delete.Text = "Delete";
             this.btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_delete.Textcolor = System.Drawing.Color.White;
@@ -428,7 +428,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_clear.OnHoverTextColor = System.Drawing.Color.White;
             this.btn_clear.selected = false;
             this.btn_clear.Size = new System.Drawing.Size(221, 42);
-            this.btn_clear.TabIndex = 2;
+            this.btn_clear.TabIndex = 15;
             this.btn_clear.Text = "Clear";
             this.btn_clear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_clear.Textcolor = System.Drawing.Color.White;
@@ -470,7 +470,7 @@ namespace MultipleChoiceApp.UserControls
             this.rdo_ans4.OutlineColor = System.Drawing.Color.Purple;
             this.rdo_ans4.RadioColor = System.Drawing.Color.Purple;
             this.rdo_ans4.Size = new System.Drawing.Size(25, 25);
-            this.rdo_ans4.TabIndex = 3;
+            this.rdo_ans4.TabIndex = 11;
             this.rdo_ans4.Tag = "4";
             this.rdo_ans4.Text = null;
             // 
@@ -483,7 +483,7 @@ namespace MultipleChoiceApp.UserControls
             this.rdo_ans3.OutlineColor = System.Drawing.Color.Purple;
             this.rdo_ans3.RadioColor = System.Drawing.Color.Purple;
             this.rdo_ans3.Size = new System.Drawing.Size(25, 25);
-            this.rdo_ans3.TabIndex = 2;
+            this.rdo_ans3.TabIndex = 10;
             this.rdo_ans3.Tag = "3";
             this.rdo_ans3.Text = null;
             // 
@@ -496,7 +496,7 @@ namespace MultipleChoiceApp.UserControls
             this.rdo_ans2.OutlineColor = System.Drawing.Color.Purple;
             this.rdo_ans2.RadioColor = System.Drawing.Color.Purple;
             this.rdo_ans2.Size = new System.Drawing.Size(25, 25);
-            this.rdo_ans2.TabIndex = 1;
+            this.rdo_ans2.TabIndex = 9;
             this.rdo_ans2.Tag = "2";
             this.rdo_ans2.Text = null;
             // 
@@ -509,7 +509,7 @@ namespace MultipleChoiceApp.UserControls
             this.rdo_ans1.OutlineColor = System.Drawing.Color.Purple;
             this.rdo_ans1.RadioColor = System.Drawing.Color.Purple;
             this.rdo_ans1.Size = new System.Drawing.Size(25, 25);
-            this.rdo_ans1.TabIndex = 0;
+            this.rdo_ans1.TabIndex = 8;
             this.rdo_ans1.Tag = "1";
             this.rdo_ans1.Text = null;
             // 
@@ -613,7 +613,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_chapter.ShortcutsEnabled = true;
             this.txt_chapter.Size = new System.Drawing.Size(179, 34);
             this.txt_chapter.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_chapter.TabIndex = 13;
+            this.txt_chapter.TabIndex = 7;
             this.txt_chapter.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_chapter.TextMarginBottom = 0;
             this.txt_chapter.TextMarginLeft = 5;
@@ -671,7 +671,7 @@ namespace MultipleChoiceApp.UserControls
             this.drop_level.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.drop_level.Name = "drop_level";
             this.drop_level.Size = new System.Drawing.Size(179, 32);
-            this.drop_level.TabIndex = 4;
+            this.drop_level.TabIndex = 6;
             this.drop_level.Text = null;
             // 
             // label5

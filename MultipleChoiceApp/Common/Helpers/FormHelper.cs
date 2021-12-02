@@ -46,7 +46,7 @@ namespace MultipleChoiceApp.Common.Helpers
         public static async Task<bool> getIdle(BunifuTextBox txb)
         {
             string txt = txb.Text;
-            await Task.Delay(1000);
+            await Task.Delay(500);
             return txt == txb.Text;
         }
     }

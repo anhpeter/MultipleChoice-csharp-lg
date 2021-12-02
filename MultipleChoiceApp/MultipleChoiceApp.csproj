@@ -254,20 +254,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Icons\Exams.png" />
-    <Content Include="Assets\Icons\Exams_active.png" />
-    <Content Include="Assets\Icons\Exit.png" />
-    <Content Include="Assets\Icons\Exit_active.png" />
-    <Content Include="Assets\Icons\Managers.png" />
-    <Content Include="Assets\Icons\Managers_active.png" />
-    <Content Include="Assets\Icons\Questions.png" />
-    <Content Include="Assets\Icons\Question_active.png" />
-    <Content Include="Assets\Icons\Results.png" />
-    <Content Include="Assets\Icons\Results_active.png" />
-    <Content Include="Assets\Icons\Students.png" />
-    <Content Include="Assets\Icons\Students_active.png" />
-    <Content Include="Assets\Icons\Subjects.png" />
-    <Content Include="Assets\Icons\Subjects_active.png" />
     <None Include="Resources\Subjects_active.png" />
     <None Include="Resources\Subjects.png" />
     <None Include="Resources\Students_active.png" />
@@ -282,6 +268,12 @@
     <None Include="Resources\Exit.png" />
     <None Include="Resources\Exams_active.png" />
     <None Include="Resources\Exams.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
