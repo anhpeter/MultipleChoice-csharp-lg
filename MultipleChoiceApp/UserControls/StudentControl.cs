@@ -16,7 +16,6 @@ namespace MultipleChoiceApp.UserControls
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            this.MaximumSize = new Size(1000, 1000);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

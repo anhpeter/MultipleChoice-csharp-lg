@@ -31,5 +31,10 @@ namespace MultipleChoiceApp.Common.Helpers
                 return defaultValue; //Use default value if parsing failed
             }
         }
+
+        public static String toSqlFormattedDate(DateTime date)
+        {
+            return date.ToString("yyyy-MM-dd HH:mm:ss.fff")
+        }
     }
 }
