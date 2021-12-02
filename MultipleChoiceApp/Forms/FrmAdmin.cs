@@ -1,6 +1,7 @@
 ﻿using Bunifu.Framework.UI;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.UtilForms;
+using MultipleChoiceApp.Forms;
 using MultipleChoiceApp.UserControls;
 using System;
 using System.Collections.Generic;
@@ -63,7 +64,10 @@ namespace MultipleChoiceApp
                 else
                 {
                     c.Textcolor = Color.DimGray;
+                    try
+                    {
                     c.Iconimage = iconDict[c.Tag.ToString()];
+                    }catch(Exception ex) { }
                 }
             }
             pnl_main.Controls.Clear();
@@ -84,6 +88,13 @@ namespace MultipleChoiceApp
         private void btn_exam_Click(object sender, EventArgs e)
         {
             changeControl(new ExamControl(), "Exams");
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            FrmLogin frm = new FrmLogin();
+            frm.Show();
+            this.Hide();
         }
     }
 }
