@@ -75,6 +75,7 @@ namespace MultipleChoiceApp.UserControls
             gv_main.Columns[1].Width = (int)(gv_main.Width * 0.5);
         }
 
+
         // ACTIONS
         private void btn_add_Click(object sender, EventArgs e)
         {
@@ -135,6 +136,16 @@ namespace MultipleChoiceApp.UserControls
         private void btn_clear_Click(object sender, EventArgs e)
         {
             clearForm();
+        }
+
+        private void btn_export_excel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_import_excel_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -291,5 +302,6 @@ namespace MultipleChoiceApp.UserControls
                 refreshList(list);
             }
         }
+
     }
 }

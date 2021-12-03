@@ -99,12 +99,12 @@
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
-    <Compile Include="Common\Models\Answer.cs" />
-    <Compile Include="Common\Models\Exam.cs" />
-    <Compile Include="Common\Models\Question.cs" />
-    <Compile Include="Common\Models\Manager.cs" />
-    <Compile Include="Common\Models\Student.cs" />
-    <Compile Include="Common\Models\Subject.cs" />
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
     <Compile Include="Common\UtilForms\Alert.cs">
       <SubType>Form</SubType>
     </Compile>
