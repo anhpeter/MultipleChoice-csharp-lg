@@ -26,7 +26,7 @@ namespace MultipleChoiceApp.Common.Helpers
             Alert alert = new Alert(msg);
             alert.Show();
         }
-        public static void showErrorMsg(String msg, String title="!")
+        public static void showErrorMsg(String msg, String title = "!")
         {
             FormErrorMessages errorForm = new FormErrorMessages(title, msg);
             errorForm.Show();
@@ -48,6 +48,13 @@ namespace MultipleChoiceApp.Common.Helpers
             string txt = txb.Text;
             await Task.Delay(500);
             return txt == txb.Text;
+        }
+
+        public static void replaceForm(Form currentFrm, Form newFrm)
+        {
+            currentFrm.Visible = false;
+            newFrm.ShowDialog();
+            currentFrm.Close();
         }
     }
 }

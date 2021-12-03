@@ -17,8 +17,10 @@ namespace MultipleChoiceApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmAdmin());
             Application.Run(new FrmLogin());
+            //FrmLogin frm = new FrmLogin();
+            //frm.Show();
+            //Application.Run();
         }
     }
 }

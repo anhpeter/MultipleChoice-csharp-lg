@@ -48,7 +48,7 @@ namespace MultipleChoiceApp.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_start = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_exit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -317,41 +317,42 @@ namespace MultipleChoiceApp.Forms
             this.btn_start.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
-            // bunifuFlatButton2
+            // btn_exit
             // 
-            this.bunifuFlatButton2.Active = false;
-            this.bunifuFlatButton2.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.bunifuFlatButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.bunifuFlatButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton2.BorderRadius = 0;
-            this.bunifuFlatButton2.ButtonText = "Exit";
-            this.bunifuFlatButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton2.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton2.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton2.Iconimage")));
-            this.bunifuFlatButton2.Iconimage_right = null;
-            this.bunifuFlatButton2.Iconimage_right_Selected = null;
-            this.bunifuFlatButton2.Iconimage_Selected = null;
-            this.bunifuFlatButton2.IconMarginLeft = 0;
-            this.bunifuFlatButton2.IconMarginRight = 0;
-            this.bunifuFlatButton2.IconRightVisible = true;
-            this.bunifuFlatButton2.IconRightZoom = 0D;
-            this.bunifuFlatButton2.IconVisible = true;
-            this.bunifuFlatButton2.IconZoom = 90D;
-            this.bunifuFlatButton2.IsTab = false;
-            this.bunifuFlatButton2.Location = new System.Drawing.Point(615, 453);
-            this.bunifuFlatButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.bunifuFlatButton2.Name = "bunifuFlatButton2";
-            this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.selected = false;
-            this.bunifuFlatButton2.Size = new System.Drawing.Size(250, 60);
-            this.bunifuFlatButton2.TabIndex = 6;
-            this.bunifuFlatButton2.Text = "Exit";
-            this.bunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton2.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Active = false;
+            this.btn_exit.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_exit.BorderRadius = 0;
+            this.btn_exit.ButtonText = "Exit";
+            this.btn_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_exit.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_exit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_exit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_exit.Iconimage")));
+            this.btn_exit.Iconimage_right = null;
+            this.btn_exit.Iconimage_right_Selected = null;
+            this.btn_exit.Iconimage_Selected = null;
+            this.btn_exit.IconMarginLeft = 0;
+            this.btn_exit.IconMarginRight = 0;
+            this.btn_exit.IconRightVisible = true;
+            this.btn_exit.IconRightZoom = 0D;
+            this.btn_exit.IconVisible = true;
+            this.btn_exit.IconZoom = 90D;
+            this.btn_exit.IsTab = false;
+            this.btn_exit.Location = new System.Drawing.Point(615, 453);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_exit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btn_exit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_exit.selected = false;
+            this.btn_exit.Size = new System.Drawing.Size(250, 60);
+            this.btn_exit.TabIndex = 6;
+            this.btn_exit.Text = "Exit";
+            this.btn_exit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_exit.Textcolor = System.Drawing.Color.White;
+            this.btn_exit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // FrmExamStart
             // 
@@ -359,7 +360,7 @@ namespace MultipleChoiceApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1071, 556);
-            this.Controls.Add(this.bunifuFlatButton2);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
@@ -398,6 +399,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label lbl_question_qty;
         private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuFlatButton btn_start;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_exit;
     }
 }

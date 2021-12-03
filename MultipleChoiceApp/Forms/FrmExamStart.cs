@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,18 @@ namespace MultipleChoiceApp.Forms
         public FrmExamStart()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            FrmTakingExam examFrm = new FrmTakingExam();
-            examFrm.Show();
-            this.Hide();
+            FormHelper.replaceForm(this, new FrmTakingExam());
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            FormHelper.replaceForm(this, new FrmLogin());
+
         }
     }
 }

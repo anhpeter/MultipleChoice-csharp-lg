@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace MultipleChoiceApp.Forms
         public FrmLogin()
         {
             InitializeComponent();
+            CenterToScreen();
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -26,15 +28,12 @@ namespace MultipleChoiceApp.Forms
         {
             if (rdo_manager.Checked)
             {
-            FrmAdmin adminFrm = new FrmAdmin();
-            adminFrm.Show();
+                FormHelper.replaceForm(this, new FrmAdmin());
             }
             else
             {
-                FrmExamStart examStartFrm = new FrmExamStart();
-                examStartFrm.Show();
+                FormHelper.replaceForm(this, new FrmExamStart());
             }
-            this.Hide();
         }
 
     }

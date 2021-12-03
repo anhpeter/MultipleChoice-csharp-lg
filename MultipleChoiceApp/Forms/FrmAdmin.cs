@@ -59,15 +59,16 @@ namespace MultipleChoiceApp
                 if (c.Tag.Equals(title))
                 {
                     c.Textcolor = Color.DodgerBlue;
-                    c.Iconimage = iconDict[c.Tag.ToString()+"_active"];
+                    c.Iconimage = iconDict[c.Tag.ToString() + "_active"];
                 }
                 else
                 {
                     c.Textcolor = Color.DimGray;
                     try
                     {
-                    c.Iconimage = iconDict[c.Tag.ToString()];
-                    }catch(Exception ex) { }
+                        c.Iconimage = iconDict[c.Tag.ToString()];
+                    }
+                    catch (Exception ex) { }
                 }
             }
             pnl_main.Controls.Clear();
@@ -92,9 +93,7 @@ namespace MultipleChoiceApp
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-            FrmLogin frm = new FrmLogin();
-            frm.Show();
-            this.Hide();
+            FormHelper.replaceForm(this, new FrmLogin());
         }
     }
 }

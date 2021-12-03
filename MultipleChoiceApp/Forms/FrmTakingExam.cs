@@ -26,9 +26,7 @@ namespace MultipleChoiceApp.Forms
 
         private void btn_submit_Click(object sender, EventArgs e)
         {
-            FrmExamFinish frm = new FrmExamFinish();
-            frm.Show();
-            this.Hide();
+            FormHelper.replaceForm(this, new FrmExamFinish());
         }
     }
 }
