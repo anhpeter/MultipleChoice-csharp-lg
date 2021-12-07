@@ -12,6 +12,7 @@ namespace MultipleChoiceApp
     {
         public int Id { get; set; }
         public String Code { get; set; }
+        public String Password { get; set; }
         public String FullName { get; set; }
         public String Address { get; set; }
         public DateTime DOB { get; set; }
@@ -23,6 +24,7 @@ namespace MultipleChoiceApp
             {
                 Id = Util.parseToInt(Util.getDrValue(dr, "Id"), -1),
                 Code = Util.getDrValue(dr, "Code"),
+                Password = Util.getDrValue(dr, "Password"),
                 FullName = Util.getDrValue(dr, "FullName"),
                 Address = Util.getDrValue(dr, "Address"),
                 DOB = Convert.ToDateTime(Util.getDrValue(dr, "DOB")),

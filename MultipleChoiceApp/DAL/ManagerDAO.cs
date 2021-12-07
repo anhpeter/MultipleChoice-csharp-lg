@@ -36,7 +36,7 @@ namespace MultipleChoiceApp.DAL
         public int add(Manager item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
-            dataDict.Add("Password", "loveguitar");
+            dataDict.Add("Password",Util.md5("loveguitar"));
             dataDict.Add("Code", item.Code);
             dataDict.Add("FullName", item.FullName);
             dataDict.Add("Address", item.Address);

@@ -200,8 +200,12 @@ namespace MultipleChoiceApp.UserControls
             txt_semester.Text = "";
             txt_easy_qty.Text = "0";
             txt_hard_qty.Text = "0";
-            datepicker_start_at.Text = DateTime.Now.ToString();
-            datepicker_end_at.Text = DateTime.Now.ToString();
+            DateTime now = DateTime.Now;
+            DateTime start = new DateTime(now.Year, now.Month, now.Day+1, 7, 0, 0);
+            DateTime end = new DateTime(now.Year, now.Month, now.Day+1, 8, 0, 0);
+
+            datepicker_start_at.Text = start.ToString();
+            datepicker_end_at.Text = end.ToString();
             drop_subject.SelectedIndex = 0;
             formItem = null;
         }
