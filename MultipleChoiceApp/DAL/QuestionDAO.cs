@@ -20,6 +20,11 @@ namespace MultipleChoiceApp.DAL
         {
             return Question.fromDR(dr);
         }
+        // COUNT
+        public int countBySubjectId(int id)
+        {
+            return count(getAllBySujectIdSqlStr(id));
+        }
 
         // FETCHS
         public List<Question> getAllBySubjectId(int id)

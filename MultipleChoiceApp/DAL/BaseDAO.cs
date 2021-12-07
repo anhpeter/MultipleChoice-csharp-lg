@@ -23,8 +23,20 @@ namespace MultipleChoiceApp.DAL
         // ABSTRACT
         protected abstract T fromDR(SqlDataReader dr);
 
-        // FETCHES
+        // COUNT
+        public int count(String sqlStr)
+        {
+            int result = dbHelper.execWriteScalar(sqlStr);
+            //int result = -1;
+            //if (dr.Read())
+            //{
+            //    result = 
+            //}
+            //dbHelper.closeConnection();
+            return result;
+        }
 
+        // FETCHES
         public List<T> getAll(String sqlStr = null)
         {
             List<T> list = new List<T>();

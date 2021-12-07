@@ -24,6 +24,7 @@ namespace MultipleChoiceApp.UserControls
 
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
+        Pagination pagination;
 
         //
         Question formItem;
@@ -219,6 +220,7 @@ namespace MultipleChoiceApp.UserControls
             {
                 List<Question> list = mainBUS.getAllBySubjectId(subjectId);
                 refreshList(list);
+                handlePagination(subjectId);
             }
         }
 
@@ -231,6 +233,20 @@ namespace MultipleChoiceApp.UserControls
                     item.Id, item.Content,
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
+            }
+        }
+
+        private void handlePagination(int subjectId)
+        {
+            int count = mainBUS.countBySubjectId(subjectId);
+            if (pagination == null)
+            {
+                pagination = new Pagination(count, 1, 5, 3);
+            }
+            else
+            {
+                pagination.totalItems = count;
+                pagination.calculate();
             }
         }
 

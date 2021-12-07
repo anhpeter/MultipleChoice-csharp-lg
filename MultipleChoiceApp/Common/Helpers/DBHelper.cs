@@ -30,6 +30,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             catch (Exception ex)
             {
+                closeConnection();
                 Debug.WriteLine(ex.Message);
                 return null;
             }
@@ -54,6 +55,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             catch (Exception ex)
             {
+                closeConnection();
                 Debug.WriteLine(ex.Message);
                 return -1;
             }
@@ -79,6 +81,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             catch (Exception ex)
             {
+                closeConnection();
                 Debug.WriteLine(ex.Message);
                 return -1;
             }
@@ -104,6 +107,7 @@ namespace MultipleChoiceApp.Common.Helpers
                     }
                     catch (Exception ex)
                     {
+                        closeConnection();
                         Debug.WriteLine(ex.Message);
                     }
                 }

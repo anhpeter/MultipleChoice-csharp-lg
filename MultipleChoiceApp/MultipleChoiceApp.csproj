@@ -94,6 +94,7 @@
     <Compile Include="BLL\QuestionBUS.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\Helpers\Msg.cs" />
+    <Compile Include="Common\Helpers\Pagination.cs" />
     <Compile Include="Common\Helpers\Util.cs" />
     <Compile Include="Common\Helpers\DBHelper.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />

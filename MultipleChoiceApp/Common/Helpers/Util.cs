@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,5 +37,11 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
+
+        public static void log(String value)
+        {
+            Debug.WriteLine(value);
+        }
     }
+
 }

@@ -14,6 +14,11 @@ namespace MultipleChoiceApp.BLL
         QuestionDAO mainDAO = new QuestionDAO();
         AnswerDAO answerDAO = new AnswerDAO();
 
+        public int countBySubjectId(int id)
+        {
+            return mainDAO.countBySubjectId(id);
+        }
+
         public List<Question> getAllBySubjectId(int id)
         {
             return mainDAO.getAllBySubjectId(id);
