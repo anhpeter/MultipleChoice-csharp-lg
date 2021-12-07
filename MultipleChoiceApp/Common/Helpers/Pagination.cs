@@ -28,7 +28,7 @@ namespace MultipleChoiceApp.Common.Helpers
         public void setTotalItems(int value)
         {
             this.totalItems = value;
-            this.totalPage = value > 0 ? (int)Math.Ceiling((double)totalItems / this.itemsPerPage) : 10;
+            this.totalPage = value > 0 ? (int)Math.Ceiling((double)totalItems / this.itemsPerPage) : 1;
         }
 
         public void setCurrentPage(int value)

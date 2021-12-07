@@ -51,6 +51,7 @@ namespace MultipleChoiceApp.UserControls
         private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
         {
             clearForm();
+            pagination.setCurrentPage(1);
             refreshList();
         }
 
