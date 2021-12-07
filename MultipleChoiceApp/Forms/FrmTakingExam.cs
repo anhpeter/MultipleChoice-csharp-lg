@@ -56,14 +56,14 @@ namespace MultipleChoiceApp.Forms
         private void renderAnswerSheet()
         {
             pnl_answer.ColumnCount = subject.TotalQuestion + 1;
-            for (int i = 2; i <= subject.TotalQuestion; i++)
+            for (int i = 1; i <= subject.TotalQuestion; i++)
             {
                 Label lbl = getAnswerLabel(i + "");
                 TableLayoutPanel panel = getSingleAnswer();
                 pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
                 pnl_answer.Controls.Add(lbl, i, 0);
                 pnl_answer.Controls.Add(panel, i, 1);
-                pnl_answer.Width = pnl_answer.Width +36;
+                pnl_answer.Width = pnl_answer.Width + 36;
             }
         }
 
