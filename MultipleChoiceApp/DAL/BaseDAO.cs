@@ -24,6 +24,11 @@ namespace MultipleChoiceApp.DAL
         protected abstract T fromDR(SqlDataReader dr);
 
         // COUNT
+        public int countAll()
+        {
+            String sqlStr = $"SELECT COUNT(*) FROM {tableName}";
+            return count(sqlStr);
+        }
         public int count(String sqlStr)
         {
             int result = dbHelper.execWriteScalar(sqlStr);
@@ -58,7 +63,7 @@ namespace MultipleChoiceApp.DAL
                 return null;
             }
         }
-        protected virtual String  getAllSqlStr(String otherWhereStr = "")
+        protected virtual String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
                     select * from {0} {1} order by Id desc
@@ -166,7 +171,6 @@ namespace MultipleChoiceApp.DAL
             String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) {outputStr} VALUES ({valueParamsStr})";
             return sqlStr;
         }
-
         private String genUpdateSqlStr(Dictionary<String, String> dataDict, String whereClause)
         {
 
@@ -179,10 +183,17 @@ namespace MultipleChoiceApp.DAL
             String sqlStr = $" UPDATE {tableName} SET {updateStr} {whereClause}";
             return sqlStr;
         }
-
         private String standardizeValue(String value)
         {
             return value.Replace("'", "''");
+        }
+
+        protected String applyPagination(String sqlStr, Pagination p)
+        {
+            int offset = (p.currentPage - 1) * p.itemsPerPage;
+            int limit = p.itemsPerPage;
+            sqlStr += $" OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY";
+            return sqlStr;
         }
     }
 }

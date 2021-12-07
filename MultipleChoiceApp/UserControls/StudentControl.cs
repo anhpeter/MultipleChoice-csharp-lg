@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,14 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class StudentControl : UserControl
+    public partial class StudentControl : UserControl, IPagination
     {
         StudentBUS mainBUS = new StudentBUS();
         Student formItem;
+        //
+        PaginationControl paginationControl;
+        Pagination pagination = new Pagination(0, 1, 15, 3);
+        Boolean searchMode = false;
         public StudentControl()
         {
             InitializeComponent();
@@ -147,7 +152,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Student> list = mainBUS.getAll();
+            List<Student> list = mainBUS.getAll(pagination);
             refreshList(list);
         }
 
@@ -161,6 +166,16 @@ namespace MultipleChoiceApp.UserControls
                     item.Address, item.DOB, item.Major
                 });
             }
+            handlePagination();
+        }
+        private void handlePagination()
+        {
+            pnl_pagination.Controls.Clear();
+            if (!searchMode)
+            {
+                paginationControl = new PaginationControl(pagination, this);
+                pnl_pagination.Controls.Add(paginationControl);
+            }
         }
 
         private void clearForm()
@@ -169,7 +184,7 @@ namespace MultipleChoiceApp.UserControls
             txt_fullname.Text = "";
             txt_address.Text = "";
             txt_major.Text = "";
-            datepicker_dob.Text = new DateTime(2000,1,1).ToString();
+            datepicker_dob.Text = new DateTime(2000, 1, 1).ToString();
             formItem = null;
         }
 
@@ -189,9 +204,28 @@ namespace MultipleChoiceApp.UserControls
         {
             if (await FormHelper.getIdle(txt_search))
             {
-                List<Student> list = mainBUS.searchByKeyword(txt_search.Text);
-                refreshList(list);
+                String keyword = txt_search.Text;
+                if (keyword.Trim() != "")
+                {
+                    searchMode = true;
+                    List<Student> list = mainBUS.searchByKeyword(txt_search.Text);
+                    refreshList(list);
+                }
+                else
+                {
+                    searchMode = false;
+                    refreshList();
+                }
             }
+        }
+        public int count()
+        {
+            return mainBUS.countAll();
+        }
+        public void onPage()
+        {
+            pagination = paginationControl.pagination;
+            refreshList();
         }
     }
 }

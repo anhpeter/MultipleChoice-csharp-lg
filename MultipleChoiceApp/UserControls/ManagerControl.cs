@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,14 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class ManagerControl : UserControl
+    public partial class ManagerControl : UserControl,IPagination
     {
         ManagerBUS mainBUS = new ManagerBUS();
         Manager formItem;
+        //
+        PaginationControl paginationControl;
+        Pagination pagination = new Pagination(0, 1, 15, 3);
+        Boolean searchMode = false;
         public ManagerControl()
         {
             InitializeComponent();
@@ -149,7 +154,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Manager> list = mainBUS.getAll();
+            List<Manager> list = mainBUS.getAll(pagination);
             refreshList(list);
         }
 
@@ -162,6 +167,17 @@ namespace MultipleChoiceApp.UserControls
                     item.Id, item.Code, item.FullName,
                     item.Address, item.DOB, item.PhoneNumber, item.Position
                 });
+            }
+            handlePagination();
+        }
+
+        private void handlePagination()
+        {
+            pnl_pagination.Controls.Clear();
+            if (!searchMode)
+            {
+                paginationControl = new PaginationControl(pagination, this);
+                pnl_pagination.Controls.Add(paginationControl);
             }
         }
 
@@ -192,10 +208,29 @@ namespace MultipleChoiceApp.UserControls
         {
             if (await FormHelper.getIdle(txt_search))
             {
-                List<Manager> list = mainBUS.searchByKeyword(txt_search.Text);
-                refreshList(list);
+                String keyword = txt_search.Text;
+                if (keyword.Trim() != "")
+                {
+                    searchMode = true;
+                    List<Manager> list = mainBUS.searchByKeyword(txt_search.Text);
+                    refreshList(list);
+                }
+                else
+                {
+                    searchMode = false;
+                    refreshList();
+                }
             }
         }
 
+        public int count()
+        {
+            return mainBUS.countAll();
+        }
+        public void onPage()
+        {
+            pagination = paginationControl.pagination;
+            refreshList();
+        }
     }
 }

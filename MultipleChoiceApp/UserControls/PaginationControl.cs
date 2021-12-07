@@ -31,44 +31,55 @@ namespace MultipleChoiceApp.UserControls
         public void genPagination()
         {
             pnl_pagination_bar.Controls.Clear();
-            //
-            if (pagination.currentPage == 1)
+            if (pagination.totalPage > 1)
             {
-                pnl_pagination_bar.Controls.Add(genDisableButton("|<", "1"));
-                pnl_pagination_bar.Controls.Add(genDisableButton("<", pagination.currentPage - 1 + ""));
-            }
-            else
-            {
-                pnl_pagination_bar.Controls.Add(genButton("|<", "1"));
-                pnl_pagination_bar.Controls.Add(genButton("<", pagination.currentPage - 1 + ""));
-            }
-            //
-            for (int i = pagination.start; i <= pagination.end; i++)
-            {
-                String pageNumber = i + "";
-                BunifuFlatButton button;
-                if (i == pagination.currentPage)
+                //
+                if (pagination.currentPage == 1)
                 {
-                    button = genActiveButton(pageNumber, pageNumber);
+                    pnl_pagination_bar.Controls.Add(genDisableButton("|<", "1"));
+                    pnl_pagination_bar.Controls.Add(genDisableButton("<", pagination.currentPage - 1 + ""));
                 }
                 else
                 {
-                    button = genButton(pageNumber, pageNumber);
+                    pnl_pagination_bar.Controls.Add(genButton("|<", "1"));
+                    pnl_pagination_bar.Controls.Add(genButton("<", pagination.currentPage - 1 + ""));
                 }
+                //
+                for (int i = pagination.start; i <= pagination.end; i++)
+                {
+                    String pageNumber = i + "";
+                    BunifuFlatButton button;
+                    if (i <= pagination.totalPage)
+                    {
 
-                pnl_pagination_bar.Controls.Add(button);
-            }
-            //
-            if (pagination.currentPage == pagination.totalPage)
-            {
-                pnl_pagination_bar.Controls.Add(genDisableButton(">", pagination.currentPage + 1 + ""));
-                pnl_pagination_bar.Controls.Add(genDisableButton(">|", pagination.totalPage + ""));
-            }
-            else
-            {
-                pnl_pagination_bar.Controls.Add(genButton(">", pagination.currentPage + 1 + ""));
-                pnl_pagination_bar.Controls.Add(genButton(">|", pagination.totalPage + ""));
+                        if (i == pagination.currentPage)
+                        {
+                            button = genActiveButton(pageNumber, pageNumber);
+                        }
+                        else
+                        {
+                            button = genButton(pageNumber, pageNumber);
+                        }
+                    }
+                    else
+                    {
+                        button = genDisableButton(pageNumber, pageNumber);
+                    }
 
+                    pnl_pagination_bar.Controls.Add(button);
+                }
+                //
+                if (pagination.currentPage == pagination.totalPage)
+                {
+                    pnl_pagination_bar.Controls.Add(genDisableButton(">", pagination.currentPage + 1 + ""));
+                    pnl_pagination_bar.Controls.Add(genDisableButton(">|", pagination.totalPage + ""));
+                }
+                else
+                {
+                    pnl_pagination_bar.Controls.Add(genButton(">", pagination.currentPage + 1 + ""));
+                    pnl_pagination_bar.Controls.Add(genButton(">|", pagination.totalPage + ""));
+
+                }
             }
         }
 
@@ -77,7 +88,7 @@ namespace MultipleChoiceApp.UserControls
             String tag = ((BunifuFlatButton)sender).Tag.ToString();
             pagination.currentPage = Util.parseToInt(tag, 1);
             mainForm.onPage();
-       }
+        }
         private BunifuFlatButton genActiveButton(String text, String tag)
         {
             BunifuFlatButton btn = new BunifuFlatButton();

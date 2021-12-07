@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MultipleChoiceApp.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -26,9 +27,9 @@ namespace MultipleChoiceApp.DAL
             String sqlStr = $"select * from {tableName} order by Name desc";
             return getAll(sqlStr);
         }
-        public List<Subject> getAll()
+        public List<Subject> getAll(Pagination p)
         {
-            return getAll(getAllSqlStr());
+            return getAll(applyPagination(getAllSqlStr(), p));
         }
         public List<Subject> searchByKeyWord(String keyword)
         {

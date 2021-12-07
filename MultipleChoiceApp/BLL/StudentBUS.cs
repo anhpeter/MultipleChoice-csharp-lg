@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.DAL;
+﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.DAL;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,9 +13,13 @@ namespace MultipleChoiceApp.BLL
     {
         StudentDAO mainDAO = new StudentDAO();
 
-        public List<Student> getAll()
+        public int countAll()
         {
-            return mainDAO.getAll();
+            return mainDAO.countAll();
+        }
+        public List<Student> getAll(Pagination p)
+        {
+            return mainDAO.getAll(p);
         }
 
         public Student getDetailsById(int id)

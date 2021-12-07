@@ -22,9 +22,9 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Manager> getAll()
+        public List<Manager> getAll(Pagination p)
         {
-            return getAll(getAllSqlStr());
+            return getAll(applyPagination(getAllSqlStr(), p));
         }
         public List<Manager> searchByKeyWord(String keyword)
         {

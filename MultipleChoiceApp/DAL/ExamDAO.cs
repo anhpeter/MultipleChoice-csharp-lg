@@ -22,9 +22,9 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Exam> getAll()
+        public List<Exam> getAll(Pagination p)
         {
-            return getAll(getAllSqlStr());
+            return getAll(applyPagination(base.getAllSqlStr(), p));
         }
         public List<Exam> searchByKeyWord(String keyword)
         {

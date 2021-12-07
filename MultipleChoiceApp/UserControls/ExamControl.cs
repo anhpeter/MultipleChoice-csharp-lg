@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,16 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class ExamControl : UserControl
+    public partial class ExamControl : UserControl,IPagination
     {
         ExamBUS mainBUS = new ExamBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
         Exam formItem;
         List<Subject> subjectList;
+        //
+        PaginationControl paginationControl;
+        Pagination pagination = new Pagination(0, 1, 15, 3);
+        Boolean searchMode = false;
         public ExamControl()
         {
             InitializeComponent();
@@ -160,7 +165,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Exam> list = mainBUS.getAll();
+            List<Exam> list = mainBUS.getAll(pagination);
             refreshList(list);
         }
 
@@ -174,6 +179,17 @@ namespace MultipleChoiceApp.UserControls
                     item.SubjectCode, item.EasyQty, item.HardQty, item.TotalQuestion,
                     item.StartAt, item.EndAt
                 });
+            }
+            handlePagination();
+        }
+
+        private void handlePagination()
+        {
+            pnl_pagination.Controls.Clear();
+            if (!searchMode)
+            {
+                paginationControl = new PaginationControl(pagination, this);
+                pnl_pagination.Controls.Add(paginationControl);
             }
         }
 
@@ -205,8 +221,18 @@ namespace MultipleChoiceApp.UserControls
         {
             if (await FormHelper.getIdle(txt_search))
             {
-                List<Exam> list = mainBUS.searchByKeyword(txt_search.Text);
-                refreshList(list);
+                String keyword = txt_search.Text;
+                if (keyword.Trim() != "")
+                {
+                    searchMode = true;
+                    List<Exam> list = mainBUS.searchByKeyword(txt_search.Text);
+                    refreshList(list);
+                }
+                else
+                {
+                    searchMode = false;
+                    refreshList();
+                }
             }
         }
 
@@ -227,6 +253,16 @@ namespace MultipleChoiceApp.UserControls
         private int getFormSubjectId()
         {
             return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
+        }
+
+        public int count()
+        {
+            return mainBUS.countAll();
+        }
+        public void onPage()
+        {
+            pagination = paginationControl.pagination;
+            refreshList();
         }
     }
 }

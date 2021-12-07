@@ -31,14 +31,11 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Question> getAllBySubjectId(int id, Pagination pagination)
+        public List<Question> getAllBySubjectId(int id, Pagination p)
         {
             List<Question> list = new List<Question>();
             String sqlStr = getAllBySujectIdSqlStr(id);
-            int offset = (pagination.currentPage - 1) * pagination.itemsPerPage;
-            int limit = pagination.itemsPerPage;
-            sqlStr += $" OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY";
-            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            SqlDataReader dr = dbHelper.execRead(applyPagination(sqlStr, p));
             while (dr.Read())
             {
                 list.Add(Question.fromDR(dr));

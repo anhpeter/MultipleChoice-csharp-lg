@@ -24,9 +24,9 @@ namespace MultipleChoiceApp.UserControls
     {
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
+        //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
-
         //
         Question formItem;
         List<Subject> subjectList;
@@ -236,6 +236,11 @@ namespace MultipleChoiceApp.UserControls
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
             }
+            handlePagination();
+        }
+
+        private void handlePagination()
+        {
             pnl_pagination.Controls.Clear();
             if (!searchMode)
             {
@@ -243,7 +248,6 @@ namespace MultipleChoiceApp.UserControls
                 pnl_pagination.Controls.Add(paginationControl);
             }
         }
-
 
         private void LoadDrops()
         {
