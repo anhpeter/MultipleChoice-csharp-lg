@@ -178,7 +178,7 @@ namespace MultipleChoiceApp.UserControls
                 gv_main.Rows.Add(new object[] {
                     item.Id, item.Name, item.Semester,
                     item.SubjectCode, item.EasyQty, item.HardQty, item.TotalQuestion,
-                    item.StartAt, item.EndAt
+                     item.StartAt, item.EndAt
                 });
             }
             handlePagination();

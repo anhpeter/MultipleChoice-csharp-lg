@@ -51,10 +51,13 @@ namespace MultipleChoiceApp.Forms
         {
             // SUBJECTS
             subjectList = subjectBUS.getAvailableForExam(DateTime.Now);
-            drop_subject.DataSource = subjectList;
-            drop_subject.ValueMember = "Id";
-            drop_subject.DisplayMember = "Name";
-            drop_subject.SelectedIndex = 0;
+            if (subjectList.Count > 0)
+            {
+                drop_subject.DataSource = subjectList;
+                drop_subject.ValueMember = "Id";
+                drop_subject.DisplayMember = "Name";
+                drop_subject.SelectedIndex = 0;
+            }
         }
 
         private void fillExamInfo()

@@ -32,7 +32,6 @@ namespace MultipleChoiceApp.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExamStart));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@ namespace MultipleChoiceApp.Forms
             this.lbl_major = new System.Windows.Forms.Label();
             this.lbl_duration = new System.Windows.Forms.Label();
             this.lbl_total_question = new System.Windows.Forms.Label();
+            this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -103,39 +103,6 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(655, 165);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // drop_subject
-            // 
-            this.drop_subject.BackColor = System.Drawing.Color.White;
-            this.drop_subject.BorderRadius = 1;
-            this.drop_subject.Color = System.Drawing.Color.Black;
-            this.drop_subject.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.drop_subject.DisabledColor = System.Drawing.Color.White;
-            this.drop_subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.drop_subject.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
-            this.drop_subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drop_subject.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drop_subject.FillDropDown = false;
-            this.drop_subject.FillIndicator = true;
-            this.drop_subject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drop_subject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drop_subject.ForeColor = System.Drawing.Color.Black;
-            this.drop_subject.FormattingEnabled = true;
-            this.drop_subject.Icon = null;
-            this.drop_subject.IndicatorColor = System.Drawing.Color.DimGray;
-            this.drop_subject.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drop_subject.ItemBackColor = System.Drawing.Color.White;
-            this.drop_subject.ItemBorderColor = System.Drawing.Color.White;
-            this.drop_subject.ItemForeColor = System.Drawing.Color.Black;
-            this.drop_subject.ItemHeight = 26;
-            this.drop_subject.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
-            this.drop_subject.Location = new System.Drawing.Point(409, 6);
-            this.drop_subject.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.drop_subject.Name = "drop_subject";
-            this.drop_subject.Size = new System.Drawing.Size(243, 32);
-            this.drop_subject.TabIndex = 8;
-            this.drop_subject.Text = null;
-            this.drop_subject.SelectionChangeCommitted += new System.EventHandler(this.drop_subject_SelectionChangeCommitted);
             // 
             // label7
             // 
@@ -262,9 +229,8 @@ namespace MultipleChoiceApp.Forms
             this.lbl_duration.ForeColor = System.Drawing.Color.Black;
             this.lbl_duration.Location = new System.Drawing.Point(412, 48);
             this.lbl_duration.Name = "lbl_duration";
-            this.lbl_duration.Size = new System.Drawing.Size(86, 48);
+            this.lbl_duration.Size = new System.Drawing.Size(0, 48);
             this.lbl_duration.TabIndex = 10;
-            this.lbl_duration.Text = "<duration>";
             this.lbl_duration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_total_question
@@ -275,10 +241,42 @@ namespace MultipleChoiceApp.Forms
             this.lbl_total_question.ForeColor = System.Drawing.Color.Black;
             this.lbl_total_question.Location = new System.Drawing.Point(412, 96);
             this.lbl_total_question.Name = "lbl_total_question";
-            this.lbl_total_question.Size = new System.Drawing.Size(123, 48);
+            this.lbl_total_question.Size = new System.Drawing.Size(0, 48);
             this.lbl_total_question.TabIndex = 10;
-            this.lbl_total_question.Text = "<total_question>";
             this.lbl_total_question.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // drop_subject
+            // 
+            this.drop_subject.BackColor = System.Drawing.Color.White;
+            this.drop_subject.BorderRadius = 1;
+            this.drop_subject.Color = System.Drawing.Color.Black;
+            this.drop_subject.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.drop_subject.DisabledColor = System.Drawing.Color.White;
+            this.drop_subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.drop_subject.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
+            this.drop_subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drop_subject.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.drop_subject.FillDropDown = false;
+            this.drop_subject.FillIndicator = true;
+            this.drop_subject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.drop_subject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drop_subject.ForeColor = System.Drawing.Color.Black;
+            this.drop_subject.FormattingEnabled = true;
+            this.drop_subject.Icon = null;
+            this.drop_subject.IndicatorColor = System.Drawing.Color.DimGray;
+            this.drop_subject.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.drop_subject.ItemBackColor = System.Drawing.Color.White;
+            this.drop_subject.ItemBorderColor = System.Drawing.Color.White;
+            this.drop_subject.ItemForeColor = System.Drawing.Color.Black;
+            this.drop_subject.ItemHeight = 26;
+            this.drop_subject.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
+            this.drop_subject.Location = new System.Drawing.Point(409, 6);
+            this.drop_subject.Margin = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.drop_subject.Name = "drop_subject";
+            this.drop_subject.Size = new System.Drawing.Size(243, 32);
+            this.drop_subject.TabIndex = 8;
+            this.drop_subject.Text = null;
+            this.drop_subject.SelectionChangeCommitted += new System.EventHandler(this.drop_subject_SelectionChangeCommitted);
             // 
             // pictureBox1
             // 
@@ -449,9 +447,8 @@ namespace MultipleChoiceApp.Forms
             this.lbl_exam_name.ForeColor = System.Drawing.Color.Black;
             this.lbl_exam_name.Location = new System.Drawing.Point(131, 0);
             this.lbl_exam_name.Name = "lbl_exam_name";
-            this.lbl_exam_name.Size = new System.Drawing.Size(66, 19);
+            this.lbl_exam_name.Size = new System.Drawing.Size(0, 19);
             this.lbl_exam_name.TabIndex = 10;
-            this.lbl_exam_name.Text = "<name>";
             // 
             // lbl_exam_start
             // 
@@ -460,9 +457,8 @@ namespace MultipleChoiceApp.Forms
             this.lbl_exam_start.ForeColor = System.Drawing.Color.Black;
             this.lbl_exam_start.Location = new System.Drawing.Point(131, 42);
             this.lbl_exam_start.Name = "lbl_exam_start";
-            this.lbl_exam_start.Size = new System.Drawing.Size(59, 19);
+            this.lbl_exam_start.Size = new System.Drawing.Size(0, 19);
             this.lbl_exam_start.TabIndex = 10;
-            this.lbl_exam_start.Text = "<start>";
             // 
             // lbl_exam_end
             // 
@@ -471,9 +467,8 @@ namespace MultipleChoiceApp.Forms
             this.lbl_exam_end.ForeColor = System.Drawing.Color.Black;
             this.lbl_exam_end.Location = new System.Drawing.Point(131, 84);
             this.lbl_exam_end.Name = "lbl_exam_end";
-            this.lbl_exam_end.Size = new System.Drawing.Size(54, 19);
+            this.lbl_exam_end.Size = new System.Drawing.Size(0, 19);
             this.lbl_exam_end.TabIndex = 10;
-            this.lbl_exam_end.Text = "<end>";
             // 
             // FrmExamStart
             // 

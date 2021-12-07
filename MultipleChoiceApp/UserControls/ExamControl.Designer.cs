@@ -78,6 +78,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_semester = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl_pagination = new System.Windows.Forms.Panel();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,7 +89,6 @@ namespace MultipleChoiceApp.UserControls
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnl_pagination = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -786,6 +786,16 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.Size = new System.Drawing.Size(1052, 310);
             this.panel1.TabIndex = 19;
             // 
+            // pnl_pagination
+            // 
+            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
+            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
+            this.pnl_pagination.Name = "pnl_pagination";
+            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
+            this.pnl_pagination.TabIndex = 21;
+            // 
             // gv_main
             // 
             this.gv_main.AllowCustomTheming = false;
@@ -916,7 +926,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.Format = "dd/MM/yyyy hh:mm";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy HH:mm";
             dataGridViewCellStyle3.NullValue = null;
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Start At";
@@ -926,23 +936,13 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column9
             // 
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy hh:mm";
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy HH:mm";
             dataGridViewCellStyle4.NullValue = null;
             this.Column9.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column9.HeaderText = "End At";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            // 
-            // pnl_pagination
-            // 
-            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
-            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
-            this.pnl_pagination.Name = "pnl_pagination";
-            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
-            this.pnl_pagination.TabIndex = 21;
             // 
             // ExamControl
             // 
@@ -988,6 +988,7 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_hard_qty;
         private System.Windows.Forms.DateTimePicker datepicker_start_at;
         private System.Windows.Forms.DateTimePicker datepicker_end_at;
+        private System.Windows.Forms.Panel pnl_pagination;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -997,6 +998,5 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Panel pnl_pagination;
     }
 }

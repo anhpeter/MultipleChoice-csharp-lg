@@ -43,7 +43,7 @@ namespace MultipleChoiceApp.DAL
         }
         public List<Exam> getAll(Pagination p)
         {
-            return getAll(applyPagination(base.getAllSqlStr(), p));
+            return getAll(applyPagination(getAllSqlStr(), p));
         }
         public List<Exam> searchByKeyWord(String keyword)
         {
@@ -58,7 +58,7 @@ namespace MultipleChoiceApp.DAL
                     FROM Exams as e
                         INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
                         {0}
-                    ORDER BY e.Id DESC;
+                    ORDER BY e.Id DESC
                 ", otherWhereStr);
             return sqlStr;
         }
