@@ -358,8 +358,8 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 2;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23697F));
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76303F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.pnl_answer.Controls.Add(this.label15, 1, 0);
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Controls.Add(this.tableLayoutPanel4, 1, 1);
@@ -369,9 +369,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_answer.RowCount = 2;
             this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.42424F));
             this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.57576F));
-            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnl_answer.Size = new System.Drawing.Size(90, 194);
             this.pnl_answer.TabIndex = 11;
             // 
@@ -379,7 +376,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(48, 1);
+            this.label15.Location = new System.Drawing.Point(50, 1);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(5);
             this.label15.Size = new System.Drawing.Size(29, 33);
@@ -461,7 +458,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel4.Controls.Add(this.radioButton2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.radioButton1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(48, 46);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(50, 46);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 4;
@@ -470,7 +467,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(38, 145);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(39, 145);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
             // radioButton4

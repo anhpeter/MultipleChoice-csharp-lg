@@ -55,10 +55,13 @@ namespace MultipleChoiceApp.Forms
 
         private void renderAnswerSheet()
         {
-            pnl_answer.ColumnCount = 3;
+            pnl_answer.ColumnCount = 4;
+            pnl_answer.Width = pnl_answer.Width + 45;
             pnl_answer.Controls.Add(getAnswerLabel("1"), 2, 0);
             pnl_answer.Controls.Add(getSingleAnswer(), 2, 1);
             pnl_answer.Width = pnl_answer.Width + 45;
+            pnl_answer.Controls.Add(getAnswerLabel("1"), 3, 0);
+            pnl_answer.Controls.Add(getSingleAnswer(), 3, 1);
         }
 
         private List<Question> getQuestionList()
