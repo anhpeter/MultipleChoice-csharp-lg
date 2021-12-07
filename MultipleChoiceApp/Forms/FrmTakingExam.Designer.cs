@@ -48,8 +48,8 @@ namespace MultipleChoiceApp.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_ans1 = new System.Windows.Forms.Label();
             this.lbl_question = new System.Windows.Forms.Label();
-            this.pnl_answer = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnl_answer_sheet = new System.Windows.Forms.Panel();
+            this.pnl_answer = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
@@ -73,8 +73,8 @@ namespace MultipleChoiceApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.pnl_question.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.pnl_answer_sheet.SuspendLayout();
             this.pnl_answer.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -340,46 +340,46 @@ namespace MultipleChoiceApp.Forms
             this.lbl_question.TabIndex = 6;
             this.lbl_question.Text = "<question>";
             // 
+            // pnl_answer_sheet
+            // 
+            this.pnl_answer_sheet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_answer_sheet.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_answer_sheet.Controls.Add(this.pnl_answer);
+            this.pnl_answer_sheet.Controls.Add(this.panel1);
+            this.pnl_answer_sheet.Controls.Add(this.label10);
+            this.pnl_answer_sheet.Location = new System.Drawing.Point(12, 452);
+            this.pnl_answer_sheet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_answer_sheet.Name = "pnl_answer_sheet";
+            this.pnl_answer_sheet.Size = new System.Drawing.Size(1196, 377);
+            this.pnl_answer_sheet.TabIndex = 2;
+            // 
             // pnl_answer
             // 
-            this.pnl_answer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_answer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_answer.Controls.Add(this.tableLayoutPanel2);
-            this.pnl_answer.Controls.Add(this.panel1);
-            this.pnl_answer.Controls.Add(this.label10);
-            this.pnl_answer.Location = new System.Drawing.Point(12, 452);
+            this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.pnl_answer.ColumnCount = 2;
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23697F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76303F));
+            this.pnl_answer.Controls.Add(this.label15, 1, 0);
+            this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.pnl_answer.Controls.Add(this.tableLayoutPanel4, 1, 1);
+            this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_answer.Name = "pnl_answer";
-            this.pnl_answer.Size = new System.Drawing.Size(1196, 377);
-            this.pnl_answer.TabIndex = 2;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.23697F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.76303F));
-            this.tableLayoutPanel2.Controls.Add(this.label15, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(29, 58);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.42424F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.57576F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(93, 194);
-            this.tableLayoutPanel2.TabIndex = 11;
+            this.pnl_answer.RowCount = 2;
+            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.42424F));
+            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.57576F));
+            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnl_answer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnl_answer.Size = new System.Drawing.Size(90, 194);
+            this.pnl_answer.TabIndex = 11;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(50, 1);
+            this.label15.Location = new System.Drawing.Point(48, 1);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(5);
             this.label15.Size = new System.Drawing.Size(29, 33);
@@ -404,7 +404,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(39, 144);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(37, 144);
             this.tableLayoutPanel3.TabIndex = 12;
             // 
             // label17
@@ -414,7 +414,7 @@ namespace MultipleChoiceApp.Forms
             this.label17.Location = new System.Drawing.Point(3, 108);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(5);
-            this.label17.Size = new System.Drawing.Size(32, 36);
+            this.label17.Size = new System.Drawing.Size(31, 36);
             this.label17.TabIndex = 4;
             this.label17.Text = "D.";
             // 
@@ -461,7 +461,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel4.Controls.Add(this.radioButton2, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.radioButton1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(50, 46);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(48, 46);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 4;
@@ -470,7 +470,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(39, 145);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(38, 145);
             this.tableLayoutPanel4.TabIndex = 12;
             // 
             // radioButton4
@@ -625,7 +625,7 @@ namespace MultipleChoiceApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1220, 843);
-            this.Controls.Add(this.pnl_answer);
+            this.Controls.Add(this.pnl_answer_sheet);
             this.Controls.Add(this.pnl_question);
             this.Controls.Add(this.bunifuShadowPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -643,10 +643,10 @@ namespace MultipleChoiceApp.Forms
             this.pnl_question.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.pnl_answer_sheet.ResumeLayout(false);
+            this.pnl_answer_sheet.PerformLayout();
             this.pnl_answer.ResumeLayout(false);
             this.pnl_answer.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -666,7 +666,7 @@ namespace MultipleChoiceApp.Forms
         private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnl_question;
-        private System.Windows.Forms.Panel pnl_answer;
+        private System.Windows.Forms.Panel pnl_answer_sheet;
         private System.Windows.Forms.Label lbl_question;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
@@ -680,7 +680,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_submit;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel pnl_answer;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
