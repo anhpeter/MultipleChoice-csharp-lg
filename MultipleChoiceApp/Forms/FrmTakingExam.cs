@@ -55,13 +55,16 @@ namespace MultipleChoiceApp.Forms
 
         private void renderAnswerSheet()
         {
-            pnl_answer.ColumnCount = 4;
-            pnl_answer.Width = pnl_answer.Width + 45;
-            pnl_answer.Controls.Add(getAnswerLabel("1"), 2, 0);
-            pnl_answer.Controls.Add(getSingleAnswer(), 2, 1);
-            pnl_answer.Width = pnl_answer.Width + 45;
-            pnl_answer.Controls.Add(getAnswerLabel("1"), 3, 0);
-            pnl_answer.Controls.Add(getSingleAnswer(), 3, 1);
+            pnl_answer.ColumnCount = subject.TotalQuestion + 1;
+            for (int i = 2; i <= subject.TotalQuestion; i++)
+            {
+                Label lbl = getAnswerLabel(i + "");
+                TableLayoutPanel panel = getSingleAnswer();
+                pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+                pnl_answer.Controls.Add(lbl, i, 0);
+                pnl_answer.Controls.Add(panel, i, 1);
+                pnl_answer.Width = pnl_answer.Width +36;
+            }
         }
 
         private List<Question> getQuestionList()
@@ -101,7 +104,7 @@ namespace MultipleChoiceApp.Forms
             panel.Controls.Add(getAnswerRadioButton(), 0, 2);
             panel.Controls.Add(getAnswerRadioButton(), 0, 3);
             panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel.Location = new System.Drawing.Point(50, 46);
+            //panel.Location = new System.Drawing.Point(50, 46);
             panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             //panel.Name = "tableLayoutPanel4";
             panel.RowCount = 4;
@@ -111,21 +114,18 @@ namespace MultipleChoiceApp.Forms
             panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             panel.BackColor = Color.Transparent;
-            panel.Size = new System.Drawing.Size(39, 145);
+            //panel.Size = new System.Drawing.Size(20, 145);
             //panel.TabIndex = 12;
             return panel;
         }
         private Label getAnswerLabel(String text)
         {
             Label lbl = new Label();
-            lbl.AutoSize = true;
             lbl.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            lbl.Location = new System.Drawing.Point(50, 1);
-            //lbl.Name = "label15";
-            lbl.Padding = new System.Windows.Forms.Padding(5);
-            lbl.Size = new System.Drawing.Size(29, 33);
-            //lbl.TabIndex = 3;
             lbl.Text = text;
+            lbl.Dock = DockStyle.Fill;
+            lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbl.BackColor = Color.Transparent;
             return lbl;
         }
 
@@ -138,7 +138,7 @@ namespace MultipleChoiceApp.Forms
             rdo.Dock = DockStyle.Fill;
             //rdo.Name = "radioButton1";
             rdo.Padding = new System.Windows.Forms.Padding(5);
-            rdo.Size = new System.Drawing.Size(27, 26);
+            //rdo.Size = new System.Drawing.Size(20, 26);
             rdo.TabIndex = 0;
             rdo.TabStop = true;
             rdo.UseVisualStyleBackColor = true;
