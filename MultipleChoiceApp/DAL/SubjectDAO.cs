@@ -36,14 +36,6 @@ namespace MultipleChoiceApp.DAL
             return getAll(sqlStr);
         }
 
-        private String getAllSqlStr(String otherWhereStr = "")
-        {
-            String sqlStr = String.Format(@"
-                    select * from {0} {1} order by Id desc
-                ", tableName, otherWhereStr);
-            return sqlStr;
-        }
-
         // ADD
         public int add(Subject item)
         {

@@ -44,7 +44,6 @@ namespace MultipleChoiceApp.UserControls
             drop_level.Visible = false;
             drop_subject.Visible = false;
             LoadDrops();
-            paginationControl = new PaginationControl(pagination, this);
             refreshList();
 
         }

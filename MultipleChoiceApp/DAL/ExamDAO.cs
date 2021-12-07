@@ -32,12 +32,8 @@ namespace MultipleChoiceApp.DAL
             return getAll(sqlStr);
         }
 
-        private String getAllSqlStr(String otherWhereStr = "")
+        protected override String getAllSqlStr(String otherWhereStr = "")
         {
-            //String sqlStr = String.Format(@"
-            //        select * from {0} {1} order by Id desc
-            //    ", tableName, otherWhereStr);
-            //return sqlStr;
             String sqlStr = String.Format(@"
                     SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion
                     FROM Exams as e

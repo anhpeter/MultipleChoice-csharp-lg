@@ -58,6 +58,13 @@ namespace MultipleChoiceApp.DAL
                 return null;
             }
         }
+        protected virtual String  getAllSqlStr(String otherWhereStr = "")
+        {
+            String sqlStr = String.Format(@"
+                    select * from {0} {1} order by Id desc
+                ", tableName, otherWhereStr);
+            return sqlStr;
+        }
         public T getByPK(String value)
         {
             return getByField(primaryKey, value);
