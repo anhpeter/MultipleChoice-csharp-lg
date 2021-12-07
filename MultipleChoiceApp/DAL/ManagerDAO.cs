@@ -22,6 +22,18 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public Manager getByCodeAndPassword(String id, String password)
+        {
+            String sqlStr = $"SELECT * from {tableName} WHERE Code='{id}' AND Password='{password}'";
+            Manager item = null;
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = fromDR(dr);
+            }
+            dbHelper.closeConnection();
+            return item;
+        }
         public List<Manager> getAll(Pagination p)
         {
             return getAll(applyPagination(getAllSqlStr(), p));
@@ -36,7 +48,7 @@ namespace MultipleChoiceApp.DAL
         public int add(Manager item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
-            dataDict.Add("Password",Util.md5("loveguitar"));
+            dataDict.Add("Password", Util.md5("loveguitar"));
             dataDict.Add("Code", item.Code);
             dataDict.Add("FullName", item.FullName);
             dataDict.Add("Address", item.Address);

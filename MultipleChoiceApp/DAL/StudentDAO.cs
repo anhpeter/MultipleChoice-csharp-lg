@@ -22,6 +22,18 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public Student getByCodeAndPassword(String id, String password)
+        {
+            String sqlStr = $"SELECT * from {tableName} WHERE Code='{id}' AND Password='{password}'";
+            Student item = null;
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = fromDR(dr);
+            }
+            dbHelper.closeConnection();
+            return item;
+        }
         public List<Student> getAll(Pagination p)
         {
             return getAll(applyPagination(getAllSqlStr(), p));

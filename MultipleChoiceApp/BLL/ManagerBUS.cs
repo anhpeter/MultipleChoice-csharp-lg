@@ -17,6 +17,10 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO.countAll();
         }
+        public Manager getByCodeAndPassword(String id, String password)
+        {
+            return mainDAO.getByCodeAndPassword(id, password);
+        }
         public List<Manager> getAll(Pagination p)
         {
             return mainDAO.getAll(p);
