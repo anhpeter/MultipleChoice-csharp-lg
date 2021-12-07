@@ -18,6 +18,7 @@ namespace MultipleChoiceApp.Forms
         SubjectBUS subjectBUS = new SubjectBUS();
         ExamBUS examBUS = new ExamBUS();
         List<Subject> subjectList;
+        //
         Exam exam;
         public FrmExamStart()
         {
@@ -79,6 +80,12 @@ namespace MultipleChoiceApp.Forms
             if (drop_subject.SelectedValue != null) return drop_subject.SelectedIndex;
             return -1;
         }
+        private Subject getSelectedSubject()
+        {
+            int selectedSubIndex = getSelectedSubjectIndex();
+            if (selectedSubIndex > -1) return subjectList[selectedSubIndex];
+            return null;
+        }
         private int getSelectedSubjectId()
         {
             if (drop_subject.SelectedValue != null) return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
@@ -87,7 +94,7 @@ namespace MultipleChoiceApp.Forms
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            FormHelper.replaceForm(this, new FrmTakingExam());
+            FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));
         }
 
         private void btn_exit_Click(object sender, EventArgs e)

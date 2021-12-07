@@ -19,7 +19,17 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO.countBySubjectId(id);
         }
-
+        //FETCH
+        public List<Question> getRandomByLevel(String level, int qty)
+        {
+            List<Question> questions = mainDAO.getRandomByLevel(level, qty);
+            foreach (var question in questions)
+            {
+                List<Answer> answers = answerDAO.getAnswersByQuestionId(question.Id);
+                question.Answers = answers;
+            }
+            return questions;
+        }
         public List<Question> getAllBySubjectId(int id, Pagination pagination)
         {
             return mainDAO.getAllBySubjectId(id, pagination);
@@ -33,7 +43,7 @@ namespace MultipleChoiceApp.BLL
         public Question getDetailsById(int id)
         {
             Debug.WriteLine(id);
-            Question item = mainDAO.getByPK(id+"");
+            Question item = mainDAO.getByPK(id + "");
             List<Answer> answers = answerDAO.getAnswersByQuestionId(id);
             item.Answers = answers;
             return item;
@@ -61,7 +71,7 @@ namespace MultipleChoiceApp.BLL
 
         public bool delete(int id)
         {
-            bool deleteQuestionResult = mainDAO.deleteByPK(id+"");
+            bool deleteQuestionResult = mainDAO.deleteByPK(id + "");
             if (deleteQuestionResult)
             {
                 return true;

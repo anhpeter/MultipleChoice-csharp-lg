@@ -39,14 +39,14 @@ namespace MultipleChoiceApp.Forms
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pnl_question = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_ans4 = new System.Windows.Forms.Label();
+            this.lbl_ans3 = new System.Windows.Forms.Label();
+            this.lbl_ans2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_ans1 = new System.Windows.Forms.Label();
             this.lbl_question = new System.Windows.Forms.Label();
             this.pnl_answer = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -202,14 +202,14 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.270109F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.72989F));
-            this.tableLayoutPanel1.Controls.Add(this.label9, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_ans4, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_ans3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_ans2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_ans1, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 102);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -222,46 +222,46 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 218);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // label9
+            // lbl_ans4
             // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(51, 152);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label9.Size = new System.Drawing.Size(848, 66);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
+            this.lbl_ans4.AutoSize = true;
+            this.lbl_ans4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ans4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans4.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ans4.Location = new System.Drawing.Point(51, 152);
+            this.lbl_ans4.Name = "lbl_ans4";
+            this.lbl_ans4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
+            this.lbl_ans4.Size = new System.Drawing.Size(848, 66);
+            this.lbl_ans4.TabIndex = 14;
+            this.lbl_ans4.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
             // 
-            // label7
+            // lbl_ans3
             // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(51, 109);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label7.Size = new System.Drawing.Size(848, 43);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
+            this.lbl_ans3.AutoSize = true;
+            this.lbl_ans3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ans3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans3.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ans3.Location = new System.Drawing.Point(51, 109);
+            this.lbl_ans3.Name = "lbl_ans3";
+            this.lbl_ans3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
+            this.lbl_ans3.Size = new System.Drawing.Size(848, 43);
+            this.lbl_ans3.TabIndex = 13;
+            this.lbl_ans3.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
             // 
-            // label6
+            // lbl_ans2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(51, 66);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label6.Size = new System.Drawing.Size(848, 43);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
+            this.lbl_ans2.AutoSize = true;
+            this.lbl_ans2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ans2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans2.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ans2.Location = new System.Drawing.Point(51, 66);
+            this.lbl_ans2.Name = "lbl_ans2";
+            this.lbl_ans2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
+            this.lbl_ans2.Size = new System.Drawing.Size(848, 43);
+            this.lbl_ans2.TabIndex = 12;
+            this.lbl_ans2.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
             // 
             // label1
@@ -316,18 +316,18 @@ namespace MultipleChoiceApp.Forms
             this.label4.TabIndex = 10;
             this.label4.Text = "D.";
             // 
-            // label5
+            // lbl_ans1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(51, 0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label5.Size = new System.Drawing.Size(1084, 66);
-            this.label5.TabIndex = 11;
-            this.label5.Text = resources.GetString("label5.Text");
+            this.lbl_ans1.AutoSize = true;
+            this.lbl_ans1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_ans1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans1.ForeColor = System.Drawing.Color.Black;
+            this.lbl_ans1.Location = new System.Drawing.Point(51, 0);
+            this.lbl_ans1.Name = "lbl_ans1";
+            this.lbl_ans1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
+            this.lbl_ans1.Size = new System.Drawing.Size(1084, 66);
+            this.lbl_ans1.TabIndex = 11;
+            this.lbl_ans1.Text = resources.GetString("lbl_ans1.Text");
             // 
             // lbl_question
             // 
@@ -353,7 +353,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_answer.Name = "pnl_answer";
             this.pnl_answer.Size = new System.Drawing.Size(1196, 377);
             this.pnl_answer.TabIndex = 2;
-            this.pnl_answer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_answer_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -632,6 +631,7 @@ namespace MultipleChoiceApp.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTakingExam";
             this.Text = "FrmTakingExam";
+            this.Load += new System.EventHandler(this.FrmTakingExam_Load);
             this.bunifuShadowPanel1.ResumeLayout(false);
             this.bunifuShadowPanel1.PerformLayout();
             this.pnl_pagination.ResumeLayout(false);
@@ -673,10 +673,10 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbl_ans1;
+        private System.Windows.Forms.Label lbl_ans2;
+        private System.Windows.Forms.Label lbl_ans4;
+        private System.Windows.Forms.Label lbl_ans3;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_submit;

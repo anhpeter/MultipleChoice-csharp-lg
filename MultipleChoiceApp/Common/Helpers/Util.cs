@@ -64,6 +64,8 @@ namespace MultipleChoiceApp.Common.Helpers
                 return sb.ToString().ToLower();
             }
         }
+
+
     }
 
 }

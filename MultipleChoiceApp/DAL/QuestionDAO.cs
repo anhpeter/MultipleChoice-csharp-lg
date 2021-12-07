@@ -31,6 +31,24 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public List<Question> getRandomByLevel(String level, int qty)
+        {
+            List<Question> list = new List<Question>();
+            String sqlStr = string.Format(@"
+                SELECT * 
+                FROM {0}
+                WHERE Level='{1}'
+                ORDER BY NEWID()
+                OFFSET 0 ROWS FETCH NEXT {2} ROWS ONLY
+            ", tableName, level, qty);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            while (dr.Read())
+            {
+                list.Add(Question.fromDR(dr));
+            }
+            dbHelper.closeConnection();
+            return list;
+        }
         public List<Question> getAllBySubjectId(int id, Pagination p)
         {
             List<Question> list = new List<Question>();

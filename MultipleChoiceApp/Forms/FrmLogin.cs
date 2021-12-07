@@ -25,7 +25,7 @@ namespace MultipleChoiceApp.Forms
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             txt_message.Visible = false;
-            txt_id.Text = "MNG01";
+            txt_id.Text = "2180617";
             txt_password.Text = "loveguitar";
         }
 
