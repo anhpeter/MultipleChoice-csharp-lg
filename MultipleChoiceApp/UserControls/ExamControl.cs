@@ -34,9 +34,9 @@ namespace MultipleChoiceApp.UserControls
         private void ExamControl_Load(object sender, EventArgs e)
         {
             datepicker_start_at.Format = DateTimePickerFormat.Custom;
-            datepicker_start_at.CustomFormat = "dd/MM/yyyy hh:mm";
+            datepicker_start_at.CustomFormat = "dd/MM/yyyy HH:mm";
             datepicker_end_at.Format = DateTimePickerFormat.Custom;
-            datepicker_end_at.CustomFormat = "dd/MM/yyyy hh:mm";
+            datepicker_end_at.CustomFormat = "dd/MM/yyyy HH:mm";
             loadDrops();
             refreshList();
             clearForm();
@@ -201,8 +201,8 @@ namespace MultipleChoiceApp.UserControls
             txt_easy_qty.Text = "0";
             txt_hard_qty.Text = "0";
             DateTime now = DateTime.Now;
-            DateTime start = new DateTime(now.Year, now.Month, now.Day+1, 7, 0, 0);
-            DateTime end = new DateTime(now.Year, now.Month, now.Day+1, 8, 0, 0);
+            DateTime start = new DateTime(now.Year, now.Month, now.Day+1, 7, 0, 0, 0);
+            DateTime end = new DateTime(now.Year, now.Month, now.Day+1, 8, 0, 0, 0);
 
             datepicker_start_at.Text = start.ToString();
             datepicker_end_at.Text = end.ToString();

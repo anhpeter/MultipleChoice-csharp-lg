@@ -38,6 +38,11 @@ namespace MultipleChoiceApp.Common.Helpers
             return date.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
+        public static String toExamFormattedDate(DateTime date)
+        {
+            return date.ToString("dd/MM/yyy HH:mm");
+        }
+
         public static void log(String value)
         {
             Debug.WriteLine(value);

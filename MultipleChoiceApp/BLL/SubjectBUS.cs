@@ -18,6 +18,11 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.countAll();
         }
 
+
+        public List<Subject> getAvailableForExam(DateTime d)
+        {
+            return mainDAO.getAvailableForExam(d);
+        }
         public List<Subject> getAllForSelectData()
         {
             return mainDAO.getAllForSelectData();

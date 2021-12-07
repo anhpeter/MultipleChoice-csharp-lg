@@ -19,6 +19,7 @@ namespace MultipleChoiceApp.Common.Helpers
             return intance;
         }
         //
-        public User user { get; set; }
+        public Student student { get; set; }
+        public Manager manager { get; set; }
     }
 }

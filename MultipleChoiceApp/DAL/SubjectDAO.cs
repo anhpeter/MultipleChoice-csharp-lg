@@ -22,6 +22,17 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public List<Subject> getAvailableForExam(DateTime date)
+        {
+            String sqlStr = string.Format(@"
+                select *
+                from Subjects as s inner join Exams as e on (s.Id = e.SubjectId)
+                where 
+                    e.StartAt <= '{0}' and
+                    e.EndAt >= '{0}'
+                order by s.Name", date.ToString());
+            return getAll(sqlStr);
+        }
         public List<Subject> getAllForSelectData()
         {
             String sqlStr = $"select * from {tableName} order by Name desc";

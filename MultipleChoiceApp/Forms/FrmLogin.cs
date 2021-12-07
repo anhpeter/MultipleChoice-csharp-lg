@@ -24,7 +24,9 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            txt_message.Visible = false;
+            txt_id.Text = "MNG01";
+            txt_password.Text = "loveguitar";
         }
 
         private void btn_login_Click(object sender, EventArgs e)
@@ -43,30 +45,43 @@ namespace MultipleChoiceApp.Forms
         private void handleManagerLogin(String id, String password)
         {
             password = Util.md5(password);
-            User item = managerBUS.getByCodeAndPassword(id, password);
+            Manager item = managerBUS.getByCodeAndPassword(id, password);
             if (item != null)
             {
-                Auth.getIntace().user = item;
+                Auth.getIntace().manager = item;
                 FormHelper.replaceForm(this, new FrmAdmin());
             }
             else
             {
-                MessageBox.Show("Your credentials is invalid!");
+                clearForm();
+                showMessage("Your credentials is invalid!");
             }
         }
         private void handleStudentLogin(String id, String password)
         {
             password = Util.md5(password);
-            User item = studentBUS.getByCodeAndPassword(id, password);
+            Student item = studentBUS.getByCodeAndPassword(id, password);
             if (item != null)
             {
-                Auth.getIntace().user = item;
+                Auth.getIntace().student = item;
                 FormHelper.replaceForm(this, new FrmExamStart());
             }
             else
             {
-                MessageBox.Show("Your credentials is invalid!");
+                clearForm();
+                showMessage("Your credentials is invalid!");
             }
+        }
+
+        private void clearForm()
+        {
+            //txt_id.Text = "";
+            txt_password.Text = "";
+        }
+        private void showMessage(String message)
+        {
+            txt_message.Text = message;
+            txt_message.Visible = true;
         }
     }
 

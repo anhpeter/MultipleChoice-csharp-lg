@@ -13,6 +13,10 @@ namespace MultipleChoiceApp.BLL
     {
         ExamDAO mainDAO = new ExamDAO();
 
+        public Exam getAvailabelBySubjectId(int SubjectId, DateTime d)
+        {
+            return mainDAO.getAvailabelBySubjectId(SubjectId, d);
+        }
         public int countAll()
         {
             return mainDAO.countAll();

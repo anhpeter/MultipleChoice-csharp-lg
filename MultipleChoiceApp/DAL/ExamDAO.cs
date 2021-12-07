@@ -22,6 +22,25 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public Exam getAvailabelBySubjectId(int subjectId, DateTime d)
+        {
+            Exam item = null;
+            String sqlStr = string.Format(@"
+                select *
+                from Exams as e inner join Subjects as s on (s.Id = e.SubjectId)
+                where 
+                    s.Id = '{0}' and
+                    e.StartAt <= '{1}' and
+                    e.EndAt >= '{1}'
+                ", subjectId+"", d.ToString());
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = Exam.fromDR(dr);
+            }
+            return item;
+
+        }
         public List<Exam> getAll(Pagination p)
         {
             return getAll(applyPagination(base.getAllSqlStr(), p));

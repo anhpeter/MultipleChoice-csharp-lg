@@ -39,6 +39,7 @@ namespace MultipleChoiceApp.Forms
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_message = new System.Windows.Forms.Label();
             this.btn_login = new Bunifu.Framework.UI.BunifuThinButton2();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rdo_student = new Bunifu.UI.WinForms.BunifuRadioButton();
@@ -64,6 +65,7 @@ namespace MultipleChoiceApp.Forms
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.txt_message);
             this.panel1.Controls.Add(this.btn_login);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.tableLayoutPanel1);
@@ -73,6 +75,16 @@ namespace MultipleChoiceApp.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(356, 451);
             this.panel1.TabIndex = 0;
+            // 
+            // txt_message
+            // 
+            this.txt_message.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(67)))), ((int)(((byte)(55)))));
+            this.txt_message.Location = new System.Drawing.Point(26, 177);
+            this.txt_message.Name = "txt_message";
+            this.txt_message.Size = new System.Drawing.Size(304, 23);
+            this.txt_message.TabIndex = 9;
+            this.txt_message.Text = "<message>";
             // 
             // btn_login
             // 
@@ -92,7 +104,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_login.IdleFillColor = System.Drawing.Color.White;
             this.btn_login.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btn_login.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_login.Location = new System.Drawing.Point(31, 341);
+            this.btn_login.Location = new System.Drawing.Point(27, 362);
             this.btn_login.Margin = new System.Windows.Forms.Padding(5);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(303, 57);
@@ -106,7 +118,7 @@ namespace MultipleChoiceApp.Forms
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.rdo_manager);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(31, 275);
+            this.panel2.Location = new System.Drawing.Point(27, 296);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(303, 43);
             this.panel2.TabIndex = 4;
@@ -162,7 +174,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.txt_password, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.txt_id, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 182);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 203);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -402,5 +414,6 @@ namespace MultipleChoiceApp.Forms
         private Bunifu.Framework.UI.BunifuThinButton2 btn_login;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label txt_message;
     }
 }
