@@ -10,9 +10,5 @@ namespace MultipleChoiceApp.Common.Interfaces
     {
         int count();
         void onPage();
-        void onFirstPage();
-        void onEndPage();
-        void onPrevPage();
-        void onNextPage();
     }
 }

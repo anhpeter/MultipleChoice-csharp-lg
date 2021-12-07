@@ -20,16 +20,17 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class QuestionControl : UserControl,IPagination
+    public partial class QuestionControl : UserControl, IPagination
     {
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
         PaginationControl paginationControl;
-        Pagination pagination = new Pagination(0, 1,5, 3);
+        Pagination pagination = new Pagination(0, 1, 15, 3);
 
         //
         Question formItem;
         List<Subject> subjectList;
+        Boolean searchMode = false;
 
         public QuestionControl()
         {
@@ -236,9 +237,12 @@ namespace MultipleChoiceApp.UserControls
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
             }
-            paginationControl = new PaginationControl(pagination, this);
             pnl_pagination.Controls.Clear();
-            pnl_pagination.Controls.Add(paginationControl);
+            if (!searchMode)
+            {
+                paginationControl = new PaginationControl(pagination, this);
+                pnl_pagination.Controls.Add(paginationControl);
+            }
         }
 
 
@@ -306,8 +310,18 @@ namespace MultipleChoiceApp.UserControls
         {
             if (await FormHelper.getIdle(txt_search))
             {
-                List<Question> list = mainBUS.searchByKeyword(getFormSubjectId(), txt_search.Text);
-                refreshList(list);
+                String keyword = txt_search.Text;
+                if (keyword.Trim() != "")
+                {
+                    searchMode = true;
+                    List<Question> list = mainBUS.searchByKeyword(getFormSubjectId(), txt_search.Text);
+                    refreshList(list);
+                }
+                else
+                {
+                    searchMode = false;
+                    refreshList();
+                }
             }
         }
 
@@ -315,31 +329,10 @@ namespace MultipleChoiceApp.UserControls
         {
             return mainBUS.countBySubjectId(getFormSubjectId());
         }
-
         public void onPage()
         {
             pagination = paginationControl.pagination;
             refreshList();
-        }
-
-        public void onFirstPage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void onEndPage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void onPrevPage()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void onNextPage()
-        {
-            throw new NotImplementedException();
         }
     }
 }

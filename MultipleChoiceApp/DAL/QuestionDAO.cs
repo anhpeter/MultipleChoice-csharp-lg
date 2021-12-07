@@ -23,7 +23,11 @@ namespace MultipleChoiceApp.DAL
         // COUNT
         public int countBySubjectId(int id)
         {
-            return count(getAllBySujectIdSqlStr(id));
+            String sql = string.Format(@"
+                    SELECT COUNT(*)
+                    FROM Questions as q INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
+                    WHERE s.Id = '{0}'", id + "");
+            return count(sql);
         }
 
         // FETCHS
@@ -75,7 +79,7 @@ namespace MultipleChoiceApp.DAL
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
-            dataDict.Add("SubjectId", item.SubjectId+"");
+            dataDict.Add("SubjectId", item.SubjectId + "");
             dataDict.Add("Level", item.Level);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");
@@ -87,7 +91,7 @@ namespace MultipleChoiceApp.DAL
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
-            dataDict.Add("SubjectId", item.SubjectId+"");
+            dataDict.Add("SubjectId", item.SubjectId + "");
             dataDict.Add("Level", item.Level);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");
