@@ -1,5 +1,5 @@
-﻿using MultipleChoiceApp.Common.Models;
-using MultipleChoiceApp.DAL;
+﻿using MultipleChoiceApp.DAL;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

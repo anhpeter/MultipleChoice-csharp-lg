@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultipleChoiceApp.Common.Models
+namespace MultipleChoiceApp
 {
     public class Exam
     {

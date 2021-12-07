@@ -1,7 +1,6 @@
 ﻿using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Common.Models;
 using MultipleChoiceApp.Common.Validators;
 using System;
 using System.Collections.Generic;

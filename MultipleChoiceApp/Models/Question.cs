@@ -1,4 +1,5 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultipleChoiceApp.Common.Models
+namespace MultipleChoiceApp
 {
     public class Question
     {
