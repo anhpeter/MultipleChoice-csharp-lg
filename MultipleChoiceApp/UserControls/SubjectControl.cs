@@ -33,6 +33,7 @@ namespace MultipleChoiceApp.UserControls
         private void SubjectControl_Load(object sender, EventArgs e)
         {
             refreshList();
+            clearForm();
         }
 
 

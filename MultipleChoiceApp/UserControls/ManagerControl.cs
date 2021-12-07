@@ -31,6 +31,7 @@ namespace MultipleChoiceApp.UserControls
         private void ManagerControl_Load(object sender, EventArgs e)
         {
             refreshList();
+            clearForm();
         }
 
 

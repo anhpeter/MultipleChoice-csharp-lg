@@ -39,6 +39,7 @@ namespace MultipleChoiceApp.UserControls
             datepicker_end_at.CustomFormat = "dd/MM/yyyy hh:mm";
             loadDrops();
             refreshList();
+            clearForm();
         }
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)

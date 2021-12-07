@@ -32,6 +32,7 @@ namespace MultipleChoiceApp.UserControls
         private void StudentControl_Load(object sender, EventArgs e)
         {
             refreshList();
+            clearForm();
         }
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
