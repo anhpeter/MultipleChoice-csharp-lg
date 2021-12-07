@@ -27,10 +27,13 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Question> getAllBySubjectId(int id)
+        public List<Question> getAllBySubjectId(int id, Pagination pagination)
         {
             List<Question> list = new List<Question>();
             String sqlStr = getAllBySujectIdSqlStr(id);
+            int offset = (pagination.currentPage - 1) * pagination.itemsPerPage;
+            int limit = pagination.itemsPerPage;
+            sqlStr += $" OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY";
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             while (dr.Read())
             {
@@ -62,7 +65,7 @@ namespace MultipleChoiceApp.DAL
                         q.Level
                     FROM Questions as q INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
                     WHERE s.Id = '{0}' {1}
-                    ORDER BY q.Id DESC;
+                    ORDER BY q.Id DESC
                 ", id, otherWhereStr);
             return sqlStr;
         }

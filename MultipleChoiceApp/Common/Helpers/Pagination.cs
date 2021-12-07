@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Helpers
 {
-    class Pagination
+    public class Pagination
     {
         public int itemsPerPage { get; set; }
         public int pageRange { get; set; }
@@ -28,7 +28,7 @@ namespace MultipleChoiceApp.Common.Helpers
         public void setTotalItems(int value)
         {
             this.totalItems = value;
-            this.totalPage = value > 0 ? (int)Math.Ceiling((double)totalItems / this.itemsPerPage) : 0;
+            this.totalPage = value > 0 ? (int)Math.Ceiling((double)totalItems / this.itemsPerPage) : 10;
         }
 
         public void setCurrentPage(int value)

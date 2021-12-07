@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.DAL;
+﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.DAL;
 using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,9 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.countBySubjectId(id);
         }
 
-        public List<Question> getAllBySubjectId(int id)
+        public List<Question> getAllBySubjectId(int id, Pagination pagination)
         {
-            return mainDAO.getAllBySubjectId(id);
+            return mainDAO.getAllBySubjectId(id, pagination);
         }
 
         public List<Question> searchByKeyword(int id, String keyword)

@@ -100,6 +100,7 @@
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
+    <Compile Include="Common\Interfaces\IPagination.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Question.cs" />
@@ -176,6 +177,12 @@
     <Compile Include="UserControls\ManagerControl.Designer.cs">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PaginationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PaginationControl.Designer.cs">
+      <DependentUpon>PaginationControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\QuestionControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -230,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ManagerControl.resx">
       <DependentUpon>ManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PaginationControl.resx">
+      <DependentUpon>PaginationControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\QuestionControl.resx">
       <DependentUpon>QuestionControl.cs</DependentUpon>

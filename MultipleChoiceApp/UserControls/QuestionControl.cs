@@ -3,6 +3,7 @@ using Bunifu.UI.WinForms.BunifuTextbox;
 using FluentValidation.Results;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.UtilForms;
 using MultipleChoiceApp.Common.Validators;
 using MultipleChoiceApp.Models;
@@ -19,12 +20,12 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class QuestionControl : UserControl
+    public partial class QuestionControl : UserControl,IPagination
     {
-
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
-        Pagination pagination;
+        PaginationControl paginationControl;
+        Pagination pagination = new Pagination(0, 1,5, 3);
 
         //
         Question formItem;
@@ -42,7 +43,9 @@ namespace MultipleChoiceApp.UserControls
             drop_level.Visible = false;
             drop_subject.Visible = false;
             LoadDrops();
+            paginationControl = new PaginationControl(pagination, this);
             refreshList();
+
         }
 
         private void drop_subject_SelectionChangeCommitted(object sender, EventArgs e)
@@ -218,9 +221,8 @@ namespace MultipleChoiceApp.UserControls
             int subjectId = getFormSubjectId();
             if (subjectId > 0)
             {
-                List<Question> list = mainBUS.getAllBySubjectId(subjectId);
+                List<Question> list = mainBUS.getAllBySubjectId(subjectId, pagination);
                 refreshList(list);
-                handlePagination(subjectId);
             }
         }
 
@@ -234,21 +236,11 @@ namespace MultipleChoiceApp.UserControls
                     item.SubjectCode, item.Chapter, item.Level, item.CreatedAt
                 });
             }
+            paginationControl = new PaginationControl(pagination, this);
+            pnl_pagination.Controls.Clear();
+            pnl_pagination.Controls.Add(paginationControl);
         }
 
-        private void handlePagination(int subjectId)
-        {
-            int count = mainBUS.countBySubjectId(subjectId);
-            if (pagination == null)
-            {
-                pagination = new Pagination(count, 1, 5, 3);
-            }
-            else
-            {
-                pagination.totalItems = count;
-                pagination.calculate();
-            }
-        }
 
         private void LoadDrops()
         {
@@ -319,5 +311,35 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
+        public int count()
+        {
+            return mainBUS.countBySubjectId(getFormSubjectId());
+        }
+
+        public void onPage()
+        {
+            pagination = paginationControl.pagination;
+            refreshList();
+        }
+
+        public void onFirstPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void onEndPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void onPrevPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void onNextPage()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

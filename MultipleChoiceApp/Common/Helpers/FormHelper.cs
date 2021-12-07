@@ -52,9 +52,9 @@ namespace MultipleChoiceApp.Common.Helpers
 
         public static void replaceForm(Form currentFrm, Form newFrm)
         {
-            currentFrm.Visible = false;
-            newFrm.ShowDialog();
-            currentFrm.Close();
+                currentFrm.Visible = false;
+                newFrm.ShowDialog();
+                currentFrm.Close();
         }
     }
 }
