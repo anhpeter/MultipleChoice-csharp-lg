@@ -16,12 +16,12 @@ namespace MultipleChoiceApp.Models
         public Question Question { get; set; }
         public int[] AnswerOrder { get; set; }
         public int AnswerNO { get; set; }
-        //
-        public int CorrectAnswerNo { get; set; }
+        public int RandomAnswerNo { get; set; }
         //
 
         public StudentResponse() { }
-        public StudentResponse(Question question) {
+        public StudentResponse(Question question)
+        {
             this.Question = question;
             this.QuestionId = question.Id;
         }
@@ -48,17 +48,22 @@ namespace MultipleChoiceApp.Models
         {
             int[] orderArr = { 1, 2, 3, 4 };
             AnswerOrder = orderArr.OrderBy(x => rnd.Next(1000)).ToArray();
-            int correctAnswerNoIndex = Array.FindIndex(AnswerOrder, x => x == Question.CorrectAnswerNo);
-            CorrectAnswerNo = correctAnswerNoIndex + 1;
         }
         public bool isCorrect()
         {
-            return CorrectAnswerNo == AnswerNO;
+            if (RandomAnswerNo <= 0) return false;
+            return AnswerOrder[RandomAnswerNo - 1] == Question.CorrectAnswerNo;
         }
 
         public String getAnswerOrderString()
         {
             return string.Join("", AnswerOrder);
+        }
+
+        public void setRandomAnswerNo(int no)
+        {
+            RandomAnswerNo = no;
+            AnswerNO = no > 0 ? AnswerOrder[no - 1] : 0;
         }
     }
 }

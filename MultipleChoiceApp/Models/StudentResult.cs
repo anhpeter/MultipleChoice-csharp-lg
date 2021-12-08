@@ -15,6 +15,9 @@ namespace MultipleChoiceApp.Models
         public int ExamId { get; set; }
         public Double Points { get; set; }
         //
+        public int CorrectAnswerCount { get; set; }
+        public int IncorrectAnswerCount { get; set; }
+        //
         public static StudentResult fromDR(SqlDataReader dr)
         {
 
@@ -50,6 +53,11 @@ namespace MultipleChoiceApp.Models
                 if (studentResponse.isCorrect())
                 {
                     points += 10.0 / Subject.TotalQuestion;
+                    CorrectAnswerCount++;
+                }
+                else
+                {
+                    IncorrectAnswerCount++;
                 }
             }
             Points = points;

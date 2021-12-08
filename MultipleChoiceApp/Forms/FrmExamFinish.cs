@@ -22,11 +22,21 @@ namespace MultipleChoiceApp.Forms
             this.studentResult = studentResult;
             InitializeComponent();
             CenterToScreen();
+            fillResultInfo();
+        }
+
+        private void fillResultInfo()
+        {
+            lbl_name.Text = studentResult.Exam.Name;
+            lbl_correct_qty.Text = studentResult.CorrectAnswerCount + "";
+            lbl_incorrect_qty.Text = studentResult.IncorrectAnswerCount + "";
+            lbl_mark.Text = studentResult.Points+"";
         }
 
         private void btn_done_Click(object sender, EventArgs e)
         {
             FormHelper.replaceForm(this, new FrmExamStart());
         }
+
     }
 }

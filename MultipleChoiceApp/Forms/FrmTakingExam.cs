@@ -128,7 +128,7 @@ namespace MultipleChoiceApp.Forms
                         //
                         int no = Util.parseToInt(answerPanel.Tag.ToString(), 1);
                         StudentResponse studentResponse = studentResponseList[no - 1];
-                        studentResponse.AnswerNO = answerNo;
+                        studentResponse.setRandomAnswerNo(answerNo);
                     }
                 }
             }
