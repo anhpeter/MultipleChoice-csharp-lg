@@ -30,14 +30,14 @@ namespace MultipleChoiceApp.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTakingExam));
-            this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.pnl_header = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.lbl_time = new System.Windows.Forms.Label();
             this.pnl_pagination = new System.Windows.Forms.Panel();
             this.btn_last = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_next = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_prev = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_first = new Bunifu.Framework.UI.BunifuImageButton();
-            this.pnl_question = new System.Windows.Forms.Panel();
+            this.pnl_question_sheet = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ans4 = new System.Windows.Forms.Label();
             this.lbl_ans3 = new System.Windows.Forms.Label();
@@ -59,13 +59,13 @@ namespace MultipleChoiceApp.Forms
             this.btn_submit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label10 = new System.Windows.Forms.Label();
-            this.bunifuShadowPanel1.SuspendLayout();
+            this.pnl_header.SuspendLayout();
             this.pnl_pagination.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_last)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_prev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_first)).BeginInit();
-            this.pnl_question.SuspendLayout();
+            this.pnl_question_sheet.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_answer_sheet.SuspendLayout();
             this.pnl_answer.SuspendLayout();
@@ -73,42 +73,42 @@ namespace MultipleChoiceApp.Forms
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bunifuShadowPanel1
+            // pnl_header
             // 
-            this.bunifuShadowPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnl_header.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuShadowPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuShadowPanel1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.bunifuShadowPanel1.Controls.Add(this.label8);
-            this.bunifuShadowPanel1.Controls.Add(this.pnl_pagination);
-            this.bunifuShadowPanel1.Location = new System.Drawing.Point(12, 12);
-            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuShadowPanel1.Name = "bunifuShadowPanel1";
-            this.bunifuShadowPanel1.PanelColor = System.Drawing.Color.Empty;
-            this.bunifuShadowPanel1.ShadowDept = 2;
-            this.bunifuShadowPanel1.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel1.Size = new System.Drawing.Size(1196, 78);
-            this.bunifuShadowPanel1.TabIndex = 0;
+            this.pnl_header.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_header.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnl_header.Controls.Add(this.lbl_time);
+            this.pnl_header.Location = new System.Drawing.Point(12, 12);
+            this.pnl_header.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_header.Name = "pnl_header";
+            this.pnl_header.PanelColor = System.Drawing.Color.Empty;
+            this.pnl_header.ShadowDept = 2;
+            this.pnl_header.ShadowTopLeftVisible = false;
+            this.pnl_header.Size = new System.Drawing.Size(1196, 78);
+            this.pnl_header.TabIndex = 0;
             // 
-            // label8
+            // lbl_time
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label8.Location = new System.Drawing.Point(1089, 18);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 28);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "<time>";
+            this.lbl_time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_time.AutoSize = true;
+            this.lbl_time.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lbl_time.Location = new System.Drawing.Point(683, 25);
+            this.lbl_time.Name = "lbl_time";
+            this.lbl_time.Size = new System.Drawing.Size(100, 32);
+            this.lbl_time.TabIndex = 5;
+            this.lbl_time.Text = "<time>";
             // 
             // pnl_pagination
             // 
+            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnl_pagination.Controls.Add(this.btn_last);
             this.pnl_pagination.Controls.Add(this.btn_next);
             this.pnl_pagination.Controls.Add(this.btn_prev);
             this.pnl_pagination.Controls.Add(this.btn_first);
-            this.pnl_pagination.Location = new System.Drawing.Point(29, 18);
+            this.pnl_pagination.Location = new System.Drawing.Point(632, 215);
             this.pnl_pagination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_pagination.Name = "pnl_pagination";
             this.pnl_pagination.Size = new System.Drawing.Size(189, 37);
@@ -178,19 +178,20 @@ namespace MultipleChoiceApp.Forms
             this.btn_first.Zoom = 0;
             this.btn_first.Click += new System.EventHandler(this.onPaginationBtnClick);
             // 
-            // pnl_question
+            // pnl_question_sheet
             // 
-            this.pnl_question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnl_question_sheet.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_question.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_question.Controls.Add(this.tableLayoutPanel1);
-            this.pnl_question.Controls.Add(this.lbl_question);
-            this.pnl_question.Location = new System.Drawing.Point(12, 107);
-            this.pnl_question.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnl_question.Name = "pnl_question";
-            this.pnl_question.Size = new System.Drawing.Size(1196, 270);
-            this.pnl_question.TabIndex = 1;
+            this.pnl_question_sheet.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_question_sheet.Controls.Add(this.tableLayoutPanel1);
+            this.pnl_question_sheet.Controls.Add(this.pnl_pagination);
+            this.pnl_question_sheet.Controls.Add(this.lbl_question);
+            this.pnl_question_sheet.Location = new System.Drawing.Point(12, 107);
+            this.pnl_question_sheet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl_question_sheet.Name = "pnl_question_sheet";
+            this.pnl_question_sheet.Size = new System.Drawing.Size(1196, 270);
+            this.pnl_question_sheet.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -219,7 +220,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 146);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 90);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // lbl_ans4
@@ -366,7 +367,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 1;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -547,21 +548,21 @@ namespace MultipleChoiceApp.Forms
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1220, 787);
             this.Controls.Add(this.pnl_answer_sheet);
-            this.Controls.Add(this.pnl_question);
-            this.Controls.Add(this.bunifuShadowPanel1);
+            this.Controls.Add(this.pnl_question_sheet);
+            this.Controls.Add(this.pnl_header);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTakingExam";
             this.Text = "FrmTakingExam";
             this.Load += new System.EventHandler(this.FrmTakingExam_Load);
-            this.bunifuShadowPanel1.ResumeLayout(false);
-            this.bunifuShadowPanel1.PerformLayout();
+            this.pnl_header.ResumeLayout(false);
+            this.pnl_header.PerformLayout();
             this.pnl_pagination.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btn_last)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_next)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_prev)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_first)).EndInit();
-            this.pnl_question.ResumeLayout(false);
-            this.pnl_question.PerformLayout();
+            this.pnl_question_sheet.ResumeLayout(false);
+            this.pnl_question_sheet.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.pnl_answer_sheet.ResumeLayout(false);
@@ -576,14 +577,14 @@ namespace MultipleChoiceApp.Forms
 
         #endregion
 
-        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
+        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel pnl_header;
         private Bunifu.Framework.UI.BunifuImageButton btn_first;
         private System.Windows.Forms.Panel pnl_pagination;
         private Bunifu.Framework.UI.BunifuImageButton btn_last;
         private Bunifu.Framework.UI.BunifuImageButton btn_next;
         private Bunifu.Framework.UI.BunifuImageButton btn_prev;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel pnl_question;
+        private System.Windows.Forms.Label lbl_time;
+        private System.Windows.Forms.Panel pnl_question_sheet;
         private System.Windows.Forms.Panel pnl_answer_sheet;
         private System.Windows.Forms.Label lbl_question;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

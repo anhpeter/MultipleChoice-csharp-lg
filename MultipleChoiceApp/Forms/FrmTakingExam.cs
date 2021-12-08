@@ -38,7 +38,8 @@ namespace MultipleChoiceApp.Forms
         private void FrmTakingExam_Load(object sender, EventArgs e)
         {
             pnl_answer.Visible = false;
-            setupExam();
+            lbl_time.Left = (pnl_header.Width - lbl_time.Width) / 2;
+            pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2; setupExam();
         }
 
         private void onPaginationBtnClick(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace MultipleChoiceApp.Forms
 
         private void displayQuestion()
         {
-            StudentResponse studentResponse = studentResponseList[questionNumber-1];
+            StudentResponse studentResponse = studentResponseList[questionNumber - 1];
             Question question = studentResponse.Question;
             lbl_question.Text = $"{questionNumber}. {question.Content}";
             int[] answerOrder = studentResponse.AnswerOrder;
