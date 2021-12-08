@@ -34,11 +34,6 @@ namespace MultipleChoiceApp.Forms
             FormHelper.MakeFullScreen(this);
         }
 
-        private void btn_submit_Click(object sender, EventArgs e)
-        {
-            FormHelper.replaceForm(this, new FrmExamFinish());
-        }
-
         private void FrmTakingExam_Load(object sender, EventArgs e)
         {
             setupInterface();
@@ -72,12 +67,13 @@ namespace MultipleChoiceApp.Forms
             if (this.time == 0)
             {
                 timer.Dispose();
-                MessageBox.Show("Time end!");
+                onExamTimeout();
             }
         }
 
         private void setupInterface()
         {
+            lbl_time.Text = "";
             pnl_answer.Visible = false;
             lbl_time.Left = (pnl_header.Width - lbl_time.Width) / 2;
             pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2;
@@ -96,7 +92,56 @@ namespace MultipleChoiceApp.Forms
             return questions;
         }
 
+        private void onExamTimeout()
+        {
+            MessageBox.Show("TIME'S UP!");
+            onExamSubmit();
+        }
+
+        // ON EXAM SUBMIT
+        private void onExamSubmit()
+        {
+            // HANDLE SUBMIT
+            foreach (var control in pnl_answer.Controls)
+            {
+                if (control is TableLayoutPanel)
+                {
+                    TableLayoutPanel answerPanel = (TableLayoutPanel)control;
+                    if (answerPanel.Tag != null)
+                    {
+
+                        int answerNo = 1;
+                        foreach (var c in answerPanel.Controls)
+                        {
+                            if (c is RadioButton)
+                            {
+                                RadioButton rdo = (RadioButton)c;
+                                if (rdo.Checked)
+                                {
+                                    answerNo = Util.parseToInt(rdo.Tag.ToString(), 1);
+                                    break;
+                                }
+                            }
+                        }
+                        //
+                        int no = Util.parseToInt(answerPanel.Tag.ToString(), 1);
+                        StudentResponse studentResponse = studentResponseList[no - 1];
+                        studentResponse.AnswerNO = answerNo;
+                    }
+                }
+
+            }
+
+            //
+            FormHelper.replaceForm(this, new FrmExamFinish());
+        }
+
         // EVENTS
+        private void btn_submit_Click(object sender, EventArgs e)
+        {
+            timer.Dispose();
+            onExamSubmit();
+        }
         private void onPaginationBtnClick(object sender, EventArgs e)
         {
             String tag = ((BunifuImageButton)sender).Tag.ToString();
@@ -150,7 +195,7 @@ namespace MultipleChoiceApp.Forms
             for (int i = 1; i <= subject.TotalQuestion; i++)
             {
                 Label lbl = getAnswerLabel(i + "");
-                TableLayoutPanel panel = getSingleAnswer();
+                TableLayoutPanel panel = getSingleAnswer(i);
                 pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
                 pnl_answer.Controls.Add(lbl, i, 0);
                 pnl_answer.Controls.Add(panel, i, 1);
@@ -160,17 +205,19 @@ namespace MultipleChoiceApp.Forms
             pnl_answer.Visible = true;
         }
 
-        private TableLayoutPanel getSingleAnswer()
+        private TableLayoutPanel getSingleAnswer(int questionNo)
         {
 
             TableLayoutPanel panel = new TableLayoutPanel();
             panel.ColumnCount = 1;
             panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            panel.Controls.Add(getAnswerRadioButton(), 0, 0);
-            panel.Controls.Add(getAnswerRadioButton(), 0, 1);
-            panel.Controls.Add(getAnswerRadioButton(), 0, 2);
-            panel.Controls.Add(getAnswerRadioButton(), 0, 3);
+            //
+            panel.Controls.Add(getAnswerRadioButton(1), 0, 0);
+            panel.Controls.Add(getAnswerRadioButton(2), 0, 1);
+            panel.Controls.Add(getAnswerRadioButton(3), 0, 2);
+            panel.Controls.Add(getAnswerRadioButton(4), 0, 3);
+            //
             panel.Dock = System.Windows.Forms.DockStyle.Fill;
             //panel.Location = new System.Drawing.Point(50, 46);
             panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -183,7 +230,8 @@ namespace MultipleChoiceApp.Forms
             panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             panel.BackColor = Color.Transparent;
             //panel.Size = new System.Drawing.Size(20, 145);
-            //panel.TabIndex = 12;
+            panel.Tag = questionNo;
+            panel.TabIndex = 100 + questionNo;
             return panel;
         }
 
@@ -198,7 +246,7 @@ namespace MultipleChoiceApp.Forms
             return lbl;
         }
 
-        private RadioButton getAnswerRadioButton()
+        private RadioButton getAnswerRadioButton(int no)
         {
             RadioButton rdo = new RadioButton();
             rdo.AutoSize = true;
@@ -211,7 +259,9 @@ namespace MultipleChoiceApp.Forms
             rdo.TabIndex = 0;
             rdo.TabStop = true;
             rdo.UseVisualStyleBackColor = true;
+            rdo.Tag = no;
             return rdo;
         }
+
     }
 }

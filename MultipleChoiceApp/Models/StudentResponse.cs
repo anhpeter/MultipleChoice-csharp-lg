@@ -20,7 +20,7 @@ namespace MultipleChoiceApp.Models
             Random rnd = new Random();
             AnswerOrder = orderArr.OrderBy(x => rnd.Next()).ToArray();
             int correctAnswerNoIndex = Array.FindIndex(AnswerOrder, x => x == Question.CorrectAnswerNo);
-            correctAnswerNo = AnswerOrder[correctAnswerNoIndex];
+            correctAnswerNo = correctAnswerNoIndex+1;
         }
     }
 }
