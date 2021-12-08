@@ -128,6 +128,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_last.TabIndex = 4;
             this.btn_last.TabStop = false;
             this.btn_last.Zoom = 0;
+            this.btn_last.Click += new System.EventHandler(this.onPaginationBtnClick);
             // 
             // btn_next
             // 
@@ -143,6 +144,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_next.TabIndex = 3;
             this.btn_next.TabStop = false;
             this.btn_next.Zoom = 0;
+            this.btn_next.Click += new System.EventHandler(this.onPaginationBtnClick);
             // 
             // btn_prev
             // 
@@ -158,6 +160,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_prev.TabIndex = 2;
             this.btn_prev.TabStop = false;
             this.btn_prev.Zoom = 0;
+            this.btn_prev.Click += new System.EventHandler(this.onPaginationBtnClick);
             // 
             // btn_first
             // 
@@ -173,6 +176,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_first.TabIndex = 1;
             this.btn_first.TabStop = false;
             this.btn_first.Zoom = 0;
+            this.btn_first.Click += new System.EventHandler(this.onPaginationBtnClick);
             // 
             // pnl_question
             // 
@@ -185,13 +189,15 @@ namespace MultipleChoiceApp.Forms
             this.pnl_question.Location = new System.Drawing.Point(12, 107);
             this.pnl_question.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_question.Name = "pnl_question";
-            this.pnl_question.Size = new System.Drawing.Size(1196, 322);
+            this.pnl_question.Size = new System.Drawing.Size(1196, 270);
             this.pnl_question.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.270109F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.72989F));
@@ -206,130 +212,139 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 102);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 218);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 146);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // lbl_ans4
             // 
             this.lbl_ans4.AutoSize = true;
             this.lbl_ans4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_ans4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans4.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans4.Location = new System.Drawing.Point(51, 152);
+            this.lbl_ans4.Location = new System.Drawing.Point(51, 284);
             this.lbl_ans4.Name = "lbl_ans4";
             this.lbl_ans4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans4.Size = new System.Drawing.Size(848, 66);
+            this.lbl_ans4.Size = new System.Drawing.Size(1071, 84);
             this.lbl_ans4.TabIndex = 14;
             this.lbl_ans4.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
+            this.lbl_ans4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_ans3
             // 
             this.lbl_ans3.AutoSize = true;
             this.lbl_ans3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_ans3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans3.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans3.Location = new System.Drawing.Point(51, 109);
+            this.lbl_ans3.Location = new System.Drawing.Point(51, 200);
             this.lbl_ans3.Name = "lbl_ans3";
             this.lbl_ans3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans3.Size = new System.Drawing.Size(848, 43);
+            this.lbl_ans3.Size = new System.Drawing.Size(1071, 84);
             this.lbl_ans3.TabIndex = 13;
             this.lbl_ans3.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
+            this.lbl_ans3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_ans2
             // 
             this.lbl_ans2.AutoSize = true;
             this.lbl_ans2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_ans2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans2.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans2.Location = new System.Drawing.Point(51, 66);
+            this.lbl_ans2.Location = new System.Drawing.Point(51, 116);
             this.lbl_ans2.Name = "lbl_ans2";
             this.lbl_ans2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans2.Size = new System.Drawing.Size(848, 43);
+            this.lbl_ans2.Size = new System.Drawing.Size(1071, 84);
             this.lbl_ans2.TabIndex = 12;
             this.lbl_ans2.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
+            this.lbl_ans2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label1.Size = new System.Drawing.Size(35, 66);
+            this.label1.Size = new System.Drawing.Size(40, 116);
             this.label1.TabIndex = 7;
             this.label1.Text = "A.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 66);
+            this.label2.Location = new System.Drawing.Point(3, 116);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label2.Size = new System.Drawing.Size(34, 43);
+            this.label2.Size = new System.Drawing.Size(39, 84);
             this.label2.TabIndex = 8;
             this.label2.Text = "B.";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(3, 109);
+            this.label3.Location = new System.Drawing.Point(3, 200);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label3.Size = new System.Drawing.Size(35, 43);
+            this.label3.Size = new System.Drawing.Size(40, 84);
             this.label3.TabIndex = 9;
             this.label3.Text = "C.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(3, 152);
+            this.label4.Location = new System.Drawing.Point(3, 284);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label4.Size = new System.Drawing.Size(36, 66);
+            this.label4.Size = new System.Drawing.Size(42, 84);
             this.label4.TabIndex = 10;
             this.label4.Text = "D.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_ans1
             // 
             this.lbl_ans1.AutoSize = true;
             this.lbl_ans1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_ans1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ans1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans1.ForeColor = System.Drawing.Color.Black;
             this.lbl_ans1.Location = new System.Drawing.Point(51, 0);
             this.lbl_ans1.Name = "lbl_ans1";
             this.lbl_ans1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans1.Size = new System.Drawing.Size(1084, 66);
+            this.lbl_ans1.Size = new System.Drawing.Size(1034, 116);
             this.lbl_ans1.TabIndex = 11;
             this.lbl_ans1.Text = resources.GetString("lbl_ans1.Text");
+            this.lbl_ans1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_question
             // 
             this.lbl_question.AutoSize = true;
-            this.lbl_question.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_question.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_question.ForeColor = System.Drawing.Color.RoyalBlue;
             this.lbl_question.Location = new System.Drawing.Point(24, 14);
             this.lbl_question.Name = "lbl_question";
-            this.lbl_question.Size = new System.Drawing.Size(120, 28);
+            this.lbl_question.Size = new System.Drawing.Size(171, 38);
             this.lbl_question.TabIndex = 6;
             this.lbl_question.Text = "<question>";
             // 
@@ -341,7 +356,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_answer_sheet.Controls.Add(this.pnl_answer);
             this.pnl_answer_sheet.Controls.Add(this.panel1);
             this.pnl_answer_sheet.Controls.Add(this.label10);
-            this.pnl_answer_sheet.Location = new System.Drawing.Point(12, 452);
+            this.pnl_answer_sheet.Location = new System.Drawing.Point(12, 396);
             this.pnl_answer_sheet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_answer_sheet.Name = "pnl_answer_sheet";
             this.pnl_answer_sheet.Size = new System.Drawing.Size(1196, 377);
@@ -351,7 +366,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 1;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -530,7 +545,7 @@ namespace MultipleChoiceApp.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1220, 843);
+            this.ClientSize = new System.Drawing.Size(1220, 787);
             this.Controls.Add(this.pnl_answer_sheet);
             this.Controls.Add(this.pnl_question);
             this.Controls.Add(this.bunifuShadowPanel1);
@@ -578,7 +593,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_ans1;
         private System.Windows.Forms.Label lbl_ans2;
-        private System.Windows.Forms.Label lbl_ans4;
         private System.Windows.Forms.Label lbl_ans3;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
@@ -590,5 +604,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_ans4;
     }
 }

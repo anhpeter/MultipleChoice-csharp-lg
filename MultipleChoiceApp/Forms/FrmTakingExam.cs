@@ -41,9 +41,9 @@ namespace MultipleChoiceApp.Forms
             setupExam();
         }
 
-        private void onPageClick(object sender, EventArgs e)
+        private void onPaginationBtnClick(object sender, EventArgs e)
         {
-            String tag = ((BunifuFlatButton)sender).Tag.ToString();
+            String tag = ((BunifuImageButton)sender).Tag.ToString();
             questionNumber = Util.parseToInt(tag, 1);
             displayQuestion();
         }
@@ -94,14 +94,27 @@ namespace MultipleChoiceApp.Forms
 
         private void displayQuestion()
         {
-            StudentResponse studentResponse = studentResponseList[questionNumber];
+            StudentResponse studentResponse = studentResponseList[questionNumber-1];
             Question question = studentResponse.Question;
-            lbl_question.Text = question.Content;
+            lbl_question.Text = $"{questionNumber}. {question.Content}";
             int[] answerOrder = studentResponse.AnswerOrder;
             lbl_ans1.Text = question.Answers[answerOrder[0] - 1].Content;
             lbl_ans2.Text = question.Answers[answerOrder[1] - 1].Content;
             lbl_ans3.Text = question.Answers[answerOrder[2] - 1].Content;
             lbl_ans4.Text = question.Answers[answerOrder[3] - 1].Content;
+            updatePagination();
+        }
+
+        private void updatePagination()
+        {
+            int first = 1;
+            int prev = questionNumber > 1 ? questionNumber - 1 : 1;
+            int next = questionNumber < subject.TotalQuestion ? questionNumber + 1 : subject.TotalQuestion;
+            int last = subject.TotalQuestion;
+            btn_first.Tag = first;
+            btn_prev.Tag = prev;
+            btn_next.Tag = next;
+            btn_last.Tag = last;
         }
 
         private TableLayoutPanel getSingleAnswer()
