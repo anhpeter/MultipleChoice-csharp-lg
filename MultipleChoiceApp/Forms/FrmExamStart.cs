@@ -27,6 +27,18 @@ namespace MultipleChoiceApp.Forms
             fillFormInfo();
         }
 
+        private void FrmExamStart_Load(object sender, EventArgs e)
+        {
+            setupInterface();
+        }
+
+        private void setupInterface()
+        {
+            lbl_exam_name_label.Visible = false;
+            lbl_exam_start_label.Visible = false;
+            lbl_exam_end_label.Visible = false;
+        }
+
         private void fillFormInfo()
         {
             LoadDrops();
@@ -34,7 +46,6 @@ namespace MultipleChoiceApp.Forms
             lbl_code.Text = auth.student.Code;
             lbl_major.Text = auth.student.Major;
             fillSubjectInfo();
-            fillExamInfo();
         }
 
         private void fillSubjectInfo()
@@ -57,7 +68,7 @@ namespace MultipleChoiceApp.Forms
                 drop_subject.DataSource = subjectList;
                 drop_subject.ValueMember = "Id";
                 drop_subject.DisplayMember = "Name";
-                drop_subject.SelectedIndex = 0;
+                //drop_subject.SelectedIndex = 0;
             }
         }
 
@@ -71,6 +82,9 @@ namespace MultipleChoiceApp.Forms
                 lbl_exam_start.Text = Util.toExamFormattedDate(exam.StartAt);
                 lbl_exam_end.Text = Util.toExamFormattedDate(exam.EndAt);
             }
+            lbl_exam_name_label.Visible = true;
+            lbl_exam_start_label.Visible = true;
+            lbl_exam_end_label.Visible = true;
         }
 
         // HEPER METHODS
@@ -94,7 +108,10 @@ namespace MultipleChoiceApp.Forms
 
         private void btn_start_Click(object sender, EventArgs e)
         {
-            FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));
+            if (exam != null)
+            {
+                FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));
+            }
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -108,5 +125,6 @@ namespace MultipleChoiceApp.Forms
             fillSubjectInfo();
             fillExamInfo();
         }
+
     }
 }

@@ -50,9 +50,9 @@ namespace MultipleChoiceApp.Forms
             this.btn_start = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_exit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lbl_exam_end_label = new System.Windows.Forms.Label();
+            this.lbl_exam_name_label = new System.Windows.Forms.Label();
+            this.lbl_exam_start_label = new System.Windows.Forms.Label();
             this.lbl_exam_name = new System.Windows.Forms.Label();
             this.lbl_exam_start = new System.Windows.Forms.Label();
             this.lbl_exam_end = new System.Windows.Forms.Label();
@@ -392,9 +392,9 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_exam_end_label, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_exam_name_label, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lbl_exam_start_label, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbl_exam_name, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.lbl_exam_start, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.lbl_exam_end, 1, 2);
@@ -407,38 +407,38 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel2.Size = new System.Drawing.Size(458, 132);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
-            // label9
+            // lbl_exam_end_label
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(3, 84);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(50, 19);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "End at";
+            this.lbl_exam_end_label.AutoSize = true;
+            this.lbl_exam_end_label.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exam_end_label.ForeColor = System.Drawing.Color.Black;
+            this.lbl_exam_end_label.Location = new System.Drawing.Point(3, 84);
+            this.lbl_exam_end_label.Name = "lbl_exam_end_label";
+            this.lbl_exam_end_label.Size = new System.Drawing.Size(50, 19);
+            this.lbl_exam_end_label.TabIndex = 9;
+            this.lbl_exam_end_label.Text = "End at";
             // 
-            // label10
+            // lbl_exam_name_label
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 19);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Exam name";
+            this.lbl_exam_name_label.AutoSize = true;
+            this.lbl_exam_name_label.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exam_name_label.ForeColor = System.Drawing.Color.Black;
+            this.lbl_exam_name_label.Location = new System.Drawing.Point(3, 0);
+            this.lbl_exam_name_label.Name = "lbl_exam_name_label";
+            this.lbl_exam_name_label.Size = new System.Drawing.Size(86, 19);
+            this.lbl_exam_name_label.TabIndex = 4;
+            this.lbl_exam_name_label.Text = "Exam name";
             // 
-            // label11
+            // lbl_exam_start_label
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(3, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 19);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "Start at";
+            this.lbl_exam_start_label.AutoSize = true;
+            this.lbl_exam_start_label.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_exam_start_label.ForeColor = System.Drawing.Color.Black;
+            this.lbl_exam_start_label.Location = new System.Drawing.Point(3, 42);
+            this.lbl_exam_start_label.Name = "lbl_exam_start_label";
+            this.lbl_exam_start_label.Size = new System.Drawing.Size(58, 19);
+            this.lbl_exam_start_label.TabIndex = 5;
+            this.lbl_exam_start_label.Text = "Start at";
             // 
             // lbl_exam_name
             // 
@@ -486,6 +486,7 @@ namespace MultipleChoiceApp.Forms
             this.MinimizeBox = false;
             this.Name = "FrmExamStart";
             this.Text = "FrmExamStart";
+            this.Load += new System.EventHandler(this.FrmExamStart_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -520,9 +521,9 @@ namespace MultipleChoiceApp.Forms
         private Bunifu.Framework.UI.BunifuFlatButton btn_start;
         private Bunifu.Framework.UI.BunifuFlatButton btn_exit;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbl_exam_end_label;
+        private System.Windows.Forms.Label lbl_exam_name_label;
+        private System.Windows.Forms.Label lbl_exam_start_label;
         private System.Windows.Forms.Label lbl_exam_name;
         private System.Windows.Forms.Label lbl_exam_start;
         private System.Windows.Forms.Label lbl_exam_end;
