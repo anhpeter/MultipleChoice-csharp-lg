@@ -30,17 +30,23 @@ namespace MultipleChoiceApp.UserControls
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentResultControl));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_pagination = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_update = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.drop_exam = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,15 +57,10 @@ namespace MultipleChoiceApp.UserControls
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label6 = new System.Windows.Forms.Label();
-            this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.drop_exam = new Bunifu.UI.WinForms.BunifuDropdown();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -83,340 +84,6 @@ namespace MultipleChoiceApp.UserControls
             this.pnl_pagination.Name = "pnl_pagination";
             this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
             this.pnl_pagination.TabIndex = 16;
-            // 
-            // btn_update
-            // 
-            this.btn_update.Active = false;
-            this.btn_update.Activecolor = System.Drawing.Color.DodgerBlue;
-            this.btn_update.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btn_update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_update.BorderRadius = 0;
-            this.btn_update.ButtonText = "View Chart";
-            this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_update.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_update.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_update.Iconimage = null;
-            this.btn_update.Iconimage_right = null;
-            this.btn_update.Iconimage_right_Selected = null;
-            this.btn_update.Iconimage_Selected = null;
-            this.btn_update.IconMarginLeft = 0;
-            this.btn_update.IconMarginRight = 0;
-            this.btn_update.IconRightVisible = true;
-            this.btn_update.IconRightZoom = 0D;
-            this.btn_update.IconVisible = true;
-            this.btn_update.IconZoom = 70D;
-            this.btn_update.IsTab = false;
-            this.btn_update.Location = new System.Drawing.Point(515, 14);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Normalcolor = System.Drawing.Color.DodgerBlue;
-            this.btn_update.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btn_update.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_update.selected = false;
-            this.btn_update.Size = new System.Drawing.Size(221, 42);
-            this.btn_update.TabIndex = 0;
-            this.btn_update.Text = "View Chart";
-            this.btn_update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_update.Textcolor = System.Drawing.Color.White;
-            this.btn_update.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
-            // 
-            // txt_search
-            // 
-            this.txt_search.AcceptsReturn = false;
-            this.txt_search.AcceptsTab = false;
-            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_search.AnimationSpeed = 200;
-            this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_search.BackColor = System.Drawing.Color.Transparent;
-            this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
-            this.txt_search.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.txt_search.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txt_search.BorderColorIdle = System.Drawing.Color.Silver;
-            this.txt_search.BorderRadius = 1;
-            this.txt_search.BorderThickness = 1;
-            this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_search.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.txt_search.DefaultText = "";
-            this.txt_search.FillColor = System.Drawing.Color.White;
-            this.txt_search.HideSelection = true;
-            this.txt_search.IconLeft = ((System.Drawing.Image)(resources.GetObject("txt_search.IconLeft")));
-            this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_search.IconPadding = 5;
-            this.txt_search.IconRight = null;
-            this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_search.Lines = new string[0];
-            this.txt_search.Location = new System.Drawing.Point(704, 0);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_search.MaxLength = 32767;
-            this.txt_search.MinimumSize = new System.Drawing.Size(100, 34);
-            this.txt_search.Modified = false;
-            this.txt_search.Multiline = false;
-            this.txt_search.Name = "txt_search";
-            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.Empty;
-            stateProperties10.FillColor = System.Drawing.Color.White;
-            stateProperties10.ForeColor = System.Drawing.Color.Empty;
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_search.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.Silver;
-            stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnIdleState = stateProperties12;
-            this.txt_search.PasswordChar = '\0';
-            this.txt_search.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_search.PlaceholderText = "Keyword";
-            this.txt_search.ReadOnly = false;
-            this.txt_search.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt_search.SelectedText = "";
-            this.txt_search.SelectionLength = 0;
-            this.txt_search.SelectionStart = 0;
-            this.txt_search.ShortcutsEnabled = true;
-            this.txt_search.Size = new System.Drawing.Size(348, 34);
-            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_search.TabIndex = 14;
-            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_search.TextMarginBottom = 0;
-            this.txt_search.TextMarginLeft = 5;
-            this.txt_search.TextMarginTop = 0;
-            this.txt_search.TextPlaceholder = "Keyword";
-            this.txt_search.UseSystemPasswordChar = false;
-            this.txt_search.WordWrap = true;
-            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
-            // 
-            // gv_main
-            // 
-            this.gv_main.AllowCustomTheming = false;
-            this.gv_main.AllowUserToAddRows = false;
-            this.gv_main.AllowUserToDeleteRows = false;
-            this.gv_main.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.gv_main.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.gv_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gv_main.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.gv_main.ColumnHeadersHeight = 40;
-            this.gv_main.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column3,
-            this.Column1,
-            this.Column2,
-            this.Column4,
-            this.Column7,
-            this.Column5,
-            this.Column6,
-            this.Column8});
-            this.gv_main.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.gv_main.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.gv_main.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gv_main.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.gv_main.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.gv_main.CurrentTheme.BackColor = System.Drawing.Color.White;
-            this.gv_main.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.gv_main.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
-            this.gv_main.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            this.gv_main.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.gv_main.CurrentTheme.Name = null;
-            this.gv_main.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gv_main.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.gv_main.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.gv_main.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.gv_main.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gv_main.DefaultCellStyle = dataGridViewCellStyle12;
-            this.gv_main.EnableHeadersVisualStyles = false;
-            this.gv_main.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
-            this.gv_main.HeaderBackColor = System.Drawing.Color.DodgerBlue;
-            this.gv_main.HeaderBgColor = System.Drawing.Color.Empty;
-            this.gv_main.HeaderForeColor = System.Drawing.Color.White;
-            this.gv_main.Location = new System.Drawing.Point(0, 46);
-            this.gv_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gv_main.Name = "gv_main";
-            this.gv_main.ReadOnly = true;
-            this.gv_main.RowHeadersVisible = false;
-            this.gv_main.RowHeadersWidth = 51;
-            this.gv_main.RowTemplate.Height = 40;
-            this.gv_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gv_main.Size = new System.Drawing.Size(1052, 530);
-            this.gv_main.TabIndex = 13;
-            this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Id";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Student code";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.HeaderText = "Full Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Address";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle11.Format = "d";
-            dataGridViewCellStyle11.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column7.HeaderText = "Day Of Birth";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Major";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Point";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Subject";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 23);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Subject";
-            // 
-            // drop_subject
-            // 
-            this.drop_subject.BackColor = System.Drawing.SystemColors.Control;
-            this.drop_subject.BorderRadius = 1;
-            this.drop_subject.Color = System.Drawing.Color.Black;
-            this.drop_subject.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.drop_subject.DisabledColor = System.Drawing.Color.White;
-            this.drop_subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.drop_subject.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
-            this.drop_subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drop_subject.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drop_subject.FillDropDown = false;
-            this.drop_subject.FillIndicator = true;
-            this.drop_subject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drop_subject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drop_subject.ForeColor = System.Drawing.Color.Black;
-            this.drop_subject.FormattingEnabled = true;
-            this.drop_subject.Icon = null;
-            this.drop_subject.IndicatorColor = System.Drawing.Color.DimGray;
-            this.drop_subject.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drop_subject.ItemBackColor = System.Drawing.Color.White;
-            this.drop_subject.ItemBorderColor = System.Drawing.Color.White;
-            this.drop_subject.ItemForeColor = System.Drawing.Color.Black;
-            this.drop_subject.ItemHeight = 26;
-            this.drop_subject.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
-            this.drop_subject.Location = new System.Drawing.Point(113, 14);
-            this.drop_subject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.drop_subject.Name = "drop_subject";
-            this.drop_subject.Size = new System.Drawing.Size(287, 32);
-            this.drop_subject.TabIndex = 12;
-            this.drop_subject.Text = null;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 56);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 23);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Exam";
-            // 
-            // drop_exam
-            // 
-            this.drop_exam.BackColor = System.Drawing.SystemColors.Control;
-            this.drop_exam.BorderRadius = 1;
-            this.drop_exam.Color = System.Drawing.Color.Black;
-            this.drop_exam.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.drop_exam.DisabledColor = System.Drawing.Color.White;
-            this.drop_exam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.drop_exam.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
-            this.drop_exam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.drop_exam.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.drop_exam.FillDropDown = false;
-            this.drop_exam.FillIndicator = true;
-            this.drop_exam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.drop_exam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.drop_exam.ForeColor = System.Drawing.Color.Black;
-            this.drop_exam.FormattingEnabled = true;
-            this.drop_exam.Icon = null;
-            this.drop_exam.IndicatorColor = System.Drawing.Color.DimGray;
-            this.drop_exam.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.drop_exam.ItemBackColor = System.Drawing.Color.White;
-            this.drop_exam.ItemBorderColor = System.Drawing.Color.White;
-            this.drop_exam.ItemForeColor = System.Drawing.Color.Black;
-            this.drop_exam.ItemHeight = 26;
-            this.drop_exam.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
-            this.drop_exam.Location = new System.Drawing.Point(113, 53);
-            this.drop_exam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.drop_exam.Name = "drop_exam";
-            this.drop_exam.Size = new System.Drawing.Size(287, 32);
-            this.drop_exam.TabIndex = 14;
-            this.drop_exam.Text = null;
             // 
             // panel4
             // 
@@ -470,6 +137,347 @@ namespace MultipleChoiceApp.UserControls
             this.btn_export_excel.Textcolor = System.Drawing.Color.White;
             this.btn_export_excel.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 23);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Exam";
+            // 
+            // btn_update
+            // 
+            this.btn_update.Active = false;
+            this.btn_update.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btn_update.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_update.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_update.BorderRadius = 0;
+            this.btn_update.ButtonText = "View Chart";
+            this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_update.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_update.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_update.Iconimage = null;
+            this.btn_update.Iconimage_right = null;
+            this.btn_update.Iconimage_right_Selected = null;
+            this.btn_update.Iconimage_Selected = null;
+            this.btn_update.IconMarginLeft = 0;
+            this.btn_update.IconMarginRight = 0;
+            this.btn_update.IconRightVisible = true;
+            this.btn_update.IconRightZoom = 0D;
+            this.btn_update.IconVisible = true;
+            this.btn_update.IconZoom = 70D;
+            this.btn_update.IsTab = false;
+            this.btn_update.Location = new System.Drawing.Point(515, 14);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btn_update.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.btn_update.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_update.selected = false;
+            this.btn_update.Size = new System.Drawing.Size(221, 42);
+            this.btn_update.TabIndex = 0;
+            this.btn_update.Text = "View Chart";
+            this.btn_update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_update.Textcolor = System.Drawing.Color.White;
+            this.btn_update.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // drop_exam
+            // 
+            this.drop_exam.BackColor = System.Drawing.SystemColors.Control;
+            this.drop_exam.BorderRadius = 1;
+            this.drop_exam.Color = System.Drawing.Color.Black;
+            this.drop_exam.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.drop_exam.DisabledColor = System.Drawing.Color.White;
+            this.drop_exam.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.drop_exam.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
+            this.drop_exam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drop_exam.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.drop_exam.FillDropDown = false;
+            this.drop_exam.FillIndicator = true;
+            this.drop_exam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.drop_exam.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drop_exam.ForeColor = System.Drawing.Color.Black;
+            this.drop_exam.FormattingEnabled = true;
+            this.drop_exam.Icon = null;
+            this.drop_exam.IndicatorColor = System.Drawing.Color.DimGray;
+            this.drop_exam.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.drop_exam.ItemBackColor = System.Drawing.Color.White;
+            this.drop_exam.ItemBorderColor = System.Drawing.Color.White;
+            this.drop_exam.ItemForeColor = System.Drawing.Color.Black;
+            this.drop_exam.ItemHeight = 26;
+            this.drop_exam.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
+            this.drop_exam.Location = new System.Drawing.Point(113, 71);
+            this.drop_exam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.drop_exam.Name = "drop_exam";
+            this.drop_exam.Size = new System.Drawing.Size(287, 32);
+            this.drop_exam.TabIndex = 14;
+            this.drop_exam.Text = null;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 17);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 23);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Subject";
+            // 
+            // drop_subject
+            // 
+            this.drop_subject.BackColor = System.Drawing.SystemColors.Control;
+            this.drop_subject.BorderRadius = 1;
+            this.drop_subject.Color = System.Drawing.Color.Black;
+            this.drop_subject.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.drop_subject.DisabledColor = System.Drawing.Color.White;
+            this.drop_subject.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.drop_subject.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
+            this.drop_subject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.drop_subject.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.drop_subject.FillDropDown = false;
+            this.drop_subject.FillIndicator = true;
+            this.drop_subject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.drop_subject.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drop_subject.ForeColor = System.Drawing.Color.Black;
+            this.drop_subject.FormattingEnabled = true;
+            this.drop_subject.Icon = null;
+            this.drop_subject.IndicatorColor = System.Drawing.Color.DimGray;
+            this.drop_subject.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.drop_subject.ItemBackColor = System.Drawing.Color.White;
+            this.drop_subject.ItemBorderColor = System.Drawing.Color.White;
+            this.drop_subject.ItemForeColor = System.Drawing.Color.Black;
+            this.drop_subject.ItemHeight = 26;
+            this.drop_subject.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
+            this.drop_subject.Location = new System.Drawing.Point(113, 14);
+            this.drop_subject.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.drop_subject.Name = "drop_subject";
+            this.drop_subject.Size = new System.Drawing.Size(287, 32);
+            this.drop_subject.TabIndex = 12;
+            this.drop_subject.Text = null;
+            // 
+            // txt_search
+            // 
+            this.txt_search.AcceptsReturn = false;
+            this.txt_search.AcceptsTab = false;
+            this.txt_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_search.AnimationSpeed = 200;
+            this.txt_search.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_search.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_search.BackColor = System.Drawing.Color.Transparent;
+            this.txt_search.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_search.BackgroundImage")));
+            this.txt_search.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.txt_search.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txt_search.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.txt_search.BorderColorIdle = System.Drawing.Color.Silver;
+            this.txt_search.BorderRadius = 1;
+            this.txt_search.BorderThickness = 1;
+            this.txt_search.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.txt_search.DefaultText = "";
+            this.txt_search.FillColor = System.Drawing.Color.White;
+            this.txt_search.HideSelection = true;
+            this.txt_search.IconLeft = ((System.Drawing.Image)(resources.GetObject("txt_search.IconLeft")));
+            this.txt_search.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.IconPadding = 5;
+            this.txt_search.IconRight = null;
+            this.txt_search.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.Lines = new string[0];
+            this.txt_search.Location = new System.Drawing.Point(704, 0);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_search.MaxLength = 32767;
+            this.txt_search.MinimumSize = new System.Drawing.Size(100, 34);
+            this.txt_search.Modified = false;
+            this.txt_search.Multiline = false;
+            this.txt_search.Name = "txt_search";
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.Empty;
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_search.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.Silver;
+            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnIdleState = stateProperties4;
+            this.txt_search.PasswordChar = '\0';
+            this.txt_search.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_search.PlaceholderText = "Keyword";
+            this.txt_search.ReadOnly = false;
+            this.txt_search.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_search.SelectedText = "";
+            this.txt_search.SelectionLength = 0;
+            this.txt_search.SelectionStart = 0;
+            this.txt_search.ShortcutsEnabled = true;
+            this.txt_search.Size = new System.Drawing.Size(348, 34);
+            this.txt_search.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_search.TabIndex = 14;
+            this.txt_search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_search.TextMarginBottom = 0;
+            this.txt_search.TextMarginLeft = 5;
+            this.txt_search.TextMarginTop = 0;
+            this.txt_search.TextPlaceholder = "Keyword";
+            this.txt_search.UseSystemPasswordChar = false;
+            this.txt_search.WordWrap = true;
+            this.txt_search.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txt_search_KeyUp);
+            // 
+            // gv_main
+            // 
+            this.gv_main.AllowCustomTheming = false;
+            this.gv_main.AllowUserToAddRows = false;
+            this.gv_main.AllowUserToDeleteRows = false;
+            this.gv_main.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.gv_main.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gv_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gv_main.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.gv_main.ColumnHeadersHeight = 40;
+            this.gv_main.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column1,
+            this.Column2,
+            this.Column4,
+            this.Column7,
+            this.Column5,
+            this.Column6,
+            this.Column8,
+            this.Column9});
+            this.gv_main.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gv_main.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.gv_main.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gv_main.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.gv_main.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.gv_main.CurrentTheme.BackColor = System.Drawing.Color.White;
+            this.gv_main.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.gv_main.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DodgerBlue;
+            this.gv_main.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            this.gv_main.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.gv_main.CurrentTheme.Name = null;
+            this.gv_main.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.gv_main.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.gv_main.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.gv_main.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            this.gv_main.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gv_main.DefaultCellStyle = dataGridViewCellStyle4;
+            this.gv_main.EnableHeadersVisualStyles = false;
+            this.gv_main.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
+            this.gv_main.HeaderBackColor = System.Drawing.Color.DodgerBlue;
+            this.gv_main.HeaderBgColor = System.Drawing.Color.Empty;
+            this.gv_main.HeaderForeColor = System.Drawing.Color.White;
+            this.gv_main.Location = new System.Drawing.Point(0, 46);
+            this.gv_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gv_main.Name = "gv_main";
+            this.gv_main.ReadOnly = true;
+            this.gv_main.RowHeadersVisible = false;
+            this.gv_main.RowHeadersWidth = 51;
+            this.gv_main.RowTemplate.Height = 40;
+            this.gv_main.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gv_main.Size = new System.Drawing.Size(1052, 530);
+            this.gv_main.TabIndex = 13;
+            this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Id";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Student code";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Full Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Address";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column7.HeaderText = "Day Of Birth";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Major";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Point";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Subject";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Exam";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
             // StudentResultControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -482,9 +490,9 @@ namespace MultipleChoiceApp.UserControls
             this.Size = new System.Drawing.Size(1052, 828);
             this.Load += new System.EventHandler(this.StudentResultControl_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -495,6 +503,12 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
         private Bunifu.Framework.UI.BunifuFlatButton btn_update;
         private System.Windows.Forms.Panel pnl_pagination;
+        private System.Windows.Forms.Label label1;
+        private Bunifu.UI.WinForms.BunifuDropdown drop_exam;
+        private System.Windows.Forms.Label label6;
+        private Bunifu.UI.WinForms.BunifuDropdown drop_subject;
+        private System.Windows.Forms.Panel panel4;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_export_excel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -503,11 +517,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.Label label1;
-        private Bunifu.UI.WinForms.BunifuDropdown drop_exam;
-        private System.Windows.Forms.Label label6;
-        private Bunifu.UI.WinForms.BunifuDropdown drop_subject;
-        private System.Windows.Forms.Panel panel4;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_export_excel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

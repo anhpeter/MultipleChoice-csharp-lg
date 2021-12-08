@@ -62,12 +62,12 @@ namespace MultipleChoiceApp
             this.bunifuShadowPanel1.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuShadowPanel1.Controls.Add(this.panel1);
             this.bunifuShadowPanel1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuShadowPanel1.Name = "bunifuShadowPanel1";
             this.bunifuShadowPanel1.PanelColor = System.Drawing.Color.Empty;
             this.bunifuShadowPanel1.ShadowDept = 2;
             this.bunifuShadowPanel1.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel1.Size = new System.Drawing.Size(226, 512);
+            this.bunifuShadowPanel1.Size = new System.Drawing.Size(301, 630);
             this.bunifuShadowPanel1.TabIndex = 0;
             // 
             // panel1
@@ -78,9 +78,9 @@ namespace MultipleChoiceApp
             this.panel1.Controls.Add(this.pnl_nav);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 509);
+            this.panel1.Size = new System.Drawing.Size(285, 626);
             this.panel1.TabIndex = 0;
             // 
             // pnl_nav
@@ -93,10 +93,10 @@ namespace MultipleChoiceApp
             this.pnl_nav.Controls.Add(this.btn_subject);
             this.pnl_nav.Controls.Add(this.btn_question);
             this.pnl_nav.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_nav.Location = new System.Drawing.Point(0, 152);
-            this.pnl_nav.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_nav.Location = new System.Drawing.Point(0, 187);
+            this.pnl_nav.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_nav.Name = "pnl_nav";
-            this.pnl_nav.Size = new System.Drawing.Size(214, 357);
+            this.pnl_nav.Size = new System.Drawing.Size(285, 439);
             this.pnl_nav.TabIndex = 1;
             // 
             // btn_exit
@@ -122,14 +122,14 @@ namespace MultipleChoiceApp
             this.btn_exit.IconVisible = true;
             this.btn_exit.IconZoom = 70D;
             this.btn_exit.IsTab = false;
-            this.btn_exit.Location = new System.Drawing.Point(0, 276);
-            this.btn_exit.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_exit.Location = new System.Drawing.Point(0, 342);
+            this.btn_exit.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Normalcolor = System.Drawing.Color.White;
             this.btn_exit.OnHovercolor = System.Drawing.Color.White;
             this.btn_exit.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_exit.selected = false;
-            this.btn_exit.Size = new System.Drawing.Size(214, 46);
+            this.btn_exit.Size = new System.Drawing.Size(285, 57);
             this.btn_exit.TabIndex = 9;
             this.btn_exit.Tag = "Exit";
             this.btn_exit.Text = "Exit";
@@ -161,14 +161,14 @@ namespace MultipleChoiceApp
             this.btn_exam.IconVisible = true;
             this.btn_exam.IconZoom = 70D;
             this.btn_exam.IsTab = false;
-            this.btn_exam.Location = new System.Drawing.Point(0, 230);
-            this.btn_exam.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_exam.Location = new System.Drawing.Point(0, 285);
+            this.btn_exam.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_exam.Name = "btn_exam";
             this.btn_exam.Normalcolor = System.Drawing.Color.White;
             this.btn_exam.OnHovercolor = System.Drawing.Color.White;
             this.btn_exam.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_exam.selected = false;
-            this.btn_exam.Size = new System.Drawing.Size(214, 46);
+            this.btn_exam.Size = new System.Drawing.Size(285, 57);
             this.btn_exam.TabIndex = 8;
             this.btn_exam.Tag = "Exams";
             this.btn_exam.Text = "Exams";
@@ -200,20 +200,21 @@ namespace MultipleChoiceApp
             this.btn_result.IconVisible = true;
             this.btn_result.IconZoom = 70D;
             this.btn_result.IsTab = false;
-            this.btn_result.Location = new System.Drawing.Point(0, 184);
-            this.btn_result.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_result.Location = new System.Drawing.Point(0, 228);
+            this.btn_result.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_result.Name = "btn_result";
             this.btn_result.Normalcolor = System.Drawing.Color.White;
             this.btn_result.OnHovercolor = System.Drawing.Color.White;
             this.btn_result.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_result.selected = false;
-            this.btn_result.Size = new System.Drawing.Size(214, 46);
+            this.btn_result.Size = new System.Drawing.Size(285, 57);
             this.btn_result.TabIndex = 7;
             this.btn_result.Tag = "Results";
             this.btn_result.Text = "Results";
             this.btn_result.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_result.Textcolor = System.Drawing.Color.DimGray;
             this.btn_result.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_result.Click += new System.EventHandler(this.btn_result_Click);
             // 
             // btn_manager
             // 
@@ -238,14 +239,14 @@ namespace MultipleChoiceApp
             this.btn_manager.IconVisible = true;
             this.btn_manager.IconZoom = 70D;
             this.btn_manager.IsTab = false;
-            this.btn_manager.Location = new System.Drawing.Point(0, 138);
-            this.btn_manager.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_manager.Location = new System.Drawing.Point(0, 171);
+            this.btn_manager.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_manager.Name = "btn_manager";
             this.btn_manager.Normalcolor = System.Drawing.Color.White;
             this.btn_manager.OnHovercolor = System.Drawing.Color.White;
             this.btn_manager.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_manager.selected = false;
-            this.btn_manager.Size = new System.Drawing.Size(214, 46);
+            this.btn_manager.Size = new System.Drawing.Size(285, 57);
             this.btn_manager.TabIndex = 6;
             this.btn_manager.Tag = "Managers";
             this.btn_manager.Text = "Managers";
@@ -277,14 +278,14 @@ namespace MultipleChoiceApp
             this.btn_student.IconVisible = true;
             this.btn_student.IconZoom = 70D;
             this.btn_student.IsTab = false;
-            this.btn_student.Location = new System.Drawing.Point(0, 92);
-            this.btn_student.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_student.Location = new System.Drawing.Point(0, 114);
+            this.btn_student.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_student.Name = "btn_student";
             this.btn_student.Normalcolor = System.Drawing.Color.White;
             this.btn_student.OnHovercolor = System.Drawing.Color.White;
             this.btn_student.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_student.selected = false;
-            this.btn_student.Size = new System.Drawing.Size(214, 46);
+            this.btn_student.Size = new System.Drawing.Size(285, 57);
             this.btn_student.TabIndex = 5;
             this.btn_student.Tag = "Students";
             this.btn_student.Text = "Students";
@@ -316,14 +317,14 @@ namespace MultipleChoiceApp
             this.btn_subject.IconVisible = true;
             this.btn_subject.IconZoom = 70D;
             this.btn_subject.IsTab = false;
-            this.btn_subject.Location = new System.Drawing.Point(0, 46);
-            this.btn_subject.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_subject.Location = new System.Drawing.Point(0, 57);
+            this.btn_subject.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_subject.Name = "btn_subject";
             this.btn_subject.Normalcolor = System.Drawing.Color.White;
             this.btn_subject.OnHovercolor = System.Drawing.Color.White;
             this.btn_subject.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_subject.selected = false;
-            this.btn_subject.Size = new System.Drawing.Size(214, 46);
+            this.btn_subject.Size = new System.Drawing.Size(285, 57);
             this.btn_subject.TabIndex = 4;
             this.btn_subject.Tag = "Subjects";
             this.btn_subject.Text = "Subjects";
@@ -356,13 +357,13 @@ namespace MultipleChoiceApp
             this.btn_question.IconZoom = 70D;
             this.btn_question.IsTab = false;
             this.btn_question.Location = new System.Drawing.Point(0, 0);
-            this.btn_question.Margin = new System.Windows.Forms.Padding(3, 16, 3, 3);
+            this.btn_question.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.btn_question.Name = "btn_question";
             this.btn_question.Normalcolor = System.Drawing.Color.White;
             this.btn_question.OnHovercolor = System.Drawing.Color.White;
             this.btn_question.OnHoverTextColor = System.Drawing.Color.DimGray;
             this.btn_question.selected = false;
-            this.btn_question.Size = new System.Drawing.Size(214, 46);
+            this.btn_question.Size = new System.Drawing.Size(285, 57);
             this.btn_question.TabIndex = 3;
             this.btn_question.Tag = "Questions";
             this.btn_question.Text = "Questions";
@@ -377,9 +378,9 @@ namespace MultipleChoiceApp
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(214, 152);
+            this.panel2.Size = new System.Drawing.Size(285, 187);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -390,10 +391,9 @@ namespace MultipleChoiceApp
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(76, 102);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(101, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 21);
+            this.label1.Size = new System.Drawing.Size(72, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Admin";
             // 
@@ -403,10 +403,10 @@ namespace MultipleChoiceApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::MultipleChoiceApp.Properties.Resources.man;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(52, 31);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(129, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(172, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -417,11 +417,11 @@ namespace MultipleChoiceApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_main.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_main.Location = new System.Drawing.Point(231, 61);
-            this.pnl_main.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnl_main.Location = new System.Drawing.Point(308, 75);
+            this.pnl_main.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
-            this.pnl_main.Size = new System.Drawing.Size(589, 448);
+            this.pnl_main.Padding = new System.Windows.Forms.Padding(11, 10, 11, 10);
+            this.pnl_main.Size = new System.Drawing.Size(785, 551);
             this.pnl_main.TabIndex = 1;
             // 
             // panel3
@@ -430,10 +430,10 @@ namespace MultipleChoiceApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.lbl_title);
-            this.panel3.Location = new System.Drawing.Point(231, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(308, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(589, 56);
+            this.panel3.Size = new System.Drawing.Size(785, 69);
             this.panel3.TabIndex = 2;
             // 
             // lbl_title
@@ -443,24 +443,23 @@ namespace MultipleChoiceApp
             this.lbl_title.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title.ForeColor = System.Drawing.Color.White;
             this.lbl_title.Location = new System.Drawing.Point(0, 0);
-            this.lbl_title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(589, 56);
+            this.lbl_title.Size = new System.Drawing.Size(785, 69);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "Questions";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(819, 509);
+            this.ClientSize = new System.Drawing.Size(1092, 626);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pnl_main);
             this.Controls.Add(this.bunifuShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

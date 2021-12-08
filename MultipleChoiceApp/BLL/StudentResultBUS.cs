@@ -24,6 +24,11 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.getAll(p);
         }
 
+        public List<StudentResult> searchByKeyword(String keyword)
+        {
+            return mainDAO.searchByKeyWord(keyword);
+        }
+
         public StudentResult getDetailsById(int id)
         {
             StudentResult item = mainDAO.getByPK(id + "");

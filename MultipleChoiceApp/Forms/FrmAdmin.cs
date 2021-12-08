@@ -95,5 +95,11 @@ namespace MultipleChoiceApp
         {
             FormHelper.replaceForm(this, new FrmLogin());
         }
+
+        private void btn_result_Click(object sender, EventArgs e)
+        {
+
+            changeControl(new StudentResultControl(), "Results");
+        }
     }
 }

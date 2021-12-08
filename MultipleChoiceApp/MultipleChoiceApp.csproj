@@ -196,6 +196,12 @@
     <Compile Include="UserControls\QuestionControl.Designer.cs">
       <DependentUpon>QuestionControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StudentResultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentResultControl.Designer.cs">
+      <DependentUpon>StudentResultControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\StudentControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\QuestionControl.resx">
       <DependentUpon>QuestionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentResultControl.resx">
+      <DependentUpon>StudentResultControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentControl.resx">
       <DependentUpon>StudentControl.cs</DependentUpon>

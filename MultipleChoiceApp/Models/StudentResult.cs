@@ -34,8 +34,10 @@ namespace MultipleChoiceApp.Models
             };
             Student student = new Student()
             {
+                Code = Util.getDrValue(dr, "StudentCode"),
                 FullName = Util.getDrValue(dr, "StudentFullName"),
                 Address = Util.getDrValue(dr, "StudentAddress"),
+                Major = Util.getDrValue(dr, "StudentMajor"),
                 DOB = Convert.ToDateTime(Util.getDrValue(dr, "StudentDOB")),
             };
 

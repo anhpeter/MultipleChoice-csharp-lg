@@ -40,7 +40,7 @@ namespace MultipleChoiceApp.Forms
             setupInterface();
             setupExam();
             timer = new Timer();
-            timer.Interval = (subject.Duration * 500); // 45 mins
+            timer.Interval = (subject.Duration * 1000); // 45 mins
             timer.Tick += new EventHandler(MyTimer_Tick);
             timer.Start();
         }
@@ -88,8 +88,8 @@ namespace MultipleChoiceApp.Forms
             int normalQty = subject.TotalQuestion - (easyQty + hardQty);
             List<Question> questions = new List<Question>();
             if (easyQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("easy", easyQty)).ToList();
-            if (hardQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("hard", easyQty)).ToList();
             if (normalQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("normal", easyQty)).ToList();
+            if (hardQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("hard", easyQty)).ToList();
             Util.log($"\nEasy:{easyQty} - Normal:{normalQty} - Hard:{hardQty}");
             return questions;
         }

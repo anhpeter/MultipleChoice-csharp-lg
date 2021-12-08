@@ -3,6 +3,7 @@ using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +18,8 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class StudentResultControl : UserControl, IPagination
     {
-        StudentBUS mainBUS = new StudentBUS();
-        Student formItem;
+        StudentResultBUS mainBUS = new StudentResultBUS();
+        StudentResult formItem;
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
@@ -37,82 +38,25 @@ namespace MultipleChoiceApp.UserControls
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = getSelectedId();
-            if (id > -1)
-            {
-                formItem = mainBUS.getDetailsById(id);
-                if (formItem != null)
-                {
-                    txt_code.Text = formItem.Code.ToString();
-                    txt_fullname.Text = formItem.FullName.ToString();
-                    txt_address.Text = formItem.Address.ToString();
-                    txt_major.Text = formItem.Major.ToString();
-                    datepicker_dob.Text = formItem.DOB.ToString();
-                }
-            }
+            //int id = getSelectedId();
+            //if (id > -1)
+            //{
+            //    formItem = mainBUS.getDetailsById(id);
+            //    if (formItem != null)
+            //    {
+            //        txt_code.Text = formItem.Code.ToString();
+            //        txt_fullname.Text = formItem.FullName.ToString();
+            //        txt_address.Text = formItem.Address.ToString();
+            //        txt_major.Text = formItem.Major.ToString();
+            //        datepicker_dob.Text = formItem.DOB.ToString();
+            //    }
+            //}
         }
 
 
         // ACTIONS
-        private void btn_add_Click(object sender, EventArgs e)
-        {
-            Student question = getFormItem();
-            if (handleValidation())
-            {
-                bool result = mainBUS.add(question);
-                if (result)
-                {
-                    FormHelper.notify(Msg.INSERTED);
-                    clearForm();
-                    refreshList();
-                }
-            }
-        }
 
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            if (formItem == null)
-            {
-                FormHelper.showErrorMsg(Msg.CHOOSE_AN_ITEM);
-                return;
-            }
-            //
-            Student item = getFormItem();
-            if (handleValidation())
-            {
-                bool result = mainBUS.update(item);
-                if (result)
-                {
-                    FormHelper.notify(Msg.UPDATED);
-                    refreshList();
-                }
-            }
-        }
 
-        private void btn_delete_Click(object sender, EventArgs e)
-        {
-            if (formItem == null)
-            {
-                FormHelper.showErrorMsg(Msg.CHOOSE_AN_ITEM);
-                return;
-            }
-            //
-            DialogResult dialogResult = FormHelper.showDeleteConfirm();
-            if (dialogResult == DialogResult.Yes)
-            {
-                bool result = mainBUS.delete(formItem.Id);
-                if (result)
-                {
-                    FormHelper.notify(Msg.DELETED);
-                    clearForm();
-                    refreshList();
-                }
-                else
-                {
-                    FormHelper.showErrorMsg(Msg.DELETE_CONSTRAINT_ERROR);
-                }
-            }
-        }
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
@@ -121,50 +65,21 @@ namespace MultipleChoiceApp.UserControls
 
 
         // HELPER METHODS
-        private bool handleValidation()
-        {
-            Student item = getFormItem();
-            StudentValidator validator = new StudentValidator();
-            ValidationResult results = validator.Validate(item);
-            if (results.IsValid)
-            {
-                return true;
-            }
-            else
-            {
-                FormHelper.showValidatorError(results.Errors);
-            }
-            return false;
-        }
-        private Student getFormItem()
-        {
-            // ANSWER LIST
-            Student item = new Student()
-            {
-                Id = formItem != null ? formItem.Id : -1,
-                Code = txt_code.Text.ToString(),
-                FullName = txt_fullname.Text.ToString(),
-                Address = txt_address.Text.ToString(),
-                Major = txt_major.Text.ToString(),
-                DOB = Convert.ToDateTime(datepicker_dob.Value.ToString()),
-            };
-            return item;
-        }
-
         private void refreshList()
         {
-            List<Student> list = mainBUS.getAll(pagination);
+            List<StudentResult> list = mainBUS.getAll(pagination);
             refreshList(list);
         }
 
-        private void refreshList(List<Student> list)
+        private void refreshList(List<StudentResult> list)
         {
             gv_main.Rows.Clear();
             foreach (var item in list)
             {
                 gv_main.Rows.Add(new object[] {
-                    item.Id, item.Code, item.FullName,
-                    item.Address, item.DOB, item.Major
+                    item.Id, item.Student.Code, item.Student.FullName,
+                    item.Student.Address, item.Student.DOB, item.Student.Major, 
+                    item.Points, item.Subject.Name, item.Exam.Name
                 });
             }
             handlePagination();
@@ -181,24 +96,12 @@ namespace MultipleChoiceApp.UserControls
 
         private void clearForm()
         {
-            txt_code.Text = "";
-            txt_fullname.Text = "";
-            txt_address.Text = "";
-            txt_major.Text = "";
-            datepicker_dob.Text = new DateTime(2000, 1, 1).ToString();
-            formItem = null;
-        }
-
-        private int getSelectedId()
-        {
-            try
-            {
-                return Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
-            }
-            catch (Exception ex)
-            {
-                return -1;
-            }
+            //txt_code.Text = "";
+            //txt_fullname.Text = "";
+            //txt_address.Text = "";
+            //txt_major.Text = "";
+            //datepicker_dob.Text = new DateTime(2000, 1, 1).ToString();
+            //formItem = null;
         }
 
         async private void txt_search_KeyUp(object sender, KeyEventArgs e)
@@ -209,7 +112,7 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<Student> list = mainBUS.searchByKeyword(txt_search.Text);
+                    List<StudentResult> list = mainBUS.searchByKeyword(txt_search.Text);
                     refreshList(list);
                 }
                 else
