@@ -33,10 +33,10 @@ namespace MultipleChoiceApp.Forms
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.pnl_pagination = new System.Windows.Forms.Panel();
-            this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_last = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_next = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_prev = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_first = new Bunifu.Framework.UI.BunifuImageButton();
             this.pnl_question = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ans4 = new System.Windows.Forms.Label();
@@ -61,10 +61,10 @@ namespace MultipleChoiceApp.Forms
             this.label10 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel1.SuspendLayout();
             this.pnl_pagination.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_last)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_next)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_prev)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_first)).BeginInit();
             this.pnl_question.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_answer_sheet.SuspendLayout();
@@ -104,75 +104,75 @@ namespace MultipleChoiceApp.Forms
             // 
             // pnl_pagination
             // 
-            this.pnl_pagination.Controls.Add(this.bunifuImageButton4);
-            this.pnl_pagination.Controls.Add(this.bunifuImageButton3);
-            this.pnl_pagination.Controls.Add(this.bunifuImageButton2);
-            this.pnl_pagination.Controls.Add(this.bunifuImageButton1);
+            this.pnl_pagination.Controls.Add(this.btn_last);
+            this.pnl_pagination.Controls.Add(this.btn_next);
+            this.pnl_pagination.Controls.Add(this.btn_prev);
+            this.pnl_pagination.Controls.Add(this.btn_first);
             this.pnl_pagination.Location = new System.Drawing.Point(29, 18);
             this.pnl_pagination.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnl_pagination.Name = "pnl_pagination";
             this.pnl_pagination.Size = new System.Drawing.Size(189, 37);
             this.pnl_pagination.TabIndex = 2;
             // 
-            // bunifuImageButton4
+            // btn_last
             // 
-            this.bunifuImageButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
-            this.bunifuImageButton4.ImageActive = null;
-            this.bunifuImageButton4.Location = new System.Drawing.Point(141, 0);
-            this.bunifuImageButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuImageButton4.Name = "bunifuImageButton4";
-            this.bunifuImageButton4.Size = new System.Drawing.Size(47, 37);
-            this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton4.TabIndex = 4;
-            this.bunifuImageButton4.TabStop = false;
-            this.bunifuImageButton4.Zoom = 0;
+            this.btn_last.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_last.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_last.Image = ((System.Drawing.Image)(resources.GetObject("btn_last.Image")));
+            this.btn_last.ImageActive = null;
+            this.btn_last.Location = new System.Drawing.Point(141, 0);
+            this.btn_last.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_last.Name = "btn_last";
+            this.btn_last.Size = new System.Drawing.Size(47, 37);
+            this.btn_last.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_last.TabIndex = 4;
+            this.btn_last.TabStop = false;
+            this.btn_last.Zoom = 0;
             // 
-            // bunifuImageButton3
+            // btn_next
             // 
-            this.bunifuImageButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
-            this.bunifuImageButton3.ImageActive = null;
-            this.bunifuImageButton3.Location = new System.Drawing.Point(94, 0);
-            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuImageButton3.Name = "bunifuImageButton3";
-            this.bunifuImageButton3.Size = new System.Drawing.Size(47, 37);
-            this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton3.TabIndex = 3;
-            this.bunifuImageButton3.TabStop = false;
-            this.bunifuImageButton3.Zoom = 0;
+            this.btn_next.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_next.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_next.Image = ((System.Drawing.Image)(resources.GetObject("btn_next.Image")));
+            this.btn_next.ImageActive = null;
+            this.btn_next.Location = new System.Drawing.Point(94, 0);
+            this.btn_next.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(47, 37);
+            this.btn_next.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_next.TabIndex = 3;
+            this.btn_next.TabStop = false;
+            this.btn_next.Zoom = 0;
             // 
-            // bunifuImageButton2
+            // btn_prev
             // 
-            this.bunifuImageButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuImageButton2.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.Image")));
-            this.bunifuImageButton2.ImageActive = null;
-            this.bunifuImageButton2.Location = new System.Drawing.Point(47, 0);
-            this.bunifuImageButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuImageButton2.Name = "bunifuImageButton2";
-            this.bunifuImageButton2.Size = new System.Drawing.Size(47, 37);
-            this.bunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton2.TabIndex = 2;
-            this.bunifuImageButton2.TabStop = false;
-            this.bunifuImageButton2.Zoom = 0;
+            this.btn_prev.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_prev.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_prev.Image = ((System.Drawing.Image)(resources.GetObject("btn_prev.Image")));
+            this.btn_prev.ImageActive = null;
+            this.btn_prev.Location = new System.Drawing.Point(47, 0);
+            this.btn_prev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_prev.Name = "btn_prev";
+            this.btn_prev.Size = new System.Drawing.Size(47, 37);
+            this.btn_prev.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_prev.TabIndex = 2;
+            this.btn_prev.TabStop = false;
+            this.btn_prev.Zoom = 0;
             // 
-            // bunifuImageButton1
+            // btn_first
             // 
-            this.bunifuImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuImageButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(47, 37);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 1;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 0;
+            this.btn_first.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_first.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_first.Image = ((System.Drawing.Image)(resources.GetObject("btn_first.Image")));
+            this.btn_first.ImageActive = null;
+            this.btn_first.Location = new System.Drawing.Point(0, 0);
+            this.btn_first.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_first.Name = "btn_first";
+            this.btn_first.Size = new System.Drawing.Size(47, 37);
+            this.btn_first.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_first.TabIndex = 1;
+            this.btn_first.TabStop = false;
+            this.btn_first.Zoom = 0;
             // 
             // pnl_question
             // 
@@ -351,7 +351,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 1;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -541,10 +541,10 @@ namespace MultipleChoiceApp.Forms
             this.bunifuShadowPanel1.ResumeLayout(false);
             this.bunifuShadowPanel1.PerformLayout();
             this.pnl_pagination.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_last)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_next)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_prev)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_first)).EndInit();
             this.pnl_question.ResumeLayout(false);
             this.pnl_question.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -562,11 +562,11 @@ namespace MultipleChoiceApp.Forms
         #endregion
 
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private Bunifu.Framework.UI.BunifuImageButton btn_first;
         private System.Windows.Forms.Panel pnl_pagination;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton4;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton3;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton2;
+        private Bunifu.Framework.UI.BunifuImageButton btn_last;
+        private Bunifu.Framework.UI.BunifuImageButton btn_next;
+        private Bunifu.Framework.UI.BunifuImageButton btn_prev;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel pnl_question;
         private System.Windows.Forms.Panel pnl_answer_sheet;

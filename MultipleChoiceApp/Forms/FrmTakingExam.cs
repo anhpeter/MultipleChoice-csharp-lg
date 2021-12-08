@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.BLL;
+﻿using Bunifu.Framework.UI;
+using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Models;
 using System;
@@ -36,12 +37,20 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmTakingExam_Load(object sender, EventArgs e)
         {
+            pnl_answer.Visible = false;
             setupExam();
         }
 
+        private void onPageClick(object sender, EventArgs e)
+        {
+            String tag = ((BunifuFlatButton)sender).Tag.ToString();
+            questionNumber = Util.parseToInt(tag, 1);
+            displayQuestion();
+        }
+
+        //
         private void setupExam()
         {
-            renderAnswerSheet();
             studentResponseList = new List<StudentResponse>();
             List<Question> questions = getQuestionList();
             foreach (var question in questions)
@@ -51,9 +60,10 @@ namespace MultipleChoiceApp.Forms
                 studentResponseList.Add(studentResponse);
             }
             displayQuestion();
+            renderAnswerSheet();
         }
 
-        private void renderAnswerSheet()
+        async private void renderAnswerSheet()
         {
             pnl_answer.ColumnCount = subject.TotalQuestion + 1;
             for (int i = 1; i <= subject.TotalQuestion; i++)
@@ -65,6 +75,8 @@ namespace MultipleChoiceApp.Forms
                 pnl_answer.Controls.Add(panel, i, 1);
                 pnl_answer.Width = pnl_answer.Width + 36;
             }
+            await Task.Delay(100);
+            pnl_answer.Visible = true;
         }
 
         private List<Question> getQuestionList()
