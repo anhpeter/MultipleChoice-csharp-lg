@@ -35,7 +35,7 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("StudentId", item.StudentId + "");
             dataDict.Add("ExamId", item.ExamId + "");
             dataDict.Add("Points", item.Points + "");
-            return addWithDic(dataDict);
+            return addWithDic(dataDict, true);
         }
 
         // UPDATE

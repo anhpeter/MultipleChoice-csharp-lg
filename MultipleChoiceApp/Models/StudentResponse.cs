@@ -19,6 +19,13 @@ namespace MultipleChoiceApp.Models
         //
         public int CorrectAnswerNo { get; set; }
         //
+
+        public StudentResponse() { }
+        public StudentResponse(Question question) {
+            this.Question = question;
+            this.QuestionId = question.Id;
+        }
+
         public static StudentResponse fromDR(SqlDataReader dr)
         {
 
@@ -37,11 +44,10 @@ namespace MultipleChoiceApp.Models
             };
             return item;
         }
-        public void genRandomOrder()
+        public void genRandomOrder(Random rnd)
         {
             int[] orderArr = { 1, 2, 3, 4 };
-            Random rnd = new Random();
-            AnswerOrder = orderArr.OrderBy(x => rnd.Next()).ToArray();
+            AnswerOrder = orderArr.OrderBy(x => rnd.Next(1000)).ToArray();
             int correctAnswerNoIndex = Array.FindIndex(AnswerOrder, x => x == Question.CorrectAnswerNo);
             CorrectAnswerNo = correctAnswerNoIndex + 1;
         }

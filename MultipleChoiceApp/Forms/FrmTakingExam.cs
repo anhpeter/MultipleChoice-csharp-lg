@@ -22,6 +22,7 @@ namespace MultipleChoiceApp.Forms
 
         //
         QuestionBUS questionBUS = new QuestionBUS();
+        StudentResultBUS studentResultBUS = new StudentResultBUS();
         int questionNumber = 1;
         int time;
         Timer timer;
@@ -49,10 +50,11 @@ namespace MultipleChoiceApp.Forms
         {
             studentResponseList = new List<StudentResponse>();
             List<Question> questions = getQuestionList();
+            Random rnd = new Random();
             foreach (var question in questions)
             {
-                StudentResponse studentResponse = new StudentResponse() { Question = question };
-                studentResponse.genRandomOrder();
+                StudentResponse studentResponse = new StudentResponse(question);
+                studentResponse.genRandomOrder(rnd);
                 studentResponseList.Add(studentResponse);
             }
             displayQuestion();
@@ -131,8 +133,9 @@ namespace MultipleChoiceApp.Forms
                 }
             }
 
-            StudentResult studentResult = new StudentResult(studentResponseList, subject, exam);
+            StudentResult studentResult = new StudentResult(studentResponseList, subject, exam, Auth.getIntace().student.Id);
             // SAVE TO DB
+            studentResultBUS.add(studentResult);
 
             //
             FormHelper.replaceForm(this, new FrmExamFinish(studentResult));

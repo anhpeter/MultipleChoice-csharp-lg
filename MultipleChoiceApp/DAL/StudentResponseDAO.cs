@@ -47,11 +47,12 @@ namespace MultipleChoiceApp.DAL
             return base.updateWithDict(dataDict, $"WHERE StudentResultId='{item.StudentResultId}' AND QuestionId='{item.QuestionId}'");
         }
 
-        public bool addMany(List<StudentResponse> list)
+        public bool addMany(List<StudentResponse> list, int studentResultId)
         {
             bool result = true;
             foreach (StudentResponse item in list)
             {
+                item.StudentResultId = studentResultId;
                 if (add(item) < 1) result = false;
             }
             return result;

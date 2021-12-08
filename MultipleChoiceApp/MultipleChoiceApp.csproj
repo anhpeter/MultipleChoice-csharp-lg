@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\StudentResultBUS.cs" />
     <Compile Include="BLL\ExamBUS.cs" />
     <Compile Include="BLL\ManagerBUS.cs" />
     <Compile Include="BLL\StudentBUS.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
+    <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />

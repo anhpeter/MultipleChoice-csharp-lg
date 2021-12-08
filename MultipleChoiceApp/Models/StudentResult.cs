@@ -32,11 +32,13 @@ namespace MultipleChoiceApp.Models
         public Exam Exam { get; set; }
 
         public StudentResult() { }
-        public StudentResult(List<StudentResponse> studentResponses, Subject subject, Exam exam)
+        public StudentResult(List<StudentResponse> studentResponses, Subject subject, Exam exam, int studentId)
         {
             this.StudentResponses = studentResponses;
             this.Subject = subject;
             this.Exam = exam;
+            this.ExamId = exam.Id;
+            this.StudentId = studentId;
             calculatePoints();
         }
         //
