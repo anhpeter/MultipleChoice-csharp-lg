@@ -256,7 +256,7 @@ namespace MultipleChoiceApp.UserControls
             drop_subject.DataSource = subjectList;
             drop_subject.ValueMember = "Id";
             drop_subject.DisplayMember = "Name";
-            drop_subject.SelectedIndex = 1;
+            drop_subject.SelectedIndex = 0;
 
             // LEVELS
             Dictionary<string, string> test = new Dictionary<string, string>();

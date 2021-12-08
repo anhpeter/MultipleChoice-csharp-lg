@@ -68,7 +68,7 @@ namespace MultipleChoiceApp.Forms
                 drop_subject.DataSource = subjectList;
                 drop_subject.ValueMember = "Id";
                 drop_subject.DisplayMember = "Name";
-                //drop_subject.SelectedIndex = 0;
+                drop_subject.SelectedIndex = 0;
             }
         }
 
