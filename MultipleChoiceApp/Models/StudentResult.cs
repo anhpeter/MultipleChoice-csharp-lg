@@ -18,21 +18,41 @@ namespace MultipleChoiceApp.Models
         public int CorrectAnswerCount { get; set; }
         public int IncorrectAnswerCount { get; set; }
         //
+        public Subject Subject { get; set; }
+        public Exam Exam { get; set; }
+        public Student Student { get; set; }
+        //
         public static StudentResult fromDR(SqlDataReader dr)
         {
+            Subject subject = new Subject()
+            {
+                Name = Util.getDrValue(dr, "SubjectName")
+            };
+            Exam exam = new Exam()
+            {
+                Name = Util.getDrValue(dr, "ExamName")
+            };
+            Student student = new Student()
+            {
+                FullName = Util.getDrValue(dr, "StudentFullName"),
+                Address = Util.getDrValue(dr, "StudentAddress"),
+                DOB = Convert.ToDateTime(Util.getDrValue(dr, "StudentDOB")),
+            };
 
             StudentResult item = new StudentResult()
             {
                 Id = Util.parseToInt(Util.getDrValue(dr, "Id"), -1),
                 ExamId = Util.parseToInt(Util.getDrValue(dr, "ExamId"), -1),
                 StudentId = Util.parseToInt(Util.getDrValue(dr, "StudentId"), -1),
-                Points = Util.parseToDouble(Util.getDrValue(dr, "Points"), 0)
+                Points = Util.parseToDouble(Util.getDrValue(dr, "Points"), 0),
+                //
+                Subject = subject,
+                Exam = exam,
+                Student = student,
             };
             return item;
         }
         public List<StudentResponse> StudentResponses { get; set; }
-        public Subject Subject { get; set; }
-        public Exam Exam { get; set; }
 
         public StudentResult() { }
         public StudentResult(List<StudentResponse> studentResponses, Subject subject, Exam exam, int studentId)
