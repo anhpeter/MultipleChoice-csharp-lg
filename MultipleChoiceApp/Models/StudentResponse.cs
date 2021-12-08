@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Models
 {
-    class StudentResponse
+    public class StudentResponse
     {
         public Question Question { get; set; }
         public int[] AnswerOrder { get; set; }
         public int AnswerNO { get; set; }
         //
-        public int correctAnswerNo { get; set; }
+        public int CorrectAnswerNo { get; set; }
         //
         public void genRandomOrder()
         {
@@ -20,7 +20,11 @@ namespace MultipleChoiceApp.Models
             Random rnd = new Random();
             AnswerOrder = orderArr.OrderBy(x => rnd.Next()).ToArray();
             int correctAnswerNoIndex = Array.FindIndex(AnswerOrder, x => x == Question.CorrectAnswerNo);
-            correctAnswerNo = correctAnswerNoIndex+1;
+            CorrectAnswerNo = correctAnswerNoIndex + 1;
+        }
+        public bool isCorrect()
+        {
+            return CorrectAnswerNo == AnswerNO;
         }
     }
 }

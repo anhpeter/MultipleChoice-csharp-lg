@@ -39,7 +39,7 @@ namespace MultipleChoiceApp.Forms
             setupInterface();
             setupExam();
             timer = new Timer();
-            timer.Interval = (subject.Duration * 100); // 45 mins
+            timer.Interval = (subject.Duration * 500); // 45 mins
             timer.Tick += new EventHandler(MyTimer_Tick);
             timer.Start();
         }
@@ -110,7 +110,7 @@ namespace MultipleChoiceApp.Forms
                     if (answerPanel.Tag != null)
                     {
 
-                        int answerNo = 1;
+                        int answerNo = 0;
                         foreach (var c in answerPanel.Controls)
                         {
                             if (c is RadioButton)
@@ -118,7 +118,7 @@ namespace MultipleChoiceApp.Forms
                                 RadioButton rdo = (RadioButton)c;
                                 if (rdo.Checked)
                                 {
-                                    answerNo = Util.parseToInt(rdo.Tag.ToString(), 1);
+                                    answerNo = Util.parseToInt(rdo.Tag.ToString(), answerNo);
                                     break;
                                 }
                             }
@@ -129,11 +129,13 @@ namespace MultipleChoiceApp.Forms
                         studentResponse.AnswerNO = answerNo;
                     }
                 }
-
             }
 
+
+            StudentResult studentResult = new StudentResult(studentResponseList, subject, exam);
+            MessageBox.Show($"Your points: {studentResult.Points}");
             //
-            FormHelper.replaceForm(this, new FrmExamFinish());
+            FormHelper.replaceForm(this, new FrmExamFinish(studentResult));
         }
 
         // EVENTS

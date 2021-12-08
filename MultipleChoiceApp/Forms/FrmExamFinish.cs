@@ -1,4 +1,5 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,12 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmExamFinish : Form
     {
-        public FrmExamFinish()
+
+        StudentResult studentResult;
+
+        public FrmExamFinish(StudentResult studentResult)
         {
+            this.studentResult = studentResult;
             InitializeComponent();
             CenterToScreen();
         }
