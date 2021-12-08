@@ -19,13 +19,17 @@ namespace MultipleChoiceApp.Forms
         Exam exam;
         Subject subject;
         List<StudentResponse> studentResponseList;
+
         //
         QuestionBUS questionBUS = new QuestionBUS();
         int questionNumber = 1;
+        int time;
+        Timer timer;
         public FrmTakingExam(Exam exam, Subject subject)
         {
             this.exam = exam;
             this.subject = subject;
+            this.time = subject.Duration * 60 * 1000;
             InitializeComponent();
             FormHelper.MakeFullScreen(this);
         }
@@ -37,19 +41,15 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmTakingExam_Load(object sender, EventArgs e)
         {
-            pnl_answer.Visible = false;
-            lbl_time.Left = (pnl_header.Width - lbl_time.Width) / 2;
-            pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2; setupExam();
+            setupInterface();
+            setupExam();
+            timer = new Timer();
+            timer.Interval = (subject.Duration * 100); // 45 mins
+            timer.Tick += new EventHandler(MyTimer_Tick);
+            timer.Start();
         }
 
-        private void onPaginationBtnClick(object sender, EventArgs e)
-        {
-            String tag = ((BunifuImageButton)sender).Tag.ToString();
-            questionNumber = Util.parseToInt(tag, 1);
-            displayQuestion();
-        }
-
-        //
+        // SETUP
         private void setupExam()
         {
             studentResponseList = new List<StudentResponse>();
@@ -64,20 +64,23 @@ namespace MultipleChoiceApp.Forms
             renderAnswerSheet();
         }
 
-        async private void renderAnswerSheet()
+        private void MyTimer_Tick(object sender, EventArgs e)
         {
-            pnl_answer.ColumnCount = subject.TotalQuestion + 1;
-            for (int i = 1; i <= subject.TotalQuestion; i++)
+            this.time -= 1000;
+            Util.log($"time: {time}");
+            renderTime();
+            if (this.time == 0)
             {
-                Label lbl = getAnswerLabel(i + "");
-                TableLayoutPanel panel = getSingleAnswer();
-                pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-                pnl_answer.Controls.Add(lbl, i, 0);
-                pnl_answer.Controls.Add(panel, i, 1);
-                pnl_answer.Width = pnl_answer.Width + 36;
+                timer.Dispose();
+                MessageBox.Show("Time end!");
             }
-            await Task.Delay(100);
-            pnl_answer.Visible = true;
+        }
+
+        private void setupInterface()
+        {
+            pnl_answer.Visible = false;
+            lbl_time.Left = (pnl_header.Width - lbl_time.Width) / 2;
+            pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2;
         }
 
         private List<Question> getQuestionList()
@@ -93,6 +96,15 @@ namespace MultipleChoiceApp.Forms
             return questions;
         }
 
+        // EVENTS
+        private void onPaginationBtnClick(object sender, EventArgs e)
+        {
+            String tag = ((BunifuImageButton)sender).Tag.ToString();
+            questionNumber = Util.parseToInt(tag, 1);
+            displayQuestion();
+        }
+
+        // HELPER METHODS
         private void displayQuestion()
         {
             StudentResponse studentResponse = studentResponseList[questionNumber - 1];
@@ -116,6 +128,36 @@ namespace MultipleChoiceApp.Forms
             btn_prev.Tag = prev;
             btn_next.Tag = next;
             btn_last.Tag = last;
+        }
+
+        // TEMPLATE
+        private void renderTime()
+        {
+            double h = Math.Floor(this.time / 60 / 60 / 1000.0);
+            double m = Math.Floor(this.time / 60 / 1000.0);
+            double s = Math.Floor(this.time / 1000.0);
+
+            String hStr = Util.strPad(h + "", 2, "0");
+            String mStr = Util.strPad(m + "", 2, "0");
+            String sStr = Util.strPad(s + "", 2, "0");
+            String timeStr = $"{hStr}:{mStr}:{sStr}";
+            lbl_time.Text = timeStr;
+        }
+
+        async private void renderAnswerSheet()
+        {
+            pnl_answer.ColumnCount = subject.TotalQuestion + 1;
+            for (int i = 1; i <= subject.TotalQuestion; i++)
+            {
+                Label lbl = getAnswerLabel(i + "");
+                TableLayoutPanel panel = getSingleAnswer();
+                pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+                pnl_answer.Controls.Add(lbl, i, 0);
+                pnl_answer.Controls.Add(panel, i, 1);
+                pnl_answer.Width = pnl_answer.Width + 36;
+            }
+            await Task.Delay(100);
+            pnl_answer.Visible = true;
         }
 
         private TableLayoutPanel getSingleAnswer()
@@ -144,6 +186,7 @@ namespace MultipleChoiceApp.Forms
             //panel.TabIndex = 12;
             return panel;
         }
+
         private Label getAnswerLabel(String text)
         {
             Label lbl = new Label();

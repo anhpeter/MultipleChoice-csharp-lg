@@ -15,7 +15,8 @@ namespace MultipleChoiceApp.Common.Helpers
             try
             {
                 return dr[field].ToString();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return defaultVal;
             }
@@ -65,7 +66,12 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
-
+        public static String strPad(String value, int length, String c)
+        {
+            if (value.Length >= length) return value;
+            int leftLength = length - value.Length;
+            return string.Concat(Enumerable.Repeat(c, leftLength))+value;
+        }
     }
 
 }
