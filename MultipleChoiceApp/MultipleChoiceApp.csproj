@@ -102,6 +102,7 @@
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
+    <Compile Include="DAL\StudentResponseDAO.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Question.cs" />

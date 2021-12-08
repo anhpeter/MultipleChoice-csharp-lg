@@ -22,6 +22,17 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
+        public static Double parseToDouble(String stringToParse, double defaultValue)
+        {
+            try
+            {
+                return Convert.ToDouble(stringToParse);
+            }
+            catch (Exception ex)
+            {
+                return defaultValue; //Use default value if parsing failed
+            }
+        }
         public static int parseToInt(String stringToParse, int defaultValue)
         {
             try

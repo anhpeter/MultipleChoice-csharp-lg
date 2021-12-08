@@ -131,9 +131,9 @@ namespace MultipleChoiceApp.Forms
                 }
             }
 
-
             StudentResult studentResult = new StudentResult(studentResponseList, subject, exam);
-            MessageBox.Show($"Your points: {studentResult.Points}");
+            // SAVE TO DB
+
             //
             FormHelper.replaceForm(this, new FrmExamFinish(studentResult));
         }
