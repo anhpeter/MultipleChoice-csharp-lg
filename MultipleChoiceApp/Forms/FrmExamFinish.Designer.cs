@@ -119,11 +119,11 @@ namespace MultipleChoiceApp.Forms
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(51, 56);
+            this.label1.Location = new System.Drawing.Point(122, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 83);
+            this.label1.Size = new System.Drawing.Size(82, 83);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Correct answer:";
+            this.label1.Text = "Correct:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label2
@@ -132,11 +132,11 @@ namespace MultipleChoiceApp.Forms
             this.label2.Dock = System.Windows.Forms.DockStyle.Right;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(67)))), ((int)(((byte)(55)))));
-            this.label2.Location = new System.Drawing.Point(36, 139);
+            this.label2.Location = new System.Drawing.Point(107, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 51);
+            this.label2.Size = new System.Drawing.Size(97, 51);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Incorrect answer:";
+            this.label2.Text = "Incorrect:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label3
