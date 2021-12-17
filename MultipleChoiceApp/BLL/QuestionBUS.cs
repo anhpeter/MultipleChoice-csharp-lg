@@ -68,6 +68,15 @@ namespace MultipleChoiceApp.BLL
             }
             return false;
         }
+        public int addMany(List<Question> list)
+        {
+            int count = 0;
+            foreach (var item in list)
+            {
+                if (this.add(item)) count++;
+            }
+            return count;
+        }
 
         public bool update(Question item)
         {

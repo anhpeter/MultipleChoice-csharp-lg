@@ -22,6 +22,7 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class QuestionControl : UserControl, IPagination
     {
+        String controlName = "Questions";
         QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
         //
@@ -150,7 +151,7 @@ namespace MultipleChoiceApp.UserControls
             {
                 List<Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId());
                 List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, "Students");
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
                 if (result)
                 {
                     MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
@@ -171,16 +172,12 @@ namespace MultipleChoiceApp.UserControls
                 List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
                 if (checkValidImportedDicList(dicList))
                 {
-                    List<Question> list = genQuetsionListByDicList(dicList);
+                    List<Question> list = Question.genListByDicList(dicList, getFormSubjectId());
                     if (list != null)
                     {
-                        // ADD TO DB
-                        foreach (var item in list)
-                        {
-                            mainBUS.add(item);
-                        }
+                        int affectedRows = mainBUS.addMany(list);
                         refreshList();
-                        MessageBox.Show(string.Format(Msg.IMPORTED, list.Count));
+                        MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
                         return;
                     }
                 }
@@ -197,26 +194,6 @@ namespace MultipleChoiceApp.UserControls
         {
             return dicList != null && dicList.Count > 0 && Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
         }
-
-        private List<Question> genQuetsionListByDicList(List<Dictionary<String, String>> dicList)
-        {
-            List<Question> list = new List<Question>();
-            foreach (var dic in dicList)
-            {
-                Question item = Question.fromDictionary(dic);
-                String answersString = dic["Answers"];
-                if (answersString != null)
-                {
-                    string[] lines = answersString.Split(new String[] { "\n" }, StringSplitOptions.None);
-                    List<Answer> answers = lines.Select(x => new Answer() { Content = x }).ToList();
-                    item.Answers = answers;
-                }
-                item.SubjectId = getFormSubjectId();
-                list.Add(item);
-            }
-            return list;
-        }
-
 
         // HELPER METHODS
         private bool handleValidation()

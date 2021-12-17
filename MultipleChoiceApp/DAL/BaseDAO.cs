@@ -48,7 +48,7 @@ namespace MultipleChoiceApp.DAL
             try
             {
 
-                sqlStr = sqlStr != null ? sqlStr : $"Select * from {tableName}";
+                sqlStr = sqlStr != null ? sqlStr : getAllSqlStr();
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
                 {

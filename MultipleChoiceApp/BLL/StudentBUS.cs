@@ -25,6 +25,10 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO.getAll(p);
         }
+        public List<Student> getAll()
+        {
+            return mainDAO.getAll();
+        }
 
         public Student getDetailsById(int id)
         {
@@ -40,6 +44,16 @@ namespace MultipleChoiceApp.BLL
         public bool add(Student item)
         {
             return mainDAO.add(item) > 0;
+        }
+
+        public int addMany(List<Student> list)
+        {
+            int count = 0;
+            foreach (var item in list)
+            {
+                if (this.add(item)) count++;
+            }
+            return count;
         }
 
         public bool update(Student item)

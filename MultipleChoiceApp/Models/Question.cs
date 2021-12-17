@@ -80,6 +80,26 @@ namespace MultipleChoiceApp
             string[] keys = new string[] { "Content", "Answers", "Correct Answer No", "Chapter", "Level" };
             return Util.isSubArray(keys, inputKeys);
         }
+
+        public static List<Question> genListByDicList(List<Dictionary<String, String>> dicList, int subjectId)
+        {
+            List<Question> list = new List<Question>();
+            foreach (var dic in dicList)
+            {
+                Question item = Question.fromDictionary(dic);
+                String answersString = dic["Answers"];
+                if (answersString != null)
+                {
+                    string[] lines = answersString.Split(new String[] { "\n" }, StringSplitOptions.None);
+                    List<Answer> answers = lines.Select(x => new Answer() { Content = x }).ToList();
+                    item.Answers = answers;
+                }
+                item.SubjectId = subjectId;
+                list.Add(item);
+            }
+            return list;
+        }
+
     }
 }
 

@@ -17,6 +17,7 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class StudentControl : UserControl, IPagination
     {
+        String controlName = "Students";
         StudentBUS mainBUS = new StudentBUS();
         Student formItem;
         //
@@ -188,6 +189,62 @@ namespace MultipleChoiceApp.UserControls
             datepicker_dob.Text = new DateTime(2000, 1, 1).ToString();
             formItem = null;
         }
+
+        // EXPORT
+        private void btn_export_excel_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Student> list = mainBUS.getAll();
+                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
+        }
+
+        // IMPORT
+        private void btn_import_excel_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = openfiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
+                if (checkValidImportedDicList(dicList))
+                {
+                    List<Student> list = Student.genListByDicList(dicList);
+                    if (list != null)
+                    {
+                        // ADD TO DB
+                        int affectedRows = mainBUS.addMany(list);
+                        refreshList();
+                        MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
+                        return;
+                    }
+                }
+                else
+                {
+                    // INVALID
+                    MessageBox.Show(Msg.IMPORT_DATA_INVALID);
+                    return;
+                }
+            }
+            MessageBox.Show(Msg.IMPORTED_FAILED);
+        }
+
+        private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
+        {
+            return dicList != null && dicList.Count > 0 && Student.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+        }
+        //
 
         private int getSelectedId()
         {

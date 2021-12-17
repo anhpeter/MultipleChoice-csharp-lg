@@ -38,6 +38,7 @@ namespace MultipleChoiceApp.DAL
         {
             return getAll(applyPagination(getAllSqlStr(), p));
         }
+
         public List<Student> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where FullName like '%{keyword}%'");

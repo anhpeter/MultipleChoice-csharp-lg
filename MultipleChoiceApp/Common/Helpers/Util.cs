@@ -33,7 +33,8 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
-        public static Double parseToDouble(String stringToParse, double defaultValue) {
+        public static Double parseToDouble(String stringToParse, double defaultValue)
+        {
             try
             {
                 return Convert.ToDouble(stringToParse);
@@ -54,7 +55,7 @@ namespace MultipleChoiceApp.Common.Helpers
                 return defaultValue; //Use default value if parsing failed
             }
         }
-        public static DateTime parseToDatetime(String stringToParse)
+        public static DateTime parseToDatetime(String stringToParse, DateTime? defaultVal = null)
         {
             try
             {
@@ -62,7 +63,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             catch (Exception ex)
             {
-                return DateTime.Now; //Use default value if parsing failed
+                return defaultVal ?? DateTime.Now; //Use default value if parsing failed
             }
         }
 
@@ -102,7 +103,7 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             if (value.Length >= length) return value;
             int leftLength = length - value.Length;
-            return string.Concat(Enumerable.Repeat(c, leftLength))+value;
+            return string.Concat(Enumerable.Repeat(c, leftLength)) + value;
         }
 
         public static bool isSubArray(string[] parent, string[] sub)
