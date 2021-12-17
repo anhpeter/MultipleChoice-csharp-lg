@@ -61,6 +61,18 @@ namespace MultipleChoiceApp.DAL
             dbHelper.closeConnection();
             return list;
         }
+        public List<Question> getAllBySubjectId(int id)
+        {
+            List<Question> list = new List<Question>();
+            String sqlStr = getAllBySujectIdSqlStr(id);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            while (dr.Read())
+            {
+                list.Add(Question.fromDR(dr));
+            }
+            dbHelper.closeConnection();
+            return list;
+        }
 
         public List<Question> searchByKeyWord(int id, String keyword)
         {
@@ -80,7 +92,7 @@ namespace MultipleChoiceApp.DAL
         {
             String sqlStr = String.Format(@"
                     SELECT DISTINCT 
-                        q.Id, CAST(q.Content as nvarchar(255)) as Content, q.Chapter, Q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
+                        q.Id, CAST(q.Content as nvarchar(255)) as Content, q.CorrectAnswerNo, q.Chapter, q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
                         q.Level
                     FROM Questions as q INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
                     WHERE s.Id = '{0}' {1}

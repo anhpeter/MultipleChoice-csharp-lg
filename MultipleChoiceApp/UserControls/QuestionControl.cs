@@ -142,23 +142,88 @@ namespace MultipleChoiceApp.UserControls
             clearForm();
         }
 
+        // EXPORT
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
-
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId());
+                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, "Students");
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
         }
 
+        // IMPORT
         private void btn_import_excel_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = openfiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
+                if (checkValidImportedDicList(dicList))
+                {
+                    List<Question> list = genQuetsionListByDicList(dicList);
+                    if (list != null)
+                    {
+                        // ADD TO DB
+                        foreach (var item in list)
+                        {
+                            mainBUS.add(item);
+                        }
+                        refreshList();
+                        MessageBox.Show(string.Format(Msg.IMPORTED, list.Count));
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(Msg.IMPORT_DATA_INVALID);
+                    return;
+                }
+            }
+            MessageBox.Show(Msg.IMPORTED_FAILED);
+        }
 
+        private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
+        {
+            return dicList != null && dicList.Count > 0 && Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+        }
+
+        private List<Question> genQuetsionListByDicList(List<Dictionary<String, String>> dicList)
+        {
+            List<Question> list = new List<Question>();
+            foreach (var dic in dicList)
+            {
+                Question item = Question.fromDictionary(dic);
+                String answersString = dic["Answers"];
+                if (answersString != null)
+                {
+                    string[] lines = answersString.Split(new String[] { "\n" }, StringSplitOptions.None);
+                    List<Answer> answers = lines.Select(x => new Answer() { Content = x }).ToList();
+                    item.Answers = answers;
+                }
+                item.SubjectId = getFormSubjectId();
+                list.Add(item);
+            }
+            return list;
         }
 
 
         // HELPER METHODS
         private bool handleValidation()
         {
-            Question question = getFormQuestion();
+            Question item = getFormQuestion();
             QuestionValidator validator = new QuestionValidator();
-            ValidationResult results = validator.Validate(question);
+            ValidationResult results = validator.Validate(item);
             if (results.IsValid)
             {
                 return true;

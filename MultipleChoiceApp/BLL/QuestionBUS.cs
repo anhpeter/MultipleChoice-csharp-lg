@@ -35,6 +35,16 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.getAllBySubjectId(id, pagination);
         }
 
+        public List<Question> getAllWithAnswersBySubjectId(int id)
+        {
+            List<Question> list = mainDAO.getAllBySubjectId(id);
+            foreach (var item in list)
+            {
+                item.Answers = answerDAO.getAnswersByQuestionId(item.Id);
+            }
+            return list;
+        }
+
         public List<Question> searchByKeyword(int id, String keyword)
         {
             return mainDAO.searchByKeyWord(id, keyword);

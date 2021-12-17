@@ -40,5 +40,46 @@ namespace MultipleChoiceApp
             return item;
         }
         public List<Answer> Answers { get; set; }
+
+        // 
+        public Dictionary<String, String> toDictionary()
+        {
+            Dictionary<String, String> dic = new Dictionary<string, string>();
+            String answersString = "";
+            if (this.Answers.Count > 0)
+            {
+                string[] answerLines = this.Answers.Select(x => x.Content).ToArray();
+                answersString = string.Join("\n", answerLines);
+            }
+            dic.Add("Id", this.Id + "");
+            dic.Add("Content", this.Content);
+            dic.Add("Answers", answersString);
+            dic.Add("Correct Answer No", this.CorrectAnswerNo + "");
+            dic.Add("Subject Code", this.SubjectCode);
+            dic.Add("Chapter", this.Chapter + "");
+            dic.Add("Level", this.Level);
+            dic.Add("Created At", Util.toSqlFormattedDate(this.CreatedAt));
+            return dic;
+        }
+        public static Question fromDictionary(Dictionary<String, String> dic)
+        {
+            Question item = new Question()
+            {
+                Id = Util.parseToInt(Util.getDicValue(dic, "Id")),
+                Content = Util.getDicValue(dic, "Content"),
+                SubjectCode = Util.getDicValue(dic, "Subject Code"),
+                CorrectAnswerNo = Util.parseToInt(Util.getDicValue(dic, "Correct Answer No")),
+                Chapter = Util.parseToInt(Util.getDicValue(dic, "Chapter")),
+                Level = Util.getDicValue(dic, "Level"),
+                CreatedAt = Util.parseToDatetime(Util.getDicValue(dic, "Created At")),
+            };
+            return item;
+        }
+        public static bool idDictionaryKeysValid(String[] inputKeys)
+        {
+            string[] keys = new string[] { "Content", "Answers", "Correct Answer No", "Chapter", "Level" };
+            return Util.isSubArray(keys, inputKeys);
+        }
     }
 }
+

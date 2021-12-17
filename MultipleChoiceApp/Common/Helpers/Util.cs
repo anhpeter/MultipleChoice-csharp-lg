@@ -10,6 +10,17 @@ namespace MultipleChoiceApp.Common.Helpers
 {
     public class Util
     {
+        public static String getDicValue(Dictionary<String, String> dic, String key, String defaultVal = "")
+        {
+            try
+            {
+                return dic[key].ToString();
+            }
+            catch (Exception ex)
+            {
+                return defaultVal;
+            }
+        }
         public static String getDrValue(SqlDataReader dr, String field, String defaultVal = "")
         {
             try
@@ -22,8 +33,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
-        public static Double parseToDouble(String stringToParse, double defaultValue)
-        {
+        public static Double parseToDouble(String stringToParse, double defaultValue) {
             try
             {
                 return Convert.ToDouble(stringToParse);
@@ -33,7 +43,7 @@ namespace MultipleChoiceApp.Common.Helpers
                 return defaultValue; //Use default value if parsing failed
             }
         }
-        public static int parseToInt(String stringToParse, int defaultValue)
+        public static int parseToInt(String stringToParse, int defaultValue = -1)
         {
             try
             {
@@ -42,6 +52,17 @@ namespace MultipleChoiceApp.Common.Helpers
             catch (Exception ex)
             {
                 return defaultValue; //Use default value if parsing failed
+            }
+        }
+        public static DateTime parseToDatetime(String stringToParse)
+        {
+            try
+            {
+                return Convert.ToDateTime(stringToParse);
+            }
+            catch (Exception ex)
+            {
+                return DateTime.Now; //Use default value if parsing failed
             }
         }
 
@@ -82,6 +103,15 @@ namespace MultipleChoiceApp.Common.Helpers
             if (value.Length >= length) return value;
             int leftLength = length - value.Length;
             return string.Concat(Enumerable.Repeat(c, leftLength))+value;
+        }
+
+        public static bool isSubArray(string[] parent, string[] sub)
+        {
+            for (int i = 0; i < parent.Length; i++)
+            {
+                if (Array.IndexOf(sub, parent[i]) == -1) return false;
+            }
+            return true;
         }
     }
 

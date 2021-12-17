@@ -11,6 +11,11 @@ namespace MultipleChoiceApp.Common.Helpers
         public static String INSERTED = "Inserted successfully!";
         public static String DELETED = "Deleted successfully!";
         public static String UPDATED = "Updated successfully!";
+        public static String IMPORTED = "Imported {0} items!";
+        public static String EXPORTED = "Exported {0} items!";
+        public static String IMPORT_DATA_INVALID = "Your import data is invalid!";
+        public static String IMPORTED_FAILED = "Failed to import!";
+        public static String EXPORTED_FAILED = "Failed to export!";
         //
         public static String DELETE_CONFIRM = "Do you want to delete this one?";
         //
