@@ -104,6 +104,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BaseBUS.cs" />
     <Compile Include="BLL\StudentResultBUS.cs" />
     <Compile Include="BLL\ExamBUS.cs" />
     <Compile Include="BLL\ManagerBUS.cs" />

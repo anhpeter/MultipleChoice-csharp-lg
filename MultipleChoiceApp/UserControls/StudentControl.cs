@@ -236,8 +236,8 @@ namespace MultipleChoiceApp.UserControls
                     MessageBox.Show(Msg.IMPORT_DATA_INVALID);
                     return;
                 }
+                MessageBox.Show(Msg.IMPORTED_FAILED);
             }
-            MessageBox.Show(Msg.IMPORTED_FAILED);
         }
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)

@@ -84,5 +84,21 @@ namespace MultipleChoiceApp.Models
             }
             Points = points;
         }
+
+        //
+        public Dictionary<String, String> toDictionary()
+        {
+            Dictionary<String, String> dic = new Dictionary<string, string>();
+            dic.Add("Id", this.Id + "");
+            dic.Add("Student Code", this.Student.Code);
+            dic.Add("Full Name", this.Student.FullName);
+            dic.Add("Address", this.Student.Address);
+            dic.Add("Day Of Birth", Util.toSqlFormattedDate(this.Student.DOB));
+            dic.Add("Major", this.Student.Major);
+            dic.Add("Points", this.Points+"");
+            dic.Add("Subject", this.Subject.Name);
+            dic.Add("Exam", this.Exam.Name);
+            return dic;
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(StudentResponse item)
+        public override int add(StudentResponse item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("StudentResultId", item.StudentResultId + "");
@@ -39,7 +39,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(StudentResponse item)
+        public override bool update(StudentResponse item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("AnswerOrder", item.getAnswerOrderString());

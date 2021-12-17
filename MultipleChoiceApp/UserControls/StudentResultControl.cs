@@ -18,6 +18,7 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class StudentResultControl : UserControl, IPagination
     {
+        String controlName = "Student Results";
         StudentResultBUS mainBUS = new StudentResultBUS();
         StudentResult formItem;
         //
@@ -62,6 +63,7 @@ namespace MultipleChoiceApp.UserControls
         {
             clearForm();
         }
+
 
 
         // HELPER METHODS
@@ -130,6 +132,26 @@ namespace MultipleChoiceApp.UserControls
         {
             pagination = paginationControl.pagination;
             refreshList();
+        }
+
+        private void btn_export_excel_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<StudentResult> list = mainBUS.getAll();
+                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
         }
     }
 }

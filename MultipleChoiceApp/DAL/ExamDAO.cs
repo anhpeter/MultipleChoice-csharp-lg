@@ -41,10 +41,6 @@ namespace MultipleChoiceApp.DAL
             return item;
 
         }
-        public List<Exam> getAll(Pagination p)
-        {
-            return getAll(applyPagination(getAllSqlStr(), p));
-        }
         public List<Exam> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where e.Name like '%{keyword}%'");
@@ -64,7 +60,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(Exam item)
+        public override int add(Exam item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Name", item.Name);
@@ -78,7 +74,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(Exam item)
+        public override bool update(Exam item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Name", item.Name);

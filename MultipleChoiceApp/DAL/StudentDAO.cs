@@ -46,7 +46,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(Student item)
+        public override int add(Student item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Password",Util.md5("loveguitar"));
@@ -59,7 +59,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(Student item)
+        public override bool update(Student item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Code", item.Code);

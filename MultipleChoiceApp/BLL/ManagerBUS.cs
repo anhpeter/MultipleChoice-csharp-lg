@@ -9,48 +9,24 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class ManagerBUS
+    class ManagerBUS:BaseBUS<Manager>
     {
         ManagerDAO mainDAO = new ManagerDAO();
 
-        public int countAll()
+        public override BaseDAO<Manager> getMainDAO()
         {
-            return mainDAO.countAll();
+            return mainDAO;
         }
+
+
         public Manager getByCodeAndPassword(String id, String password)
         {
             return mainDAO.getByCodeAndPassword(id, password);
-        }
-        public List<Manager> getAll(Pagination p)
-        {
-            return mainDAO.getAll(p);
-        }
-
-        public Manager getDetailsById(int id)
-        {
-            Manager item = mainDAO.getByPK(id + "");
-            return item;
         }
 
         public List<Manager> searchByKeyword(String keyword)
         {
             return mainDAO.searchByKeyWord(keyword);
-        }
-
-        public bool add(Manager item)
-        {
-            return mainDAO.add(item) > 0;
-        }
-
-        public bool update(Manager item)
-        {
-
-            return mainDAO.update(item);
-        }
-
-        public bool delete(int id)
-        {
-            return mainDAO.deleteByPK(id + "");
         }
     }
 }

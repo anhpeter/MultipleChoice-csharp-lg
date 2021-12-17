@@ -57,8 +57,16 @@ namespace MultipleChoiceApp.Forms
                 studentResponse.genRandomOrder(rnd);
                 studentResponseList.Add(studentResponse);
             }
-            displayQuestion();
-            renderAnswerSheet();
+            if (studentResponseList.Count == subject.TotalQuestion)
+            {
+                displayQuestion();
+                renderAnswerSheet();
+            }
+            else
+            {
+                MessageBox.Show("Load enough questions!");
+
+            }
         }
 
         private void MyTimer_Tick(object sender, EventArgs e)

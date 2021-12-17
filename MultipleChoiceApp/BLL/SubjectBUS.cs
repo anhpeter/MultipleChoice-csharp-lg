@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class SubjectBUS
+    class SubjectBUS:BaseBUS<Subject>
     {
         SubjectDAO mainDAO = new SubjectDAO();
 
-        public int countAll()
+        public override BaseDAO<Subject> getMainDAO()
         {
-            return mainDAO.countAll();
+            return mainDAO;
         }
-
 
         public List<Subject> getAvailableForExam(DateTime d)
         {
@@ -27,36 +26,10 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO.getAllForSelectData();
         }
-        public List<Subject> getAll(Pagination pagination)
-        {
-            return mainDAO.getAll(pagination);
-        }
-
-        public Subject getDetailsById(int id)
-        {
-            Subject item = mainDAO.getByPK(id+"");
-            return item;
-        }
-
         public List<Subject> searchByKeyword(String keyword)
         {
             return mainDAO.searchByKeyWord(keyword);
         }
 
-        public bool add(Subject item)
-        {
-            return mainDAO.add(item) > 0;
-        }
-
-        public bool update(Subject item)
-        {
-
-            return mainDAO.update(item);
-        }
-
-        public bool delete(int id)
-        {
-            return mainDAO.deleteByPK(id+"");
-        }
     }
 }

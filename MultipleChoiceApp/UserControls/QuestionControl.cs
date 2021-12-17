@@ -151,7 +151,8 @@ namespace MultipleChoiceApp.UserControls
             {
                 List<Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId());
                 List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
+                String subject = getFormSubjectText();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, subject);
                 if (result)
                 {
                     MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
@@ -186,8 +187,8 @@ namespace MultipleChoiceApp.UserControls
                     MessageBox.Show(Msg.IMPORT_DATA_INVALID);
                     return;
                 }
+                MessageBox.Show(Msg.IMPORTED_FAILED);
             }
-            MessageBox.Show(Msg.IMPORTED_FAILED);
         }
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
@@ -248,6 +249,11 @@ namespace MultipleChoiceApp.UserControls
         {
             if (drop_subject.SelectedValue != null) return Util.parseToInt(drop_subject.SelectedValue.ToString(), -1);
             return -1;
+        }
+        private String getFormSubjectText()
+        {
+            if (drop_subject.SelectedValue != null) return subjectList[drop_subject.SelectedIndex].Name;
+            return "";
         }
 
         private int getCorrectAnsNo()

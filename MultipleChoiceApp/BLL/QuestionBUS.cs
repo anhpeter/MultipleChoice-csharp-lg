@@ -10,10 +10,15 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class QuestionBUS
+    class QuestionBUS:BaseBUS<Question>
     {
         QuestionDAO mainDAO = new QuestionDAO();
         AnswerDAO answerDAO = new AnswerDAO();
+
+        public override BaseDAO<Question> getMainDAO()
+        {
+            return mainDAO;
+        }
 
         public int countBySubjectId(int id)
         {
@@ -97,5 +102,6 @@ namespace MultipleChoiceApp.BLL
             }
             return false;
         }
+
     }
 }

@@ -23,6 +23,10 @@ namespace MultipleChoiceApp.DAL
         // ABSTRACT
         protected abstract T fromDR(SqlDataReader dr);
 
+        public abstract int add(T item);
+
+        public abstract bool update(T item);
+
         // COUNT
         public int countAll()
         {
@@ -42,6 +46,11 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHES
+        public List<T> getAll(Pagination p)
+        {
+            return getAll(applyPagination(getAllSqlStr(), p));
+        }
+
         public List<T> getAll(String sqlStr = null)
         {
             List<T> list = new List<T>();

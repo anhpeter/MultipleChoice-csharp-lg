@@ -58,6 +58,7 @@ namespace MultipleChoiceApp.UserControls
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
@@ -136,6 +137,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_export_excel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_export_excel.Textcolor = System.Drawing.Color.White;
             this.btn_export_excel.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_export_excel.Click += new System.EventHandler(this.btn_export_excel_Click);
             // 
             // label1
             // 
@@ -478,6 +480,10 @@ namespace MultipleChoiceApp.UserControls
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // savefiledialog_excel
+            // 
+            this.savefiledialog_excel.Filter = "Excel 2007|*.xlsx";
+            // 
             // StudentResultControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -518,5 +524,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.SaveFileDialog savefiledialog_excel;
     }
 }

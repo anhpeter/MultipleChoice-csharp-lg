@@ -23,10 +23,6 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<StudentResult> getAll(Pagination p)
-        {
-            return getAll(applyPagination(getAllSqlStr(), p));
-        }
 
         public List<StudentResult> searchByKeyWord(String keyword)
         {
@@ -50,7 +46,7 @@ namespace MultipleChoiceApp.DAL
 
 
         // ADD
-        public int add(StudentResult item)
+        public override int add(StudentResult item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("StudentId", item.StudentId + "");
@@ -60,7 +56,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(StudentResult item)
+        public override bool update(StudentResult item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("StudentId", item.StudentId + "");

@@ -39,6 +39,7 @@ namespace MultipleChoiceApp
         {
             changeControl(new QuestionControl(), "Questions");
             FormHelper.MakeFullScreen(this);
+            lbl_id.Text = Auth.getIntace().manager.FullName;
         }
 
         private void btn_questions_Click(object sender, EventArgs e)

@@ -42,6 +42,10 @@ namespace MultipleChoiceApp.DAL
         {
             return getAll(applyPagination(getAllSqlStr(), p));
         }
+        public List<Subject> getAll()
+        {
+            return getAll(getAllSqlStr());
+        }
         public List<Subject> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where Name like '%{keyword}%'");
@@ -49,7 +53,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(Subject item)
+        public override int add(Subject item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Code", item.Code);
@@ -61,7 +65,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(Subject item)
+        public override bool update(Subject item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Code", item.Code);

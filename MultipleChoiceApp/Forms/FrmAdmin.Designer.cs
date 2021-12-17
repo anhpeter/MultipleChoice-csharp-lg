@@ -41,7 +41,7 @@ namespace MultipleChoiceApp
             this.btn_subject = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_question = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_id = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnl_main = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -374,7 +374,7 @@ namespace MultipleChoiceApp
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbl_id);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -383,19 +383,19 @@ namespace MultipleChoiceApp
             this.panel2.Size = new System.Drawing.Size(285, 187);
             this.panel2.TabIndex = 0;
             // 
-            // label1
+            // lbl_id
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lbl_id.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(101, 126);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Admin";
+            this.lbl_id.AutoSize = true;
+            this.lbl_id.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id.ForeColor = System.Drawing.Color.Gray;
+            this.lbl_id.Location = new System.Drawing.Point(101, 126);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(72, 28);
+            this.lbl_id.TabIndex = 1;
+            this.lbl_id.Text = "Admin";
             // 
             // pictureBox1
             // 
@@ -483,7 +483,7 @@ namespace MultipleChoiceApp
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnl_main;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_id;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbl_title;
         private Bunifu.Framework.UI.BunifuFlatButton btn_question;

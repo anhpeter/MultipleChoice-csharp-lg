@@ -9,31 +9,19 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class StudentBUS
+    class StudentBUS:BaseBUS<Student>
     {
         StudentDAO mainDAO = new StudentDAO();
 
-        public int countAll()
+        public override BaseDAO<Student> getMainDAO()
         {
-            return mainDAO.countAll();
+            return mainDAO;
         }
+
+
         public Student getByCodeAndPassword(String id, String password)
         {
             return mainDAO.getByCodeAndPassword(id, password);
-        }
-        public List<Student> getAll(Pagination p)
-        {
-            return mainDAO.getAll(p);
-        }
-        public List<Student> getAll()
-        {
-            return mainDAO.getAll();
-        }
-
-        public Student getDetailsById(int id)
-        {
-            Student item = mainDAO.getByPK(id + "");
-            return item;
         }
 
         public List<Student> searchByKeyword(String keyword)
@@ -41,30 +29,5 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.searchByKeyWord(keyword);
         }
 
-        public bool add(Student item)
-        {
-            return mainDAO.add(item) > 0;
-        }
-
-        public int addMany(List<Student> list)
-        {
-            int count = 0;
-            foreach (var item in list)
-            {
-                if (this.add(item)) count++;
-            }
-            return count;
-        }
-
-        public bool update(Student item)
-        {
-
-            return mainDAO.update(item);
-        }
-
-        public bool delete(int id)
-        {
-            return mainDAO.deleteByPK(id + "");
-        }
     }
 }

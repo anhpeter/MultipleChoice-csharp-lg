@@ -17,6 +17,7 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class SubjectControl : UserControl, IPagination
     {
+        String controlName = "Subjects";
         SubjectBUS mainBUS = new SubjectBUS();
         Subject formItem;
         //
@@ -27,7 +28,7 @@ namespace MultipleChoiceApp.UserControls
         public SubjectControl()
         {
             InitializeComponent();
-            this.MaximumSize = new Size(700, 1000);
+            this.Dock = DockStyle.Fill;
         }
 
         private void SubjectControl_Load(object sender, EventArgs e)
@@ -120,6 +121,62 @@ namespace MultipleChoiceApp.UserControls
         {
             clearForm();
         }
+
+        // EXPORT
+        private void btn_export_excel_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Subject> list = mainBUS.getAll();
+                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
+        }
+
+        // IMPORT
+        private void btn_import_excel_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dialogResult = openfiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
+                if (checkValidImportedDicList(dicList))
+                {
+                    List<Subject> list = Subject.genListByDicList(dicList);
+                    if (list != null)
+                    {
+                        // ADD TO DB
+                        int affectedRows = mainBUS.addMany(list);
+                        refreshList();
+                        MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
+                        return;
+                    }
+                }
+                else
+                {
+                    // INVALID
+                    MessageBox.Show(Msg.IMPORT_DATA_INVALID);
+                    return;
+                }
+                MessageBox.Show(Msg.IMPORTED_FAILED);
+            }
+        }
+
+        private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
+        {
+            return dicList != null && dicList.Count > 0 && Subject.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+        }
+        //
 
 
         // HELPER METHODS

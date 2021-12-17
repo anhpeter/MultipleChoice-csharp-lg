@@ -10,18 +10,14 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class StudentResultBUS
+    class StudentResultBUS:BaseBUS<StudentResult>
     {
         StudentResultDAO mainDAO = new StudentResultDAO();
         StudentResponseDAO studentResponseDAO = new StudentResponseDAO();
 
-        public int countAll()
+        public override BaseDAO<StudentResult> getMainDAO()
         {
-            return mainDAO.countAll();
-        }
-        public List<StudentResult> getAll(Pagination p)
-        {
-            return mainDAO.getAll(p);
+            return mainDAO;
         }
 
         public List<StudentResult> searchByKeyword(String keyword)
@@ -29,11 +25,6 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.searchByKeyWord(keyword);
         }
 
-        public StudentResult getDetailsById(int id)
-        {
-            StudentResult item = mainDAO.getByPK(id + "");
-            return item;
-        }
 
         public bool add(StudentResult item)
         {
@@ -45,15 +36,5 @@ namespace MultipleChoiceApp.BLL
             return false;
         }
 
-        public bool update(StudentResult item)
-        {
-
-            return mainDAO.update(item);
-        }
-
-        public bool delete(int id)
-        {
-            return mainDAO.deleteByPK(id + "");
-        }
     }
 }

@@ -102,7 +102,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // ADD
-        public int add(Question item)
+        public override int add(Question item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
@@ -114,7 +114,7 @@ namespace MultipleChoiceApp.DAL
         }
 
         // UPDATE
-        public bool update(Question item)
+        public override bool update(Question item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
@@ -124,7 +124,5 @@ namespace MultipleChoiceApp.DAL
             dataDict.Add("Chapter", item.Chapter + "");
             return base.updateWithDict(dataDict, $"WHERE Id={item.Id}");
         }
-
-        // DELETE
     }
 }
