@@ -157,7 +157,7 @@ namespace MultipleChoiceApp.Common.Helpers
                     {
                         headers.Add(worksheet.Cells[1, i].Value.ToString());
                     }
-                    for (int i = worksheet.Dimension.Start.Row+1; i <= worksheet.Dimension.End.Row; i++)
+                    for (int i = worksheet.Dimension.Start.Row + 1; i <= worksheet.Dimension.End.Row; i++)
                     {
                         Dictionary<String, String> dic = new Dictionary<string, string>();
                         for (int j = 1; j <= headers.Count; j++)

@@ -64,6 +64,7 @@ namespace MultipleChoiceApp.Forms
             }
             else
             {
+                Util.log("Questions count " + studentResponseList.Count);
                 MessageBox.Show("Load enough questions!");
 
             }
@@ -95,10 +96,17 @@ namespace MultipleChoiceApp.Forms
             int hardQty = exam.HardQty;
             int normalQty = subject.TotalQuestion - (easyQty + hardQty);
             List<Question> questions = new List<Question>();
-            if (easyQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("easy", easyQty)).ToList();
-            if (normalQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("normal", easyQty)).ToList();
-            if (hardQty > 0) questions = questions.Concat(questionBUS.getRandomByLevel("hard", easyQty)).ToList();
+            List<Question> easyList = new List<Question>();
+            List<Question> normalList = new List<Question>();
+            List<Question> hardList = new List<Question>();
+            if (easyQty > 0) easyList = questionBUS.getRandomByLevel("easy", easyQty);
+            if (normalQty > 0) normalList = questionBUS.getRandomByLevel("normal", normalQty);
+            if (hardQty > 0) hardList = questionBUS.getRandomByLevel("hard", hardQty);
+            questions = questions.Concat(easyList).ToList();
+            questions = questions.Concat(normalList).ToList();
+            questions = questions.Concat(hardList).ToList();
             Util.log($"\nEasy:{easyQty} - Normal:{normalQty} - Hard:{hardQty}");
+            Util.log($"\nEasy:{easyList.Count} - Normal:{normalList.Count} - Hard:{hardList.Count}");
             return questions;
         }
 
