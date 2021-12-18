@@ -28,6 +28,10 @@ namespace MultipleChoiceApp.Common.Helpers
         public static String VLD_LENGTH_BETWEEN = "{0} must have length between {1}-{2}.";
         public static String VLD_MAX_LENGTH = "{0} must have length less than {1}.";
         public static String VLD_BETWEEN = "{0} value must between {1}-{2}.";
+        public static String VLD_DATE_NOT_AVAILABLE = "Already have an {0} exam between {1} and {2}";
+        // MSG
+        public static String TAKEN_EXAM_ALREADY = "You have already taken this exam";
+        public static String CHOOSE_AN_EXAM = "Please select your exam!";
 
     }
 }

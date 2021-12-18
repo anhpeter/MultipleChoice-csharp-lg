@@ -22,8 +22,19 @@ namespace MultipleChoiceApp.DAL
             return StudentResult.fromDR(dr);
         }
 
-        // FETCHS
+        // CHECK
+        public bool isExamTaken(int studentId, int examId)
+        {
+            String sqlStr = string.Format(
+                @"SELECT * FROM {0}
+                WHERE StudentId = {1} AND ExamId = {2}", tableName, studentId, examId);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            bool result = dr.HasRows;
+            dbHelper.closeConnection();
+            return result;
+        }
 
+        // FETCHS
         public List<StudentResult> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where stu.FullName like '%{keyword}%'");

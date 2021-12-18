@@ -17,6 +17,12 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO;
         }
+        public bool isAvailableBetweenDate(DateTime start, DateTime end, int subjectId)
+        {
+            return mainDAO.isAvailableBetweenDate(start, end, subjectId);
+        }
+
+        //
         public Exam getAvailabelBySubjectId(int SubjectId, DateTime d)
         {
             return mainDAO.getAvailabelBySubjectId(SubjectId, d);

@@ -20,6 +20,21 @@ namespace MultipleChoiceApp.DAL
         {
             return Exam.fromDR(dr);
         }
+        //
+        public bool isAvailableBetweenDate(DateTime start, DateTime end, int subjectId)
+        {
+            String startStr = Util.toSqlFormattedDate(start);
+            String endStr = Util.toSqlFormattedDate(end);
+            String sqlStr = string.Format(
+                @"SELECT * FROM {0}
+                WHERE ('{1}' AS DATE BETWEEN StartAt ) 
+                AND EndAt)
+                AND SubjectId = '{3}'
+            ",  tableName, startStr, endStr, subjectId);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            bool hasItems = dr.HasRows;
+            return !hasItems;
+        }
 
         // FETCHS
         public Exam getAvailabelBySubjectId(int subjectId, DateTime d)

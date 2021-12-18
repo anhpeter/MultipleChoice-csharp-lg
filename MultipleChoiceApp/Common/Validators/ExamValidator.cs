@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,9 @@ namespace MultipleChoiceApp.Common.Validators
 
         public ExamValidator()
         {
+
+            ExamBUS examBUS = new ExamBUS();
+
             RuleFor(p => p.Name)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Name"))
@@ -31,6 +35,15 @@ namespace MultipleChoiceApp.Common.Validators
             RuleFor(p => p.HardQty)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .Must((ex, hardQty) => (hardQty >= 0 && hardQty <= ex.Subject.TotalQuestion - ex.EasyQty)).WithMessage((ex) => string.Format(Msg.VLD_BETWEEN, "Hard question qty", 0, ex.Subject.TotalQuestion - (ex.EasyQty >= 0 ? ex.EasyQty : 0)));
+
+            //RuleFor(p => p.StartAt)
+            //.Cascade(CascadeMode.StopOnFirstFailure)
+            //.Must((ex, startAt) =>
+            //{
+            //    bool available = examBUS.isAvailableBetweenDate(ex.StartAt, ex.EndAt, ex.Subject.Id);
+            //    return available;
+            //}).WithMessage((ex) => string.Format(Msg.VLD_DATE_NOT_AVAILABLE, ex.Subject.Name, ex.StartAt, ex.EndAt));
+
         }
     }
 }

@@ -17,6 +17,7 @@ namespace MultipleChoiceApp.Forms
         Auth auth = Auth.getIntace();
         SubjectBUS subjectBUS = new SubjectBUS();
         ExamBUS examBUS = new ExamBUS();
+        StudentResultBUS studentResultBUS = new StudentResultBUS();
         List<Subject> subjectList;
         //
         Exam exam;
@@ -110,7 +111,19 @@ namespace MultipleChoiceApp.Forms
         {
             if (exam != null)
             {
-                FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));
+                bool isTaken = studentResultBUS.isExamTaken(Auth.getIntace().student.Id, exam.Id);
+                if (!isTaken)
+                {
+                    FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.TAKEN_EXAM_ALREADY);
+                }
+            }
+            else
+            {
+                    MessageBox.Show(Msg.CHOOSE_AN_EXAM);
             }
         }
 
