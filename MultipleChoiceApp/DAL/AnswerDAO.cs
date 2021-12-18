@@ -71,10 +71,11 @@ namespace MultipleChoiceApp.DAL
 
         public bool updateManyForQuestion(List<Answer> list)
         {
-            bool result = true;
+            bool result = false;
             foreach (Answer item in list)
             {
-                if (!update(item)) result = false;
+                bool updateResult = update(item);
+                if (updateResult) result = true;
             }
             return result;
         }

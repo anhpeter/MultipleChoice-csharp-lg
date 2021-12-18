@@ -40,7 +40,7 @@ namespace MultipleChoiceApp.Forms
             setupInterface();
             setupExam();
             timer = new Timer();
-            timer.Interval = (subject.Duration * 1000); // 45 mins
+            timer.Interval = 1000; // 45 mins
             timer.Tick += new EventHandler(MyTimer_Tick);
             timer.Start();
         }
@@ -99,9 +99,9 @@ namespace MultipleChoiceApp.Forms
             List<Question> easyList = new List<Question>();
             List<Question> normalList = new List<Question>();
             List<Question> hardList = new List<Question>();
-            if (easyQty > 0) easyList = questionBUS.getRandomByLevel("easy", easyQty);
-            if (normalQty > 0) normalList = questionBUS.getRandomByLevel("normal", normalQty);
-            if (hardQty > 0) hardList = questionBUS.getRandomByLevel("hard", hardQty);
+            if (easyQty > 0) easyList = questionBUS.getRandomByLevel(subject.Id, "easy", easyQty);
+            if (normalQty > 0) normalList = questionBUS.getRandomByLevel(subject.Id, "normal", normalQty);
+            if (hardQty > 0) hardList = questionBUS.getRandomByLevel(subject.Id, "hard", hardQty);
             questions = questions.Concat(easyList).ToList();
             questions = questions.Concat(normalList).ToList();
             questions = questions.Concat(hardList).ToList();
@@ -199,10 +199,12 @@ namespace MultipleChoiceApp.Forms
         // TEMPLATE
         private void renderTime()
         {
-            double h = Math.Floor(this.time / 60 / 60 / 1000.0);
-            double m = Math.Floor(this.time / 60 / 1000.0);
-            double s = Math.Floor(this.time / 1000.0);
+            Util.log("TIME: " + this.time);
+            double h = Math.Floor(this.time / 60 / 60 / 1000.0) % 60;
+            double m = Math.Floor(this.time % (1000 * 60 * 60) / (1000 * 60 * 1.0));
+            double s = Math.Floor((this.time % (1000 * 60)) / 1000*1.0);
 
+            Util.log($"h: {h} - m: {m} - s: {s}");
             String hStr = Util.strPad(h + "", 2, "0");
             String mStr = Util.strPad(m + "", 2, "0");
             String sStr = Util.strPad(s + "", 2, "0");
@@ -223,6 +225,7 @@ namespace MultipleChoiceApp.Forms
                 pnl_answer.Width = pnl_answer.Width + 36;
             }
             await Task.Delay(100);
+            pnl_answer.Left = (pnl_answer_sheet.Width - pnl_answer.Width) / 2;
             pnl_answer.Visible = true;
         }
 

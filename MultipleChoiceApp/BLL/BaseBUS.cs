@@ -36,7 +36,7 @@ namespace MultipleChoiceApp.BLL
         {
             return getMainDAO().add(item) > 0;
         }
-        public int addMany(List<T> list)
+        public virtual int addMany(List<T> list)
         {
             int count = 0;
             foreach (var item in list)

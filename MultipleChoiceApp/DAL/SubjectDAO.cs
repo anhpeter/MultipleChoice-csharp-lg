@@ -35,7 +35,7 @@ namespace MultipleChoiceApp.DAL
         }
         public List<Subject> getAllForSelectData()
         {
-            String sqlStr = $"select * from {tableName} order by Name desc";
+            String sqlStr = $"select * from {tableName} order by Name asc";
             return getAll(sqlStr);
         }
         public List<Subject> getAll(Pagination p)

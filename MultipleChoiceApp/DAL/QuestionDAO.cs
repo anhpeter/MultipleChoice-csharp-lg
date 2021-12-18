@@ -31,16 +31,16 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
-        public List<Question> getRandomByLevel(String level, int qty)
+        public List<Question> getRandomByLevel(int subjectId, String level, int qty)
         {
             List<Question> list = new List<Question>();
             String sqlStr = string.Format(@"
                 SELECT * 
                 FROM {0}
-                WHERE Level='{1}'
+                WHERE SubjectId='{1}' AND Level='{2}'
                 ORDER BY NEWID()
-                OFFSET 0 ROWS FETCH NEXT {2} ROWS ONLY
-            ", tableName, level, qty);
+                OFFSET 0 ROWS FETCH NEXT {3} ROWS ONLY
+            ", tableName, subjectId,  level, qty);
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             while (dr.Read())
             {

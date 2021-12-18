@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.BLL
 {
-    class QuestionBUS:BaseBUS<Question>
+    class QuestionBUS : BaseBUS<Question>
     {
         QuestionDAO mainDAO = new QuestionDAO();
         AnswerDAO answerDAO = new AnswerDAO();
@@ -25,9 +25,9 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.countBySubjectId(id);
         }
         //FETCH
-        public List<Question> getRandomByLevel(String level, int qty)
+        public List<Question> getRandomByLevel(int subjectId, String level, int qty)
         {
-            List<Question> questions = mainDAO.getRandomByLevel(level, qty);
+            List<Question> questions = mainDAO.getRandomByLevel(subjectId, level, qty);
             foreach (var question in questions)
             {
                 List<Answer> answers = answerDAO.getAnswersByQuestionId(question.Id);
@@ -55,7 +55,7 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.searchByKeyWord(id, keyword);
         }
 
-        public Question getDetailsById(int id)
+        public override Question getDetailsById(int id)
         {
             Debug.WriteLine(id);
             Question item = mainDAO.getByPK(id + "");
@@ -64,7 +64,7 @@ namespace MultipleChoiceApp.BLL
             return item;
         }
 
-        public bool add(Question item)
+        public override bool add(Question item)
         {
             int questionId = mainDAO.add(item);
             if (questionId > -1)
@@ -73,7 +73,7 @@ namespace MultipleChoiceApp.BLL
             }
             return false;
         }
-        public int addMany(List<Question> list)
+        public override int addMany(List<Question> list)
         {
             int count = 0;
             foreach (var item in list)
@@ -83,17 +83,14 @@ namespace MultipleChoiceApp.BLL
             return count;
         }
 
-        public bool update(Question item)
+        public override bool update(Question item)
         {
             bool updateQuestionResult = mainDAO.update(item);
-            if (updateQuestionResult)
-            {
-                return answerDAO.updateManyForQuestion(item.Answers);
-            }
-            return false;
+            bool updateAnswersResult = answerDAO.updateManyForQuestion(item.Answers);
+            return updateQuestionResult || updateAnswersResult;
         }
 
-        public bool delete(int id)
+        public override bool delete(int id)
         {
             bool deleteQuestionResult = mainDAO.deleteByPK(id + "");
             if (deleteQuestionResult)

@@ -91,7 +91,8 @@ namespace MultipleChoiceApp
                 if (answersString != null)
                 {
                     string[] lines = answersString.Split(new String[] { "\n" }, StringSplitOptions.None);
-                    List<Answer> answers = lines.Select(x => new Answer() { Content = x }).ToList();
+                    lines = lines.Where(x => !x.Trim().Equals("")).ToArray();
+                    List<Answer> answers = lines.Select(x => new Answer() { Content = x.Trim() }).ToList();
                     item.Answers = answers;
                 }
                 item.SubjectId = subjectId;

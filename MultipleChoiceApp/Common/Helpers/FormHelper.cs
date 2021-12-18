@@ -138,7 +138,7 @@ namespace MultipleChoiceApp.Common.Helpers
             {
                 for (int j = 0; j < gv.ColumnCount; j++)
                 {
-                    worksheet.Cells[i + 2, j + 1] = gv.Rows[i].Cells[j].Value.ToString();
+                    worksheet.Cells[i + 2, j + 1] = gv.Rows[i].Cells[j].Value.ToString().Trim();
                 }
             }
         }
@@ -155,14 +155,19 @@ namespace MultipleChoiceApp.Common.Helpers
                     ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[0];
                     for (int i = worksheet.Dimension.Start.Column; i <= worksheet.Dimension.End.Column; i++)
                     {
-                        headers.Add(worksheet.Cells[1, i].Value.ToString());
+                        object header = worksheet.Cells[1, i].Value;
+                        if (header != null)
+                        {
+                            headers.Add(header.ToString().Trim());
+                        }
                     }
                     for (int i = worksheet.Dimension.Start.Row + 1; i <= worksheet.Dimension.End.Row; i++)
                     {
                         Dictionary<String, String> dic = new Dictionary<string, string>();
                         for (int j = 1; j <= headers.Count; j++)
                         {
-                            dic.Add(headers[j - 1], worksheet.Cells[i, j].Value.ToString());
+                            object value = worksheet.Cells[i, j].Value;
+                            if (value != null) dic.Add(headers[j - 1], value.ToString().Trim());
                         }
                         dicList.Add(dic);
                     }
