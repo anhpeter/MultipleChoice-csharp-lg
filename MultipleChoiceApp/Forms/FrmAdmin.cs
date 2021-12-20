@@ -35,11 +35,12 @@ namespace MultipleChoiceApp
             iconDict.Add("Exams_active", Properties.Resources.Exams_active);
         }
 
-        private void FrmAdmin_Load(object sender, EventArgs e)
+        async private void FrmAdmin_Load(object sender, EventArgs e)
         {
             changeControl(new QuestionControl(), "Questions");
             FormHelper.MakeFullScreen(this);
             lbl_id.Text = Auth.getIntace().manager.FullName;
+            //
         }
 
         private void btn_questions_Click(object sender, EventArgs e)
@@ -55,21 +56,25 @@ namespace MultipleChoiceApp
         // HELPER METHODS
         private void changeControl(UserControl control, String title)
         {
-            foreach (BunifuFlatButton c in pnl_nav.Controls)
+            foreach (Control c in pnl_nav.Controls)
             {
-                if (c.Tag.Equals(title))
+                if (c is BunifuFlatButton)
                 {
-                    c.Textcolor = Color.DodgerBlue;
-                    c.Iconimage = iconDict[c.Tag.ToString() + "_active"];
-                }
-                else
-                {
-                    c.Textcolor = Color.DimGray;
-                    try
+                    BunifuFlatButton button = (BunifuFlatButton)c;
+                    if (button.Tag.Equals(title))
                     {
-                        c.Iconimage = iconDict[c.Tag.ToString()];
+                        button.Textcolor = Color.DodgerBlue;
+                        button.Iconimage = iconDict[c.Tag.ToString() + "_active"];
                     }
-                    catch (Exception ex) { }
+                    else
+                    {
+                        button.Textcolor = Color.DimGray;
+                        try
+                        {
+                            button.Iconimage = iconDict[button.Tag.ToString()];
+                        }
+                        catch (Exception ex) { }
+                    }
                 }
             }
             control.Dock = DockStyle.Fill;
@@ -101,7 +106,18 @@ namespace MultipleChoiceApp
         private void btn_result_Click(object sender, EventArgs e)
         {
 
-            changeControl(new ResultControl(), "Results");
+            changeControl(new ResultControl(this), "Results");
+        }
+
+        private void btn_test_Click(object sender, EventArgs e)
+
+        {
+            FrmExamReport frmExamReport = new FrmExamReport(new Exam());
+            frmExamReport.Show();
+            //FormHelper.replaceForm(this, new FrmExamReport(new Exam()));
+            //FrmTest form = new FrmTest();
+            //form.Show();
         }
     }
 }
+

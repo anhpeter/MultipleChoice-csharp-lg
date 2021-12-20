@@ -82,7 +82,6 @@ namespace MultipleChoiceApp.Forms
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "border_bottom_Questions";
-            this.pictureBox3.Visible = false;
             // 
             // pictureBox2
             // 
@@ -93,7 +92,6 @@ namespace MultipleChoiceApp.Forms
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "border_bottom_Students";
-            this.pictureBox2.Visible = false;
             // 
             // pictureBox1
             // 
@@ -259,8 +257,6 @@ namespace MultipleChoiceApp.Forms
             this.ClientSize = new System.Drawing.Size(969, 553);
             this.Controls.Add(this.pnl_content);
             this.Controls.Add(this.pnl_header);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmExamReport";
             this.Text = "Exam Report ";
             this.Load += new System.EventHandler(this.FrmExamReport_Load);

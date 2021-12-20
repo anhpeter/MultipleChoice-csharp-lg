@@ -20,23 +20,24 @@ namespace MultipleChoiceApp.UserControls
     public partial class ResultControl : UserControl, IPagination
     {
         String controlName = "Student Results";
+        Form form;
         //
         ExamBUS examBUS = new ExamBUS();
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
         Boolean searchMode = false;
-        public ResultControl()
+        public ResultControl(Form form)
         {
             InitializeComponent();
+            this.form = form;
         }
         private void ResultControl_Load(object sender, EventArgs e)
         {
             refreshList();
             clearForm();
         }
-        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
+        async private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int id = getSelectedId();
             if (id > -1)
             {
@@ -45,6 +46,7 @@ namespace MultipleChoiceApp.UserControls
                 {
                     FrmExamReport frmExamReport = new FrmExamReport(item);
                     frmExamReport.Show();
+                    this.Size = new Size(1536, 856);
                 }
             }
         }

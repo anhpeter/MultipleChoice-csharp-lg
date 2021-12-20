@@ -20,10 +20,9 @@ namespace MultipleChoiceApp.Forms
         public FrmExamReport(Exam exam)
         {
             InitializeComponent();
-            //
-            this.exam = exam;
-            FormHelper.setformSizeRatioOfScreen(this, 0.85);
+            FormHelper.setFormSizeRatioOfScreen(this, 0.85);
             CenterToScreen();
+            this.TopMost = true;
         }
         // EVENTS
         private void FrmExamReport_Load(object sender, EventArgs e)
@@ -36,9 +35,9 @@ namespace MultipleChoiceApp.Forms
         {
             BunifuFlatButton clickedButton = (BunifuFlatButton)sender;
             String tag = clickedButton.Tag.ToString();
-            //
+
             changeTabButtonLooks(tag);
-            //
+
             UserControl control = null;
             switch (tag)
             {
@@ -52,7 +51,6 @@ namespace MultipleChoiceApp.Forms
                 pnl_content.Controls.Clear();
                 pnl_content.Controls.Add(control);
             }
-
         }
 
         private void changeTabButtonLooks(String tag)
@@ -60,34 +58,34 @@ namespace MultipleChoiceApp.Forms
             foreach (var control in pnl_tabs.Controls)
             {
                 if (control is BunifuFlatButton)
+            {
+                BunifuFlatButton button = (BunifuFlatButton)control;
+                if (button.Tag.Equals(tag))
                 {
-                    BunifuFlatButton button = (BunifuFlatButton)control;
-                    if (button.Tag.Equals(tag))
-                    {
-                        button.Textcolor = Color.DodgerBlue;
-                    }
-                    else
-                    {
-                        button.Textcolor = Color.Black;
-                    }
+                    button.Textcolor = Color.DodgerBlue;
                 }
-                else if (control is PictureBox)
+                else
                 {
-                    PictureBox borderBottom = (PictureBox)control;
-                    String borderTag = borderBottom.Tag.ToString();
-                    if (borderTag.Equals($"border_bottom_{tag}"))
-                    {
-                        borderBottom.BackColor = Color.DodgerBlue;
-                    }
-                    else
-                    {
-                        borderBottom.BackColor = Color.Transparent;
-                    }
-
-
+                    button.Textcolor = Color.Black;
                 }
             }
+            else if (control is PictureBox)
+            {
+                PictureBox borderBottom = (PictureBox)control;
+                String borderTag = borderBottom.Tag.ToString();
+                if (borderTag.Equals($"border_bottom_{tag}"))
+                {
+                    borderBottom.BackColor = Color.DodgerBlue;
+                }
+                else
+                {
+                    borderBottom.BackColor = Color.Transparent;
+                }
+
+
+            }
         }
+    }
 
     }
 }
