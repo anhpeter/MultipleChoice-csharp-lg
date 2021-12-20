@@ -61,6 +61,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.my_chart);
             this.Name = "CorrectChartControl";
             this.Size = new System.Drawing.Size(219, 184);

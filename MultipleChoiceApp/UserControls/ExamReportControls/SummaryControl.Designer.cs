@@ -31,12 +31,30 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
         {
             this.pnl_correct_chart = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.bunifuShadowPanel2 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.bunifuShadowPanel3 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bunifuShadowPanel2.SuspendLayout();
-            this.bunifuShadowPanel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,72 +69,188 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.pnl_correct_chart.PanelColor = System.Drawing.Color.Empty;
             this.pnl_correct_chart.ShadowDept = 2;
             this.pnl_correct_chart.ShadowTopLeftVisible = false;
-            this.pnl_correct_chart.Size = new System.Drawing.Size(335, 218);
+            this.pnl_correct_chart.Size = new System.Drawing.Size(365, 218);
             this.pnl_correct_chart.TabIndex = 0;
             // 
             // bunifuShadowPanel2
             // 
             this.bunifuShadowPanel2.BackColor = System.Drawing.Color.White;
             this.bunifuShadowPanel2.BorderColor = System.Drawing.Color.Gainsboro;
-            this.bunifuShadowPanel2.Controls.Add(this.label2);
+            this.bunifuShadowPanel2.Controls.Add(this.panel1);
             this.bunifuShadowPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuShadowPanel2.Location = new System.Drawing.Point(365, 10);
+            this.bunifuShadowPanel2.Location = new System.Drawing.Point(395, 10);
             this.bunifuShadowPanel2.Margin = new System.Windows.Forms.Padding(10);
             this.bunifuShadowPanel2.Name = "bunifuShadowPanel2";
+            this.bunifuShadowPanel2.Padding = new System.Windows.Forms.Padding(30, 10, 30, 10);
             this.bunifuShadowPanel2.PanelColor = System.Drawing.Color.Empty;
             this.bunifuShadowPanel2.ShadowDept = 2;
             this.bunifuShadowPanel2.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel2.Size = new System.Drawing.Size(335, 218);
+            this.bunifuShadowPanel2.Size = new System.Drawing.Size(365, 218);
             this.bunifuShadowPanel2.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(30, 10);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(305, 198);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 67);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(305, 131);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.pictureBox3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 67);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(305, 67);
+            this.panel5.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(180, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 31);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "<qty>";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(44, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(136, 31);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Time";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::MultipleChoiceApp.Properties.Resources.kh_time;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 31);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.label7);
+            this.panel4.Controls.Add(this.pictureBox2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(305, 67);
+            this.panel4.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(180, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(125, 31);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "<qty>";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(44, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(136, 31);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Questions";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::MultipleChoiceApp.Properties.Resources.kh_question;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(305, 67);
+            this.panel2.TabIndex = 0;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(180, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(335, 218);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Practise make perfect!";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Size = new System.Drawing.Size(125, 31);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "<qty>";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bunifuShadowPanel3
+            // label1
             // 
-            this.bunifuShadowPanel3.BackColor = System.Drawing.Color.White;
-            this.bunifuShadowPanel3.BorderColor = System.Drawing.Color.Gainsboro;
-            this.bunifuShadowPanel3.Controls.Add(this.label3);
-            this.bunifuShadowPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuShadowPanel3.Location = new System.Drawing.Point(720, 10);
-            this.bunifuShadowPanel3.Margin = new System.Windows.Forms.Padding(10);
-            this.bunifuShadowPanel3.Name = "bunifuShadowPanel3";
-            this.bunifuShadowPanel3.PanelColor = System.Drawing.Color.Empty;
-            this.bunifuShadowPanel3.ShadowDept = 2;
-            this.bunifuShadowPanel3.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel3.Size = new System.Drawing.Size(336, 218);
-            this.bunifuShadowPanel3.TabIndex = 2;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(136, 31);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Students";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(336, 218);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Practise make perfect!";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pictureBox1.Image = global::MultipleChoiceApp.Properties.Resources.kh_user;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 31);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.bunifuShadowPanel3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.bunifuShadowPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.pnl_correct_chart, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -124,7 +258,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1066, 477);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1156, 477);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // SummaryControl
@@ -134,10 +268,17 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SummaryControl";
-            this.Size = new System.Drawing.Size(1066, 691);
+            this.Size = new System.Drawing.Size(1156, 691);
             this.Load += new System.EventHandler(this.SummaryControl_Load);
             this.bunifuShadowPanel2.ResumeLayout(false);
-            this.bunifuShadowPanel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -147,9 +288,20 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel pnl_correct_chart;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel2;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

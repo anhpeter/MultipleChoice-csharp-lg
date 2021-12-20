@@ -385,5 +385,14 @@
   <ItemGroup>
     <None Include="Resources\Exit1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kh_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kh_question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kh_time.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
