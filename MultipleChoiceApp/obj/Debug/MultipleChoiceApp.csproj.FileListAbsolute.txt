@@ -53,3 +53,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.ResultControl.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmExamReport.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.ExamReportControls.SummaryControl.resources

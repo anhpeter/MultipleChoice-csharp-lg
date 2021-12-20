@@ -36,7 +36,6 @@ namespace MultipleChoiceApp.UserControls
         public QuestionControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
 
         // EVENTS

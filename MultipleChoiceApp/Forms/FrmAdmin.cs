@@ -72,6 +72,7 @@ namespace MultipleChoiceApp
                     catch (Exception ex) { }
                 }
             }
+            control.Dock = DockStyle.Fill;
             pnl_main.Controls.Clear();
             pnl_main.Controls.Add(control);
             lbl_title.Text = title;

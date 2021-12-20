@@ -28,7 +28,6 @@ namespace MultipleChoiceApp.UserControls
         public SubjectControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
 
         private void SubjectControl_Load(object sender, EventArgs e)

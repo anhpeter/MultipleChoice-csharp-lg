@@ -202,6 +202,12 @@
     <Compile Include="UserControls\ExamControl.Designer.cs">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ExamReportControls\SummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ExamReportControls\SummaryControl.Designer.cs">
+      <DependentUpon>SummaryControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ManagerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ExamReportControls\SummaryControl.resx">
+      <DependentUpon>SummaryControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ManagerControl.resx">
       <DependentUpon>ManagerControl.cs</DependentUpon>

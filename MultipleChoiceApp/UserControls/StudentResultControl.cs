@@ -27,7 +27,6 @@ namespace MultipleChoiceApp.UserControls
         public StudentResultControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
 
         private void StudentResultControl_Load(object sender, EventArgs e)

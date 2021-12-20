@@ -28,7 +28,6 @@ namespace MultipleChoiceApp.UserControls
         public ExamControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
 
         private void ExamControl_Load(object sender, EventArgs e)

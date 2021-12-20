@@ -27,7 +27,6 @@ namespace MultipleChoiceApp.UserControls
         public ManagerControl()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;
         }
         private void ManagerControl_Load(object sender, EventArgs e)
         {
