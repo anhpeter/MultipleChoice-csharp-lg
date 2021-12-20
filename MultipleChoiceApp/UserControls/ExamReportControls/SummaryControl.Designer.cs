@@ -29,58 +29,30 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
-            this.chart_correct = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pnl_correct_chart = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.bunifuShadowPanel2 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel3 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.bunifuShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_correct)).BeginInit();
             this.bunifuShadowPanel2.SuspendLayout();
             this.bunifuShadowPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bunifuShadowPanel1
+            // pnl_correct_chart
             // 
-            this.bunifuShadowPanel1.BackColor = System.Drawing.Color.White;
-            this.bunifuShadowPanel1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.bunifuShadowPanel1.Controls.Add(this.chart_correct);
-            this.bunifuShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuShadowPanel1.Location = new System.Drawing.Point(10, 10);
-            this.bunifuShadowPanel1.Margin = new System.Windows.Forms.Padding(10);
-            this.bunifuShadowPanel1.Name = "bunifuShadowPanel1";
-            this.bunifuShadowPanel1.PanelColor = System.Drawing.Color.Empty;
-            this.bunifuShadowPanel1.ShadowDept = 2;
-            this.bunifuShadowPanel1.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel1.Size = new System.Drawing.Size(335, 218);
-            this.bunifuShadowPanel1.TabIndex = 0;
-            // 
-            // chart_correct
-            // 
-            this.chart_correct.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart_correct.ChartAreas.Add(chartArea1);
-            this.chart_correct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart_correct.Legends.Add(legend1);
-            this.chart_correct.Location = new System.Drawing.Point(0, 0);
-            this.chart_correct.Name = "chart_correct";
-            this.chart_correct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Legend = "Legend1";
-            series1.Name = "s1";
-            this.chart_correct.Series.Add(series1);
-            this.chart_correct.Size = new System.Drawing.Size(335, 218);
-            this.chart_correct.TabIndex = 0;
-            this.chart_correct.Text = "chart1";
+            this.pnl_correct_chart.BackColor = System.Drawing.Color.White;
+            this.pnl_correct_chart.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnl_correct_chart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_correct_chart.Location = new System.Drawing.Point(10, 10);
+            this.pnl_correct_chart.Margin = new System.Windows.Forms.Padding(10);
+            this.pnl_correct_chart.Name = "pnl_correct_chart";
+            this.pnl_correct_chart.PanelColor = System.Drawing.Color.Empty;
+            this.pnl_correct_chart.ShadowDept = 2;
+            this.pnl_correct_chart.ShadowTopLeftVisible = false;
+            this.pnl_correct_chart.Size = new System.Drawing.Size(335, 218);
+            this.pnl_correct_chart.TabIndex = 0;
             // 
             // bunifuShadowPanel2
             // 
@@ -146,7 +118,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.bunifuShadowPanel3, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.bunifuShadowPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.bunifuShadowPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnl_correct_chart, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -164,8 +136,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.Name = "SummaryControl";
             this.Size = new System.Drawing.Size(1066, 691);
             this.Load += new System.EventHandler(this.SummaryControl_Load);
-            this.bunifuShadowPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart_correct)).EndInit();
             this.bunifuShadowPanel2.ResumeLayout(false);
             this.bunifuShadowPanel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -175,12 +145,11 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         #endregion
 
-        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
+        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel pnl_correct_chart;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel2;
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_correct;
     }
 }

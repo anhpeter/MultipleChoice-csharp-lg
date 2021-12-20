@@ -1,5 +1,6 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
+using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,15 +25,9 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private void SummaryControl_Load(object sender, EventArgs e)
         {
-            chart_correct.Series["s1"].Points.AddXY("40%", "40");
-            chart_correct.Series["s1"].Points.AddXY("60%", "60");
-            chart_correct.Series["s1"].Points[0].Color = Color.FromArgb(226, 27, 60);
-            chart_correct.Series["s1"].Points[0].LegendText = "Correct";
-            chart_correct.Series["s1"].Points[0].LabelForeColor = Color.White;
-            chart_correct.Series["s1"].Points[1].Color = Color.FromArgb(38, 137, 12);
-            chart_correct.Series["s1"].Points[1].LegendText = "Incorrect";
-            chart_correct.Series["s1"].Points[1].LabelForeColor = Color.White;
-
+            CorrectChartControl control = new CorrectChartControl(55, 45, true);
+            control.Dock = DockStyle.Fill;
+            pnl_correct_chart.Controls.Add(control);
         }
     }
 }

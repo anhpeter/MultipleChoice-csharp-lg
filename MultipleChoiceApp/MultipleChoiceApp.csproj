@@ -270,6 +270,12 @@
     <Compile Include="UserControls\SubjectControl.Designer.cs">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Utilities\CorrectChartControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Utilities\CorrectChartControl.Designer.cs">
+      <DependentUpon>CorrectChartControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Common\UtilForms\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SubjectControl.resx">
       <DependentUpon>SubjectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Utilities\CorrectChartControl.resx">
+      <DependentUpon>CorrectChartControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
