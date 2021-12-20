@@ -105,6 +105,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
             this.openfiledialog_excel = new System.Windows.Forms.OpenFileDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -1361,5 +1362,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.Panel pnl_pagination;
         private System.Windows.Forms.SaveFileDialog savefiledialog_excel;
         private System.Windows.Forms.OpenFileDialog openfiledialog_excel;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }
