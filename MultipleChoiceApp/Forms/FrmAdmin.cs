@@ -100,7 +100,7 @@ namespace MultipleChoiceApp
         private void btn_result_Click(object sender, EventArgs e)
         {
 
-            changeControl(new StudentResultControl(), "Results");
+            changeControl(new ResultControl(), "Results");
         }
     }
 }
