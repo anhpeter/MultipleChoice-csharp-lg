@@ -20,7 +20,6 @@ namespace MultipleChoiceApp.UserControls
     {
         String controlName = "Student Results";
         StudentResultBUS mainBUS = new StudentResultBUS();
-        StudentResult formItem;
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);

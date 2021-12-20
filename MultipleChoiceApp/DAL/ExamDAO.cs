@@ -40,7 +40,7 @@ namespace MultipleChoiceApp.DAL
         public List<Exam> getAllForReport()
         {
             String sqlStr = string.Format(@"
-                SELECT ex.Name, ex.StartAt, ex.EndAt,  COUNT(sr.StudentId) as StudentCount
+                SELECT ex.Id, ex.Name, ex.StartAt, ex.EndAt,  COUNT(sr.StudentId) as StudentCount
                 FROM Exams AS ex LEFT JOIN StudentResults AS sr ON (ex.Id = sr.ExamId)
                 GROUP BY ex.Id, ex.Name,ex.StartAt, ex.EndAt
                 ORDER BY ex.Id desc");

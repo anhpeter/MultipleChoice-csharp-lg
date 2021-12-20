@@ -180,5 +180,13 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             return dicList;
         }
+        public static void setformSizeRatioOfScreen(Form form,  Double ratio)
+        {
+            Rectangle screen = Screen.FromControl(form).Bounds;
+            form.Width = Convert.ToInt32(screen.Width * ratio);
+            form.Height = Convert.ToInt32(screen.Height * ratio);
+
+        }
+
     }
 }

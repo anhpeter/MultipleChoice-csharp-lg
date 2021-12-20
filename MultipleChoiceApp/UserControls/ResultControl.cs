@@ -3,6 +3,7 @@ using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.Forms;
 using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,17 @@ namespace MultipleChoiceApp.UserControls
         }
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            int id = getSelectedId();
+            if (id > -1)
+            {
+                Exam item = examBUS.getDetailsById(id);
+                if (item != null)
+                {
+                    FrmExamReport frmExamReport = new FrmExamReport(item);
+                    frmExamReport.Show();
+                }
+            }
         }
         // ACTIONS
         private void btn_clear_Click(object sender, EventArgs e)
@@ -108,7 +120,6 @@ namespace MultipleChoiceApp.UserControls
         }
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
-
             //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
             //if (dialogResult == DialogResult.OK)
             //{
@@ -124,6 +135,18 @@ namespace MultipleChoiceApp.UserControls
             //        MessageBox.Show(Msg.EXPORTED_FAILED);
             //    }
             //}
+        }
+
+        private int getSelectedId()
+        {
+            try
+            {
+                return Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
         }
     }
 }

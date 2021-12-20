@@ -123,6 +123,12 @@
     <Compile Include="Common\Interfaces\IPagination.cs" />
     <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
+    <Compile Include="Forms\FrmExamReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmExamReport.Designer.cs">
+      <DependentUpon>FrmExamReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Question.cs" />
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamFinish.resx">
       <DependentUpon>FrmExamFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmExamReport.resx">
+      <DependentUpon>FrmExamReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamStart.resx">
       <DependentUpon>FrmExamStart.cs</DependentUpon>
