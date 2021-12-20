@@ -19,9 +19,8 @@ namespace MultipleChoiceApp.UserControls
     public partial class ResultControl : UserControl, IPagination
     {
         String controlName = "Student Results";
-        StudentResultBUS mainBUS = new StudentResultBUS();
-        StudentResult formItem;
         //
+        ExamBUS examBUS = new ExamBUS();
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
         Boolean searchMode = false;
@@ -30,58 +29,33 @@ namespace MultipleChoiceApp.UserControls
             InitializeComponent();
             this.Dock = DockStyle.Fill;
         }
-
         private void ResultControl_Load(object sender, EventArgs e)
         {
             refreshList();
             clearForm();
         }
-
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //int id = getSelectedId();
-            //if (id > -1)
-            //{
-            //    formItem = mainBUS.getDetailsById(id);
-            //    if (formItem != null)
-            //    {
-            //        txt_code.Text = formItem.Code.ToString();
-            //        txt_fullname.Text = formItem.FullName.ToString();
-            //        txt_address.Text = formItem.Address.ToString();
-            //        txt_major.Text = formItem.Major.ToString();
-            //        datepicker_dob.Text = formItem.DOB.ToString();
-            //    }
-            //}
         }
-
-
         // ACTIONS
-
-
-
         private void btn_clear_Click(object sender, EventArgs e)
         {
             clearForm();
         }
-
-
-
         // HELPER METHODS
         private void refreshList()
         {
-            List<StudentResult> list = mainBUS.getAll(pagination);
+            List<Exam> list = examBUS.getAllForReport();
             refreshList(list);
         }
-
-        private void refreshList(List<StudentResult> list)
+        private void refreshList(List<Exam> list)
         {
             gv_main.Rows.Clear();
             foreach (var item in list)
             {
                 gv_main.Rows.Add(new object[] {
-                    item.Id, item.Student.Code, item.Student.FullName,
-                    item.Student.Address, item.Student.DOB, item.Student.Major, 
-                    item.Points, item.Subject.Name, item.Exam.Name
+                    item.Id, item.Name, item.StartAt,
+                    item.EndAt, item.Status, item.StudentCount
                 });
             }
             handlePagination();
@@ -95,7 +69,6 @@ namespace MultipleChoiceApp.UserControls
                 pnl_pagination.Controls.Add(paginationControl);
             }
         }
-
         private void clearForm()
         {
             //txt_code.Text = "";
@@ -105,53 +78,52 @@ namespace MultipleChoiceApp.UserControls
             //datepicker_dob.Text = new DateTime(2000, 1, 1).ToString();
             //formItem = null;
         }
-
         async private void txt_search_KeyUp(object sender, KeyEventArgs e)
         {
-            if (await FormHelper.getIdle(txt_search))
-            {
-                String keyword = txt_search.Text;
-                if (keyword.Trim() != "")
-                {
-                    searchMode = true;
-                    List<StudentResult> list = mainBUS.searchByKeyword(txt_search.Text);
-                    refreshList(list);
-                }
-                else
-                {
-                    searchMode = false;
-                    refreshList();
-                }
-            }
+            //if (await FormHelper.getIdle(txt_search))
+            //{
+            //    String keyword = txt_search.Text;
+            //    if (keyword.Trim() != "")
+            //    {
+            //        searchMode = true;
+            //        List<Exam> list = mainBUS.searchByKeyword(txt_search.Text);
+            //        refreshList(list);
+            //    }
+            //    else
+            //    {
+            //        searchMode = false;
+            //        refreshList();
+            //    }
+            //}
         }
         public int count()
         {
-            return mainBUS.countAll();
+            return 10;
+            //return mainBUS.countAll();
         }
         public void onPage()
         {
             pagination = paginationControl.pagination;
             refreshList();
         }
-
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                List<StudentResult> list = mainBUS.getAll();
-                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
-                if (result)
-                {
-                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-                }
-                else
-                {
-                    MessageBox.Show(Msg.EXPORTED_FAILED);
-                }
-            }
+            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    List<Exam> list = examBUS.getAll();
+            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
+            //    if (result)
+            //    {
+            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(Msg.EXPORTED_FAILED);
+            //    }
+            //}
         }
     }
 }

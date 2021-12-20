@@ -22,7 +22,11 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.isAvailableBetweenDate(start, end, subjectId);
         }
 
-        //
+        // FETCH
+        public List<Exam> getAllForReport()
+        {
+            return mainDAO.getAllForReport();
+        }
         public Exam getAvailabelBySubjectId(int SubjectId, DateTime d)
         {
             return mainDAO.getAvailabelBySubjectId(SubjectId, d);

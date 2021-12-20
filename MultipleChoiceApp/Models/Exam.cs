@@ -21,6 +21,7 @@ namespace MultipleChoiceApp
         //
         public String SubjectCode { get; set; }
         public int TotalQuestion { get; set; }
+        public int StudentCount { get; set; }
         public static Exam fromDR(SqlDataReader dr)
         {
             Exam item = new Exam()
@@ -34,11 +35,20 @@ namespace MultipleChoiceApp
                 EasyQty = Util.parseToInt(Util.getDrValue(dr, "EasyQty"), 0),
                 HardQty = Util.parseToInt(Util.getDrValue(dr, "HardQty"), 0),
                 TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), 0),
+                //
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
+                StudentCount = Util.parseToInt(Util.getDrValue(dr, "StudentCount")),
             };
             return item;
         }
         //
         public Subject Subject { get; set; }
+        public String Status
+        {
+            get
+            {
+                return DateTime.Compare(DateTime.Now, EndAt) > 0 ? "Finished" : "Not finished";
+            }
+        }
     }
 }

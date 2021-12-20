@@ -30,13 +30,22 @@ namespace MultipleChoiceApp.DAL
                 WHERE ('{1}' AS DATE BETWEEN StartAt ) 
                 AND EndAt)
                 AND SubjectId = '{3}'
-            ",  tableName, startStr, endStr, subjectId);
+            ", tableName, startStr, endStr, subjectId);
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             bool hasItems = dr.HasRows;
             return !hasItems;
         }
 
         // FETCHS
+        public List<Exam> getAllForReport()
+        {
+            String sqlStr = string.Format(@"
+                SELECT ex.Name, ex.StartAt, ex.EndAt,  COUNT(sr.StudentId) as StudentCount
+                FROM Exams AS ex LEFT JOIN StudentResults AS sr ON (ex.Id = sr.ExamId)
+                GROUP BY ex.Id, ex.Name,ex.StartAt, ex.EndAt
+                ORDER BY ex.Id desc");
+            return base.getAll(sqlStr);
+        }
         public Exam getAvailabelBySubjectId(int subjectId, DateTime d)
         {
             Exam item = null;
@@ -47,7 +56,7 @@ namespace MultipleChoiceApp.DAL
                     s.Id = '{0}' and
                     e.StartAt <= '{1}' and
                     e.EndAt >= '{1}'
-                ", subjectId+"", d.ToString());
+                ", subjectId + "", d.ToString());
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             if (dr.Read())
             {
