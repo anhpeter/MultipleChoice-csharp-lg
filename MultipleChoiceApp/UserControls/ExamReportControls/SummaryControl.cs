@@ -1,5 +1,6 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
+using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
@@ -16,18 +17,29 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 {
     public partial class SummaryControl : UserControl
     {
+        ExamBUS examBUS = new ExamBUS();
+        ExamOverview exOverview;
         Exam exam;
         public SummaryControl(Exam exam)
         {
             InitializeComponent();
             this.exam = exam;
+            exOverview = examBUS.getExamOverviewById(exam.Id);
         }
 
         private void SummaryControl_Load(object sender, EventArgs e)
         {
-            CorrectChartControl control = new CorrectChartControl(55, 45, true);
+            fillInfo();
+        }
+
+        private void fillInfo()
+        {
+            CorrectChartControl control = new CorrectChartControl(exOverview.AveragePoints, true);
             control.Dock = DockStyle.Fill;
             pnl_correct_chart.Controls.Add(control);
+            lbl_student_count.Text = exOverview.TakenStudentCount.ToString();
+            lbl_total_question.Text = exOverview.TotalQuestion.ToString();
+            lbl_duration.Text = exOverview.Duration.ToString();
         }
     }
 }

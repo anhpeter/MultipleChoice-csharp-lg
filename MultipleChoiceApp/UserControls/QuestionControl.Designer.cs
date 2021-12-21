@@ -160,6 +160,7 @@ namespace MultipleChoiceApp.UserControls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv_main.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -562,7 +563,7 @@ namespace MultipleChoiceApp.UserControls
             this.rdo_ans4.Name = "rdo_ans4";
             this.rdo_ans4.OutlineColor = System.Drawing.Color.Purple;
             this.rdo_ans4.RadioColor = System.Drawing.Color.Purple;
-            this.rdo_ans4.Size = new System.Drawing.Size(25, 23);
+            this.rdo_ans4.Size = new System.Drawing.Size(25, 25);
             this.rdo_ans4.TabIndex = 11;
             this.rdo_ans4.Tag = "4";
             this.rdo_ans4.Text = null;

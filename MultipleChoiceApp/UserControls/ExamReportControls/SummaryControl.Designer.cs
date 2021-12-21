@@ -34,15 +34,15 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_duration = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_total_question = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_student_count = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -112,7 +112,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.lbl_duration);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.pictureBox3);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -121,17 +121,17 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.panel5.Size = new System.Drawing.Size(305, 67);
             this.panel5.TabIndex = 2;
             // 
-            // label9
+            // lbl_duration
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(180, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 31);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "<qty>";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_duration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_duration.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_duration.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_duration.Location = new System.Drawing.Point(180, 10);
+            this.lbl_duration.Name = "lbl_duration";
+            this.lbl_duration.Size = new System.Drawing.Size(125, 31);
+            this.lbl_duration.TabIndex = 3;
+            this.lbl_duration.Text = "<qty>";
+            this.lbl_duration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
@@ -156,7 +156,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.lbl_total_question);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -165,17 +165,17 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.panel4.Size = new System.Drawing.Size(305, 67);
             this.panel4.TabIndex = 1;
             // 
-            // label6
+            // lbl_total_question
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(180, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(125, 31);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "<qty>";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_total_question.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_total_question.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_total_question.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_question.Location = new System.Drawing.Point(180, 10);
+            this.lbl_total_question.Name = "lbl_total_question";
+            this.lbl_total_question.Size = new System.Drawing.Size(125, 31);
+            this.lbl_total_question.TabIndex = 3;
+            this.lbl_total_question.Text = "<qty>";
+            this.lbl_total_question.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -200,7 +200,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lbl_student_count);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -209,17 +209,17 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.panel2.Size = new System.Drawing.Size(305, 67);
             this.panel2.TabIndex = 0;
             // 
-            // label2
+            // lbl_student_count
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(180, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 31);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "<qty>";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_student_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_student_count.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_student_count.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_student_count.Location = new System.Drawing.Point(180, 10);
+            this.lbl_student_count.Name = "lbl_student_count";
+            this.lbl_student_count.Size = new System.Drawing.Size(125, 31);
+            this.lbl_student_count.TabIndex = 3;
+            this.lbl_student_count.Text = "<qty>";
+            this.lbl_student_count.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -288,20 +288,20 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel pnl_correct_chart;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_duration;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lbl_total_question;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbl_student_count;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

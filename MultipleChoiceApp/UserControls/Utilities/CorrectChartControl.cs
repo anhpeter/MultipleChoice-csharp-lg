@@ -22,6 +22,15 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.incorrect = incorrect;
             this.showLegends = showLegends;
         }
+        public CorrectChartControl(Double points, bool showLegends = false)
+        {
+            InitializeComponent();
+            int correct = Convert.ToInt32(Math.Floor(points) * 10);
+            int incorrect = 100 - correct;
+            this.correct = correct;
+            this.incorrect = incorrect;
+            this.showLegends = showLegends;
+        }
 
         private void CorrectChartControl_Load(object sender, EventArgs e)
         {

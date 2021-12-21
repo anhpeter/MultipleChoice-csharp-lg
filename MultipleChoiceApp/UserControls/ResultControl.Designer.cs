@@ -50,13 +50,13 @@ namespace MultipleChoiceApp.UserControls
             this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
@@ -346,6 +346,7 @@ namespace MultipleChoiceApp.UserControls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gv_main.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -407,10 +408,6 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
             // 
-            // savefiledialog_excel
-            // 
-            this.savefiledialog_excel.Filter = "Excel 2007|*.xlsx";
-            // 
             // Column3
             // 
             this.Column3.HeaderText = "Id";
@@ -460,6 +457,10 @@ namespace MultipleChoiceApp.UserControls
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // savefiledialog_excel
+            // 
+            this.savefiledialog_excel.Filter = "Excel 2007|*.xlsx";
             // 
             // ResultControl
             // 

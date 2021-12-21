@@ -23,13 +23,17 @@ namespace MultipleChoiceApp.BLL
         }
 
         // FETCH
+        public ExamOverview getExamOverviewById(int id)
+        {
+            return mainDAO.getExamOverviewById(id);
+        }
         public List<Exam> getAllForReport()
         {
             return mainDAO.getAllForReport();
         }
-        public Exam getAvailabelBySubjectId(int SubjectId, DateTime d)
+        public Exam getAvailableBySubjectId(int SubjectId, DateTime d)
         {
-            return mainDAO.getAvailabelBySubjectId(SubjectId, d);
+            return mainDAO.getAvailableBySubjectId(SubjectId, d);
         }
 
         public List<Exam> searchByKeyword(String keyword)

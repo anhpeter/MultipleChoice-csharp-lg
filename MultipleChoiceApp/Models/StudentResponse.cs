@@ -52,7 +52,7 @@ namespace MultipleChoiceApp.Models
         public bool isCorrect()
         {
             if (RandomAnswerNo <= 0) return false;
-            return AnswerOrder[RandomAnswerNo - 1] == Question.CorrectAnswerNo;
+            return AnswerNO == Question.CorrectAnswerNo;
         }
 
         public String getAnswerOrderString()

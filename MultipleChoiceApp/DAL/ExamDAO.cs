@@ -37,6 +37,24 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public ExamOverview getExamOverviewById(int id)
+        {
+            ExamOverview item = null;
+            String sqlStr = string.Format(@"
+                SELECT COUNT(sr.StudentId) as TakenStudentCount, AVG(sr.Points) as AveragePoints,
+                sub.Duration as Duration, 	sub.TotalQuestion as TotalQuestion
+                FROM Exams AS ex INNER JOIN Subjects AS sub ON (ex.SubjectId = sub.Id) LEFT JOIN StudentResults AS sr ON (ex.Id = sr.ExamId)
+                WHERE ex.Id = {0}
+                GROUP BY sr.ExamId, sub.TotalQuestion, sub.Duration
+            ", id);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = ExamOverview.fromDR(dr);
+            }
+            dbHelper.closeConnection();
+            return item;
+        }
         public List<Exam> getAllForReport()
         {
             String sqlStr = string.Format(@"
@@ -46,7 +64,7 @@ namespace MultipleChoiceApp.DAL
                 ORDER BY ex.Id desc");
             return base.getAll(sqlStr);
         }
-        public Exam getAvailabelBySubjectId(int subjectId, DateTime d)
+        public Exam getAvailableBySubjectId(int subjectId, DateTime d)
         {
             Exam item = null;
             String sqlStr = string.Format(@"

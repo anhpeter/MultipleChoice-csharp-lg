@@ -1,7 +1,9 @@
 ﻿using Bunifu.Framework.UI;
+using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.UtilForms;
 using MultipleChoiceApp.Forms;
+using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,11 @@ namespace MultipleChoiceApp
     public partial class FrmAdmin : Form
     {
         Dictionary<String, Bitmap> iconDict = new Dictionary<string, Bitmap>();
+        StudentBUS studentBUS = new StudentBUS();
+        ExamBUS examBUS = new ExamBUS();
+        SubjectBUS subjectBUS = new SubjectBUS();
+        QuestionBUS questionBUS = new QuestionBUS();
+        StudentResultBUS studentResultBUS = new StudentResultBUS();
         public FrmAdmin()
         {
             InitializeComponent();
@@ -110,13 +117,79 @@ namespace MultipleChoiceApp
         }
 
         private void btn_test_Click(object sender, EventArgs e)
-
         {
-            FrmExamReport frmExamReport = new FrmExamReport(new Exam());
-            frmExamReport.Show();
+            //FrmExamReport frmExamReport = new FrmExamReport(new Exam());
+            //frmExamReport.Show();
             //FormHelper.replaceForm(this, new FrmExamReport(new Exam()));
             //FrmTest form = new FrmTest();
             //form.Show();
+            int successCount = 0;
+            for (int c = 2; c <= 3; c++)
+            {
+                // subject // exam
+                Subject subject = subjectBUS.getDetailsById(c);
+                Exam exam = examBUS.getDetailsById(c);
+                Random rnd = new Random();
+                for (int i = 4; i <= 23; i++)
+                {
+                    // student
+                    Student student = studentBUS.getDetailsById(i);
+                    List<StudentResponse> studentResponseList = new List<StudentResponse>();
+                    List<Question> questions = getQuestionList(exam, subject);
+                    foreach (var question in questions)
+                    {
+                        StudentResponse studentResponse = new StudentResponse(question);
+                        studentResponse.genRandomOrder(rnd);
+                        studentResponseList.Add(studentResponse);
+                    }
+                    //
+                    for (int j = 0; j < studentResponseList.Count; j++)
+                    {
+                        StudentResponse stuRes = studentResponseList[j];
+                        stuRes.RandomAnswerNo = 1;
+                        if (Util.getRandom(rnd, 1, 2) % 2 == 0)
+                        {
+                            int answerNo = stuRes.Question.CorrectAnswerNo;
+                            stuRes.AnswerNO = answerNo;
+                        }
+                        else
+                        {
+                            int answerNo = stuRes.Question.CorrectAnswerNo;
+                            if (answerNo == 1)
+                                answerNo = 2;
+                            else
+                                answerNo -= 1;
+                            stuRes.AnswerNO = answerNo;
+                        }
+                    }
+
+                    StudentResult studentResult = new StudentResult(studentResponseList, subject, exam, student.Id);
+                    // SAVE TO DB
+                    bool result = studentResultBUS.add(studentResult);
+                    if (result) successCount++;
+                }
+                MessageBox.Show($"Add success: {successCount}");
+            }
+        }
+
+        private List<Question> getQuestionList(Exam exam, Subject subject)
+        {
+            int easyQty = exam.EasyQty;
+            int hardQty = exam.HardQty;
+            int normalQty = subject.TotalQuestion - (easyQty + hardQty);
+            List<Question> questions = new List<Question>();
+            List<Question> easyList = new List<Question>();
+            List<Question> normalList = new List<Question>();
+            List<Question> hardList = new List<Question>();
+            if (easyQty > 0) easyList = questionBUS.getRandomByLevel(subject.Id, "easy", easyQty);
+            if (normalQty > 0) normalList = questionBUS.getRandomByLevel(subject.Id, "normal", normalQty);
+            if (hardQty > 0) hardList = questionBUS.getRandomByLevel(subject.Id, "hard", hardQty);
+            questions = questions.Concat(easyList).ToList();
+            questions = questions.Concat(normalList).ToList();
+            questions = questions.Concat(hardList).ToList();
+            Util.log($"\nEasy:{easyQty} - Normal:{normalQty} - Hard:{hardQty}");
+            Util.log($"\nEasy:{easyList.Count} - Normal:{normalList.Count} - Hard:{hardList.Count}");
+            return questions;
         }
     }
 }

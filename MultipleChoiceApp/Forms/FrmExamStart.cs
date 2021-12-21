@@ -78,7 +78,7 @@ namespace MultipleChoiceApp.Forms
             int subId = getSelectedSubjectId();
             if (subId > -1)
             {
-                exam = examBUS.getAvailabelBySubjectId(subId, DateTime.Now);
+                exam = examBUS.getAvailableBySubjectId(subId, DateTime.Now);
                 lbl_exam_name.Text = exam.Name;
                 lbl_exam_start.Text = Util.toExamFormattedDate(exam.StartAt);
                 lbl_exam_end.Text = Util.toExamFormattedDate(exam.EndAt);

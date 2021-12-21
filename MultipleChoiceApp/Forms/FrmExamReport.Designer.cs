@@ -257,6 +257,7 @@ namespace MultipleChoiceApp.Forms
             this.ClientSize = new System.Drawing.Size(969, 553);
             this.Controls.Add(this.pnl_content);
             this.Controls.Add(this.pnl_header);
+            this.MinimizeBox = false;
             this.Name = "FrmExamReport";
             this.Text = "Exam Report ";
             this.Load += new System.EventHandler(this.FrmExamReport_Load);

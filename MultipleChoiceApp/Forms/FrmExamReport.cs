@@ -22,6 +22,7 @@ namespace MultipleChoiceApp.Forms
             InitializeComponent();
             FormHelper.setFormSizeRatioOfScreen(this, 0.85);
             CenterToScreen();
+            this.exam = exam;
             this.TopMost = true;
         }
         // EVENTS
@@ -43,6 +44,9 @@ namespace MultipleChoiceApp.Forms
             {
                 case "Summary":
                     control = new SummaryControl(exam);
+                    break;
+                case "Students":
+                    control = new StudentsControl(exam);
                     break;
             }
             if (control != null)

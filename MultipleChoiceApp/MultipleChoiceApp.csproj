@@ -144,6 +144,7 @@
       <DependentUpon>FrmExamReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\ExamOverview.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Manager.cs" />
@@ -216,17 +217,17 @@
     <Compile Include="UserControls\ExamControl.Designer.cs">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ExamReportControls\StudentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ExamReportControls\StudentsControl.Designer.cs">
+      <DependentUpon>StudentsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ExamReportControls\SummaryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\ExamReportControls\SummaryControl.Designer.cs">
       <DependentUpon>SummaryControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ExamReportControls\TestUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\ExamReportControls\TestUserControl.Designer.cs">
-      <DependentUpon>TestUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ManagerControl.cs">
       <SubType>UserControl</SubType>
@@ -313,11 +314,11 @@
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ExamReportControls\StudentsControl.resx">
+      <DependentUpon>StudentsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ExamReportControls\SummaryControl.resx">
       <DependentUpon>SummaryControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\ExamReportControls\TestUserControl.resx">
-      <DependentUpon>TestUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ManagerControl.resx">
       <DependentUpon>ManagerControl.cs</DependentUpon>

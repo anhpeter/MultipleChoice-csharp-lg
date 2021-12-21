@@ -33,7 +33,7 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
-        public static Double parseToDouble(String stringToParse, double defaultValue)
+        public static Double parseToDouble(String stringToParse, double defaultValue = -1)
         {
             try
             {
@@ -113,6 +113,11 @@ namespace MultipleChoiceApp.Common.Helpers
                 if (Array.IndexOf(sub, parent[i]) == -1) return false;
             }
             return true;
+        }
+
+        public static int getRandom(Random rnd, int min, int max)
+        {
+            return Convert.ToInt32(Math.Floor(rnd.Next(max- min+1) + min * 1.0));
         }
     }
 
