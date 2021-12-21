@@ -31,10 +31,8 @@ namespace MultipleChoiceApp.Forms
         {
             this.pnl_header = new System.Windows.Forms.Panel();
             this.pnl_tabs = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_questions = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_students = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_summary = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lbl_exam_name = new System.Windows.Forms.Label();
@@ -42,7 +40,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_content = new System.Windows.Forms.Panel();
             this.pnl_header.SuspendLayout();
             this.pnl_tabs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,10 +58,8 @@ namespace MultipleChoiceApp.Forms
             // 
             // pnl_tabs
             // 
-            this.pnl_tabs.Controls.Add(this.pictureBox3);
             this.pnl_tabs.Controls.Add(this.pictureBox2);
             this.pnl_tabs.Controls.Add(this.pictureBox1);
-            this.pnl_tabs.Controls.Add(this.btn_questions);
             this.pnl_tabs.Controls.Add(this.btn_students);
             this.pnl_tabs.Controls.Add(this.btn_summary);
             this.pnl_tabs.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -72,16 +67,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_tabs.Name = "pnl_tabs";
             this.pnl_tabs.Size = new System.Drawing.Size(969, 76);
             this.pnl_tabs.TabIndex = 2;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Location = new System.Drawing.Point(392, 71);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(196, 5);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "border_bottom_Questions";
             // 
             // pictureBox2
             // 
@@ -102,45 +87,6 @@ namespace MultipleChoiceApp.Forms
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "border_bottom_Summary";
-            // 
-            // btn_questions
-            // 
-            this.btn_questions.Active = false;
-            this.btn_questions.Activecolor = System.Drawing.Color.White;
-            this.btn_questions.BackColor = System.Drawing.Color.White;
-            this.btn_questions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_questions.BorderRadius = 0;
-            this.btn_questions.ButtonText = "Questions";
-            this.btn_questions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_questions.DisabledColor = System.Drawing.Color.Black;
-            this.btn_questions.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_questions.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_questions.Iconimage = null;
-            this.btn_questions.Iconimage_right = null;
-            this.btn_questions.Iconimage_right_Selected = null;
-            this.btn_questions.Iconimage_Selected = null;
-            this.btn_questions.IconMarginLeft = 30;
-            this.btn_questions.IconMarginRight = 0;
-            this.btn_questions.IconRightVisible = true;
-            this.btn_questions.IconRightZoom = 0D;
-            this.btn_questions.IconVisible = true;
-            this.btn_questions.IconZoom = 70D;
-            this.btn_questions.IsTab = false;
-            this.btn_questions.Location = new System.Drawing.Point(392, 0);
-            this.btn_questions.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
-            this.btn_questions.Name = "btn_questions";
-            this.btn_questions.Normalcolor = System.Drawing.Color.White;
-            this.btn_questions.OnHovercolor = System.Drawing.Color.White;
-            this.btn_questions.OnHoverTextColor = System.Drawing.Color.Black;
-            this.btn_questions.selected = false;
-            this.btn_questions.Size = new System.Drawing.Size(196, 76);
-            this.btn_questions.TabIndex = 6;
-            this.btn_questions.Tag = "Questions";
-            this.btn_questions.Text = "Questions";
-            this.btn_questions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_questions.Textcolor = System.Drawing.Color.Black;
-            this.btn_questions.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_questions.Click += new System.EventHandler(this.btn_tab_Click);
             // 
             // btn_students
             // 
@@ -264,7 +210,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.pnl_tabs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -279,9 +224,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnl_content;
         private Bunifu.Framework.UI.BunifuFlatButton btn_summary;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_questions;
         private Bunifu.Framework.UI.BunifuFlatButton btn_students;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

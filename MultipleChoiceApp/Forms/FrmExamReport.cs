@@ -41,7 +41,7 @@ namespace MultipleChoiceApp.Forms
             BunifuFlatButton clickedButton = (BunifuFlatButton)sender;
             String tag = clickedButton.Tag.ToString();
 
-            changeTabButtonLooks(tag);
+            FormHelper.changeTabButtonLooks(pnl_tabs, tag);
 
             UserControl control = null;
             switch (tag)
@@ -61,39 +61,6 @@ namespace MultipleChoiceApp.Forms
             }
         }
 
-        private void changeTabButtonLooks(String tag)
-        {
-            foreach (var control in pnl_tabs.Controls)
-            {
-                if (control is BunifuFlatButton)
-            {
-                BunifuFlatButton button = (BunifuFlatButton)control;
-                if (button.Tag.Equals(tag))
-                {
-                    button.Textcolor = Color.DodgerBlue;
-                }
-                else
-                {
-                    button.Textcolor = Color.Black;
-                }
-            }
-            else if (control is PictureBox)
-            {
-                PictureBox borderBottom = (PictureBox)control;
-                String borderTag = borderBottom.Tag.ToString();
-                if (borderTag.Equals($"border_bottom_{tag}"))
-                {
-                    borderBottom.BackColor = Color.DodgerBlue;
-                }
-                else
-                {
-                    borderBottom.BackColor = Color.Transparent;
-                }
-
-
-            }
-        }
-    }
 
     }
 }

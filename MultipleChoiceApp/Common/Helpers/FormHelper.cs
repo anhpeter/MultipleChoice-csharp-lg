@@ -1,4 +1,5 @@
-﻿using Bunifu.UI.WinForms;
+﻿using Bunifu.Framework.UI;
+using Bunifu.UI.WinForms;
 using Bunifu.UI.WinForms.BunifuTextbox;
 using FluentValidation.Results;
 using MultipleChoiceApp.Common.UtilForms;
@@ -180,13 +181,47 @@ namespace MultipleChoiceApp.Common.Helpers
             }
             return dicList;
         }
-        public static void setFormSizeRatioOfScreen(Form form,  Double ratio)
+        public static void setFormSizeRatioOfScreen(Form form, Double ratio)
         {
             Rectangle screen = Screen.FromControl(form).Bounds;
             int width = Convert.ToInt32(screen.Width * ratio);
             int height = Convert.ToInt32(screen.Height * ratio);
             form.Size = new Size(width, height);
 
+        }
+
+        public static void changeTabButtonLooks(Panel pnl_tabs, String tag)
+        {
+            foreach (var control in pnl_tabs.Controls)
+            {
+                if (control is BunifuFlatButton)
+                {
+                    BunifuFlatButton button = (BunifuFlatButton)control;
+                    if (button.Tag.Equals(tag))
+                    {
+                        button.Textcolor = Color.DodgerBlue;
+                    }
+                    else
+                    {
+                        button.Textcolor = Color.Black;
+                    }
+                }
+                else if (control is PictureBox)
+                {
+                    PictureBox borderBottom = (PictureBox)control;
+                    String borderTag = borderBottom.Tag.ToString();
+                    if (borderTag.Equals($"border_bottom_{tag}"))
+                    {
+                        borderBottom.BackColor = Color.DodgerBlue;
+                    }
+                    else
+                    {
+                        borderBottom.BackColor = Color.Transparent;
+                    }
+
+
+                }
+            }
         }
 
     }
