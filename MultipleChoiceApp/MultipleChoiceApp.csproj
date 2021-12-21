@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BaseBUS.cs" />
+    <Compile Include="BLL\StudentResponseBUS.cs" />
     <Compile Include="BLL\StudentResultBUS.cs" />
     <Compile Include="BLL\ExamBUS.cs" />
     <Compile Include="BLL\ManagerBUS.cs" />
@@ -137,6 +138,12 @@
     <Compile Include="Common\Interfaces\IPagination.cs" />
     <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
+    <Compile Include="Forms\FrmStudentResponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmStudentResponse.Designer.cs">
+      <DependentUpon>FrmStudentResponse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmExamReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamFinish.resx">
       <DependentUpon>FrmExamFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmStudentResponse.resx">
+      <DependentUpon>FrmStudentResponse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamReport.resx">
       <DependentUpon>FrmExamReport.cs</DependentUpon>

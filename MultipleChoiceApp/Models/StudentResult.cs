@@ -14,9 +14,12 @@ namespace MultipleChoiceApp.Models
         public int StudentId { get; set; }
         public int ExamId { get; set; }
         public Double Points { get; set; }
+        public DateTime CreatedAt { get; set; }
         //
         public int CorrectAnswerCount { get; set; }
         public int IncorrectAnswerCount { get; set; }
+        public int UnansweredCount { get; set; }
+        public int Rank { get; set; }
         //
         public Subject Subject { get; set; }
         public Exam Exam { get; set; }
@@ -26,7 +29,7 @@ namespace MultipleChoiceApp.Models
         {
             Subject subject = new Subject()
             {
-                Name = Util.getDrValue(dr, "SubjectName")
+                Name = Util.getDrValue(dr, "SubjectName"),
             };
             Exam exam = new Exam()
             {
@@ -34,11 +37,12 @@ namespace MultipleChoiceApp.Models
             };
             Student student = new Student()
             {
+                Id = Util.parseToInt(Util.getDrValue(dr, "StudentId")),
                 Code = Util.getDrValue(dr, "StudentCode"),
                 FullName = Util.getDrValue(dr, "StudentFullName"),
                 Address = Util.getDrValue(dr, "StudentAddress"),
                 Major = Util.getDrValue(dr, "StudentMajor"),
-                DOB = Convert.ToDateTime(Util.getDrValue(dr, "StudentDOB")),
+                DOB = Util.parseToDatetime(Util.getDrValue(dr, "StudentDOB")),
             };
 
             StudentResult item = new StudentResult()
@@ -47,6 +51,9 @@ namespace MultipleChoiceApp.Models
                 ExamId = Util.parseToInt(Util.getDrValue(dr, "ExamId"), -1),
                 StudentId = Util.parseToInt(Util.getDrValue(dr, "StudentId"), -1),
                 Points = Util.parseToDouble(Util.getDrValue(dr, "Points"), 0),
+                UnansweredCount = Util.parseToInt(Util.getDrValue(dr, "UnansweredCount")),
+                Rank = Util.parseToInt(Util.getDrValue(dr, "Rank")),
+                CreatedAt = Util.parseToDatetime(Util.getDrValue(dr, "Rank")),
                 //
                 Subject = subject,
                 Exam = exam,

@@ -45,7 +45,7 @@ namespace MultipleChoiceApp.UserControls
                 if (item != null)
                 {
                     FrmExamReport frmExamReport = new FrmExamReport(item);
-                    frmExamReport.Show();
+                    frmExamReport.ShowDialog();
                     this.Size = new Size(1536, 856);
                 }
             }

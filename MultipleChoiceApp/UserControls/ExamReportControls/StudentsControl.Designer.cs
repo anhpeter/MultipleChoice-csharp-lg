@@ -43,7 +43,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,7 +81,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.Column8,
             this.Column1,
             this.Column2,
-            this.Column4,
             this.Column5,
             this.Column6,
             this.Column7});
@@ -126,6 +124,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.gv_main.Size = new System.Drawing.Size(1156, 520);
             this.gv_main.TabIndex = 22;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
             // 
             // Column3
             // 
@@ -157,13 +156,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Correct Ans";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
             // Column5
             // 
             this.Column5.HeaderText = "Unaswered";
@@ -180,7 +172,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             // 
             // Column7
             // 
-            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.Format = "g";
             dataGridViewCellStyle3.NullValue = null;
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.HeaderText = "Finished At";
@@ -272,6 +264,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.Controls.Add(this.gv_main);
             this.Name = "StudentsControl";
             this.Size = new System.Drawing.Size(1156, 558);
+            this.Load += new System.EventHandler(this.StudentsControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();
             this.ResumeLayout(false);
 
@@ -280,14 +273,13 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
         #endregion
 
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
     }
 }

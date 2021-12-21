@@ -23,14 +23,18 @@ namespace MultipleChoiceApp.Forms
             FormHelper.setFormSizeRatioOfScreen(this, 0.85);
             CenterToScreen();
             this.exam = exam;
-            this.TopMost = true;
         }
         // EVENTS
         private void FrmExamReport_Load(object sender, EventArgs e)
         {
             btn_tab_Click(btn_summary, EventArgs.Empty);
+            fillInfo();
         }
 
+        private void fillInfo()
+        {
+            lbl_exam_name.Text = exam.Name;
+        }
 
         public void btn_tab_Click(object sender, EventArgs e)
         {

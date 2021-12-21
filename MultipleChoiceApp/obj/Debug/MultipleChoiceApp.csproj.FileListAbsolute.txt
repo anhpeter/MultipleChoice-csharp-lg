@@ -65,3 +65,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Debug\LiveCharts.Wpf.xml
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.Utilities.CorrectChartControl.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.ExamReportControls.StudentsControl.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmStudentResponse.resources

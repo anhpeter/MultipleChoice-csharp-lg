@@ -26,6 +26,16 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.isExamTaken(studentId, examId);
         }
         //
+
+        public StudentResult getDetailByExamAndStudentId(int examId, int studentId)
+        {
+            return mainDAO.getDetailByExamAndStudentId(examId, studentId);
+        }
+
+        public List<StudentResult> getAllByExamId(int id)
+        {
+            return mainDAO.getAllByExamId(id);
+        }
         public List<StudentResult> searchByKeyword(String keyword)
         {
             return mainDAO.searchByKeyWord(keyword);

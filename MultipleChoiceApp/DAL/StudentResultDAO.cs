@@ -35,6 +35,23 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public List<StudentResult> getAllByExamId(int id)
+        {
+            String sqlStr = string.Format(@"
+                SELECT ROW_NUMBER() OVER(ORDER BY sr.Points desc) AS Rank, 
+								stu.Major as StudentMajor,
+								stu.Id as StudentId, stu.Code as StudentCode, stu.FullName as StudentFullName, ISNULL(unanswered.Unanswered, 0) as UnansweredCount, sr.Points 
+                FROM Students AS stu INNER JOIN StudentResults AS sr ON (stu.Id = sr.StudentId) LEFT JOIN (
+                    SELECT stuRes.StudentResultId, COUNT(AnswerNo) as Unanswered
+                    FROM StudentResponses AS stuRes
+                    WHERE stuRes.AnswerNo = 0
+                    GROUP BY StudentResultId
+                ) as unanswered ON (sr.Id = unanswered.StudentResultId)
+                WHERE sr.ExamId = {0}
+                ORDER BY sr.Points desc
+", id);
+            return getAll(sqlStr);
+        }
         public List<StudentResult> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where stu.FullName like '%{keyword}%'");
@@ -55,6 +72,27 @@ namespace MultipleChoiceApp.DAL
             return sqlStr;
         }
 
+        public StudentResult getDetailByExamAndStudentId(int examId, int studentId)
+        {
+            StudentResult item = null;
+            String sqlStr = string.Format(@"
+                SELECT  stu.Code AS StudentCode, stu.FullName AS StudentFullName, 
+                        stu.Major AS StudentMajor, sr.Points
+                FROM StudentResults AS sr 
+                    INNER JOIN Students AS stu ON (sr.StudentId = stu.Id)
+                    INNER JOIN Exams AS ex ON (sr.ExamId = ex.Id)
+                    INNER JOIN Subjects AS sub ON (ex.SubjectId = sub.Id)
+                 where ex.Id = {0}
+				 and stu.Id = {1}
+            ", examId, studentId);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = StudentResult.fromDR(dr);
+            }
+            dbHelper.closeConnection();
+            return item;
+        }
 
         // ADD
         public override int add(StudentResult item)
