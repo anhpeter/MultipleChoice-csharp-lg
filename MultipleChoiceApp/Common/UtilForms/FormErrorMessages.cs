@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Common.UtilForms
 {
-    public partial class FormErrorMessages : Form
+    public partial class frm_error_msg : Form
     {
 
         String title;
         String msg;
-        public FormErrorMessages(String title, String msg)
+        public frm_error_msg(String title, String msg)
         {
             InitializeComponent();
             this.title = title;
@@ -26,7 +26,7 @@ namespace MultipleChoiceApp.Common.UtilForms
         private void FormErrorMessages_Load(object sender, EventArgs e)
         {
             CenterToScreen();
-            lbl_title.Text = title;
+            frm_error_msg.ActiveForm.Text = title;
             lbl_msg.Text = msg;
         }
 

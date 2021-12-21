@@ -31,15 +31,15 @@ namespace MultipleChoiceApp.Common.Helpers
         }
         public static void showErrorMsg(String msg, String title = "!")
         {
-            FormErrorMessages errorForm = new FormErrorMessages(title, msg);
-            errorForm.Show();
+            frm_error_msg errorForm = new frm_error_msg(title, msg);
+            errorForm.ShowDialog();
         }
         public static void showValidatorError(List<ValidationFailure> errorList)
         {
             String[] errArr = errorList.Select(v => $"• {v.ErrorMessage}").ToArray();
             String msg = string.Join("\r\n", errArr);
-            FormErrorMessages errorForm = new FormErrorMessages("Validation", msg);
-            errorForm.Show();
+            frm_error_msg errorForm = new frm_error_msg("Validation", msg);
+            errorForm.ShowDialog();
         }
         public static DialogResult showDeleteConfirm()
         {
