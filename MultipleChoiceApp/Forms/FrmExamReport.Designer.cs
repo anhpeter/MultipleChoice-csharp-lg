@@ -116,7 +116,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_students.Name = "btn_students";
             this.btn_students.Normalcolor = System.Drawing.Color.White;
             this.btn_students.OnHovercolor = System.Drawing.Color.White;
-            this.btn_students.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_students.OnHoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btn_students.selected = false;
             this.btn_students.Size = new System.Drawing.Size(196, 76);
             this.btn_students.TabIndex = 5;
@@ -155,7 +155,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_summary.Name = "btn_summary";
             this.btn_summary.Normalcolor = System.Drawing.Color.White;
             this.btn_summary.OnHovercolor = System.Drawing.Color.White;
-            this.btn_summary.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_summary.OnHoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btn_summary.selected = false;
             this.btn_summary.Size = new System.Drawing.Size(196, 76);
             this.btn_summary.TabIndex = 4;

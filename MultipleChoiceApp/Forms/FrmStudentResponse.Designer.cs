@@ -40,8 +40,12 @@ namespace MultipleChoiceApp.Forms
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.lbl_code = new System.Windows.Forms.Label();
             this.lbl_fullname = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lbl_correct = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_points = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,11 +56,11 @@ namespace MultipleChoiceApp.Forms
             this.lbl_answered = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnl_chart = new System.Windows.Forms.Panel();
-            this.lbl_code = new System.Windows.Forms.Label();
             this.pnl_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.pnl_header.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -146,6 +150,7 @@ namespace MultipleChoiceApp.Forms
             this.gv_main.TabIndex = 22;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
+            this.gv_main.SelectionChanged += new System.EventHandler(this.gv_main_SelectionChanged);
             // 
             // Column3
             // 
@@ -197,6 +202,16 @@ namespace MultipleChoiceApp.Forms
             this.pnl_header.Size = new System.Drawing.Size(1211, 180);
             this.pnl_header.TabIndex = 0;
             // 
+            // lbl_code
+            // 
+            this.lbl_code.AutoSize = true;
+            this.lbl_code.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_code.Location = new System.Drawing.Point(12, 60);
+            this.lbl_code.Name = "lbl_code";
+            this.lbl_code.Size = new System.Drawing.Size(84, 28);
+            this.lbl_code.TabIndex = 28;
+            this.lbl_code.Text = "<code>";
+            // 
             // lbl_fullname
             // 
             this.lbl_fullname.AutoSize = true;
@@ -215,6 +230,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.30928F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.36082F));
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 2, 0);
@@ -225,6 +241,41 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 118);
             this.tableLayoutPanel1.TabIndex = 26;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lbl_correct);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(373, 62);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(303, 53);
+            this.panel4.TabIndex = 3;
+            // 
+            // lbl_correct
+            // 
+            this.lbl_correct.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_correct.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_correct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_correct.Location = new System.Drawing.Point(164, 0);
+            this.lbl_correct.Name = "lbl_correct";
+            this.lbl_correct.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.lbl_correct.Size = new System.Drawing.Size(139, 53);
+            this.lbl_correct.TabIndex = 1;
+            this.lbl_correct.Text = "6.5";
+            this.lbl_correct.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.label3.Size = new System.Drawing.Size(121, 53);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Correct";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
@@ -338,16 +389,6 @@ namespace MultipleChoiceApp.Forms
             this.pnl_chart.Size = new System.Drawing.Size(188, 118);
             this.pnl_chart.TabIndex = 0;
             // 
-            // lbl_code
-            // 
-            this.lbl_code.AutoSize = true;
-            this.lbl_code.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_code.Location = new System.Drawing.Point(12, 60);
-            this.lbl_code.Name = "lbl_code";
-            this.lbl_code.Size = new System.Drawing.Size(84, 28);
-            this.lbl_code.TabIndex = 28;
-            this.lbl_code.Text = "<code>";
-            // 
             // FrmStudentResponse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,6 +405,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -393,5 +435,8 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Label lbl_code;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lbl_correct;
+        private System.Windows.Forms.Label label3;
     }
 }

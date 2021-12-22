@@ -19,6 +19,7 @@ namespace MultipleChoiceApp.UserControls
 {
     public partial class ExamResultControl : UserControl, IPagination
     {
+        private bool loaded = false;
         String controlName = "Student Results";
         //
         ExamBUS examBUS = new ExamBUS();
@@ -33,20 +34,7 @@ namespace MultipleChoiceApp.UserControls
         {
             refreshList();
             clearForm();
-        }
-        async private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int id = getSelectedId();
-            if (id > -1)
-            {
-                Exam item = examBUS.getDetailsById(id);
-                if (item != null)
-                {
-                    FrmExamReport frmExamReport = new FrmExamReport(item);
-                    frmExamReport.ShowDialog();
-                    this.Size = new Size(1536, 856);
-                }
-            }
+            loaded = true;
         }
         // ACTIONS
         private void btn_clear_Click(object sender, EventArgs e)
@@ -116,24 +104,6 @@ namespace MultipleChoiceApp.UserControls
             pagination = paginationControl.pagination;
             refreshList();
         }
-        private void btn_export_excel_Click(object sender, EventArgs e)
-        {
-            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            //if (dialogResult == DialogResult.OK)
-            //{
-            //    List<Exam> list = examBUS.getAll();
-            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
-            //    if (result)
-            //    {
-            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(Msg.EXPORTED_FAILED);
-            //    }
-            //}
-        }
 
         private int getSelectedId()
         {
@@ -144,6 +114,24 @@ namespace MultipleChoiceApp.UserControls
             catch (Exception ex)
             {
                 return -1;
+            }
+        }
+
+        private void gv_main_SelectionChanged(object sender, EventArgs e)
+        {
+            if (loaded)
+            {
+                int id = getSelectedId();
+                if (id > -1)
+                {
+                    Exam item = examBUS.getDetailsById(id);
+                    if (item != null)
+                    {
+                        FrmExamReport frmExamReport = new FrmExamReport(item);
+                        frmExamReport.ShowDialog();
+                        this.Size = new Size(1536, 856);
+                    }
+                }
             }
         }
     }

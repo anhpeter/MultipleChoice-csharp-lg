@@ -63,7 +63,7 @@ namespace MultipleChoiceApp.Models
         }
         public bool isCorrect()
         {
-            if (RandomAnswerNo <= 0) return false;
+            //if (RandomAnswerNo <= 0) return false;
             return AnswerNO == Question.CorrectAnswerNo;
         }
 

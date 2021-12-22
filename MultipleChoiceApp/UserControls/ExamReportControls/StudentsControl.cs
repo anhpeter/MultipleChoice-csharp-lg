@@ -20,6 +20,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 {
     public partial class StudentsControl : UserControl
     {
+        private bool loaded = false;
         StudentResultBUS studentResultBUS = new StudentResultBUS();
         StudentBUS studentBUS = new StudentBUS();
         Exam exam;
@@ -34,6 +35,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
         private void StudentsControl_Load(object sender, EventArgs e)
         {
             refreshList();
+            loaded = true;
         }
 
         private void refreshList()
@@ -58,10 +60,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int index = gv_main.CurrentCell.RowIndex;
-            StudentResult selectedItem = studentResultList[index];
-            FrmStudentResponse frm = new FrmStudentResponse(exam, selectedItem, studentResultList.Count);
-            frm.ShowDialog();
 
         }
         private int getSelectedId()
@@ -76,5 +74,15 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             }
         }
 
+        private void gv_main_SelectionChanged(object sender, EventArgs e)
+        {
+            if (loaded)
+            {
+                int index = gv_main.CurrentCell.RowIndex;
+                StudentResult selectedItem = studentResultList[index];
+                FrmStudentResponse frm = new FrmStudentResponse(exam, selectedItem, studentResultList.Count);
+                frm.ShowDialog();
+            }
+        }
     }
 }

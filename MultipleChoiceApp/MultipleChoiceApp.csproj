@@ -136,6 +136,12 @@
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
+    <Compile Include="Common\UtilForms\StudentQuestionAnswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\UtilForms\StudentQuestionAnswer.Designer.cs">
+      <DependentUpon>StudentQuestionAnswer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
     <Compile Include="Forms\FrmStudentResponse.cs">
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\UtilForms\FormErrorMessages.resx">
       <DependentUpon>FormErrorMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\UtilForms\StudentQuestionAnswer.resx">
+      <DependentUpon>StudentQuestionAnswer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>

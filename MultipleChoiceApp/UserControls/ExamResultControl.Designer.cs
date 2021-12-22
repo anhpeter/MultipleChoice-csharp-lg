@@ -40,8 +40,9 @@ namespace MultipleChoiceApp.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pnl_pagination = new System.Windows.Forms.Panel();
             this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pnl_pagination = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +52,6 @@ namespace MultipleChoiceApp.UserControls
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.SuspendLayout();
@@ -68,16 +68,6 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1052, 230);
             this.panel1.TabIndex = 3;
-            // 
-            // pnl_pagination
-            // 
-            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
-            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
-            this.pnl_pagination.Name = "pnl_pagination";
-            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
-            this.pnl_pagination.TabIndex = 16;
             // 
             // btn_export_excel
             // 
@@ -114,7 +104,26 @@ namespace MultipleChoiceApp.UserControls
             this.btn_export_excel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_export_excel.Textcolor = System.Drawing.Color.White;
             this.btn_export_excel.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_export_excel.Click += new System.EventHandler(this.btn_export_excel_Click);
+            // 
+            // pnl_pagination
+            // 
+            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
+            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
+            this.pnl_pagination.Name = "pnl_pagination";
+            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
+            this.pnl_pagination.TabIndex = 16;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Location = new System.Drawing.Point(3, 59);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1045, 169);
+            this.panel4.TabIndex = 4;
             // 
             // txt_search
             // 
@@ -265,7 +274,7 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.Size = new System.Drawing.Size(1052, 538);
             this.gv_main.TabIndex = 13;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
-            this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
+            this.gv_main.SelectionChanged += new System.EventHandler(this.gv_main_SelectionChanged);
             // 
             // Column3
             // 
@@ -320,16 +329,6 @@ namespace MultipleChoiceApp.UserControls
             // savefiledialog_excel
             // 
             this.savefiledialog_excel.Filter = "Excel 2007|*.xlsx";
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Location = new System.Drawing.Point(3, 59);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1045, 169);
-            this.panel4.TabIndex = 4;
             // 
             // ExamResultControl
             // 

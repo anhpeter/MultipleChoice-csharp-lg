@@ -125,6 +125,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.gv_main.TabIndex = 22;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
+            this.gv_main.SelectionChanged += new System.EventHandler(this.gv_main_SelectionChanged);
             // 
             // Column3
             // 

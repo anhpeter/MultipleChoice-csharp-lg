@@ -1,6 +1,7 @@
 ﻿using Bunifu.Framework.UI;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.UtilForms;
 using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls.ExamReportControls;
 using MultipleChoiceApp.UserControls.Utilities;
@@ -18,13 +19,13 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmStudentResponse : Form
     {
-
+        private bool loaded = false;
         Exam exam;
         Subject subject;
         StudentResult studentResult;
         StudentResponseBUS studentResponseBUS = new StudentResponseBUS();
-        StudentResultBUS studentResultBUS = new StudentResultBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
+        List<StudentResponse> studentResponsesList;
         //
         int studentCount;
         public FrmStudentResponse(Exam exam, StudentResult studentResult, int studentCount)
@@ -55,6 +56,7 @@ namespace MultipleChoiceApp.Forms
             //
             List<StudentResponse> list = studentResponseBUS.getAllByExamAndStudentId(exam.Id, studentResult.Student.Id);
             refreshList(list);
+            loaded = true;
         }
 
         private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -63,6 +65,7 @@ namespace MultipleChoiceApp.Forms
 
         private void refreshList(List<StudentResponse> list)
         {
+            studentResponsesList = list;
             gv_main.Rows.Clear();
             int i = 0;
             foreach (var item in list)
@@ -75,8 +78,18 @@ namespace MultipleChoiceApp.Forms
                     item.Id, item.No, item.Question.Content,
                      answered, resultStr
                 });
-                gv_main.Rows[i].Cells[4].Style.ForeColor = item.AnswerNO == item.Question.CorrectAnswerNo? Color.Green : Color.Red;
+                gv_main.Rows[i].Cells[4].Style.ForeColor = item.AnswerNO == item.Question.CorrectAnswerNo ? Color.Green : Color.Red;
                 i++;
+            }
+        }
+
+        private void gv_main_SelectionChanged(object sender, EventArgs e)
+        {
+            if (loaded)
+            {
+                StudentResponse studentResponse = studentResponsesList[gv_main.CurrentCell.RowIndex];
+                StudentQuestionAnswer frm = new StudentQuestionAnswer(studentResponse);
+                frm.ShowDialog();
             }
         }
     }

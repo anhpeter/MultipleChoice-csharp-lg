@@ -26,7 +26,7 @@ namespace MultipleChoiceApp.DAL
         {
             String sqlStr = string.Format(@"
                 select distinct ROW_NUMBER() OVER(order by stuRes.Id asc) as No, stuRes.Id, stuRes.QuestionId as QuestionId, CAST(q.Content as nvarchar(255)) as QuestionContent, 
-                q.CorrectAnswerNo, stuRes.AnswerNo as AnswerNo
+                stuRes.AnswerOrder, q.CorrectAnswerNo, stuRes.AnswerNo as AnswerNo
                 from StudentResponses as stuRes INNER JOIN StudentResults as sr on (stuRes.StudentResultId = sr.Id)
                 inner join Questions as q  on (stuRes.QuestionId = q.Id)
                 inner join Students as stu on (sr.StudentId = stu.Id)

@@ -33,8 +33,8 @@ namespace MultipleChoiceApp.UserControls
             this.pnl_tabs = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btn_student = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btn_student = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnl_content = new System.Windows.Forms.Panel();
             this.pnl_tabs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,7 +94,7 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuFlatButton2.Name = "bunifuFlatButton2";
             this.bunifuFlatButton2.Normalcolor = System.Drawing.Color.WhiteSmoke;
             this.bunifuFlatButton2.OnHovercolor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.Black;
+            this.bunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.DodgerBlue;
             this.bunifuFlatButton2.selected = false;
             this.bunifuFlatButton2.Size = new System.Drawing.Size(196, 58);
             this.bunifuFlatButton2.TabIndex = 5;
@@ -104,6 +104,16 @@ namespace MultipleChoiceApp.UserControls
             this.bunifuFlatButton2.Textcolor = System.Drawing.Color.Black;
             this.bunifuFlatButton2.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuFlatButton2.Click += new System.EventHandler(this.btn_tab_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 53);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(196, 5);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "border_bottom_Students";
             // 
             // btn_student
             // 
@@ -133,7 +143,7 @@ namespace MultipleChoiceApp.UserControls
             this.btn_student.Name = "btn_student";
             this.btn_student.Normalcolor = System.Drawing.Color.WhiteSmoke;
             this.btn_student.OnHovercolor = System.Drawing.Color.WhiteSmoke;
-            this.btn_student.OnHoverTextColor = System.Drawing.Color.Black;
+            this.btn_student.OnHoverTextColor = System.Drawing.Color.DodgerBlue;
             this.btn_student.selected = false;
             this.btn_student.Size = new System.Drawing.Size(196, 58);
             this.btn_student.TabIndex = 4;
@@ -143,16 +153,6 @@ namespace MultipleChoiceApp.UserControls
             this.btn_student.Textcolor = System.Drawing.Color.DodgerBlue;
             this.btn_student.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_student.Click += new System.EventHandler(this.btn_tab_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 53);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(196, 5);
-            this.pictureBox3.TabIndex = 9;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Tag = "border_bottom_Students";
             // 
             // pnl_content
             // 
