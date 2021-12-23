@@ -14,5 +14,7 @@ namespace MultipleChoiceApp.Models
         public String DOB { get; set; }
         public String Major { get; set; }
         public Double Points { get; set; }
+        public String ExamName { get; set; }
+        public String SubjectName { get; set; }
     }
 }

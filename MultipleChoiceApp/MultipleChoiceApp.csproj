@@ -156,21 +156,29 @@
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
-    <Compile Include="Common\UtilForms\StudentQuestionAnswer.cs" />
+    <Compile Include="Common\UtilForms\StudentQuestionAnswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Common\UtilForms\StudentQuestionAnswer.Designer.cs">
       <DependentUpon>StudentQuestionAnswer.cs</DependentUpon>
     </Compile>
     <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
-    <Compile Include="Forms\FrmReportStudentByExam.cs" />
+    <Compile Include="Forms\FrmReportStudentByExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmReportStudentByExam.Designer.cs">
       <DependentUpon>FrmReportStudentByExam.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmStudentResponse.cs" />
+    <Compile Include="Forms\FrmStudentResponse.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmStudentResponse.Designer.cs">
       <DependentUpon>FrmStudentResponse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmExamReport.cs" />
+    <Compile Include="Forms\FrmExamReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmExamReport.Designer.cs">
       <DependentUpon>FrmExamReport.cs</DependentUpon>
     </Compile>
@@ -185,11 +193,15 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
-    <Compile Include="Common\UtilForms\Alert.cs" />
+    <Compile Include="Common\UtilForms\Alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Common\UtilForms\Alert.Designer.cs">
       <DependentUpon>Alert.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\UtilForms\FormErrorMessages.cs" />
+    <Compile Include="Common\UtilForms\FormErrorMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Common\UtilForms\FormErrorMessages.Designer.cs">
       <DependentUpon>FormErrorMessages.cs</DependentUpon>
     </Compile>
@@ -207,82 +219,120 @@
     <Compile Include="DAL\StudentDAO.cs" />
     <Compile Include="DAL\SubjectDAO.cs" />
     <Compile Include="Forms\BaseForm.cs" />
-    <Compile Include="Forms\FrmAdmin.cs" />
+    <Compile Include="Forms\FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmExamFinish.cs" />
+    <Compile Include="Forms\FrmExamFinish.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmExamFinish.Designer.cs">
       <DependentUpon>FrmExamFinish.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmExamStart.cs" />
+    <Compile Include="Forms\FrmExamStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmExamStart.Designer.cs">
       <DependentUpon>FrmExamStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmLogin.cs" />
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmTakingExam.cs" />
+    <Compile Include="Forms\FrmTakingExam.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FrmTakingExam.Designer.cs">
       <DependentUpon>FrmTakingExam.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="UserControls\ExamControl.cs" />
+    <Compile Include="UserControls\ExamControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ExamControl.Designer.cs">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ExamReportControls\StudentsControl.cs" />
+    <Compile Include="UserControls\ExamReportControls\StudentsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ExamReportControls\StudentsControl.Designer.cs">
       <DependentUpon>StudentsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ExamReportControls\Questionscontrol.cs" />
+    <Compile Include="UserControls\ExamReportControls\Questionscontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ExamReportControls\Questionscontrol.Designer.cs">
       <DependentUpon>Questionscontrol.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ExamReportControls\SummaryControl.cs" />
+    <Compile Include="UserControls\ExamReportControls\SummaryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ExamReportControls\SummaryControl.Designer.cs">
       <DependentUpon>SummaryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ManagerControl.cs" />
+    <Compile Include="UserControls\ManagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ManagerControl.Designer.cs">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PaginationControl.cs" />
+    <Compile Include="UserControls\PaginationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\PaginationControl.Designer.cs">
       <DependentUpon>PaginationControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\QuestionControl.cs" />
+    <Compile Include="UserControls\QuestionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\QuestionControl.Designer.cs">
       <DependentUpon>QuestionControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ExamResultControl.cs" />
+    <Compile Include="UserControls\ExamResultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ExamResultControl.Designer.cs">
       <DependentUpon>ExamResultControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ResultControl.cs" />
+    <Compile Include="UserControls\ResultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\ResultControl.Designer.cs">
       <DependentUpon>ResultControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StudentResultControl.cs" />
+    <Compile Include="UserControls\StudentResultControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\StudentResultControl.Designer.cs">
       <DependentUpon>StudentResultControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\StudentControl.cs" />
+    <Compile Include="UserControls\StudentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\StudentControl.Designer.cs">
       <DependentUpon>StudentControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\SubjectControl.cs" />
+    <Compile Include="UserControls\SubjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\SubjectControl.Designer.cs">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.cs" />
+    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.Designer.cs">
       <DependentUpon>CorrectChartControl - Copy.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Utilities\QuestionStatistic.cs" />
+    <Compile Include="UserControls\Utilities\QuestionStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\Utilities\QuestionStatistic.Designer.cs">
       <DependentUpon>QuestionStatistic.cs</DependentUpon>
     </Compile>
@@ -334,7 +384,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reports\StudentReportByExam.rdlc" />
+    <EmbeddedResource Include="StudentReportByExam.rdlc" />
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,7 +512,9 @@
     </Content>
     <None Include="Web References\Bi\QuestionBUS.disco" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

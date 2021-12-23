@@ -26,7 +26,7 @@ namespace MultipleChoiceApp.Forms
         private void FrmReportStudentBySubject_Load(object sender, EventArgs e)
         {
             report.RefreshReport();
-            report.LocalReport.ReportPath = "../Reports/StudentReportByExam.rdlc";
+            report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\StudentReportByExam.rdlc";
             ReportDataSource rds = new ReportDataSource("StudentResultReport", getStudentResultReportList());
             report.LocalReport.DataSources.Add(rds);
             report.RefreshReport();
