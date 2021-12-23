@@ -29,21 +29,21 @@ namespace MultipleChoiceApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.report = new Microsoft.Reporting.WinForms.ReportViewer();
             this.drop_exam = new Bunifu.UI.WinForms.BunifuDropdown();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // report
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.report.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.reportViewer1.Location = new System.Drawing.Point(16, 49);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(849, 477);
-            this.reportViewer1.TabIndex = 0;
+            this.report.Location = new System.Drawing.Point(16, 49);
+            this.report.Margin = new System.Windows.Forms.Padding(4);
+            this.report.Name = "report";
+            this.report.ServerReport.BearerToken = null;
+            this.report.Size = new System.Drawing.Size(849, 477);
+            this.report.TabIndex = 0;
             // 
             // drop_exam
             // 
@@ -83,7 +83,7 @@ namespace MultipleChoiceApp.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 539);
             this.Controls.Add(this.drop_exam);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.report);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReportStudentByExam";
@@ -95,7 +95,7 @@ namespace MultipleChoiceApp.Forms
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer report;
         private Bunifu.UI.WinForms.BunifuDropdown drop_exam;
     }
 }

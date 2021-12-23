@@ -39,8 +39,12 @@ namespace MultipleChoiceApp.DAL
         {
             String sqlStr = string.Format(@"
                 SELECT ROW_NUMBER() OVER(ORDER BY sr.Points desc) AS Rank, 
-								stu.Major as StudentMajor,
-								stu.Id as StudentId, stu.Code as StudentCode, stu.FullName as StudentFullName, ISNULL(unanswered.Unanswered, 0) as UnansweredCount, sr.Points 
+                    stu.Major as StudentMajor,
+                    stu.Address as StudentAddress,
+                    stu.DOB as StudentDOB,
+                    stu.Id as StudentId, stu.Code as StudentCode, 
+                    stu.FullName as StudentFullName, 
+                    ISNULL(unanswered.Unanswered, 0) as UnansweredCount, sr.Points 
                 FROM Students AS stu INNER JOIN StudentResults AS sr ON (stu.Id = sr.StudentId) LEFT JOIN (
                     SELECT stuRes.StudentResultId, COUNT(AnswerNo) as Unanswered
                     FROM StudentResponses AS stuRes
