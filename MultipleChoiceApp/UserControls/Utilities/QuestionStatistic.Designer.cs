@@ -101,30 +101,32 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.pnl_container.Controls.Add(this.lbl_question);
             this.pnl_container.Location = new System.Drawing.Point(0, 0);
             this.pnl_container.Name = "pnl_container";
+            this.pnl_container.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.pnl_container.PanelColor = System.Drawing.Color.Empty;
             this.pnl_container.ShadowDept = 2;
             this.pnl_container.ShadowTopLeftVisible = false;
-            this.pnl_container.Size = new System.Drawing.Size(1165, 361);
+            this.pnl_container.Size = new System.Drawing.Size(1165, 376);
             this.pnl_container.TabIndex = 0;
             // 
             // panel10
             // 
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.Controls.Add(this.lbl_percent);
             this.panel10.Controls.Add(this.pnl_chart);
-            this.panel10.Location = new System.Drawing.Point(996, 13);
+            this.panel10.Location = new System.Drawing.Point(1014, 38);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(146, 51);
+            this.panel10.Size = new System.Drawing.Size(98, 51);
             this.panel10.TabIndex = 12;
             // 
             // lbl_percent
             // 
             this.lbl_percent.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_percent.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_percent.Location = new System.Drawing.Point(70, 0);
+            this.lbl_percent.Location = new System.Drawing.Point(50, 0);
             this.lbl_percent.Name = "lbl_percent";
-            this.lbl_percent.Size = new System.Drawing.Size(77, 51);
+            this.lbl_percent.Size = new System.Drawing.Size(45, 51);
             this.lbl_percent.TabIndex = 12;
-            this.lbl_percent.Text = "20%";
+            this.lbl_percent.Text = "100%";
             this.lbl_percent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnl_chart
@@ -132,7 +134,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.pnl_chart.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_chart.Location = new System.Drawing.Point(0, 0);
             this.pnl_chart.Name = "pnl_chart";
-            this.pnl_chart.Size = new System.Drawing.Size(70, 51);
+            this.pnl_chart.Size = new System.Drawing.Size(50, 51);
             this.pnl_chart.TabIndex = 11;
             // 
             // pnl_answers
@@ -160,20 +162,20 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.pnl_answers.Controls.Add(this.panel1, 1, 0);
             this.pnl_answers.Controls.Add(this.panel2, 2, 0);
             this.pnl_answers.Controls.Add(this.panel6, 3, 0);
-            this.pnl_answers.Location = new System.Drawing.Point(36, 120);
+            this.pnl_answers.Location = new System.Drawing.Point(56, 130);
             this.pnl_answers.Name = "pnl_answers";
             this.pnl_answers.RowCount = 4;
             this.pnl_answers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pnl_answers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pnl_answers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.pnl_answers.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.pnl_answers.Size = new System.Drawing.Size(1096, 222);
+            this.pnl_answers.Size = new System.Drawing.Size(1056, 222);
             this.pnl_answers.TabIndex = 10;
             // 
             // panel9
             // 
             this.panel9.Controls.Add(this.lbl_opt_count_4);
-            this.panel9.Location = new System.Drawing.Point(1054, 168);
+            this.panel9.Location = new System.Drawing.Point(1014, 168);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(39, 51);
             this.panel9.TabIndex = 18;
@@ -192,7 +194,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel8
             // 
             this.panel8.Controls.Add(this.lbl_opt_count_3);
-            this.panel8.Location = new System.Drawing.Point(1054, 113);
+            this.panel8.Location = new System.Drawing.Point(1014, 113);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(39, 49);
             this.panel8.TabIndex = 18;
@@ -211,7 +213,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel7
             // 
             this.panel7.Controls.Add(this.lbl_opt_count_2);
-            this.panel7.Location = new System.Drawing.Point(1054, 58);
+            this.panel7.Location = new System.Drawing.Point(1014, 58);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(39, 49);
             this.panel7.TabIndex = 18;
@@ -230,7 +232,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel5
             // 
             this.panel5.Controls.Add(this.progress_opt_4);
-            this.panel5.Location = new System.Drawing.Point(853, 168);
+            this.panel5.Location = new System.Drawing.Point(813, 168);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(195, 51);
             this.panel5.TabIndex = 16;
@@ -249,7 +251,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel4
             // 
             this.panel4.Controls.Add(this.progress_opt_3);
-            this.panel4.Location = new System.Drawing.Point(853, 113);
+            this.panel4.Location = new System.Drawing.Point(813, 113);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(195, 49);
             this.panel4.TabIndex = 16;
@@ -268,7 +270,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel3
             // 
             this.panel3.Controls.Add(this.progress_opt_2);
-            this.panel3.Location = new System.Drawing.Point(853, 58);
+            this.panel3.Location = new System.Drawing.Point(813, 58);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(195, 49);
             this.panel3.TabIndex = 16;
@@ -288,7 +290,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.zzzz.Controls.Add(this.icon_opt_4);
             this.zzzz.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.zzzz.Location = new System.Drawing.Point(802, 168);
+            this.zzzz.Location = new System.Drawing.Point(762, 168);
             this.zzzz.Name = "zzzz";
             this.zzzz.Size = new System.Drawing.Size(45, 51);
             this.zzzz.TabIndex = 14;
@@ -310,7 +312,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.def.Controls.Add(this.icon_opt_3);
             this.def.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.def.Location = new System.Drawing.Point(802, 113);
+            this.def.Location = new System.Drawing.Point(762, 113);
             this.def.Name = "def";
             this.def.Size = new System.Drawing.Size(45, 49);
             this.def.TabIndex = 14;
@@ -332,7 +334,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.abc.Controls.Add(this.icon_opt_2);
             this.abc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.abc.Location = new System.Drawing.Point(802, 58);
+            this.abc.Location = new System.Drawing.Point(762, 58);
             this.abc.Name = "abc";
             this.abc.Size = new System.Drawing.Size(45, 49);
             this.abc.TabIndex = 13;
@@ -356,7 +358,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.lbl_opt_4.ForeColor = System.Drawing.Color.Black;
             this.lbl_opt_4.Location = new System.Drawing.Point(3, 165);
             this.lbl_opt_4.Name = "lbl_opt_4";
-            this.lbl_opt_4.Size = new System.Drawing.Size(517, 57);
+            this.lbl_opt_4.Size = new System.Drawing.Size(493, 57);
             this.lbl_opt_4.TabIndex = 11;
             this.lbl_opt_4.Text = "D. Four";
             this.lbl_opt_4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -367,7 +369,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.lbl_opt_1.ForeColor = System.Drawing.Color.Black;
             this.lbl_opt_1.Location = new System.Drawing.Point(3, 0);
             this.lbl_opt_1.Name = "lbl_opt_1";
-            this.lbl_opt_1.Size = new System.Drawing.Size(517, 55);
+            this.lbl_opt_1.Size = new System.Drawing.Size(493, 55);
             this.lbl_opt_1.TabIndex = 8;
             this.lbl_opt_1.Text = "A. one";
             this.lbl_opt_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -378,7 +380,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.lbl_opt_2.ForeColor = System.Drawing.Color.Black;
             this.lbl_opt_2.Location = new System.Drawing.Point(3, 55);
             this.lbl_opt_2.Name = "lbl_opt_2";
-            this.lbl_opt_2.Size = new System.Drawing.Size(517, 55);
+            this.lbl_opt_2.Size = new System.Drawing.Size(493, 55);
             this.lbl_opt_2.TabIndex = 9;
             this.lbl_opt_2.Text = "B. Two";
             this.lbl_opt_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -389,7 +391,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.lbl_opt_3.ForeColor = System.Drawing.Color.Black;
             this.lbl_opt_3.Location = new System.Drawing.Point(3, 110);
             this.lbl_opt_3.Name = "lbl_opt_3";
-            this.lbl_opt_3.Size = new System.Drawing.Size(517, 55);
+            this.lbl_opt_3.Size = new System.Drawing.Size(493, 55);
             this.lbl_opt_3.TabIndex = 10;
             this.lbl_opt_3.Text = "C. Three";
             this.lbl_opt_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,7 +400,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.panel1.Controls.Add(this.icon_opt_1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(802, 3);
+            this.panel1.Location = new System.Drawing.Point(762, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(45, 49);
             this.panel1.TabIndex = 12;
@@ -419,7 +421,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel2
             // 
             this.panel2.Controls.Add(this.progress_opt_1);
-            this.panel2.Location = new System.Drawing.Point(853, 3);
+            this.panel2.Location = new System.Drawing.Point(813, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(195, 49);
             this.panel2.TabIndex = 15;
@@ -438,7 +440,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // panel6
             // 
             this.panel6.Controls.Add(this.lbl_opt_count_1);
-            this.panel6.Location = new System.Drawing.Point(1054, 3);
+            this.panel6.Location = new System.Drawing.Point(1014, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(39, 49);
             this.panel6.TabIndex = 17;
@@ -460,10 +462,10 @@ namespace MultipleChoiceApp.UserControls.Utilities
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_question.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_question.ForeColor = System.Drawing.Color.Black;
-            this.lbl_question.Location = new System.Drawing.Point(19, 13);
+            this.lbl_question.Location = new System.Drawing.Point(39, 23);
             this.lbl_question.Name = "lbl_question";
             this.lbl_question.Padding = new System.Windows.Forms.Padding(10);
-            this.lbl_question.Size = new System.Drawing.Size(926, 86);
+            this.lbl_question.Size = new System.Drawing.Size(886, 86);
             this.lbl_question.TabIndex = 9;
             this.lbl_question.Text = "1. Great thinking. So AutoSize was the property I was looking for. The only thing" +
     " is is that this should be followed by a panel2. ]";
@@ -475,7 +477,7 @@ namespace MultipleChoiceApp.UserControls.Utilities
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.pnl_container);
             this.Name = "QuestionStatistic";
-            this.Size = new System.Drawing.Size(1165, 361);
+            this.Size = new System.Drawing.Size(1165, 376);
             this.Load += new System.EventHandler(this.QuestionStatistic_Load);
             this.pnl_container.ResumeLayout(false);
             this.panel10.ResumeLayout(false);

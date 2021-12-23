@@ -38,11 +38,11 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_container.AutoScroll = true;
-            this.pnl_container.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnl_container.Location = new System.Drawing.Point(0, 0);
             this.pnl_container.Name = "pnl_container";
-            this.pnl_container.Size = new System.Drawing.Size(1025, 535);
+            this.pnl_container.Size = new System.Drawing.Size(1165, 500);
             this.pnl_container.TabIndex = 0;
+            this.pnl_container.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnl_container_Scroll);
             // 
             // QuestionsControl
             // 
@@ -51,7 +51,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.pnl_container);
             this.Name = "QuestionsControl";
-            this.Size = new System.Drawing.Size(1025, 535);
+            this.Size = new System.Drawing.Size(1165, 500);
             this.Load += new System.EventHandler(this.QuestionsControl_Load);
             this.ResumeLayout(false);
 
