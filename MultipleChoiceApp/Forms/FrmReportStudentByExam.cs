@@ -16,6 +16,8 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmReportStudentByExam : Form
     {
+        List<Exam> examList;
+        ExamBUS examBUS = new ExamBUS();
         StudentResultBUS studentResultBUS = new StudentResultBUS();
         public FrmReportStudentByExam()
         {
@@ -23,11 +25,30 @@ namespace MultipleChoiceApp.Forms
             CenterToScreen();
         }
 
+        private int getExamId()
+        {
+            if (drop_exam.SelectedValue != null) return Util.parseToInt(drop_exam.SelectedValue.ToString(), -1);
+            return -1;
+        }
+
         private void FrmReportStudentBySubject_Load(object sender, EventArgs e)
         {
-            report.RefreshReport();
+            if (examList == null) examList = examBUS.getAllForSelectData();
+            drop_exam.DataSource = examList;
+            drop_exam.ValueMember = "Id";
+            drop_exam.DisplayMember = "Name";
+            drop_exam.SelectedIndex = 0;
+
+            loadReportData();
+        }
+
+        private void loadReportData()
+        {
+            List<StudentResultReport> list = getStudentResultReportList();
+            ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
+            report.Reset();
+            report.LocalReport.DataSources.Clear();
             report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\StudentReportByExam.rdlc";
-            ReportDataSource rds = new ReportDataSource("StudentResultReport", getStudentResultReportList());
             report.LocalReport.DataSources.Add(rds);
             report.RefreshReport();
         }
@@ -35,8 +56,9 @@ namespace MultipleChoiceApp.Forms
         private List<StudentResultReport> getStudentResultReportList()
         {
             List<StudentResultReport> studentResultReportList = new List<StudentResultReport>();
-            List<StudentResult> studentResultList = studentResultBUS.getAllByExamId(2);
-            foreach(var item in studentResultList)
+            int examId = getExamId();
+            List<StudentResult> studentResultList = studentResultBUS.getAllByExamId(examId);
+            foreach (var item in studentResultList)
             {
                 StudentResultReport studentReport = new StudentResultReport()
                 {
@@ -45,11 +67,17 @@ namespace MultipleChoiceApp.Forms
                     Address = item.Student.Address,
                     DOB = Util.toExamFormattedDate(item.Student.DOB),
                     Major = item.Student.Major,
-                    Points = item.Points
+                    Points = item.Points,
+                    ExamName = item.Exam.Name
                 };
                 studentResultReportList.Add(studentReport);
             }
             return studentResultReportList;
+        }
+
+        private void drop_exam_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadReportData();
         }
     }
 }

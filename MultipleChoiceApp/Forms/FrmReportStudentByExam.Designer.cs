@@ -42,7 +42,7 @@ namespace MultipleChoiceApp.Forms
             this.report.Margin = new System.Windows.Forms.Padding(4);
             this.report.Name = "report";
             this.report.ServerReport.BearerToken = null;
-            this.report.Size = new System.Drawing.Size(849, 477);
+            this.report.Size = new System.Drawing.Size(849, 734);
             this.report.TabIndex = 0;
             // 
             // drop_exam
@@ -76,12 +76,13 @@ namespace MultipleChoiceApp.Forms
             this.drop_exam.Size = new System.Drawing.Size(211, 32);
             this.drop_exam.TabIndex = 2;
             this.drop_exam.Text = null;
+            this.drop_exam.SelectionChangeCommitted += new System.EventHandler(this.drop_exam_SelectionChangeCommitted);
             // 
             // FrmReportStudentByExam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 539);
+            this.ClientSize = new System.Drawing.Size(878, 796);
             this.Controls.Add(this.drop_exam);
             this.Controls.Add(this.report);
             this.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

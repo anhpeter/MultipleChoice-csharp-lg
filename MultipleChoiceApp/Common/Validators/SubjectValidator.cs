@@ -31,7 +31,7 @@ namespace MultipleChoiceApp.Common.Validators
             RuleFor(p => p.TotalQuestion)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Total question"))
-                .InclusiveBetween(5, 100).WithMessage(string.Format(Msg.VLD_BETWEEN, "Total Question", 5, 100));
+                .InclusiveBetween(5, 100).WithMessage(string.Format(Msg.VLD_BETWEEN, "Total Question", 5, 40));
 
             RuleFor(p => p.Duration)
                 .Cascade(CascadeMode.StopOnFirstFailure)

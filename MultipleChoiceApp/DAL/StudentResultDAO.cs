@@ -44,8 +44,10 @@ namespace MultipleChoiceApp.DAL
                     stu.DOB as StudentDOB,
                     stu.Id as StudentId, stu.Code as StudentCode, 
                     stu.FullName as StudentFullName, 
+                    ex.Name as ExamName, 
                     ISNULL(unanswered.Unanswered, 0) as UnansweredCount, sr.Points 
-                FROM Students AS stu INNER JOIN StudentResults AS sr ON (stu.Id = sr.StudentId) LEFT JOIN (
+                    FROM Students AS stu INNER JOIN StudentResults AS sr ON (stu.Id = sr.StudentId)
+                        INNER JOIN Exams as ex ON (sr.ExamId = ex.Id) LEFT JOIN (
                     SELECT stuRes.StudentResultId, COUNT(AnswerNo) as Unanswered
                     FROM StudentResponses AS stuRes
                     WHERE stuRes.AnswerNo = 0

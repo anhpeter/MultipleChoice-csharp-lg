@@ -33,7 +33,7 @@ namespace MultipleChoiceApp.Models
             };
             Exam exam = new Exam()
             {
-                Name = Util.getDrValue(dr, "ExamName")
+                Name = Util.getDrValue(dr, "ExamName"),
             };
             Student student = new Student()
             {

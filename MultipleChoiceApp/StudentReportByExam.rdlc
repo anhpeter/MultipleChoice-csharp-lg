@@ -22,8 +22,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.39667in</Top>
-        <Left>2.405in</Left>
+        <Top>0.52167in</Top>
+        <Left>2.94667in</Left>
         <Height>0.25in</Height>
         <Width>3.30833in</Width>
         <Style>
@@ -39,6 +39,9 @@
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
+            <TablixColumn>
+              <Width>1in</Width>
+            </TablixColumn>
             <TablixColumn>
               <Width>1in</Width>
             </TablixColumn>
@@ -254,6 +257,38 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Exam</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -439,12 +474,43 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ExamName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ExamName.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ExamName</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -464,10 +530,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>StudentResultReport</DataSetName>
-        <Top>1.07167in</Top>
-        <Left>1.08in</Left>
+        <Top>1.17167in</Top>
+        <Left>0.94667in</Left>
         <Height>0.5in</Height>
-        <Width>6in</Width>
+        <Width>7in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -476,10 +542,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.8in</Height>
+    <Height>4.46667in</Height>
     <Style />
   </Body>
-  <Width>7.99167in</Width>
+  <Width>8.77167in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -530,6 +596,10 @@
           <DataField>DOB</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ExamName">
+          <DataField>ExamName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="FullName">
           <DataField>FullName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -541,6 +611,10 @@
         <Field Name="Points">
           <DataField>Points</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="SubjectName">
+          <DataField>SubjectName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

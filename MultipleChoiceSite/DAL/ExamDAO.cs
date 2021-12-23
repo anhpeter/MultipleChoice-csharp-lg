@@ -55,6 +55,12 @@ namespace MultipleChoiceSite.DAL
             dbHelper.closeConnection();
             return item;
         }
+        public List<Exam> getAllForSelectData()
+        {
+            String sqlStr = $"select * from {tableName} order by Id desc";
+            return getAll(sqlStr);
+        }
+
         public List<Exam> getAllForReport()
         {
             String sqlStr = string.Format(@"

@@ -61,7 +61,7 @@ namespace MultipleChoiceSite.DAL
         protected override String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
-                SELECT sr.*, stu.Code AS StudentCode, stu.FullName AS StudentFullName, stu.Address AS StudentAddress, stu.DOB AS StudentDOB, stu.Major AS StudentMajor, ex.Name AS ExamName, sub.Name AS SubjectName
+                SELECT sr.*, stu.Code AS StudentCode, stu.FullName AS StudentFullName, stu.Address AS StudentAddress, stu.DOB AS StudentDOB,  stu.Major AS StudentMajor, ex.Name AS ExamName, sub.Name AS SubjectName
                 FROM StudentResults AS sr 
                     INNER JOIN Students AS stu ON (sr.StudentId = stu.Id)
                     INNER JOIN Exams AS ex ON (sr.ExamId = ex.Id)

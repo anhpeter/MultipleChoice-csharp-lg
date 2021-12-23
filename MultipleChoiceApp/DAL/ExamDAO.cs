@@ -37,6 +37,11 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHS
+        public List<Exam> getAllForSelectData()
+        {
+            String sqlStr = $"select * from {tableName} order by Id desc";
+            return getAll(sqlStr);
+        }
         public ExamOverview getExamOverviewById(int id)
         {
             ExamOverview item = null;
