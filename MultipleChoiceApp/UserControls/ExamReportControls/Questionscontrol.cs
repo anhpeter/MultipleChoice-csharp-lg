@@ -18,27 +18,31 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
     public partial class QuestionsControl : UserControl
     {
         ExamBUS examBUS = new ExamBUS();
+        QuestionBUS questionBUS = new QuestionBUS();
         ExamOverview exOverview;
         Exam exam;
         int containerWidth;
+        List<Question> questionList;
         public QuestionsControl(Exam exam, int containerWidth)
         {
             InitializeComponent();
             this.containerWidth = containerWidth;
             this.exam = exam;
             exOverview = examBUS.getExamOverviewById(exam.Id);
+            questionList = questionBUS.getAllWithAnswerCountByExamId(exam.Id);
         }
 
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
             pnl_container.Controls.Clear();
-            for (int i = 0; i < 10; i++)
+            int i = 1;
+            foreach (var question in questionList)
             {
-                QuestionStatistic questionStatistic = new QuestionStatistic();
+                QuestionStatistic questionStatistic = new QuestionStatistic(question, i);
                 int left = (containerWidth - questionStatistic.Width) / 2;
-                questionStatistic.Dock = DockStyle.Top;
-                questionStatistic.Margin = new Padding(left, 0, 0, 50);
+                questionStatistic.Margin = new Padding(left, 0, 0, 20);
                 pnl_container.Controls.Add(questionStatistic);
+                i++;
             }
         }
 

@@ -19,25 +19,27 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHES
+        public List<Answer> getAnswersWithAnswerCountByExamAndQuestionId(int examId, int questionId)
+        {
+            String sqlStr = string.Format(@"
+                select ans.QuestionId, ans.Content, ans.No, ISNULL(ansSta.AswerCount, 0) as AnswerCount
+                from Answers as ans left join
+                (
+                    select  stuRes.QuestionId, stuRes.AnswerNo as No, count(stuRes.AnswerNo) as AswerCount
+                    from StudentResponses as stuRes inner join StudentResults as sr on (sr.Id = stuRes.StudentResultId)
+                    where sr.ExamId = {0}
+                    group by stuRes.QuestionId, stuRes.AnswerNo
+                ) as ansSta on (ans.QuestionId = ansSta.QuestionId and	ans.No = ansSta.No) 
+                where ans.QuestionId = {1}
+                order by ans.No asc
+                ", examId, questionId);
+            return this.getAll(sqlStr);
+        }
         public List<Answer> getAnswersByQuestionId(int id)
         {
             List<Answer> list = new List<Answer>();
-            try
-            {
-                String sqlStr = $"Select * from {tableName} where QuestionId={id} order by No asc";
-                SqlDataReader dr = dbHelper.execRead(sqlStr);
-                while (dr.Read())
-                {
-                    list.Add(fromDR(dr));
-                }
-                dbHelper.closeConnection();
-                return list;
-            }
-            catch (Exception ex)
-            {
-                handleError(ex, "get-answers-by-question-id");
-                return null;
-            }
+            String sqlStr = $"Select * from {tableName} where QuestionId={id} order by No asc";
+            return getAll(sqlStr);
         }
 
         // ADD
@@ -53,10 +55,13 @@ namespace MultipleChoiceApp.DAL
         public bool addManyForQuestion(List<Answer> list, int questionId)
         {
             bool result = true;
+            int no = 1;
             foreach (Answer item in list)
             {
+                item.No = no;
                 item.QuestionId = questionId;
                 if (add(item) < 1) result = false;
+                no++;
             }
             return result;
         }

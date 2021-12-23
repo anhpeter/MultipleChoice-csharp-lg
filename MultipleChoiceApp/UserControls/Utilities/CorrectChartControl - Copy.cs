@@ -15,12 +15,14 @@ namespace MultipleChoiceApp.UserControls.Utilities
         int correct;
         int incorrect;
         bool showLegends;
-        public CorrectChartControl(int correct, int incorrect, bool showLegends = false)
+        bool showLabels = true;
+        public CorrectChartControl(int correct, int incorrect, bool showLegends = false, bool showLabels = true)
         {
             InitializeComponent();
             this.correct = correct;
             this.incorrect = incorrect;
             this.showLegends = showLegends;
+            this.showLabels = showLabels;
         }
         public CorrectChartControl(Double points, bool showLegends = false)
         {
@@ -34,8 +36,15 @@ namespace MultipleChoiceApp.UserControls.Utilities
 
         private void CorrectChartControl_Load(object sender, EventArgs e)
         {
-            my_chart.Series["s1"].Points.AddXY($"{correct}%", correct);
-            my_chart.Series["s1"].Points.AddXY($"{incorrect}%", incorrect);
+            String correctLabelStr = "";
+            String incorrectLabelStr = "";
+            if (showLabels)
+            {
+                correctLabelStr = $"{correct}%";
+                incorrectLabelStr = $"{incorrect}%";
+            }
+            my_chart.Series["s1"].Points.AddXY(correctLabelStr, correct);
+            my_chart.Series["s1"].Points.AddXY(incorrectLabelStr, incorrect);
             my_chart.Series["s1"].Points[0].Color = Color.FromArgb(38, 137, 12);
             my_chart.Series["s1"].Points[0].LegendText = "Correct";
             my_chart.Series["s1"].Points[0].LabelForeColor = Color.White;

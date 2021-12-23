@@ -40,7 +40,7 @@ namespace MultipleChoiceApp.DAL
                 WHERE SubjectId='{1}' AND Level='{2}'
                 ORDER BY NEWID()
                 OFFSET 0 ROWS FETCH NEXT {3} ROWS ONLY
-            ", tableName, subjectId,  level, qty);
+            ", tableName, subjectId, level, qty);
             SqlDataReader dr = dbHelper.execRead(sqlStr);
             while (dr.Read())
             {
@@ -49,17 +49,29 @@ namespace MultipleChoiceApp.DAL
             dbHelper.closeConnection();
             return list;
         }
+        public List<Question> getAllByExamId(int id)
+        {
+            String sqlStr = string.Format(@"
+                select q.Id, cast(q.Content as nvarchar(255)) as Content, q.CorrectAnswerNo, 
+                count(stuRes.QuestionId) as QuestionInExamCount
+                from StudentResponses as stuRes inner join Questions as q on (stuRes.QuestionId = q.Id) 
+                inner join StudentResults as sr on (stuRes.StudentResultId = sr.Id),
+                (
+                    Select distinct QuestionId
+                    from StudentResponses inner join StudentResults on (StudentResponses.StudentResultId = StudentResults.Id)
+                    where StudentResults.ExamId = {0}
+                ) as QuestionInExams
+                where  q.Id in (QuestionInExams.QuestionId)
+                group by stuRes.QuestionId, cast(q.Content as nvarchar(255)), q.CorrectAnswerNo, q.Id
+                order by q.Id asc
+                ", id);
+            return getAll(sqlStr);
+        }
         public List<Question> getAllBySubjectId(int id, Pagination p)
         {
             List<Question> list = new List<Question>();
             String sqlStr = getAllBySujectIdSqlStr(id);
-            SqlDataReader dr = dbHelper.execRead(applyPagination(sqlStr, p));
-            while (dr.Read())
-            {
-                list.Add(Question.fromDR(dr));
-            }
-            dbHelper.closeConnection();
-            return list;
+            return getAll(sqlStr);
         }
         public List<Question> getAllBySubjectId(int id)
         {

@@ -37,6 +37,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             this.pnl_container.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_container.AutoScroll = true;
             this.pnl_container.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnl_container.Location = new System.Drawing.Point(0, 0);
             this.pnl_container.Name = "pnl_container";

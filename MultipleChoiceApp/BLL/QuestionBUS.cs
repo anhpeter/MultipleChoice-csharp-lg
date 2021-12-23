@@ -25,6 +25,16 @@ namespace MultipleChoiceApp.BLL
             return mainDAO.countBySubjectId(id);
         }
         //FETCH
+        public List<Question> getAllWithAnswerCountByExamId(int id)
+        {
+            List<Question> list = mainDAO.getAllByExamId(id);
+            foreach (var item in list)
+            {
+                item.Answers = answerDAO.getAnswersWithAnswerCountByExamAndQuestionId(id, item.Id);
+            }
+            return list;
+        }
+
         public List<Question> getRandomByLevel(int subjectId, String level, int qty)
         {
             List<Question> questions = mainDAO.getRandomByLevel(subjectId, level, qty);

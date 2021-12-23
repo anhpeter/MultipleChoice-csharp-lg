@@ -56,7 +56,6 @@ namespace MultipleChoiceApp.DAL
             List<T> list = new List<T>();
             try
             {
-
                 sqlStr = sqlStr != null ? sqlStr : getAllSqlStr();
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
