@@ -37,6 +37,7 @@ namespace MultipleChoiceApp.Forms
             this.studentCount = studentCount;
             this.subject = subjectBUS.getDetailsById(exam.SubjectId);
             this.studentResult = studentResult;
+            studentResponsesList = studentResponseBUS.getAllByExamAndStudentId(exam.Id, studentResult.Student.Id);
         }
         // EVENTS
         private void FrmStudentResponse_Load(object sender, EventArgs e)
@@ -52,10 +53,10 @@ namespace MultipleChoiceApp.Forms
             lbl_points.Text = studentResult.Points.ToString();
             int answeredCount = subject.TotalQuestion - studentResult.UnansweredCount;
             lbl_answered.Text = $"{answeredCount} of {subject.TotalQuestion}";
+            lbl_correct.Text = $"{correctCount()}/{subject.TotalQuestion}";
             lbl_code.Text = studentResult.Student.Code;
             //
-            List<StudentResponse> list = studentResponseBUS.getAllByExamAndStudentId(exam.Id, studentResult.Student.Id);
-            refreshList(list);
+            refreshList();
             loaded = true;
         }
 
@@ -63,12 +64,11 @@ namespace MultipleChoiceApp.Forms
         {
         }
 
-        private void refreshList(List<StudentResponse> list)
+        private void refreshList()
         {
-            studentResponsesList = list;
             gv_main.Rows.Clear();
             int i = 0;
-            foreach (var item in list)
+            foreach (var item in studentResponsesList)
             {
                 String correctAns = item.Question.Answers[item.Question.CorrectAnswerNo - 1].Content;
                 String answered = "No answer";
@@ -81,6 +81,15 @@ namespace MultipleChoiceApp.Forms
                 gv_main.Rows[i].Cells[4].Style.ForeColor = item.AnswerNO == item.Question.CorrectAnswerNo ? Color.Green : Color.Red;
                 i++;
             }
+        }
+        private int correctCount()
+        {
+            int count = 0;
+            foreach(var item in studentResponsesList)
+            {
+                if (item.AnswerNO == item.Question.CorrectAnswerNo) count++;
+            }
+            return count;
         }
 
         private void gv_main_SelectionChanged(object sender, EventArgs e)

@@ -151,5 +151,10 @@ namespace MultipleChoiceApp.UserControls
                 }
             }
         }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("View report");
+        }
     }
 }

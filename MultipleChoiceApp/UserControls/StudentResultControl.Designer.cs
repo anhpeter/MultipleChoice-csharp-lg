@@ -39,9 +39,9 @@ namespace MultipleChoiceApp.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnl_pagination = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +54,7 @@ namespace MultipleChoiceApp.UserControls
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.bunifuFlatButton1);
             this.panel1.Controls.Add(this.btn_export_excel);
             this.panel1.Controls.Add(this.pnl_pagination);
             this.panel1.Controls.Add(this.panel4);
@@ -70,26 +72,6 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1052, 230);
             this.panel1.TabIndex = 3;
-            // 
-            // pnl_pagination
-            // 
-            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
-            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
-            this.pnl_pagination.Name = "pnl_pagination";
-            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
-            this.pnl_pagination.TabIndex = 16;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.Location = new System.Drawing.Point(3, 59);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1045, 169);
-            this.panel4.TabIndex = 4;
             // 
             // btn_export_excel
             // 
@@ -127,6 +109,26 @@ namespace MultipleChoiceApp.UserControls
             this.btn_export_excel.Textcolor = System.Drawing.Color.White;
             this.btn_export_excel.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_export_excel.Click += new System.EventHandler(this.btn_export_excel_Click);
+            // 
+            // pnl_pagination
+            // 
+            this.pnl_pagination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_pagination.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_pagination.Location = new System.Drawing.Point(595, 4);
+            this.pnl_pagination.Margin = new System.Windows.Forms.Padding(4);
+            this.pnl_pagination.Name = "pnl_pagination";
+            this.pnl_pagination.Size = new System.Drawing.Size(453, 43);
+            this.pnl_pagination.TabIndex = 16;
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Location = new System.Drawing.Point(3, 59);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1045, 169);
+            this.panel4.TabIndex = 4;
             // 
             // txt_search
             // 
@@ -354,6 +356,43 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.savefiledialog_excel.Filter = "Excel 2007|*.xlsx";
             // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Active = false;
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.BlueViolet;
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.BlueViolet;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "View Report";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = null;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 0;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 70D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(233, 6);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.BlueViolet;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.MediumOrchid;
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(221, 42);
+            this.bunifuFlatButton1.TabIndex = 18;
+            this.bunifuFlatButton1.Text = "View Report";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
+            // 
             // StudentResultControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -388,5 +427,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.SaveFileDialog savefiledialog_excel;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }
