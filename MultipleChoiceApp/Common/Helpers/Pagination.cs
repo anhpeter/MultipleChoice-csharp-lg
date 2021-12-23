@@ -16,6 +16,7 @@ namespace MultipleChoiceApp.Common.Helpers
         public int currentPage { get; set; }
         public int start { get; set; }
         public int end { get; set; }
+        public Pagination() { }
 
         public Pagination(int totalItems = 0, int currentPage = 1, int itemsPerPage = 5, int pageRange = 3)
         {
