@@ -3,6 +3,7 @@ using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.Forms;
 using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
@@ -152,9 +153,5 @@ namespace MultipleChoiceApp.UserControls
             }
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("View report");
-        }
     }
 }

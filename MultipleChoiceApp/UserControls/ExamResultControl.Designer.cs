@@ -40,7 +40,7 @@ namespace MultipleChoiceApp.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_export_excel = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btn_export_report = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnl_pagination = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -60,7 +60,7 @@ namespace MultipleChoiceApp.UserControls
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.btn_export_excel);
+            this.panel1.Controls.Add(this.btn_export_report);
             this.panel1.Controls.Add(this.pnl_pagination);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(0, 580);
@@ -69,41 +69,42 @@ namespace MultipleChoiceApp.UserControls
             this.panel1.Size = new System.Drawing.Size(1052, 230);
             this.panel1.TabIndex = 3;
             // 
-            // btn_export_excel
+            // btn_export_report
             // 
-            this.btn_export_excel.Active = false;
-            this.btn_export_excel.Activecolor = System.Drawing.Color.SeaGreen;
-            this.btn_export_excel.BackColor = System.Drawing.Color.SeaGreen;
-            this.btn_export_excel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_export_excel.BorderRadius = 0;
-            this.btn_export_excel.ButtonText = "Export excel";
-            this.btn_export_excel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_export_excel.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_export_excel.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_export_excel.Iconimage = null;
-            this.btn_export_excel.Iconimage_right = null;
-            this.btn_export_excel.Iconimage_right_Selected = null;
-            this.btn_export_excel.Iconimage_Selected = null;
-            this.btn_export_excel.IconMarginLeft = 0;
-            this.btn_export_excel.IconMarginRight = 0;
-            this.btn_export_excel.IconRightVisible = true;
-            this.btn_export_excel.IconRightZoom = 0D;
-            this.btn_export_excel.IconVisible = true;
-            this.btn_export_excel.IconZoom = 70D;
-            this.btn_export_excel.IsTab = false;
-            this.btn_export_excel.Location = new System.Drawing.Point(4, 6);
-            this.btn_export_excel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
-            this.btn_export_excel.Name = "btn_export_excel";
-            this.btn_export_excel.Normalcolor = System.Drawing.Color.SeaGreen;
-            this.btn_export_excel.OnHovercolor = System.Drawing.Color.MediumAquamarine;
-            this.btn_export_excel.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_export_excel.selected = false;
-            this.btn_export_excel.Size = new System.Drawing.Size(221, 42);
-            this.btn_export_excel.TabIndex = 17;
-            this.btn_export_excel.Text = "Export excel";
-            this.btn_export_excel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_export_excel.Textcolor = System.Drawing.Color.White;
-            this.btn_export_excel.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_export_report.Active = false;
+            this.btn_export_report.Activecolor = System.Drawing.Color.BlueViolet;
+            this.btn_export_report.BackColor = System.Drawing.Color.BlueViolet;
+            this.btn_export_report.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_export_report.BorderRadius = 0;
+            this.btn_export_report.ButtonText = "Export Report";
+            this.btn_export_report.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_export_report.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_export_report.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_export_report.Iconimage = null;
+            this.btn_export_report.Iconimage_right = null;
+            this.btn_export_report.Iconimage_right_Selected = null;
+            this.btn_export_report.Iconimage_Selected = null;
+            this.btn_export_report.IconMarginLeft = 0;
+            this.btn_export_report.IconMarginRight = 0;
+            this.btn_export_report.IconRightVisible = true;
+            this.btn_export_report.IconRightZoom = 0D;
+            this.btn_export_report.IconVisible = true;
+            this.btn_export_report.IconZoom = 70D;
+            this.btn_export_report.IsTab = false;
+            this.btn_export_report.Location = new System.Drawing.Point(4, 11);
+            this.btn_export_report.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btn_export_report.Name = "btn_export_report";
+            this.btn_export_report.Normalcolor = System.Drawing.Color.BlueViolet;
+            this.btn_export_report.OnHovercolor = System.Drawing.Color.MediumOrchid;
+            this.btn_export_report.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_export_report.selected = false;
+            this.btn_export_report.Size = new System.Drawing.Size(221, 42);
+            this.btn_export_report.TabIndex = 19;
+            this.btn_export_report.Text = "Export Report";
+            this.btn_export_report.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_export_report.Textcolor = System.Drawing.Color.White;
+            this.btn_export_report.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_export_report.Click += new System.EventHandler(this.btn_export_report_Click);
             // 
             // pnl_pagination
             // 
@@ -353,7 +354,6 @@ namespace MultipleChoiceApp.UserControls
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_search;
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
         private System.Windows.Forms.Panel pnl_pagination;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_export_excel;
         private System.Windows.Forms.SaveFileDialog savefiledialog_excel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -362,5 +362,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Panel panel4;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_export_report;
     }
 }

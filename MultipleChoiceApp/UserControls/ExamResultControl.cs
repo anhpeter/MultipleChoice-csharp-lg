@@ -134,5 +134,12 @@ namespace MultipleChoiceApp.UserControls
                 }
             }
         }
+
+        private void btn_export_report_Click(object sender, EventArgs e)
+        {
+            FrmReportStudentByExam frm = new FrmReportStudentByExam();
+            frm.Show();
+        }
+
     }
 }

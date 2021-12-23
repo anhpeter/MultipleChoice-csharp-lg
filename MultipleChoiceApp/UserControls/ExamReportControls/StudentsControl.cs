@@ -22,7 +22,6 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
     {
         private bool loaded = false;
         StudentResultBUS studentResultBUS = new StudentResultBUS();
-        StudentBUS studentBUS = new StudentBUS();
         Exam exam;
         List<StudentResult> studentResultList;
         public StudentsControl(Exam exam)
