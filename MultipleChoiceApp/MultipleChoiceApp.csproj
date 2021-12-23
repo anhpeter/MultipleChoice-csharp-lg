@@ -236,6 +236,12 @@
     <Compile Include="UserControls\ExamReportControls\StudentsControl.Designer.cs">
       <DependentUpon>StudentsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ExamReportControls\Questionscontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ExamReportControls\Questionscontrol.Designer.cs">
+      <DependentUpon>Questionscontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ExamReportControls\SummaryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -290,11 +296,17 @@
     <Compile Include="UserControls\SubjectControl.Designer.cs">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Utilities\CorrectChartControl.cs">
+    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Utilities\CorrectChartControl.Designer.cs">
-      <DependentUpon>CorrectChartControl.cs</DependentUpon>
+    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.Designer.cs">
+      <DependentUpon>CorrectChartControl - Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Utilities\QuestionStatistic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Utilities\QuestionStatistic.Designer.cs">
+      <DependentUpon>QuestionStatistic.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\UtilForms\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
@@ -342,6 +354,9 @@
     <EmbeddedResource Include="UserControls\ExamReportControls\StudentsControl.resx">
       <DependentUpon>StudentsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ExamReportControls\Questionscontrol.resx">
+      <DependentUpon>Questionscontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ExamReportControls\SummaryControl.resx">
       <DependentUpon>SummaryControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,8 +384,11 @@
     <EmbeddedResource Include="UserControls\SubjectControl.resx">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Utilities\CorrectChartControl.resx">
-      <DependentUpon>CorrectChartControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Utilities\CorrectChartControl - Copy.resx">
+      <DependentUpon>CorrectChartControl - Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Utilities\QuestionStatistic.resx">
+      <DependentUpon>QuestionStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -422,6 +440,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\kh_time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\incorrect.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

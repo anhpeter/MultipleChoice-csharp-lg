@@ -31,6 +31,8 @@ namespace MultipleChoiceApp.Forms
         {
             this.pnl_header = new System.Windows.Forms.Panel();
             this.pnl_tabs = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_students = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -40,6 +42,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_content = new System.Windows.Forms.Panel();
             this.pnl_header.SuspendLayout();
             this.pnl_tabs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +61,8 @@ namespace MultipleChoiceApp.Forms
             // 
             // pnl_tabs
             // 
+            this.pnl_tabs.Controls.Add(this.pictureBox3);
+            this.pnl_tabs.Controls.Add(this.bunifuFlatButton1);
             this.pnl_tabs.Controls.Add(this.pictureBox2);
             this.pnl_tabs.Controls.Add(this.pictureBox1);
             this.pnl_tabs.Controls.Add(this.btn_students);
@@ -67,6 +72,55 @@ namespace MultipleChoiceApp.Forms
             this.pnl_tabs.Name = "pnl_tabs";
             this.pnl_tabs.Size = new System.Drawing.Size(969, 76);
             this.pnl_tabs.TabIndex = 2;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Location = new System.Drawing.Point(392, 71);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(196, 5);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "border_bottom_Questions";
+            // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Active = false;
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "Questions";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = null;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 30;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 70D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(392, 0);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(196, 76);
+            this.bunifuFlatButton1.TabIndex = 8;
+            this.bunifuFlatButton1.Tag = "Questions";
+            this.bunifuFlatButton1.Text = "Questions";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.Black;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.btn_tab_Click);
             // 
             // pictureBox2
             // 
@@ -210,6 +264,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.pnl_tabs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -227,5 +282,7 @@ namespace MultipleChoiceApp.Forms
         private Bunifu.Framework.UI.BunifuFlatButton btn_students;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }

@@ -63,6 +63,16 @@ namespace MultipleChoiceApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap correct {
+            get {
+                object obj = ResourceManager.GetObject("correct", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exams {
             get {
                 object obj = ResourceManager.GetObject("Exams", resourceCulture);
@@ -106,6 +116,16 @@ namespace MultipleChoiceApp.Properties {
         internal static System.Drawing.Bitmap Exit1 {
             get {
                 object obj = ResourceManager.GetObject("Exit1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap incorrect {
+            get {
+                object obj = ResourceManager.GetObject("incorrect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

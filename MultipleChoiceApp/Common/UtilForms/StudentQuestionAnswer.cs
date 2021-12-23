@@ -32,8 +32,8 @@ namespace MultipleChoiceApp.Common.UtilForms
             // Answers
             for (int i = 0; i < studentResponse.Question.Answers.Count; i++)
             {
-                String prefix = orderAlphabet[i] + ". ";
                 int ansNo = studentResponse.AnswerOrder[i];
+                String prefix = orderAlphabet[ansNo-1] + ". ";
                 Label ansLabel = lblAnswers[ansNo - 1];
                 Answer ans = studentResponse.Question.Answers[ansNo - 1];
                 ansLabel.Text = prefix+ans.Content;

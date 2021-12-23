@@ -52,6 +52,9 @@ namespace MultipleChoiceApp.Forms
                 case "Students":
                     control = new StudentsControl(exam);
                     break;
+                case "Questions":
+                    control = new QuestionsControl(exam, pnl_content.Width);
+                    break;
             }
             if (control != null)
             {
