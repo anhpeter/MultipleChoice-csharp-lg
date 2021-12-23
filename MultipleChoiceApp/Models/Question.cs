@@ -45,6 +45,25 @@ namespace MultipleChoiceApp
         public List<Answer> Answers { get; set; }
 
         // 
+        public static Dictionary<String, String> toBiDictionary(Bi.Question item)
+        {
+            Dictionary<String, String> dic = new Dictionary<string, string>();
+            String answersString = "";
+            if (item.Answers.Length > 0)
+            {
+                string[] answerLines = item.Answers.Select(x => x.Content).ToArray();
+                answersString = string.Join("\n", answerLines);
+            }
+            dic.Add("Id", item.Id + "");
+            dic.Add("Content", item.Content);
+            dic.Add("Answers", answersString);
+            dic.Add("Correct Answer No", item.CorrectAnswerNo + "");
+            dic.Add("Subject Code", item.SubjectCode);
+            dic.Add("Chapter", item.Chapter + "");
+            dic.Add("Level", item.Level);
+            dic.Add("Created At", Util.toSqlFormattedDate(item.CreatedAt));
+            return dic;
+        }
         public Dictionary<String, String> toDictionary()
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
@@ -63,6 +82,20 @@ namespace MultipleChoiceApp
             dic.Add("Level", this.Level);
             dic.Add("Created At", Util.toSqlFormattedDate(this.CreatedAt));
             return dic;
+        }
+        public static Bi.Question fromBiDictionary(Dictionary<String, String> dic)
+        {
+            Bi.Question item = new Bi.Question()
+            {
+                Id = Util.parseToInt(Util.getDicValue(dic, "Id")),
+                Content = Util.getDicValue(dic, "Content"),
+                SubjectCode = Util.getDicValue(dic, "Subject Code"),
+                CorrectAnswerNo = Util.parseToInt(Util.getDicValue(dic, "Correct Answer No")),
+                Chapter = Util.parseToInt(Util.getDicValue(dic, "Chapter")),
+                Level = Util.getDicValue(dic, "Level"),
+                CreatedAt = Util.parseToDatetime(Util.getDicValue(dic, "Created At")),
+            };
+            return item;
         }
         public static Question fromDictionary(Dictionary<String, String> dic)
         {
@@ -84,6 +117,25 @@ namespace MultipleChoiceApp
             return Util.isSubArray(keys, inputKeys);
         }
 
+        public static List<Bi.Question> genBiListByDicList(List<Dictionary<String, String>> dicList, int subjectId)
+        {
+            List<Bi.Question> list = new List<Bi.Question>();
+            foreach (var dic in dicList)
+            {
+                Bi.Question item = Question.fromBiDictionary(dic);
+                String answersString = dic["Answers"];
+                if (answersString != null)
+                {
+                    string[] lines = answersString.Split(new String[] { "\n" }, StringSplitOptions.None);
+                    lines = lines.Where(x => !x.Trim().Equals("")).ToArray();
+                    List<Bi.Answer> answers = lines.Select(x => new Bi.Answer() { Content = x.Trim() }).ToList();
+                    item.Answers = answers.ToArray();
+                }
+                item.SubjectId = subjectId;
+                list.Add(item);
+            }
+            return list;
+        }
         public static List<Question> genListByDicList(List<Dictionary<String, String>> dicList, int subjectId)
         {
             List<Question> list = new List<Question>();
