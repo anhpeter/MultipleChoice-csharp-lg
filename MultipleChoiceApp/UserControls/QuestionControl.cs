@@ -368,15 +368,8 @@ namespace MultipleChoiceApp.UserControls
 
         private int getSelectedId()
         {
-            try
-            {
-                int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
-                return id;
-            }
-            catch (Exception ex)
-            {
-                return -1;
-            }
+            int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+            return id;
         }
 
         async private void txt_search_KeyUp(object sender, KeyEventArgs e)

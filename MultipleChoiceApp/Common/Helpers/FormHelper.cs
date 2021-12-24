@@ -170,7 +170,7 @@ namespace MultipleChoiceApp.Common.Helpers
                             object value = worksheet.Cells[i, j].Value;
                             if (value != null) dic.Add(headers[j - 1], value.ToString().Trim());
                         }
-                        dicList.Add(dic);
+                        if (dic.Count>0) dicList.Add(dic);
                     }
                 }
             }

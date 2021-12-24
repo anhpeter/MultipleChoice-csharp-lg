@@ -48,7 +48,7 @@ namespace MultipleChoiceApp.Forms
             ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
             report.Reset();
             report.LocalReport.DataSources.Clear();
-            report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\StudentReportByExam.rdlc";
+            report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\StudentReportByExam.rdlc";
             report.LocalReport.DataSources.Add(rds);
             report.RefreshReport();
         }
@@ -65,7 +65,7 @@ namespace MultipleChoiceApp.Forms
                     Code = item.Student.Code,
                     FullName = item.Student.FullName,
                     Address = item.Student.Address,
-                    DOB = Util.toExamFormattedDate(item.Student.DOB),
+                    DOB = Util.toMediumDateStr(item.Student.DOB),
                     Major = item.Student.Major,
                     Points = item.Points,
                     ExamName = item.Exam.Name

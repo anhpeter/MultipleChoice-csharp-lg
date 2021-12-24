@@ -384,7 +384,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentReportByExam.rdlc" />
+    <EmbeddedResource Include="Reports\StudentReportByExam.rdlc" />
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -512,9 +512,7 @@
     </Content>
     <None Include="Web References\Bi\QuestionBUS.disco" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

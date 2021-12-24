@@ -96,7 +96,8 @@ namespace MultipleChoiceApp.Forms
         {
             if (loaded)
             {
-                StudentResponse studentResponse = studentResponsesList[gv_main.CurrentCell.RowIndex];
+                int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+                StudentResponse studentResponse = studentResponsesList.Where(x => x.Id == id).FirstOrDefault();
                 StudentQuestionAnswer frm = new StudentQuestionAnswer(studentResponse);
                 frm.ShowDialog();
             }

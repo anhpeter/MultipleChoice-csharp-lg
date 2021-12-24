@@ -93,8 +93,6 @@
     <Compile Include="DAL\ManagerDAO.cs" />
     <Compile Include="DAL\QuestionDAO.cs" />
     <Compile Include="DAL\StudentDAO.cs" />
-    <Compile Include="DAL\StudentResponseDAO.cs" />
-    <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\SubjectDAO.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Exam.cs" />

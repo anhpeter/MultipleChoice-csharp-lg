@@ -76,6 +76,10 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             return date.ToString("dd/MM/yyy HH:mm");
         }
+        public static String toMediumDateStr(DateTime date)
+        {
+            return date.ToString("dd/MM/yyy");
+        }
 
         public static void log(String value)
         {

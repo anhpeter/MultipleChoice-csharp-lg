@@ -77,8 +77,8 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
         {
             if (loaded)
             {
-                int index = gv_main.CurrentCell.RowIndex;
-                StudentResult selectedItem = studentResultList[index];
+                int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString());
+                StudentResult selectedItem = studentResultList.Where(x => x.StudentId == id).FirstOrDefault();
                 FrmStudentResponse frm = new FrmStudentResponse(exam, selectedItem, studentResultList.Count);
                 frm.ShowDialog();
             }
