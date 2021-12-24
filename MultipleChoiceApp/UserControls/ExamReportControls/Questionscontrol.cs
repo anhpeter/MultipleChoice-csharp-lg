@@ -2,6 +2,7 @@
 using LiveCharts.Wpf;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;

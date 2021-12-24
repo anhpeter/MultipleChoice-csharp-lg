@@ -1,5 +1,6 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.DAL;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,6 +35,11 @@ namespace MultipleChoiceApp.BLL
         public List<Exam> getAllForReport()
         {
             return mainDAO.getAllForReport();
+        }
+
+        public Exam getExamReportById(int id)
+        {
+            return mainDAO.getExamReportById(id);
         }
         public Exam getAvailableBySubjectId(int SubjectId, DateTime d)
         {

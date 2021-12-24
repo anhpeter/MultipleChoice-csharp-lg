@@ -7,6 +7,7 @@ using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.UtilForms;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -149,7 +150,7 @@ namespace MultipleChoiceApp.UserControls
             if (dialogResult == DialogResult.OK)
             {
                 List<Bi.Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId()).ToList();
-                List<Dictionary<String, String>> dicList = list.Select(x => Question.toBiDictionary(x)).ToList();
+                List<Dictionary<String, String>> dicList = list.Select(x => Models.Question.toBiDictionary(x)).ToList();
                 String subject = getFormSubjectText();
                 bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, subject);
                 if (result)
@@ -172,7 +173,7 @@ namespace MultipleChoiceApp.UserControls
                 List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
                 if (checkValidImportedDicList(dicList))
                 {
-                    List<Bi.Question> list = Question.genBiListByDicList(dicList, getFormSubjectId());
+                    List<Bi.Question> list = Models.Question.genBiListByDicList(dicList, getFormSubjectId());
                     if (list != null)
                     {
                         int affectedRows = mainBUS.addMany(list.ToArray());
@@ -192,7 +193,7 @@ namespace MultipleChoiceApp.UserControls
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
         {
-            return dicList != null && dicList.Count > 0 && Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+            return dicList != null && dicList.Count > 0 && Models.Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
         }
 
         // HELPER METHODS
@@ -210,7 +211,7 @@ namespace MultipleChoiceApp.UserControls
                     Content = ans.Content
                 });
             }
-            Question vldItem = new Question()
+            Models.Question vldItem = new Models.Question()
             {
                 Id = item.Id,
                 Answers = ansList,
@@ -234,12 +235,12 @@ namespace MultipleChoiceApp.UserControls
         private Bi.Question getFormQuestion()
         {
             // ANSWER LIST
-            List<Answer> answerList = new List<Answer>();
+            List<Bi.Answer> answerList = new List<Bi.Answer>();
             int questionId = formItem != null ? formItem.Id : -1;
             BunifuTextBox[] ansTxts = { txt_ans1, txt_ans2, txt_ans3, txt_ans4 };
             for (int i = 0; i < ansTxts.Length; i++)
             {
-                answerList.Add(new Answer()
+                answerList.Add(new Bi.Answer()
                 {
                     QuestionId = questionId,
                     No = i + 1,

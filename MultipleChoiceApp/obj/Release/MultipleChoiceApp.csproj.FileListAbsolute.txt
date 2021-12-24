@@ -98,7 +98,6 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\ru\Microsoft.ReportViewer.WinForms.resources.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.csproj.AssemblyReference.cache
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Common.UtilForms.Alert.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Common.UtilForms.frm_error_msg.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Common.UtilForms.StudentQuestionAnswer.resources
@@ -133,3 +132,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.exe
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.pdb
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.XmlSerializers.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.csproj.AssemblyReference.cache

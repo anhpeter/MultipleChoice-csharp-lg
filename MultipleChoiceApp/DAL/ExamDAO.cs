@@ -1,4 +1,5 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -41,6 +42,22 @@ namespace MultipleChoiceApp.DAL
         {
             String sqlStr = $"select * from {tableName} order by Id desc";
             return getAll(sqlStr);
+        }
+        public Exam getExamReportById(int id)
+        {
+            Exam item = null;
+            String sqlStr = string.Format(@"
+                select ex.*, sub.Name as SubjectName, sub.TotalQuestion, sub.Duration, sub.Lecturer
+                from Exams as ex inner join Subjects as sub on (ex.SubjectId = sub.Id)
+                where (ex.Id = {0})
+            ", id);
+            SqlDataReader dr = dbHelper.execRead(sqlStr);
+            if (dr.Read())
+            {
+                item = Exam.fromDR(dr);
+            }
+            dbHelper.closeConnection();
+            return item;
         }
         public ExamOverview getExamOverviewById(int id)
         {

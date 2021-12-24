@@ -8,6 +8,7 @@ namespace MultipleChoiceApp.Models
 {
     class StudentResultReport
     {
+        public int No { get; set; }
         public String Code { get; set; }
         public String FullName { get; set; }
         public String Address { get; set; }

@@ -1,5 +1,6 @@
 ﻿using Bunifu.Framework.UI;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls.ExamReportControls;
 using System;
 using System.Collections.Generic;

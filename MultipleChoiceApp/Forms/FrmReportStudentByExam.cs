@@ -16,8 +16,9 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmReportStudentByExam : Form
     {
-        List<Exam> examList;
         ExamBUS examBUS = new ExamBUS();
+        List<Exam> examList;
+        Exam exam;
         StudentResultBUS studentResultBUS = new StudentResultBUS();
         public FrmReportStudentByExam()
         {
@@ -44,12 +45,24 @@ namespace MultipleChoiceApp.Forms
 
         private void loadReportData()
         {
+            exam = examBUS.getExamReportById(getExamId());
+            List<ExamReport> examReport = new List<ExamReport>() {
+                 new ExamReport() { 
+                     Name = exam.Name,
+                     Subject = exam.Subject.Name,
+                     StartAt = Util.toMediumDateStr(exam.StartAt),
+                     EndAt = Util.toMediumDateStr(exam.EndAt),
+                 }
+            };
+
             List<StudentResultReport> list = getStudentResultReportList();
+            ReportDataSource examRds = new ReportDataSource("ExamReport", examReport);
             ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
             report.Reset();
             report.LocalReport.DataSources.Clear();
             report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\StudentReportByExam.rdlc";
             report.LocalReport.DataSources.Add(rds);
+            report.LocalReport.DataSources.Add(examRds);
             report.RefreshReport();
         }
 
@@ -58,10 +71,12 @@ namespace MultipleChoiceApp.Forms
             List<StudentResultReport> studentResultReportList = new List<StudentResultReport>();
             int examId = getExamId();
             List<StudentResult> studentResultList = studentResultBUS.getAllByExamId(examId);
+            int i = 0;
             foreach (var item in studentResultList)
             {
                 StudentResultReport studentReport = new StudentResultReport()
                 {
+                    No = i + 1,
                     Code = item.Student.Code,
                     FullName = item.Student.FullName,
                     Address = item.Student.Address,
@@ -71,6 +86,7 @@ namespace MultipleChoiceApp.Forms
                     ExamName = item.Exam.Name
                 };
                 studentResultReportList.Add(studentReport);
+                i++;
             }
             return studentResultReportList;
         }

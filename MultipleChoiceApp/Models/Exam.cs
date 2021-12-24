@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultipleChoiceApp
+namespace MultipleChoiceApp.Models
 {
     public class Exam
     {
@@ -24,6 +24,12 @@ namespace MultipleChoiceApp
         public int StudentCount { get; set; }
         public static Exam fromDR(SqlDataReader dr)
         {
+            Subject sub = new Subject()
+            {
+                Name = Util.getDrValue(dr, "SubjectName"),
+                TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), 0),
+                Duration = Util.parseToInt(Util.getDrValue(dr, "duration"), 0),
+            };
             Exam item = new Exam()
             {
                 Id = Util.parseToInt(Util.getDrValue(dr, "Id"), -1),
@@ -38,6 +44,7 @@ namespace MultipleChoiceApp
                 //
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
                 StudentCount = Util.parseToInt(Util.getDrValue(dr, "StudentCount")),
+                Subject=sub
             };
             return item;
         }

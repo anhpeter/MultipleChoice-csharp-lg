@@ -185,6 +185,7 @@
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\ExamOverview.cs" />
     <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamReport.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\StudentResponse.cs" />
@@ -429,6 +430,8 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.Answer.datasource" />
+    <None Include="Properties\DataSources\MultipleChoiceApp.Models.Exam.datasource" />
+    <None Include="Properties\DataSources\MultipleChoiceApp.Models.ExamReport.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResponse.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResult.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResultReport.datasource" />
