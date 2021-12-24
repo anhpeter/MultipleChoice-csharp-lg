@@ -1,9 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MultipleChoiceApp.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
   <Profiles />
-  <Settings>
-    <Setting Name="MultipleChoiceApp_Bi_QuestionBUS" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:3902/BLL/QuestionBUS.asmx</Value>
-    </Setting>
-  </Settings>
+  <Settings />
 </SettingsFile>

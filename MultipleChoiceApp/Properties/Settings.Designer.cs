@@ -22,15 +22,5 @@ namespace MultipleChoiceApp.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:3902/BLL/QuestionBUS.asmx")]
-        public string MultipleChoiceApp_Bi_QuestionBUS {
-            get {
-                return ((string)(this["MultipleChoiceApp_Bi_QuestionBUS"]));
-            }
-        }
     }
 }

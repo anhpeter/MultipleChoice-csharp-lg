@@ -4,7 +4,6 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\SqlServerTypes\x86\SqlServerSpatial140.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\MultipleChoiceApp.exe.config
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\MultipleChoiceApp.exe
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\MultipleChoiceApp.XmlSerializers.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\MultipleChoiceApp.pdb
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\Bunifu.UI.WinForm.BunifuShadowPanel.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\Bunifu.UI.WinForms.BunifuButton.dll
@@ -131,5 +130,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.csproj.CopyComplete
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.exe
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.pdb
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.XmlSerializers.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.csproj.AssemblyReference.cache

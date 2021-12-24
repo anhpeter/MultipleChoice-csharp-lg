@@ -1,7 +1,6 @@
 ﻿using Bunifu.UI.WinForms;
 using Bunifu.UI.WinForms.BunifuTextbox;
 using FluentValidation.Results;
-using MultipleChoiceApp.Bi;
 using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
@@ -24,13 +23,13 @@ namespace MultipleChoiceApp.UserControls
     public partial class QuestionControl : UserControl, IPagination
     {
         String controlName = "Questions";
-        Bi.QuestionBUS mainBUS = new Bi.QuestionBUS();
+        QuestionBUS mainBUS = new QuestionBUS();
         SubjectBUS subjectBUS = new SubjectBUS();
         //
         PaginationControl paginationControl;
-        Common.Helpers.Pagination pagination = new Common.Helpers.Pagination(0, 1, 15, 3);
+        Pagination pagination = new Pagination(0, 1, 15, 3);
         //
-        Bi.Question formItem;
+        Question formItem;
         List<Subject> subjectList;
         Boolean searchMode = false;
 
@@ -84,7 +83,7 @@ namespace MultipleChoiceApp.UserControls
         // ACTIONS
         private void btn_add_Click(object sender, EventArgs e)
         {
-            Bi.Question question = getFormQuestion();
+            Question question = getFormQuestion();
             if (handleValidation())
             {
                 bool result = mainBUS.add(question);
@@ -105,7 +104,7 @@ namespace MultipleChoiceApp.UserControls
                 return;
             }
             //
-            Bi.Question question = getFormQuestion();
+            Question question = getFormQuestion();
             if (handleValidation())
             {
                 bool result = mainBUS.update(question);
@@ -149,8 +148,8 @@ namespace MultipleChoiceApp.UserControls
             DialogResult dialogResult = savefiledialog_excel.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                List<Bi.Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId()).ToList();
-                List<Dictionary<String, String>> dicList = list.Select(x => Models.Question.toBiDictionary(x)).ToList();
+                List<Question> list = mainBUS.getAllWithAnswersBySubjectId(getFormSubjectId());
+                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
                 String subject = getFormSubjectText();
                 bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, subject);
                 if (result)
@@ -173,10 +172,10 @@ namespace MultipleChoiceApp.UserControls
                 List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
                 if (checkValidImportedDicList(dicList))
                 {
-                    List<Bi.Question> list = Models.Question.genBiListByDicList(dicList, getFormSubjectId());
+                    List<Question> list = Question.genListByDicList(dicList, getFormSubjectId());
                     if (list != null)
                     {
-                        int affectedRows = mainBUS.addMany(list.ToArray());
+                        int affectedRows = mainBUS.addMany(list);
                         refreshList();
                         MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
                         return;
@@ -193,35 +192,15 @@ namespace MultipleChoiceApp.UserControls
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
         {
-            return dicList != null && dicList.Count > 0 && Models.Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+            return dicList != null && dicList.Count > 0 && Question.idDictionaryKeysValid(dicList[0].Keys.ToArray());
         }
 
         // HELPER METHODS
         private bool handleValidation()
         {
-            Bi.Question item = getFormQuestion();
+            Question item = getFormQuestion();
             QuestionValidator validator = new QuestionValidator();
-            List<Models.Answer> ansList = new List<Models.Answer>();
-            foreach (var ans in item.Answers)
-            {
-                ansList.Add(new Models.Answer()
-                {
-                    QuestionId = ans.QuestionId,
-                    No = ans.No,
-                    Content = ans.Content
-                });
-            }
-            Models.Question vldItem = new Models.Question()
-            {
-                Id = item.Id,
-                Answers = ansList,
-                Content = txt_question.Text.ToString(),
-                SubjectId = item.SubjectId,
-                Level = item.Level,
-                CorrectAnswerNo = item.CorrectAnswerNo,
-                Chapter = item.Chapter
-            };
-            ValidationResult results = validator.Validate(vldItem);
+            ValidationResult results = validator.Validate(item);
             if (results.IsValid)
             {
                 return true;
@@ -232,15 +211,15 @@ namespace MultipleChoiceApp.UserControls
             }
             return false;
         }
-        private Bi.Question getFormQuestion()
+        private Question getFormQuestion()
         {
             // ANSWER LIST
-            List<Bi.Answer> answerList = new List<Bi.Answer>();
+            List<Answer> answerList = new List<Answer>();
             int questionId = formItem != null ? formItem.Id : -1;
             BunifuTextBox[] ansTxts = { txt_ans1, txt_ans2, txt_ans3, txt_ans4 };
             for (int i = 0; i < ansTxts.Length; i++)
             {
-                answerList.Add(new Bi.Answer()
+                answerList.Add(new Answer()
                 {
                     QuestionId = questionId,
                     No = i + 1,
@@ -252,10 +231,10 @@ namespace MultipleChoiceApp.UserControls
             int correctAnsNo = getCorrectAnsNo();
             int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
 
-            Bi.Question item = new Bi.Question()
+            Question item = new Question()
             {
                 Id = questionId,
-                Answers = answerList.ToArray(),
+                Answers = answerList,
                 Content = txt_question.Text.ToString(),
                 SubjectId = getFormSubjectId(),
                 Level = level,
@@ -289,18 +268,12 @@ namespace MultipleChoiceApp.UserControls
             int subjectId = getFormSubjectId();
             if (subjectId > 0)
             {
-                List<Bi.Question> list = mainBUS.getAllBySubjectId(subjectId, new Bi.Pagination()
-                {
-                    totalItems = pagination.totalItems,
-                    currentPage = pagination.currentPage,
-                    itemsPerPage = pagination.itemsPerPage,
-                    pageRange = pagination.pageRange
-                }).ToList();
+                List<Question> list = mainBUS.getAllBySubjectId(subjectId, pagination);
                 refreshList(list);
             }
         }
 
-        private void refreshList(List<Bi.Question> list)
+        private void refreshList(List<Question> list)
         {
             gv_main.Rows.Clear();
             foreach (var item in list)
@@ -369,8 +342,15 @@ namespace MultipleChoiceApp.UserControls
 
         private int getSelectedId()
         {
-            int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-            return id;
+            try
+            {
+                int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString(), -1);
+                return id;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
         }
 
         async private void txt_search_KeyUp(object sender, KeyEventArgs e)
@@ -381,7 +361,7 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<Bi.Question> list = mainBUS.searchByKeyword(getFormSubjectId(), txt_search.Text).ToList();
+                    List<Question> list = mainBUS.searchByKeyword(getFormSubjectId(), txt_search.Text);
                     refreshList(list);
                 }
                 else
@@ -403,3 +383,4 @@ namespace MultipleChoiceApp.UserControls
         }
     }
 }
+
