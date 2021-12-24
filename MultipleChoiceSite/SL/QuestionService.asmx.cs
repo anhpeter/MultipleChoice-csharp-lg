@@ -12,7 +12,7 @@ namespace MultipleChoiceSite.SL
     /// <summary>
     /// Summary description for QuestionService
     /// </summary>
-    [WebService(Namespace = "http://peteranh.com")]
+    [WebService(Namespace = "http://peteranh.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

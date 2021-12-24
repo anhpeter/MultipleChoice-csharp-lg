@@ -52,7 +52,6 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\bin
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\bin\roslyn\VBCSCompiler.exe.config
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Release\MultipleChoiceSite.csproj.AssemblyReference.cache
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Release\MultipleChoiceSite.csproj.CoreCompileInputs.cache
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Release\MultipleChoiceSite.csproj.CopyComplete
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Release\MultipleChoiceSite.dll
