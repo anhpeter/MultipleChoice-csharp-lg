@@ -212,7 +212,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Manager> list = mainBUS.getAll(pagination);
+            List<Manager> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 

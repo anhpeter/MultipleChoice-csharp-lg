@@ -45,9 +45,13 @@ namespace MultipleChoiceApp.BLL
             }
             return questions;
         }
-        public List<Question> getAllBySubjectId(int id, Pagination pagination)
+        public List<Question> getAllBySubjectId(int id, int itemsPerPage, int currentPage)
         {
-            return mainDAO.getAllBySubjectId(id, pagination);
+            return mainDAO.getAllBySubjectId(id, itemsPerPage, currentPage);
+        }
+        public List<Question> getAllBySubjectId(int id)
+        {
+            return mainDAO.getAllBySubjectId(id);
         }
 
         public List<Question> getAllWithAnswersBySubjectId(int id)

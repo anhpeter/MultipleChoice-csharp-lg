@@ -154,7 +154,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Student> list = mainBUS.getAll(pagination);
+            List<Student> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 

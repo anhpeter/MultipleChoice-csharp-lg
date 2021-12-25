@@ -46,16 +46,16 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHES
-        public List<T> getAllForSelectData()
+        public virtual List<T> getAllForSelectData()
         {
             String sqlStr = $"select * from {tableName} order by {primaryKey} desc";
             return getAll(sqlStr);
         }
 
 
-        public List<T> getAll(Pagination p)
+        public List<T> getAll(int itemsPerPage, int currentPage)
         {
-            return getAll(applyPagination(getAllSqlStr(), p));
+            return getAll(applyPagination(getAllSqlStr(), itemsPerPage, currentPage));
         }
 
         public List<T> getAll(String sqlStr = null)
@@ -203,10 +203,10 @@ namespace MultipleChoiceApp.DAL
             return value.Replace("'", "''");
         }
 
-        protected String applyPagination(String sqlStr, Pagination p)
+        protected String applyPagination(String sqlStr, int itemsPerPage, int currentPage)
         {
-            int offset = (p.currentPage - 1) * p.itemsPerPage;
-            int limit = p.itemsPerPage;
+            int offset = (currentPage - 1) * itemsPerPage;
+            int limit = itemsPerPage;
             sqlStr += $" OFFSET {offset} ROWS FETCH NEXT {limit} ROWS ONLY";
             return sqlStr;
         }

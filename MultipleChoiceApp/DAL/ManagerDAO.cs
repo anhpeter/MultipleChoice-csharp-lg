@@ -35,10 +35,6 @@ namespace MultipleChoiceApp.DAL
             dbHelper.closeConnection();
             return item;
         }
-        public List<Manager> getAll(Pagination p)
-        {
-            return getAll(applyPagination(getAllSqlStr(), p));
-        }
         public List<Manager> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where FullName like '%{keyword}%'");

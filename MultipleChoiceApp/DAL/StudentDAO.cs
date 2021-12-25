@@ -35,10 +35,7 @@ namespace MultipleChoiceApp.DAL
             dbHelper.closeConnection();
             return item;
         }
-        public List<Student> getAll(Pagination p)
-        {
-            return getAll(applyPagination(getAllSqlStr(), p));
-        }
+        
 
         public List<Student> searchByKeyWord(String keyword)
         {

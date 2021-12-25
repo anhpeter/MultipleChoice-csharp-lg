@@ -268,7 +268,7 @@ namespace MultipleChoiceApp.UserControls
             int subjectId = getFormSubjectId();
             if (subjectId > 0)
             {
-                List<Question> list = mainBUS.getAllBySubjectId(subjectId, pagination);
+                List<Question> list = mainBUS.getAllBySubjectId(subjectId, pagination.itemsPerPage, pagination.currentPage);
                 refreshList(list);
             }
         }

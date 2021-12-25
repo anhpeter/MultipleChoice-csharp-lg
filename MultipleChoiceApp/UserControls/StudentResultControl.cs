@@ -68,7 +68,7 @@ namespace MultipleChoiceApp.UserControls
         // HELPER METHODS
         private void refreshList()
         {
-            List<StudentResult> list = mainBUS.getAll(pagination);
+            List<StudentResult> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 

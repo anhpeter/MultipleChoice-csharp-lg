@@ -18,9 +18,9 @@ namespace MultipleChoiceApp.BLL
             return getMainDAO().getAllForSelectData();
         }
 
-        public List<T> getAll(Pagination p)
+        public List<T> getAll(int itemsPerPage, int currentPage)
         {
-            return getMainDAO().getAll(p);
+            return getMainDAO().getAll(itemsPerPage, currentPage);
         }
         public virtual int countAll()
         {

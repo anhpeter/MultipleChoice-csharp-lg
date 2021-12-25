@@ -68,23 +68,17 @@ namespace MultipleChoiceApp.DAL
                 ", id);
             return getAll(sqlStr);
         }
-        public List<Question> getAllBySubjectId(int id, Pagination p)
+        public List<Question> getAllBySubjectId(int id, int itemsPerPage, int currentPage)
         {
             List<Question> list = new List<Question>();
-            String sqlStr = getAllBySujectIdSqlStr(id);
+            String sqlStr = applyPagination(getAllBySujectIdSqlStr(id), itemsPerPage, currentPage);
             return getAll(sqlStr);
         }
         public List<Question> getAllBySubjectId(int id)
         {
             List<Question> list = new List<Question>();
             String sqlStr = getAllBySujectIdSqlStr(id);
-            SqlDataReader dr = dbHelper.execRead(sqlStr);
-            while (dr.Read())
-            {
-                list.Add(Question.fromDR(dr));
-            }
-            dbHelper.closeConnection();
-            return list;
+            return getAll(sqlStr);
         }
 
         public List<Question> searchByKeyWord(int id, String keyword)
