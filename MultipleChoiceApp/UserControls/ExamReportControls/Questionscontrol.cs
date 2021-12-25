@@ -1,26 +1,17 @@
-﻿using LiveCharts;
-using LiveCharts.Wpf;
-using MultipleChoiceApp.BLL;
+﻿using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.Question;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MultipleChoiceApp.UserControls.ExamReportControls
 {
     public partial class QuestionsControl : UserControl
     {
-        ExamBUS examBUS = new ExamBUS();
-        QuestionBUS questionBUS = new QuestionBUS();
+        ExamServiceSoapClient examS = new ExamServiceSoapClient();
+        QuestionServiceSoapClient questionS = new QuestionServiceSoapClient();
         ExamOverview exOverview;
         Exam exam;
         int containerWidth;
@@ -34,8 +25,8 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
             InitializeComponent();
             this.containerWidth = containerWidth;
             this.exam = exam;
-            exOverview = examBUS.getExamOverviewById(exam.Id);
-            questionList = questionBUS.getAllWithAnswerCountByExamId(exam.Id);
+            exOverview = examS.getExamOverviewById(exam.Id);
+            questionList = questionS.getAllWithAnswerCountByExamId(exam.Id);
         }
 
         private void QuestionsControl_Load(object sender, EventArgs e)

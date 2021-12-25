@@ -1,5 +1,4 @@
-﻿using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
+﻿using MultipleChoiceApp.Bi.Question;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

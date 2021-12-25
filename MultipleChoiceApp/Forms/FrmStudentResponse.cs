@@ -1,18 +1,17 @@
 ﻿using Bunifu.Framework.UI;
-using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.Subject;
+using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Bi.StudentResponse;
 using MultipleChoiceApp.Common.UtilForms;
-using MultipleChoiceApp.Models;
 using MultipleChoiceApp.UserControls.ExamReportControls;
 using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms
@@ -20,24 +19,24 @@ namespace MultipleChoiceApp.Forms
     public partial class FrmStudentResponse : Form
     {
         private bool loaded = false;
-        Exam exam;
-        Subject subject;
+        Bi.Exam.Exam exam;
+        Bi.Subject.Subject subject;
         StudentResult studentResult;
-        StudentResponseBUS studentResponseBUS = new StudentResponseBUS();
-        SubjectBUS subjectBUS = new SubjectBUS();
-        List<StudentResponse> studentResponsesList;
+        StudentResponseServiceSoapClient studentResponseS = new StudentResponseServiceSoapClient();
+        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        List<Bi.StudentResponse.StudentResponse> studentResponsesList;
         //
         int studentCount;
-        public FrmStudentResponse(Exam exam, StudentResult studentResult, int studentCount)
+        public FrmStudentResponse(Bi.Exam.Exam exam, StudentResult studentResult, int studentCount)
         {
             InitializeComponent();
             FormHelper.setFormSizeRatioOfScreen(this, 0.85);
             CenterToScreen();
             this.exam = exam;
             this.studentCount = studentCount;
-            this.subject = subjectBUS.getDetailsById(exam.SubjectId);
+            this.subject = subjectS.getDetailsById(exam.SubjectId);
             this.studentResult = studentResult;
-            studentResponsesList = studentResponseBUS.getAllByExamAndStudentId(exam.Id, studentResult.Student.Id);
+            studentResponsesList = studentResponseS.getAllByExamAndStudentId(exam.Id, studentResult.Student.Id);
         }
         // EVENTS
         private void FrmStudentResponse_Load(object sender, EventArgs e)
@@ -97,7 +96,7 @@ namespace MultipleChoiceApp.Forms
             if (loaded)
             {
                 int id = Util.parseToInt(gv_main.SelectedRows[0].Cells[0].Value.ToString());
-                StudentResponse studentResponse = studentResponsesList.Where(x => x.Id == id).FirstOrDefault();
+                Bi.StudentResponse.StudentResponse studentResponse = studentResponsesList.Where(x => x.Id == id).FirstOrDefault();
                 StudentQuestionAnswer frm = new StudentQuestionAnswer(studentResponse);
                 frm.ShowDialog();
             }

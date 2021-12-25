@@ -1,18 +1,15 @@
 ﻿using FluentValidation.Results;
-using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
+using MultipleChoiceApp.Bi.StudentResult;
 using MultipleChoiceApp.Common.Validators;
 using MultipleChoiceApp.Forms;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
@@ -20,7 +17,7 @@ namespace MultipleChoiceApp.UserControls
     public partial class StudentResultControl : UserControl, IPagination
     {
         String controlName = "Student Results";
-        StudentResultBUS mainBUS = new StudentResultBUS();
+        StudentResultServiceSoapClient mainS = new StudentResultServiceSoapClient();
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
@@ -41,7 +38,7 @@ namespace MultipleChoiceApp.UserControls
             //int id = getSelectedId();
             //if (id > -1)
             //{
-            //    formItem = mainBUS.getDetailsById(id);
+            //    formItem = mainS.getDetailsById(id);
             //    if (formItem != null)
             //    {
             //        txt_code.Text = formItem.Code.ToString();
@@ -68,7 +65,7 @@ namespace MultipleChoiceApp.UserControls
         // HELPER METHODS
         private void refreshList()
         {
-            List<StudentResult> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
+            List<StudentResult> list = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 
@@ -113,7 +110,7 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<StudentResult> list = mainBUS.searchByKeyword(txt_search.Text);
+                    List<StudentResult> list = mainS.searchByKeyword(txt_search.Text);
                     refreshList(list);
                 }
                 else
@@ -125,7 +122,7 @@ namespace MultipleChoiceApp.UserControls
         }
         public int count()
         {
-            return mainBUS.countAll();
+            return mainS.countAll();
         }
         public void onPage()
         {
@@ -136,21 +133,21 @@ namespace MultipleChoiceApp.UserControls
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                List<StudentResult> list = mainBUS.getAllForSelectData();
-                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
-                if (result)
-                {
-                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-                }
-                else
-                {
-                    MessageBox.Show(Msg.EXPORTED_FAILED);
-                }
-            }
+            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    List<StudentResult> list = mainS.getAllForSelectData();
+            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
+            //    if (result)
+            //    {
+            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(Msg.EXPORTED_FAILED);
+            //    }
+            //}
         }
 
     }

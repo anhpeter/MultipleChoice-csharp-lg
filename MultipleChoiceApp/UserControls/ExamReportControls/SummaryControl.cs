@@ -1,7 +1,6 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
-using MultipleChoiceApp.BLL;
-using MultipleChoiceApp.Models;
+using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,14 +17,14 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 {
     public partial class SummaryControl : UserControl
     {
-        ExamBUS examBUS = new ExamBUS();
+        ExamServiceSoapClient examS = new ExamServiceSoapClient();
         ExamOverview exOverview;
         Exam exam;
         public SummaryControl(Exam exam)
         {
             InitializeComponent();
             this.exam = exam;
-            exOverview = examBUS.getExamOverviewById(exam.Id);
+            exOverview = examS.getExamOverviewById(exam.Id);
         }
 
         private void SummaryControl_Load(object sender, EventArgs e)

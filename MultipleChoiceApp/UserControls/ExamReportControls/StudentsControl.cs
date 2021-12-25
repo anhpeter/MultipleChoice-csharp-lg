@@ -1,10 +1,9 @@
 ﻿using LiveCharts;
 using LiveCharts.Wpf;
-using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Forms;
-using MultipleChoiceApp.Models;
-using MultipleChoiceApp.UserControls.Utilities;
+using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.StudentResult;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +20,10 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
     public partial class StudentsControl : UserControl
     {
         private bool loaded = false;
-        StudentResultBUS studentResultBUS = new StudentResultBUS();
-        Exam exam;
+        StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
+        Bi.Exam.Exam exam;
         List<StudentResult> studentResultList;
-        public StudentsControl(Exam exam)
+        public StudentsControl(Bi.Exam.Exam exam)
         {
             InitializeComponent();
             this.exam = exam;
@@ -39,7 +38,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private void refreshList()
         {
-            List<StudentResult> list = studentResultBUS.getAllByExamId(exam.Id);
+            List<StudentResult> list = studentResultS.getAllByExamId(exam.Id);
             studentResultList = list;
             refreshList(list);
         }

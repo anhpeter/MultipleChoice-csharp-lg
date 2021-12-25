@@ -1,18 +1,10 @@
-﻿using FluentValidation.Results;
-using MultipleChoiceApp.BLL;
+﻿using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
-using MultipleChoiceApp.Common.Validators;
 using MultipleChoiceApp.Forms;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
@@ -22,7 +14,7 @@ namespace MultipleChoiceApp.UserControls
         private bool loaded = false;
         String controlName = "Student Results";
         //
-        ExamBUS examBUS = new ExamBUS();
+        ExamServiceSoapClient examS = new ExamServiceSoapClient();
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
         Boolean searchMode = false;
@@ -44,7 +36,7 @@ namespace MultipleChoiceApp.UserControls
         // HELPER METHODS
         private void refreshList()
         {
-            List<Exam> list = examBUS.getAllForReport();
+            List<Exam> list = examS.getAllForReport();
             refreshList(list);
         }
         private void refreshList(List<Exam> list)
@@ -52,9 +44,10 @@ namespace MultipleChoiceApp.UserControls
             gv_main.Rows.Clear();
             foreach (var item in list)
             {
+                String status = DateTime.Compare(DateTime.Now, item.EndAt) > 0 ? "Finished" : "Not finished";
                 gv_main.Rows.Add(new object[] {
                     item.Id, item.Name, item.StartAt,
-                    item.EndAt, item.Status, item.StudentCount
+                    item.EndAt, status, item.StudentCount
                 });
             }
             handlePagination();
@@ -124,7 +117,7 @@ namespace MultipleChoiceApp.UserControls
                 int id = getSelectedId();
                 if (id > -1)
                 {
-                    Exam item = examBUS.getDetailsById(id);
+                    Exam item = examS.getDetailsById(id);
                     if (item != null)
                     {
                         FrmExamReport frmExamReport = new FrmExamReport(item);
