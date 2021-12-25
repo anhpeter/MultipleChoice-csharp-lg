@@ -1,17 +1,12 @@
 ﻿using FluentValidation.Results;
-using MultipleChoiceApp.BLL;
+using MultipleChoiceApp.Bi.Manager;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
@@ -19,7 +14,7 @@ namespace MultipleChoiceApp.UserControls
     public partial class ManagerControl : UserControl, IPagination
     {
         String controlName = "Managers";
-        ManagerBUS mainBUS = new ManagerBUS();
+        ManagerServiceSoapClient mainS = new ManagerServiceSoapClient();
         Manager formItem;
         //
         PaginationControl paginationControl;
@@ -41,7 +36,7 @@ namespace MultipleChoiceApp.UserControls
             int id = getSelectedId();
             if (id > -1)
             {
-                formItem = mainBUS.getDetailsById(id);
+                formItem = mainS.getDetailsById(id);
                 if (formItem != null)
                 {
                     txt_code.Text = formItem.Code.ToString();
@@ -61,7 +56,7 @@ namespace MultipleChoiceApp.UserControls
             Manager question = getFormItem();
             if (handleValidation())
             {
-                bool result = mainBUS.add(question);
+                bool result = mainS.add(question);
                 if (result)
                 {
                     FormHelper.notify(Msg.INSERTED);
@@ -82,7 +77,7 @@ namespace MultipleChoiceApp.UserControls
             Manager item = getFormItem();
             if (handleValidation())
             {
-                bool result = mainBUS.update(item);
+                bool result = mainS.update(item);
                 if (result)
                 {
                     FormHelper.notify(Msg.UPDATED);
@@ -102,7 +97,7 @@ namespace MultipleChoiceApp.UserControls
             DialogResult dialogResult = FormHelper.showDeleteConfirm();
             if (dialogResult == DialogResult.Yes)
             {
-                bool result = mainBUS.delete(formItem.Id);
+                bool result = mainS.delete(formItem.Id);
                 if (result)
                 {
                     FormHelper.notify(Msg.DELETED);
@@ -124,56 +119,57 @@ namespace MultipleChoiceApp.UserControls
         // EXPORT
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                List<Manager> list = mainBUS.getAllForSelectData();
-                List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
-                if (result)
-                {
-                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-                }
-                else
-                {
-                    MessageBox.Show(Msg.EXPORTED_FAILED);
-                }
-            }
+            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    List<Manager> list = mainS.getAllForSelectData();
+            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
+            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
+            //    if (result)
+            //    {
+            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(Msg.EXPORTED_FAILED);
+            //    }
+            //}
         }
 
         // IMPORT
         private void btn_import_excel_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogResult = openfiledialog_excel.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
-                if (checkValidImportedDicList(dicList))
-                {
-                    List<Manager> list = Manager.genListByDicList(dicList);
-                    if (list != null)
-                    {
-                        // ADD TO DB
-                        int affectedRows = mainBUS.addMany(list);
-                        refreshList();
-                        MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
-                        return;
-                    }
-                }
-                else
-                {
-                    // INVALID
-                    MessageBox.Show(Msg.IMPORT_DATA_INVALID);
-                    return;
-                }
-                MessageBox.Show(Msg.IMPORTED_FAILED);
-            }
+            //DialogResult dialogResult = openfiledialog_excel.ShowDialog();
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
+            //    if (checkValidImportedDicList(dicList))
+            //    {
+            //        List<Manager> list = Manager.genListByDicList(dicList);
+            //        if (list != null)
+            //        {
+            //            // ADD TO DB
+            //            int affectedRows = mainS.addMany(list);
+            //            refreshList();
+            //            MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
+            //            return;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        // INVALID
+            //        MessageBox.Show(Msg.IMPORT_DATA_INVALID);
+            //        return;
+            //    }
+            //    MessageBox.Show(Msg.IMPORTED_FAILED);
+            //}
         }
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
         {
-            return dicList != null && dicList.Count > 0 && Manager.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+            return false;
+            //return dicList != null && dicList.Count > 0 && Manager.idDictionaryKeysValid(dicList[0].Keys.ToArray());
         }
         //
 
@@ -212,7 +208,7 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Manager> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
+            List<Manager> list = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 
@@ -270,7 +266,7 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<Manager> list = mainBUS.searchByKeyword(txt_search.Text);
+                    List<Manager> list = mainS.searchByKeyword(txt_search.Text);
                     refreshList(list);
                 }
                 else
@@ -283,7 +279,7 @@ namespace MultipleChoiceApp.UserControls
 
         public int count()
         {
-            return mainBUS.countAll();
+            return mainS.countAll();
         }
         public void onPage()
         {

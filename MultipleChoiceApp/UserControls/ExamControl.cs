@@ -1,27 +1,21 @@
 ﻿using FluentValidation.Results;
-using MultipleChoiceApp.BLL;
+using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.Subject;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
     public partial class ExamControl : UserControl,IPagination
     {
-        ExamBUS mainBUS = new ExamBUS();
-        SubjectBUS subjectBUS = new SubjectBUS();
+        ExamServiceSoapClient mainS = new ExamServiceSoapClient();
+        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
         Exam formItem;
-        List<Subject> subjectList;
+        List<Bi.Subject.Subject> subjectList;
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
@@ -47,7 +41,7 @@ namespace MultipleChoiceApp.UserControls
             int id = getSelectedId();
             if (id > -1)
             {
-                formItem = mainBUS.getDetailsById(id);
+                formItem = mainS.getDetailsById(id);
                 if (formItem != null)
                 {
                     txt_name.Text = formItem.Name.ToString();
@@ -68,7 +62,7 @@ namespace MultipleChoiceApp.UserControls
             Exam question = getFormItem();
             if (handleValidation())
             {
-                bool result = mainBUS.add(question);
+                bool result = mainS.add(question);
                 if (result)
                 {
                     FormHelper.notify(Msg.INSERTED);
@@ -89,7 +83,7 @@ namespace MultipleChoiceApp.UserControls
             Exam item = getFormItem();
             if (handleValidation())
             {
-                bool result = mainBUS.update(item);
+                bool result = mainS.update(item);
                 if (result)
                 {
                     FormHelper.notify(Msg.UPDATED);
@@ -109,7 +103,7 @@ namespace MultipleChoiceApp.UserControls
             DialogResult dialogResult = FormHelper.showDeleteConfirm();
             if (dialogResult == DialogResult.Yes)
             {
-                bool result = mainBUS.delete(formItem.Id);
+                bool result = mainS.delete(formItem.Id);
                 if (result)
                 {
                     FormHelper.notify(Msg.DELETED);
@@ -148,7 +142,8 @@ namespace MultipleChoiceApp.UserControls
         private Exam getFormItem()
         {
             // ANSWER LIST
-            Subject subject = subjectList.Find(x => x.Id == getFormSubjectId());
+            Bi.Subject.Subject subject = subjectList.Find(x => x.Id == getFormSubjectId());
+            Bi.Exam.Subject exSub = Util.cvtObj<Bi.Subject.Subject, Bi.Exam.Subject>(subject);
             Exam item = new Exam()
             {
                 Id = formItem != null ? formItem.Id : -1,
@@ -159,14 +154,14 @@ namespace MultipleChoiceApp.UserControls
                 HardQty = Util.parseToInt(txt_hard_qty.Text.ToString(), -1),
                 StartAt = Convert.ToDateTime(datepicker_start_at.Value.ToString()),
                 EndAt = Convert.ToDateTime(datepicker_end_at.Value.ToString()),
-                Subject = subject
+                Subject = exSub
             };
             return item;
         }
 
         private void refreshList()
         {
-            List<Exam> list = mainBUS.getAll(pagination.itemsPerPage, pagination.currentPage);
+            List<Exam> list = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(list);
         }
 
@@ -230,7 +225,7 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<Exam> list = mainBUS.searchByKeyword(txt_search.Text);
+                    List<Exam> list = mainS.searchByKeyword(txt_search.Text);
                     refreshList(list);
                 }
                 else
@@ -244,7 +239,7 @@ namespace MultipleChoiceApp.UserControls
         private void loadDrops()
         {
             // SUBJECTS
-            if (subjectList == null) subjectList = subjectBUS.getAllForSelectData();
+            if (subjectList == null) subjectList = subjectS.getAllForSelectData();
             if (subjectList.Count > 0)
             {
                 drop_subject.DataSource = subjectList;
@@ -262,7 +257,7 @@ namespace MultipleChoiceApp.UserControls
 
         public int count()
         {
-            return mainBUS.countAll();
+            return mainS.countAll();
         }
         public void onPage()
         {

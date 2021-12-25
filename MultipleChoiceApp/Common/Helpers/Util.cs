@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bunifu.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -123,6 +124,20 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             return Convert.ToInt32(Math.Floor(rnd.Next(max- min+1) + min * 1.0));
         }
+        public static TTarget cvtObj<TSource, TTarget>(TSource sourceItem)
+        {
+            if (null == sourceItem)
+            {
+                return default(TTarget);
+            }
+
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace, };
+
+            var serializedObject = JsonConvert.SerializeObject(sourceItem, deserializeSettings);
+
+            return JsonConvert.DeserializeObject<TTarget>(serializedObject);
+        }
+
     }
 
 }
