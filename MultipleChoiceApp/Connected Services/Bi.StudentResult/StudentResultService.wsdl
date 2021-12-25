@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/StudentResult" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/StudentResult" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/StudentResult">
+      <s:element name="isExamTaken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="studentId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isExamTakenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isExamTakenResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailByExamAndStudentId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="studentId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailByExamAndStudentIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailByExamAndStudentIdResult" type="tns:StudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StudentResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StudentId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExamId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Points" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CorrectAnswerCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncorrectAnswerCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnansweredCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rank" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="tns:Subject" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exam" type="tns:Exam" />
+          <s:element minOccurs="0" maxOccurs="1" name="Student" type="tns:Student" />
+          <s:element minOccurs="0" maxOccurs="1" name="StudentResponses" type="tns:ArrayOfStudentResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Subject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lecturer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Exam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Semester" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndAt" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EasyQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HardQty" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StudentCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="tns:Subject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Student">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:User">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Major" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStudentResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StudentResponse" nillable="true" type="tns:StudentResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StudentResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StudentResultId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Question" type="tns:Question" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerOrder" type="tns:ArrayOfInt" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnswerNO" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RandomAnswerNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="No" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Question">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Level" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Chapter" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CorrectAnswerNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lecturer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionInExamCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Answers" type="tns:ArrayOfAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Answer" nillable="true" type="tns:Answer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Answer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="No" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnswerCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getAllByExamId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllByExamIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllByExamIdResult" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStudentResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StudentResult" nillable="true" type="tns:StudentResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="searchByKeyword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchByKeywordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchByKeywordResult" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:StudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllForSelectData">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllForSelectDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllForSelectDataResult" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllResult" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="countAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countAllResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailsById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailsByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailsByIdResult" type="tns:StudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addMany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addManyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addManyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:StudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="isExamTakenSoapIn">
+    <wsdl:part name="parameters" element="tns:isExamTaken" />
+  </wsdl:message>
+  <wsdl:message name="isExamTakenSoapOut">
+    <wsdl:part name="parameters" element="tns:isExamTakenResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailByExamAndStudentIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetailByExamAndStudentId" />
+  </wsdl:message>
+  <wsdl:message name="getDetailByExamAndStudentIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailByExamAndStudentIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllByExamIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllByExamId" />
+  </wsdl:message>
+  <wsdl:message name="getAllByExamIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllByExamIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchByKeywordSoapIn">
+    <wsdl:part name="parameters" element="tns:searchByKeyword" />
+  </wsdl:message>
+  <wsdl:message name="searchByKeywordSoapOut">
+    <wsdl:part name="parameters" element="tns:searchByKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllForSelectDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllForSelectData" />
+  </wsdl:message>
+  <wsdl:message name="getAllForSelectDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllForSelectDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getAll" />
+  </wsdl:message>
+  <wsdl:message name="getAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="countAllSoapIn">
+    <wsdl:part name="parameters" element="tns:countAll" />
+  </wsdl:message>
+  <wsdl:message name="countAllSoapOut">
+    <wsdl:part name="parameters" element="tns:countAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailsByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetailsById" />
+  </wsdl:message>
+  <wsdl:message name="getDetailsByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="addManySoapIn">
+    <wsdl:part name="parameters" element="tns:addMany" />
+  </wsdl:message>
+  <wsdl:message name="addManySoapOut">
+    <wsdl:part name="parameters" element="tns:addManyResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapIn">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapOut">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapIn">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StudentResultServiceSoap">
+    <wsdl:operation name="isExamTaken">
+      <wsdl:input message="tns:isExamTakenSoapIn" />
+      <wsdl:output message="tns:isExamTakenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailByExamAndStudentId">
+      <wsdl:input message="tns:getDetailByExamAndStudentIdSoapIn" />
+      <wsdl:output message="tns:getDetailByExamAndStudentIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllByExamId">
+      <wsdl:input message="tns:getAllByExamIdSoapIn" />
+      <wsdl:output message="tns:getAllByExamIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <wsdl:input message="tns:searchByKeywordSoapIn" />
+      <wsdl:output message="tns:searchByKeywordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <wsdl:input message="tns:getAllForSelectDataSoapIn" />
+      <wsdl:output message="tns:getAllForSelectDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <wsdl:input message="tns:getAllSoapIn" />
+      <wsdl:output message="tns:getAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <wsdl:input message="tns:countAllSoapIn" />
+      <wsdl:output message="tns:countAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <wsdl:input message="tns:getDetailsByIdSoapIn" />
+      <wsdl:output message="tns:getDetailsByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <wsdl:input message="tns:addManySoapIn" />
+      <wsdl:output message="tns:addManySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateSoapIn" />
+      <wsdl:output message="tns:updateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteSoapIn" />
+      <wsdl:output message="tns:deleteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StudentResultServiceSoap" type="tns:StudentResultServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="isExamTaken">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/isExamTaken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailByExamAndStudentId">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getDetailByExamAndStudentId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllByExamId">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getAllByExamId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getAllForSelectData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/countAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getDetailsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/addMany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StudentResultServiceSoap12" type="tns:StudentResultServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="isExamTaken">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/isExamTaken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailByExamAndStudentId">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getDetailByExamAndStudentId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllByExamId">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getAllByExamId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getAllForSelectData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/countAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getDetailsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/addMany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentResultService">
+    <wsdl:port name="StudentResultServiceSoap" binding="tns:StudentResultServiceSoap">
+      <soap:address location="http://localhost:3902/Services/StudentResultService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StudentResultServiceSoap12" binding="tns:StudentResultServiceSoap12">
+      <soap12:address location="http://localhost:3902/Services/StudentResultService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
