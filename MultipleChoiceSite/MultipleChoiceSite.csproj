@@ -67,16 +67,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SL\BaseService.asmx" />
-    <Content Include="SL\QuestionService.asmx" />
+    <Content Include="Services\BaseService.asmx" />
+    <Content Include="Services\QuestionService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SL\BaseService.asmx.cs">
+    <Compile Include="Services\BaseService.asmx.cs">
       <DependentUpon>BaseService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SL\QuestionService.asmx.cs">
+    <Compile Include="Services\QuestionService.asmx.cs">
       <DependentUpon>QuestionService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>

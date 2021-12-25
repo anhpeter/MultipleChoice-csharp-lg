@@ -1,4 +1,5 @@
-﻿using MultipleChoiceSite.Common.Helpers;
+﻿using MultipleChoiceSite.Common;
+using MultipleChoiceSite.Common.Helpers;
 using MultipleChoiceSite.DAL;
 using System;
 using System.Collections.Generic;
@@ -6,12 +7,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace MultipleChoiceSite.SL
+namespace MultipleChoiceSite.Services
 {
     /// <summary>
     /// Summary description for BaseService
     /// </summary>
-    [WebService(Namespace = "http://peteranh.org/")]
+    [WebService(Namespace =Constant.ServiceNameSpace)]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

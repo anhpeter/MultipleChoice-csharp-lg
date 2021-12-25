@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceApp", "MultipleChoiceApp\MultipleChoiceApp.csproj", "{A9C2A932-0866-498D-B5A7-E18FCCC7076A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7A506D96-1666-49BD-8477-8BB73097F204} = {7A506D96-1666-49BD-8477-8BB73097F204}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceSite", "MultipleChoiceSite\MultipleChoiceSite.csproj", "{7A506D96-1666-49BD-8477-8BB73097F204}"
 EndProject

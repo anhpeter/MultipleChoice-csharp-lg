@@ -15,7 +15,7 @@ namespace MultipleChoiceApp.Bi {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://peteranh.com/Services/")]
     [System.SerializableAttribute()]
     public partial class Question : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -214,7 +214,7 @@ namespace MultipleChoiceApp.Bi {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://peteranh.com/Services/")]
     [System.SerializableAttribute()]
     public partial class Answer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -304,7 +304,7 @@ namespace MultipleChoiceApp.Bi {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Pagination", Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pagination", Namespace="http://peteranh.com/Services/")]
     [System.SerializableAttribute()]
     public partial class Pagination : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -437,95 +437,95 @@ namespace MultipleChoiceApp.Bi {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.org/", ConfigurationName="Bi.QuestionBUSSoap")]
-    public interface QuestionBUSSoap {
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.com/Services/", ConfigurationName="Bi.QuestionServiceSoap")]
+    public interface QuestionServiceSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/countBySubjectId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/countBySubjectId", ReplyAction="*")]
         int countBySubjectId(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/countBySubjectId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/countBySubjectId", ReplyAction="*")]
         System.Threading.Tasks.Task<int> countBySubjectIdAsync(int id);
         
-        // CODEGEN: Generating message contract since element name getAllWithAnswerCountByExamIdResult from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllWithAnswerCountByExamId", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name getAllWithAnswerCountByExamIdResult from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllWithAnswerCountByExamId", ReplyAction="*")]
         MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse getAllWithAnswerCountByExamId(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllWithAnswerCountByExamId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllWithAnswerCountByExamId", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse> getAllWithAnswerCountByExamIdAsync(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request);
         
-        // CODEGEN: Generating message contract since element name level from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getRandomByLevel", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name level from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getRandomByLevel", ReplyAction="*")]
         MultipleChoiceApp.Bi.getRandomByLevelResponse getRandomByLevel(MultipleChoiceApp.Bi.getRandomByLevelRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getRandomByLevel", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getRandomByLevel", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getRandomByLevelResponse> getRandomByLevelAsync(MultipleChoiceApp.Bi.getRandomByLevelRequest request);
         
-        // CODEGEN: Generating message contract since element name pagination from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllBySubjectId", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name pagination from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllBySubjectId", ReplyAction="*")]
         MultipleChoiceApp.Bi.getAllBySubjectIdResponse getAllBySubjectId(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllBySubjectId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllBySubjectId", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllBySubjectIdResponse> getAllBySubjectIdAsync(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request);
         
-        // CODEGEN: Generating message contract since element name getAllWithAnswersBySubjectIdResult from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllWithAnswersBySubjectId", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name getAllWithAnswersBySubjectIdResult from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllWithAnswersBySubjectId", ReplyAction="*")]
         MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse getAllWithAnswersBySubjectId(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAllWithAnswersBySubjectId", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAllWithAnswersBySubjectId", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse> getAllWithAnswersBySubjectIdAsync(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request);
         
-        // CODEGEN: Generating message contract since element name keyword from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/searchByKeyword", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name keyword from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/searchByKeyword", ReplyAction="*")]
         MultipleChoiceApp.Bi.searchByKeywordResponse searchByKeyword(MultipleChoiceApp.Bi.searchByKeywordRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/searchByKeyword", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/searchByKeyword", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.searchByKeywordResponse> searchByKeywordAsync(MultipleChoiceApp.Bi.searchByKeywordRequest request);
         
-        // CODEGEN: Generating message contract since element name getDetailsByIdResult from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getDetailsById", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name getDetailsByIdResult from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getDetailsById", ReplyAction="*")]
         MultipleChoiceApp.Bi.getDetailsByIdResponse getDetailsById(MultipleChoiceApp.Bi.getDetailsByIdRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getDetailsById", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getDetailsById", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getDetailsByIdResponse> getDetailsByIdAsync(MultipleChoiceApp.Bi.getDetailsByIdRequest request);
         
-        // CODEGEN: Generating message contract since element name item from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/add", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name item from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/add", ReplyAction="*")]
         MultipleChoiceApp.Bi.addResponse add(MultipleChoiceApp.Bi.addRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/add", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/add", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addResponse> addAsync(MultipleChoiceApp.Bi.addRequest request);
         
-        // CODEGEN: Generating message contract since element name list from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/addMany", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name list from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/addMany", ReplyAction="*")]
         MultipleChoiceApp.Bi.addManyResponse addMany(MultipleChoiceApp.Bi.addManyRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/addMany", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/addMany", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addManyResponse> addManyAsync(MultipleChoiceApp.Bi.addManyRequest request);
         
-        // CODEGEN: Generating message contract since element name item from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/update", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name item from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/update", ReplyAction="*")]
         MultipleChoiceApp.Bi.updateResponse update(MultipleChoiceApp.Bi.updateRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/update", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/update", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.updateResponse> updateAsync(MultipleChoiceApp.Bi.updateRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/delete", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/delete", ReplyAction="*")]
         bool delete(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/delete", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
         
-        // CODEGEN: Generating message contract since element name p from namespace http://peteranh.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAll", ReplyAction="*")]
+        // CODEGEN: Generating message contract since element name p from namespace http://peteranh.com/Services/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAll", ReplyAction="*")]
         MultipleChoiceApp.Bi.getAllResponse getAll(MultipleChoiceApp.Bi.getAllRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/getAll", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/getAll", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllResponse> getAllAsync(MultipleChoiceApp.Bi.getAllRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/countAll", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/countAll", ReplyAction="*")]
         int countAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.org/countAll", ReplyAction="*")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/countAll", ReplyAction="*")]
         System.Threading.Tasks.Task<int> countAllAsync();
     }
     
@@ -535,7 +535,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllWithAnswerCountByExamIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswerCountByExamId", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswerCountByExamId", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequestBody Body;
         
         public getAllWithAnswerCountByExamIdRequest() {
@@ -549,7 +549,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllWithAnswerCountByExamIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -569,7 +569,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllWithAnswerCountByExamIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswerCountByExamIdResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswerCountByExamIdResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponseBody Body;
         
         public getAllWithAnswerCountByExamIdResponse() {
@@ -583,7 +583,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllWithAnswerCountByExamIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -603,7 +603,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getRandomByLevelRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getRandomByLevel", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getRandomByLevel", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getRandomByLevelRequestBody Body;
         
         public getRandomByLevelRequest() {
@@ -617,7 +617,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getRandomByLevelRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -645,7 +645,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getRandomByLevelResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getRandomByLevelResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getRandomByLevelResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getRandomByLevelResponseBody Body;
         
         public getRandomByLevelResponse() {
@@ -659,7 +659,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getRandomByLevelResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -679,7 +679,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllBySubjectIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBySubjectId", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBySubjectId", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllBySubjectIdRequestBody Body;
         
         public getAllBySubjectIdRequest() {
@@ -693,7 +693,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllBySubjectIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -717,7 +717,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllBySubjectIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBySubjectIdResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBySubjectIdResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllBySubjectIdResponseBody Body;
         
         public getAllBySubjectIdResponse() {
@@ -731,7 +731,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllBySubjectIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -751,7 +751,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllWithAnswersBySubjectIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswersBySubjectId", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswersBySubjectId", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequestBody Body;
         
         public getAllWithAnswersBySubjectIdRequest() {
@@ -765,7 +765,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllWithAnswersBySubjectIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -785,7 +785,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllWithAnswersBySubjectIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswersBySubjectIdResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllWithAnswersBySubjectIdResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponseBody Body;
         
         public getAllWithAnswersBySubjectIdResponse() {
@@ -799,7 +799,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllWithAnswersBySubjectIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -819,7 +819,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class searchByKeywordRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="searchByKeyword", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="searchByKeyword", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.searchByKeywordRequestBody Body;
         
         public searchByKeywordRequest() {
@@ -833,7 +833,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class searchByKeywordRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -857,7 +857,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class searchByKeywordResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="searchByKeywordResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="searchByKeywordResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.searchByKeywordResponseBody Body;
         
         public searchByKeywordResponse() {
@@ -871,7 +871,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class searchByKeywordResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -891,7 +891,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getDetailsByIdRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getDetailsById", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getDetailsById", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getDetailsByIdRequestBody Body;
         
         public getDetailsByIdRequest() {
@@ -905,7 +905,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getDetailsByIdRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -925,7 +925,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getDetailsByIdResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getDetailsByIdResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getDetailsByIdResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getDetailsByIdResponseBody Body;
         
         public getDetailsByIdResponse() {
@@ -939,7 +939,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getDetailsByIdResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -959,7 +959,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class addRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="add", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="add", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.addRequestBody Body;
         
         public addRequest() {
@@ -973,7 +973,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class addRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -993,7 +993,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class addResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="addResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.addResponseBody Body;
         
         public addResponse() {
@@ -1007,7 +1007,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class addResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -1027,7 +1027,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class addManyRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="addMany", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addMany", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.addManyRequestBody Body;
         
         public addManyRequest() {
@@ -1041,7 +1041,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class addManyRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1061,7 +1061,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class addManyResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="addManyResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addManyResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.addManyResponseBody Body;
         
         public addManyResponse() {
@@ -1075,7 +1075,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class addManyResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -1095,7 +1095,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class updateRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="update", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="update", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.updateRequestBody Body;
         
         public updateRequest() {
@@ -1109,7 +1109,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class updateRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1129,7 +1129,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class updateResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.updateResponseBody Body;
         
         public updateResponse() {
@@ -1143,7 +1143,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class updateResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
@@ -1163,7 +1163,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAll", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAll", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllRequestBody Body;
         
         public getAllRequest() {
@@ -1177,7 +1177,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1197,7 +1197,7 @@ namespace MultipleChoiceApp.Bi {
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllResponse", Namespace="http://peteranh.org/", Order=0)]
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllResponse", Namespace="http://peteranh.com/Services/", Order=0)]
         public MultipleChoiceApp.Bi.getAllResponseBody Body;
         
         public getAllResponse() {
@@ -1211,7 +1211,7 @@ namespace MultipleChoiceApp.Bi {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.org/")]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/")]
     public partial class getAllResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
@@ -1226,29 +1226,29 @@ namespace MultipleChoiceApp.Bi {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface QuestionBUSSoapChannel : MultipleChoiceApp.Bi.QuestionBUSSoap, System.ServiceModel.IClientChannel {
+    public interface QuestionServiceSoapChannel : MultipleChoiceApp.Bi.QuestionServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class QuestionBUSSoapClient : System.ServiceModel.ClientBase<MultipleChoiceApp.Bi.QuestionBUSSoap>, MultipleChoiceApp.Bi.QuestionBUSSoap {
+    public partial class QuestionServiceSoapClient : System.ServiceModel.ClientBase<MultipleChoiceApp.Bi.QuestionServiceSoap>, MultipleChoiceApp.Bi.QuestionServiceSoap {
         
-        public QuestionBUSSoapClient() {
+        public QuestionServiceSoapClient() {
         }
         
-        public QuestionBUSSoapClient(string endpointConfigurationName) : 
+        public QuestionServiceSoapClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public QuestionBUSSoapClient(string endpointConfigurationName, string remoteAddress) : 
+        public QuestionServiceSoapClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public QuestionBUSSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public QuestionServiceSoapClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public QuestionBUSSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public QuestionServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -1261,7 +1261,7 @@ namespace MultipleChoiceApp.Bi {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getAllWithAnswerCountByExamId(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request) {
+        MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getAllWithAnswerCountByExamId(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request) {
             return base.Channel.getAllWithAnswerCountByExamId(request);
         }
         
@@ -1269,12 +1269,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest inValue = new MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequestBody();
             inValue.Body.id = id;
-            MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllWithAnswerCountByExamId(inValue);
+            MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllWithAnswerCountByExamId(inValue);
             return retVal.Body.getAllWithAnswerCountByExamIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getAllWithAnswerCountByExamIdAsync(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getAllWithAnswerCountByExamIdAsync(MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest request) {
             return base.Channel.getAllWithAnswerCountByExamIdAsync(request);
         }
         
@@ -1282,11 +1282,11 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest inValue = new MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdRequestBody();
             inValue.Body.id = id;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllWithAnswerCountByExamIdAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllWithAnswerCountByExamIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getRandomByLevelResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getRandomByLevel(MultipleChoiceApp.Bi.getRandomByLevelRequest request) {
+        MultipleChoiceApp.Bi.getRandomByLevelResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getRandomByLevel(MultipleChoiceApp.Bi.getRandomByLevelRequest request) {
             return base.Channel.getRandomByLevel(request);
         }
         
@@ -1296,12 +1296,12 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body.subjectId = subjectId;
             inValue.Body.level = level;
             inValue.Body.qty = qty;
-            MultipleChoiceApp.Bi.getRandomByLevelResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getRandomByLevel(inValue);
+            MultipleChoiceApp.Bi.getRandomByLevelResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getRandomByLevel(inValue);
             return retVal.Body.getRandomByLevelResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getRandomByLevelResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getRandomByLevelAsync(MultipleChoiceApp.Bi.getRandomByLevelRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getRandomByLevelResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getRandomByLevelAsync(MultipleChoiceApp.Bi.getRandomByLevelRequest request) {
             return base.Channel.getRandomByLevelAsync(request);
         }
         
@@ -1311,11 +1311,11 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body.subjectId = subjectId;
             inValue.Body.level = level;
             inValue.Body.qty = qty;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getRandomByLevelAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getRandomByLevelAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getAllBySubjectIdResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getAllBySubjectId(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request) {
+        MultipleChoiceApp.Bi.getAllBySubjectIdResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getAllBySubjectId(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request) {
             return base.Channel.getAllBySubjectId(request);
         }
         
@@ -1324,12 +1324,12 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body = new MultipleChoiceApp.Bi.getAllBySubjectIdRequestBody();
             inValue.Body.id = id;
             inValue.Body.pagination = pagination;
-            MultipleChoiceApp.Bi.getAllBySubjectIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllBySubjectId(inValue);
+            MultipleChoiceApp.Bi.getAllBySubjectIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllBySubjectId(inValue);
             return retVal.Body.getAllBySubjectIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllBySubjectIdResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getAllBySubjectIdAsync(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllBySubjectIdResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getAllBySubjectIdAsync(MultipleChoiceApp.Bi.getAllBySubjectIdRequest request) {
             return base.Channel.getAllBySubjectIdAsync(request);
         }
         
@@ -1338,11 +1338,11 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body = new MultipleChoiceApp.Bi.getAllBySubjectIdRequestBody();
             inValue.Body.id = id;
             inValue.Body.pagination = pagination;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllBySubjectIdAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllBySubjectIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getAllWithAnswersBySubjectId(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request) {
+        MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getAllWithAnswersBySubjectId(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request) {
             return base.Channel.getAllWithAnswersBySubjectId(request);
         }
         
@@ -1350,12 +1350,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest inValue = new MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequestBody();
             inValue.Body.id = id;
-            MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllWithAnswersBySubjectId(inValue);
+            MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllWithAnswersBySubjectId(inValue);
             return retVal.Body.getAllWithAnswersBySubjectIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getAllWithAnswersBySubjectIdAsync(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getAllWithAnswersBySubjectIdAsync(MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest request) {
             return base.Channel.getAllWithAnswersBySubjectIdAsync(request);
         }
         
@@ -1363,11 +1363,11 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest inValue = new MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdRequestBody();
             inValue.Body.id = id;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllWithAnswersBySubjectIdAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllWithAnswersBySubjectIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.searchByKeywordResponse MultipleChoiceApp.Bi.QuestionBUSSoap.searchByKeyword(MultipleChoiceApp.Bi.searchByKeywordRequest request) {
+        MultipleChoiceApp.Bi.searchByKeywordResponse MultipleChoiceApp.Bi.QuestionServiceSoap.searchByKeyword(MultipleChoiceApp.Bi.searchByKeywordRequest request) {
             return base.Channel.searchByKeyword(request);
         }
         
@@ -1376,12 +1376,12 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body = new MultipleChoiceApp.Bi.searchByKeywordRequestBody();
             inValue.Body.id = id;
             inValue.Body.keyword = keyword;
-            MultipleChoiceApp.Bi.searchByKeywordResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).searchByKeyword(inValue);
+            MultipleChoiceApp.Bi.searchByKeywordResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).searchByKeyword(inValue);
             return retVal.Body.searchByKeywordResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.searchByKeywordResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.searchByKeywordAsync(MultipleChoiceApp.Bi.searchByKeywordRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.searchByKeywordResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.searchByKeywordAsync(MultipleChoiceApp.Bi.searchByKeywordRequest request) {
             return base.Channel.searchByKeywordAsync(request);
         }
         
@@ -1390,11 +1390,11 @@ namespace MultipleChoiceApp.Bi {
             inValue.Body = new MultipleChoiceApp.Bi.searchByKeywordRequestBody();
             inValue.Body.id = id;
             inValue.Body.keyword = keyword;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).searchByKeywordAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).searchByKeywordAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getDetailsByIdResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getDetailsById(MultipleChoiceApp.Bi.getDetailsByIdRequest request) {
+        MultipleChoiceApp.Bi.getDetailsByIdResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getDetailsById(MultipleChoiceApp.Bi.getDetailsByIdRequest request) {
             return base.Channel.getDetailsById(request);
         }
         
@@ -1402,12 +1402,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getDetailsByIdRequest inValue = new MultipleChoiceApp.Bi.getDetailsByIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getDetailsByIdRequestBody();
             inValue.Body.id = id;
-            MultipleChoiceApp.Bi.getDetailsByIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getDetailsById(inValue);
+            MultipleChoiceApp.Bi.getDetailsByIdResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getDetailsById(inValue);
             return retVal.Body.getDetailsByIdResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getDetailsByIdResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getDetailsByIdAsync(MultipleChoiceApp.Bi.getDetailsByIdRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getDetailsByIdResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getDetailsByIdAsync(MultipleChoiceApp.Bi.getDetailsByIdRequest request) {
             return base.Channel.getDetailsByIdAsync(request);
         }
         
@@ -1415,11 +1415,11 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getDetailsByIdRequest inValue = new MultipleChoiceApp.Bi.getDetailsByIdRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getDetailsByIdRequestBody();
             inValue.Body.id = id;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getDetailsByIdAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getDetailsByIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.addResponse MultipleChoiceApp.Bi.QuestionBUSSoap.add(MultipleChoiceApp.Bi.addRequest request) {
+        MultipleChoiceApp.Bi.addResponse MultipleChoiceApp.Bi.QuestionServiceSoap.add(MultipleChoiceApp.Bi.addRequest request) {
             return base.Channel.add(request);
         }
         
@@ -1427,12 +1427,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.addRequest inValue = new MultipleChoiceApp.Bi.addRequest();
             inValue.Body = new MultipleChoiceApp.Bi.addRequestBody();
             inValue.Body.item = item;
-            MultipleChoiceApp.Bi.addResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).add(inValue);
+            MultipleChoiceApp.Bi.addResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).add(inValue);
             return retVal.Body.addResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.addAsync(MultipleChoiceApp.Bi.addRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.addAsync(MultipleChoiceApp.Bi.addRequest request) {
             return base.Channel.addAsync(request);
         }
         
@@ -1440,11 +1440,11 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.addRequest inValue = new MultipleChoiceApp.Bi.addRequest();
             inValue.Body = new MultipleChoiceApp.Bi.addRequestBody();
             inValue.Body.item = item;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).addAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).addAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.addManyResponse MultipleChoiceApp.Bi.QuestionBUSSoap.addMany(MultipleChoiceApp.Bi.addManyRequest request) {
+        MultipleChoiceApp.Bi.addManyResponse MultipleChoiceApp.Bi.QuestionServiceSoap.addMany(MultipleChoiceApp.Bi.addManyRequest request) {
             return base.Channel.addMany(request);
         }
         
@@ -1452,12 +1452,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.addManyRequest inValue = new MultipleChoiceApp.Bi.addManyRequest();
             inValue.Body = new MultipleChoiceApp.Bi.addManyRequestBody();
             inValue.Body.list = list;
-            MultipleChoiceApp.Bi.addManyResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).addMany(inValue);
+            MultipleChoiceApp.Bi.addManyResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).addMany(inValue);
             return retVal.Body.addManyResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addManyResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.addManyAsync(MultipleChoiceApp.Bi.addManyRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.addManyResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.addManyAsync(MultipleChoiceApp.Bi.addManyRequest request) {
             return base.Channel.addManyAsync(request);
         }
         
@@ -1465,11 +1465,11 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.addManyRequest inValue = new MultipleChoiceApp.Bi.addManyRequest();
             inValue.Body = new MultipleChoiceApp.Bi.addManyRequestBody();
             inValue.Body.list = list;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).addManyAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).addManyAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.updateResponse MultipleChoiceApp.Bi.QuestionBUSSoap.update(MultipleChoiceApp.Bi.updateRequest request) {
+        MultipleChoiceApp.Bi.updateResponse MultipleChoiceApp.Bi.QuestionServiceSoap.update(MultipleChoiceApp.Bi.updateRequest request) {
             return base.Channel.update(request);
         }
         
@@ -1477,12 +1477,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.updateRequest inValue = new MultipleChoiceApp.Bi.updateRequest();
             inValue.Body = new MultipleChoiceApp.Bi.updateRequestBody();
             inValue.Body.item = item;
-            MultipleChoiceApp.Bi.updateResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).update(inValue);
+            MultipleChoiceApp.Bi.updateResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).update(inValue);
             return retVal.Body.updateResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.updateResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.updateAsync(MultipleChoiceApp.Bi.updateRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.updateResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.updateAsync(MultipleChoiceApp.Bi.updateRequest request) {
             return base.Channel.updateAsync(request);
         }
         
@@ -1490,7 +1490,7 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.updateRequest inValue = new MultipleChoiceApp.Bi.updateRequest();
             inValue.Body = new MultipleChoiceApp.Bi.updateRequestBody();
             inValue.Body.item = item;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).updateAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).updateAsync(inValue);
         }
         
         public bool delete(int id) {
@@ -1502,7 +1502,7 @@ namespace MultipleChoiceApp.Bi {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        MultipleChoiceApp.Bi.getAllResponse MultipleChoiceApp.Bi.QuestionBUSSoap.getAll(MultipleChoiceApp.Bi.getAllRequest request) {
+        MultipleChoiceApp.Bi.getAllResponse MultipleChoiceApp.Bi.QuestionServiceSoap.getAll(MultipleChoiceApp.Bi.getAllRequest request) {
             return base.Channel.getAll(request);
         }
         
@@ -1510,12 +1510,12 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllRequest inValue = new MultipleChoiceApp.Bi.getAllRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllRequestBody();
             inValue.Body.p = p;
-            MultipleChoiceApp.Bi.getAllResponse retVal = ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAll(inValue);
+            MultipleChoiceApp.Bi.getAllResponse retVal = ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAll(inValue);
             return retVal.Body.getAllResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllResponse> MultipleChoiceApp.Bi.QuestionBUSSoap.getAllAsync(MultipleChoiceApp.Bi.getAllRequest request) {
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.getAllResponse> MultipleChoiceApp.Bi.QuestionServiceSoap.getAllAsync(MultipleChoiceApp.Bi.getAllRequest request) {
             return base.Channel.getAllAsync(request);
         }
         
@@ -1523,7 +1523,7 @@ namespace MultipleChoiceApp.Bi {
             MultipleChoiceApp.Bi.getAllRequest inValue = new MultipleChoiceApp.Bi.getAllRequest();
             inValue.Body = new MultipleChoiceApp.Bi.getAllRequestBody();
             inValue.Body.p = p;
-            return ((MultipleChoiceApp.Bi.QuestionBUSSoap)(this)).getAllAsync(inValue);
+            return ((MultipleChoiceApp.Bi.QuestionServiceSoap)(this)).getAllAsync(inValue);
         }
         
         public int countAll() {

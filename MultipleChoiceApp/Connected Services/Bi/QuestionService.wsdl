@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/">
       <s:element name="countBySubjectId">
         <s:complexType>
           <s:sequence>
@@ -308,7 +308,7 @@
   <wsdl:message name="countAllSoapOut">
     <wsdl:part name="parameters" element="tns:countAllResponse" />
   </wsdl:message>
-  <wsdl:portType name="QuestionBUSSoap">
+  <wsdl:portType name="QuestionServiceSoap">
     <wsdl:operation name="countBySubjectId">
       <wsdl:input message="tns:countBySubjectIdSoapIn" />
       <wsdl:output message="tns:countBySubjectIdSoapOut" />
@@ -362,10 +362,10 @@
       <wsdl:output message="tns:countAllSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="QuestionBUSSoap" type="tns:QuestionBUSSoap">
+  <wsdl:binding name="QuestionServiceSoap" type="tns:QuestionServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="countBySubjectId">
-      <soap:operation soapAction="http://peteranh.org/countBySubjectId" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/countBySubjectId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -374,7 +374,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllWithAnswerCountByExamId">
-      <soap:operation soapAction="http://peteranh.org/getAllWithAnswerCountByExamId" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getAllWithAnswerCountByExamId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -383,7 +383,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getRandomByLevel">
-      <soap:operation soapAction="http://peteranh.org/getRandomByLevel" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getRandomByLevel" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -392,7 +392,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllBySubjectId">
-      <soap:operation soapAction="http://peteranh.org/getAllBySubjectId" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getAllBySubjectId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -401,7 +401,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllWithAnswersBySubjectId">
-      <soap:operation soapAction="http://peteranh.org/getAllWithAnswersBySubjectId" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getAllWithAnswersBySubjectId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -410,7 +410,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
-      <soap:operation soapAction="http://peteranh.org/searchByKeyword" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/searchByKeyword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -419,7 +419,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getDetailsById">
-      <soap:operation soapAction="http://peteranh.org/getDetailsById" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getDetailsById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -428,7 +428,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="add">
-      <soap:operation soapAction="http://peteranh.org/add" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/add" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -437,7 +437,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addMany">
-      <soap:operation soapAction="http://peteranh.org/addMany" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/addMany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -446,7 +446,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="update">
-      <soap:operation soapAction="http://peteranh.org/update" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -455,7 +455,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delete">
-      <soap:operation soapAction="http://peteranh.org/delete" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/delete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -464,7 +464,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAll">
-      <soap:operation soapAction="http://peteranh.org/getAll" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/getAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -473,7 +473,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="countAll">
-      <soap:operation soapAction="http://peteranh.org/countAll" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/countAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -482,10 +482,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="QuestionBUSSoap12" type="tns:QuestionBUSSoap">
+  <wsdl:binding name="QuestionServiceSoap12" type="tns:QuestionServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="countBySubjectId">
-      <soap12:operation soapAction="http://peteranh.org/countBySubjectId" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/countBySubjectId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -494,7 +494,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllWithAnswerCountByExamId">
-      <soap12:operation soapAction="http://peteranh.org/getAllWithAnswerCountByExamId" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllWithAnswerCountByExamId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -503,7 +503,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getRandomByLevel">
-      <soap12:operation soapAction="http://peteranh.org/getRandomByLevel" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getRandomByLevel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -512,7 +512,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllBySubjectId">
-      <soap12:operation soapAction="http://peteranh.org/getAllBySubjectId" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllBySubjectId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -521,7 +521,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllWithAnswersBySubjectId">
-      <soap12:operation soapAction="http://peteranh.org/getAllWithAnswersBySubjectId" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllWithAnswersBySubjectId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -530,7 +530,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
-      <soap12:operation soapAction="http://peteranh.org/searchByKeyword" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/searchByKeyword" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -539,7 +539,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getDetailsById">
-      <soap12:operation soapAction="http://peteranh.org/getDetailsById" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getDetailsById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -548,7 +548,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="add">
-      <soap12:operation soapAction="http://peteranh.org/add" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/add" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -557,7 +557,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addMany">
-      <soap12:operation soapAction="http://peteranh.org/addMany" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/addMany" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -566,7 +566,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="update">
-      <soap12:operation soapAction="http://peteranh.org/update" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/update" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -575,7 +575,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delete">
-      <soap12:operation soapAction="http://peteranh.org/delete" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/delete" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -584,7 +584,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAll">
-      <soap12:operation soapAction="http://peteranh.org/getAll" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/getAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -593,7 +593,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="countAll">
-      <soap12:operation soapAction="http://peteranh.org/countAll" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/countAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -602,12 +602,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="QuestionBUS">
-    <wsdl:port name="QuestionBUSSoap" binding="tns:QuestionBUSSoap">
-      <soap:address location="http://localhost:3902/BLL/QuestionBUS.asmx" />
+  <wsdl:service name="QuestionService">
+    <wsdl:port name="QuestionServiceSoap" binding="tns:QuestionServiceSoap">
+      <soap:address location="http://localhost:3902/Services/QuestionService.asmx" />
     </wsdl:port>
-    <wsdl:port name="QuestionBUSSoap12" binding="tns:QuestionBUSSoap12">
-      <soap12:address location="http://localhost:3902/BLL/QuestionBUS.asmx" />
+    <wsdl:port name="QuestionServiceSoap12" binding="tns:QuestionServiceSoap12">
+      <soap12:address location="http://localhost:3902/Services/QuestionService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
