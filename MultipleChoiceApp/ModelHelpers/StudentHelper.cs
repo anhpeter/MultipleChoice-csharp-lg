@@ -1,14 +1,12 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Bi.Student;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.ModelHelpers
 {
-    public class Student : User
+    public class StudentHelper 
     {
         public String Major { get; set; }
         public static Student fromDR(SqlDataReader dr)
@@ -26,16 +24,16 @@ namespace MultipleChoiceApp.ModelHelpers
             return item;
         }
         //
-        public Dictionary<String, String> toDictionary()
+        public Dictionary<String, String> toDictionary(Student item)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
-            dic.Add("Id", this.Id + "");
-            dic.Add("Code", this.Code);
-            dic.Add("Full Name", this.FullName);
-            dic.Add("Address", this.Address);
-            dic.Add("Day Of Birth", Util.toSqlFormattedDate(this.DOB));
-            dic.Add("Major", this.Major);
-            dic.Add("Password", this.Password);
+            dic.Add("Id", item.Id + "");
+            dic.Add("Code", item.Code);
+            dic.Add("Full Name", item.FullName);
+            dic.Add("Address", item.Address);
+            dic.Add("Day Of Birth", Util.toSqlFormattedDate(item.DOB));
+            dic.Add("Major", item.Major);
+            dic.Add("Password", item.Password);
             return dic;
         }
         public static Student fromDictionary(Dictionary<String, String> dic)
@@ -62,7 +60,7 @@ namespace MultipleChoiceApp.ModelHelpers
             List<Student> list = new List<Student>();
             foreach (var dic in dicList)
             {
-                Student item = Student.fromDictionary(dic);
+                Student item = StudentHelper.fromDictionary(dic);
                 list.Add(item);
             }
             return list;

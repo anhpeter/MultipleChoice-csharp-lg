@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.Common.Helpers;
+﻿using MultipleChoiceApp.Bi.Subject;
+using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -8,38 +9,17 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.ModelHelpers
 {
-    public class Subject
+    public class SubjectHelper
     {
-        public int Id { get; set; }
-        public String Code { get; set; }
-        public String Name { get; set; }
-        public int TotalQuestion { get; set; }
-        public int Duration { get; set; }
-        public String Lecturer { get; set; }
-        //
-        public static Subject fromDR(SqlDataReader dr)
-        {
-            Subject item = new Subject()
-            {
-                Id = Util.parseToInt(Util.getDrValue(dr, "Id"), -1),
-                Code = Util.getDrValue(dr, "Code"),
-                Name = Util.getDrValue(dr, "Name"),
-                Lecturer = Util.getDrValue(dr, "Lecturer"),
-                TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), -1),
-                Duration = Util.parseToInt(Util.getDrValue(dr, "Duration"), -1),
-            };
-            return item;
-        }
-        //
-        public Dictionary<String, String> toDictionary()
+        public Dictionary<String, String> toDictionary(Subject item)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
-            dic.Add("Id", this.Id + "");
-            dic.Add("Code", this.Code);
-            dic.Add("Subject Name", Name);
-            dic.Add("Lecturer", Lecturer);
-            dic.Add("Total Question", TotalQuestion + "");
-            dic.Add("Duration", Duration + "");
+            dic.Add("Id", item.Id + "");
+            dic.Add("Code", item.Code);
+            dic.Add("Subject Name", item.Name);
+            dic.Add("Lecturer", item.Lecturer);
+            dic.Add("Total Question", item.TotalQuestion + "");
+            dic.Add("Duration", item.Duration + "");
             return dic;
         }
         public static Subject fromDictionary(Dictionary<String, String> dic)
@@ -64,7 +44,7 @@ namespace MultipleChoiceApp.ModelHelpers
             List<Subject> list = new List<Subject>();
             foreach (var dic in dicList)
             {
-                Subject item = Subject.fromDictionary(dic);
+                Subject item = SubjectHelper.fromDictionary(dic);
                 list.Add(item);
             }
             return list;

@@ -140,18 +140,14 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelHelpers\Answer.cs" />
-    <Compile Include="ModelHelpers\Exam.cs" />
-    <Compile Include="ModelHelpers\ExamOverview.cs" />
     <Compile Include="ModelHelpers\ExamReport.cs" />
-    <Compile Include="ModelHelpers\Manager.cs" />
-    <Compile Include="ModelHelpers\Question.cs" />
-    <Compile Include="ModelHelpers\Student.cs" />
-    <Compile Include="ModelHelpers\StudentResponse.cs" />
-    <Compile Include="ModelHelpers\StudentResult.cs" />
+    <Compile Include="ModelHelpers\ManagerHelper.cs" />
+    <Compile Include="ModelHelpers\QuestionHelper.cs" />
+    <Compile Include="ModelHelpers\StudentHelper.cs" />
+    <Compile Include="ModelHelpers\StudentResponseHelper.cs" />
+    <Compile Include="ModelHelpers\StudentResultHelper.cs" />
     <Compile Include="ModelHelpers\StudentResultReport.cs" />
-    <Compile Include="ModelHelpers\Subject.cs" />
-    <Compile Include="ModelHelpers\User.cs" />
+    <Compile Include="ModelHelpers\SubjectHelper.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\Helpers\Auth.cs" />
     <Compile Include="Common\Helpers\Msg.cs" />

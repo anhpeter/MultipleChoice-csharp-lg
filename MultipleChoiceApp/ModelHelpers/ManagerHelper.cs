@@ -1,17 +1,13 @@
 ﻿using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Bi.Manager;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.ModelHelpers
 {
-    public class Manager:User
+    public class ManagerHelper
     {
-        public String PhoneNumber { get; set; }
-        public String Position { get; set; }
         public static Manager fromDR(SqlDataReader dr)
         {
             Manager item = new Manager()
@@ -29,17 +25,17 @@ namespace MultipleChoiceApp.ModelHelpers
         }
 
         //
-        public Dictionary<String, String> toDictionary()
+        public Dictionary<String, String> toDictionary(Manager manager)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
-            dic.Add("Id", this.Id + "");
-            dic.Add("Code", this.Code);
-            dic.Add("Full Name", this.FullName);
-            dic.Add("Address", this.Address);
-            dic.Add("Day Of Birth", Util.toSqlFormattedDate(this.DOB));
-            dic.Add("Password", this.Password);
-            dic.Add("Phone Number", this.PhoneNumber);
-            dic.Add("Position", this.Position);
+            dic.Add("Id", manager.Id + "");
+            dic.Add("Code", manager.Code);
+            dic.Add("Full Name", manager.FullName);
+            dic.Add("Address", manager.Address);
+            dic.Add("Day Of Birth", Util.toSqlFormattedDate(manager.DOB));
+            dic.Add("Password", manager.Password);
+            dic.Add("Phone Number", manager.PhoneNumber);
+            dic.Add("Position", manager.Position);
             return dic;
         }
         public static Manager fromDictionary(Dictionary<String, String> dic)
@@ -67,7 +63,7 @@ namespace MultipleChoiceApp.ModelHelpers
             List<Manager> list = new List<Manager>();
             foreach (var dic in dicList)
             {
-                Manager item = Manager.fromDictionary(dic);
+                Manager item = ManagerHelper.fromDictionary(dic);
                 list.Add(item);
             }
             return list;
