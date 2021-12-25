@@ -164,6 +164,11 @@
     <Compile Include="Common\UtilForms\StudentQuestionAnswer.Designer.cs">
       <DependentUpon>StudentQuestionAnswer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\Bi\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="DAL\StudentResultDAO.cs" />
     <Compile Include="DAL\StudentResponseDAO.cs" />
     <Compile Include="Forms\FrmReportStudentByExam.cs">
@@ -425,6 +430,40 @@
     <EmbeddedResource Include="UserControls\Utilities\QuestionStatistic.resx">
       <DependentUpon>QuestionStatistic.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addManyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllBySubjectIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getDetailsByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getRandomByLevelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.Question.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.searchByKeywordResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.updateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi\QuestionService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.Answer.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.Exam.datasource" />
@@ -489,6 +528,13 @@
     <None Include="Resources\incorrect.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\Bi\QuestionService.disco" />
+    <None Include="Connected Services\Bi\configuration91.svcinfo" />
+    <None Include="Connected Services\Bi\configuration.svcinfo" />
+    <None Include="Connected Services\Bi\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -505,6 +551,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Bi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

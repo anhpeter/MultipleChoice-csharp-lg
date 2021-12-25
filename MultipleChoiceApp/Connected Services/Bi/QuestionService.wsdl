@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/">
+      <s:element name="countBySubjectId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countBySubjectIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countBySubjectIdResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllWithAnswerCountByExamId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllWithAnswerCountByExamIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllWithAnswerCountByExamIdResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfQuestion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Question" nillable="true" type="tns:Question" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Question">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SubjectId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubjectCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Level" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Chapter" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CorrectAnswerNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedAt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lecturer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionInExamCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Answers" type="tns:ArrayOfAnswer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnswer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Answer" nillable="true" type="tns:Answer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Answer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuestionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="No" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnswerCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRandomByLevel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="subjectId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="level" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qty" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRandomByLevelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRandomByLevelResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllBySubjectId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="itemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllBySubjectIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllBySubjectIdResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllWithAnswersBySubjectId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllWithAnswersBySubjectIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllWithAnswersBySubjectIdResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchByKeyword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="keyword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchByKeywordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchByKeywordResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailsById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDetailsByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailsByIdResult" type="tns:Question" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Question" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addMany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addManyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addManyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Question" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="updateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="deleteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="itemsPerPage" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentPage" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="countAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="countAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="countAllResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="countBySubjectIdSoapIn">
+    <wsdl:part name="parameters" element="tns:countBySubjectId" />
+  </wsdl:message>
+  <wsdl:message name="countBySubjectIdSoapOut">
+    <wsdl:part name="parameters" element="tns:countBySubjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllWithAnswerCountByExamIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllWithAnswerCountByExamId" />
+  </wsdl:message>
+  <wsdl:message name="getAllWithAnswerCountByExamIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllWithAnswerCountByExamIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRandomByLevelSoapIn">
+    <wsdl:part name="parameters" element="tns:getRandomByLevel" />
+  </wsdl:message>
+  <wsdl:message name="getRandomByLevelSoapOut">
+    <wsdl:part name="parameters" element="tns:getRandomByLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllBySubjectIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllBySubjectId" />
+  </wsdl:message>
+  <wsdl:message name="getAllBySubjectIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllBySubjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllWithAnswersBySubjectIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllWithAnswersBySubjectId" />
+  </wsdl:message>
+  <wsdl:message name="getAllWithAnswersBySubjectIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllWithAnswersBySubjectIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchByKeywordSoapIn">
+    <wsdl:part name="parameters" element="tns:searchByKeyword" />
+  </wsdl:message>
+  <wsdl:message name="searchByKeywordSoapOut">
+    <wsdl:part name="parameters" element="tns:searchByKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDetailsByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getDetailsById" />
+  </wsdl:message>
+  <wsdl:message name="getDetailsByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getDetailsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="addSoapIn">
+    <wsdl:part name="parameters" element="tns:add" />
+  </wsdl:message>
+  <wsdl:message name="addSoapOut">
+    <wsdl:part name="parameters" element="tns:addResponse" />
+  </wsdl:message>
+  <wsdl:message name="addManySoapIn">
+    <wsdl:part name="parameters" element="tns:addMany" />
+  </wsdl:message>
+  <wsdl:message name="addManySoapOut">
+    <wsdl:part name="parameters" element="tns:addManyResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapIn">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="updateSoapOut">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapIn">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="deleteSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllSoapIn">
+    <wsdl:part name="parameters" element="tns:getAll" />
+  </wsdl:message>
+  <wsdl:message name="getAllSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="countAllSoapIn">
+    <wsdl:part name="parameters" element="tns:countAll" />
+  </wsdl:message>
+  <wsdl:message name="countAllSoapOut">
+    <wsdl:part name="parameters" element="tns:countAllResponse" />
+  </wsdl:message>
+  <wsdl:portType name="QuestionServiceSoap">
+    <wsdl:operation name="countBySubjectId">
+      <wsdl:input message="tns:countBySubjectIdSoapIn" />
+      <wsdl:output message="tns:countBySubjectIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswerCountByExamId">
+      <wsdl:input message="tns:getAllWithAnswerCountByExamIdSoapIn" />
+      <wsdl:output message="tns:getAllWithAnswerCountByExamIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRandomByLevel">
+      <wsdl:input message="tns:getRandomByLevelSoapIn" />
+      <wsdl:output message="tns:getRandomByLevelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBySubjectId">
+      <wsdl:input message="tns:getAllBySubjectIdSoapIn" />
+      <wsdl:output message="tns:getAllBySubjectIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswersBySubjectId">
+      <wsdl:input message="tns:getAllWithAnswersBySubjectIdSoapIn" />
+      <wsdl:output message="tns:getAllWithAnswersBySubjectIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <wsdl:input message="tns:searchByKeywordSoapIn" />
+      <wsdl:output message="tns:searchByKeywordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <wsdl:input message="tns:getDetailsByIdSoapIn" />
+      <wsdl:output message="tns:getDetailsByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <wsdl:input message="tns:addSoapIn" />
+      <wsdl:output message="tns:addSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <wsdl:input message="tns:addManySoapIn" />
+      <wsdl:output message="tns:addManySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input message="tns:updateSoapIn" />
+      <wsdl:output message="tns:updateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:deleteSoapIn" />
+      <wsdl:output message="tns:deleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <wsdl:input message="tns:getAllSoapIn" />
+      <wsdl:output message="tns:getAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <wsdl:input message="tns:countAllSoapIn" />
+      <wsdl:output message="tns:countAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="QuestionServiceSoap" type="tns:QuestionServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="countBySubjectId">
+      <soap:operation soapAction="http://peteranh.com/Services/countBySubjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswerCountByExamId">
+      <soap:operation soapAction="http://peteranh.com/Services/getAllWithAnswerCountByExamId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRandomByLevel">
+      <soap:operation soapAction="http://peteranh.com/Services/getRandomByLevel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBySubjectId">
+      <soap:operation soapAction="http://peteranh.com/Services/getAllBySubjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswersBySubjectId">
+      <soap:operation soapAction="http://peteranh.com/Services/getAllWithAnswersBySubjectId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <soap:operation soapAction="http://peteranh.com/Services/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <soap:operation soapAction="http://peteranh.com/Services/getDetailsById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap:operation soapAction="http://peteranh.com/Services/add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <soap:operation soapAction="http://peteranh.com/Services/addMany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="http://peteranh.com/Services/update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="http://peteranh.com/Services/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap:operation soapAction="http://peteranh.com/Services/getAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <soap:operation soapAction="http://peteranh.com/Services/countAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="QuestionServiceSoap12" type="tns:QuestionServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="countBySubjectId">
+      <soap12:operation soapAction="http://peteranh.com/Services/countBySubjectId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswerCountByExamId">
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllWithAnswerCountByExamId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRandomByLevel">
+      <soap12:operation soapAction="http://peteranh.com/Services/getRandomByLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBySubjectId">
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllBySubjectId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllWithAnswersBySubjectId">
+      <soap12:operation soapAction="http://peteranh.com/Services/getAllWithAnswersBySubjectId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchByKeyword">
+      <soap12:operation soapAction="http://peteranh.com/Services/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDetailsById">
+      <soap12:operation soapAction="http://peteranh.com/Services/getDetailsById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="add">
+      <soap12:operation soapAction="http://peteranh.com/Services/add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMany">
+      <soap12:operation soapAction="http://peteranh.com/Services/addMany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap12:operation soapAction="http://peteranh.com/Services/update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap12:operation soapAction="http://peteranh.com/Services/delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap12:operation soapAction="http://peteranh.com/Services/getAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="countAll">
+      <soap12:operation soapAction="http://peteranh.com/Services/countAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="QuestionService">
+    <wsdl:port name="QuestionServiceSoap" binding="tns:QuestionServiceSoap">
+      <soap:address location="http://localhost:3902/Services/QuestionService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="QuestionServiceSoap12" binding="tns:QuestionServiceSoap12">
+      <soap12:address location="http://localhost:3902/Services/QuestionService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

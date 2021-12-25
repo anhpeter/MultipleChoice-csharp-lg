@@ -68,7 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Services\BaseService.asmx" />
+    <Content Include="Services\ExamService.asmx" />
+    <Content Include="Services\ManagerService.asmx" />
     <Content Include="Services\QuestionService.asmx" />
+    <Content Include="Services\StudentResponseService.asmx" />
+    <Content Include="Services\StudentResultService.asmx" />
+    <Content Include="Services\StudentService.asmx" />
+    <Content Include="Services\SubjectService.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +103,14 @@
       <DependentUpon>BaseService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Services\ExamService.asmx.cs">
+      <DependentUpon>ExamService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\ManagerService.asmx.cs">
+      <DependentUpon>ManagerService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Services\QuestionService.asmx.cs">
       <DependentUpon>QuestionService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -109,6 +123,22 @@
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\StudentResponseService.asmx.cs">
+      <DependentUpon>StudentResponseService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\StudentResultService.asmx.cs">
+      <DependentUpon>StudentResultService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\StudentService.asmx.cs">
+      <DependentUpon>StudentService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\SubjectService.asmx.cs">
+      <DependentUpon>SubjectService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
