@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using MultipleChoiceApp.ModelHelpers;
 
 namespace MultipleChoiceApp.UserControls
 {
@@ -133,21 +134,21 @@ namespace MultipleChoiceApp.UserControls
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
 
-            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            //if (dialogResult == DialogResult.OK)
-            //{
-            //    List<StudentResult> list = mainS.getAllForSelectData();
-            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName,controlName);
-            //    if (result)
-            //    {
-            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(Msg.EXPORTED_FAILED);
-            //    }
-            //}
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<StudentResult> list = mainS.getAllForSelectData();
+                List<Dictionary<String, String>> dicList = list.Select(x => StudentResultHelper.toDictionary(x)).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
         }
 
     }

@@ -33,7 +33,6 @@ namespace MultipleChoiceApp
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_nav = new System.Windows.Forms.Panel();
-            this.btn_test = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_exit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_exam = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_result = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -86,7 +85,6 @@ namespace MultipleChoiceApp
             // 
             // pnl_nav
             // 
-            this.pnl_nav.Controls.Add(this.btn_test);
             this.pnl_nav.Controls.Add(this.btn_exit);
             this.pnl_nav.Controls.Add(this.btn_exam);
             this.pnl_nav.Controls.Add(this.btn_result);
@@ -100,45 +98,6 @@ namespace MultipleChoiceApp
             this.pnl_nav.Name = "pnl_nav";
             this.pnl_nav.Size = new System.Drawing.Size(285, 439);
             this.pnl_nav.TabIndex = 1;
-            // 
-            // btn_test
-            // 
-            this.btn_test.Active = false;
-            this.btn_test.Activecolor = System.Drawing.Color.White;
-            this.btn_test.BackColor = System.Drawing.Color.White;
-            this.btn_test.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_test.BorderRadius = 0;
-            this.btn_test.ButtonText = "Test";
-            this.btn_test.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_test.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_test.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_test.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_test.Iconimage = global::MultipleChoiceApp.Properties.Resources.Exit1;
-            this.btn_test.Iconimage_right = null;
-            this.btn_test.Iconimage_right_Selected = null;
-            this.btn_test.Iconimage_Selected = null;
-            this.btn_test.IconMarginLeft = 30;
-            this.btn_test.IconMarginRight = 0;
-            this.btn_test.IconRightVisible = true;
-            this.btn_test.IconRightZoom = 0D;
-            this.btn_test.IconVisible = true;
-            this.btn_test.IconZoom = 70D;
-            this.btn_test.IsTab = false;
-            this.btn_test.Location = new System.Drawing.Point(0, 399);
-            this.btn_test.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
-            this.btn_test.Name = "btn_test";
-            this.btn_test.Normalcolor = System.Drawing.Color.White;
-            this.btn_test.OnHovercolor = System.Drawing.Color.White;
-            this.btn_test.OnHoverTextColor = System.Drawing.Color.DimGray;
-            this.btn_test.selected = false;
-            this.btn_test.Size = new System.Drawing.Size(285, 57);
-            this.btn_test.TabIndex = 10;
-            this.btn_test.Tag = "Exit";
-            this.btn_test.Text = "Test";
-            this.btn_test.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_test.Textcolor = System.Drawing.Color.DimGray;
-            this.btn_test.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_test.Click += new System.EventHandler(this.btn_test_Click);
             // 
             // btn_exit
             // 
@@ -535,7 +494,6 @@ namespace MultipleChoiceApp
         private Bunifu.Framework.UI.BunifuFlatButton btn_manager;
         private Bunifu.Framework.UI.BunifuFlatButton btn_student;
         private Bunifu.Framework.UI.BunifuFlatButton btn_exit;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_test;
     }
 }
 

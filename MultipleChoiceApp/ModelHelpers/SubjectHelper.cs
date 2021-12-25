@@ -11,7 +11,7 @@ namespace MultipleChoiceApp.ModelHelpers
 {
     public class SubjectHelper
     {
-        public Dictionary<String, String> toDictionary(Subject item)
+        public static Dictionary<String, String> toDictionary(Subject item)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
             dic.Add("Id", item.Id + "");

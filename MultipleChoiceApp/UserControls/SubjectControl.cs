@@ -3,6 +3,7 @@ using MultipleChoiceApp.Bi.Subject;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -124,57 +125,56 @@ namespace MultipleChoiceApp.UserControls
         // EXPORT
         private void btn_export_excel_Click(object sender, EventArgs e)
         {
-            //DialogResult dialogResult = savefiledialog_excel.ShowDialog();
-            //if (dialogResult == DialogResult.OK)
-            //{
-            //    List<Subject> list = mainS.getAllForSelectData();
-            //    List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
-            //    bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
-            //    if (result)
-            //    {
-            //        MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(Msg.EXPORTED_FAILED);
-            //    }
-            //}
+            DialogResult dialogResult = savefiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Subject> list = mainS.getAllForSelectData();
+                List<Dictionary<String, String>> dicList = list.Select(x => SubjectHelper.toDictionary(x)).ToList();
+                bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
+                if (result)
+                {
+                    MessageBox.Show(string.Format(Msg.EXPORTED, list.Count));
+                }
+                else
+                {
+                    MessageBox.Show(Msg.EXPORTED_FAILED);
+                }
+            }
         }
 
         // IMPORT
         private void btn_import_excel_Click(object sender, EventArgs e)
         {
 
-            //DialogResult dialogResult = openfiledialog_excel.ShowDialog();
-            //if (dialogResult == DialogResult.OK)
-            //{
-            //    List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
-            //    if (checkValidImportedDicList(dicList))
-            //    {
-            //        List<Subject> list = Subject.genListByDicList(dicList);
-            //        if (list != null)
-            //        {
-            //            // ADD TO DB
-            //            int affectedRows = mainS.addMany(list);
-            //            refreshList();
-            //            MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
-            //            return;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        // INVALID
-            //        MessageBox.Show(Msg.IMPORT_DATA_INVALID);
-            //        return;
-            //    }
-            //    MessageBox.Show(Msg.IMPORTED_FAILED);
-            //}
+            DialogResult dialogResult = openfiledialog_excel.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                List<Dictionary<String, String>> dicList = FormHelper.readEx(openfiledialog_excel.FileName);
+                if (checkValidImportedDicList(dicList))
+                {
+                    List<Subject> list = SubjectHelper.genListByDicList(dicList);
+                    if (list != null)
+                    {
+                        // ADD TO DB
+                        int affectedRows = mainS.addMany(list);
+                        refreshList();
+                        MessageBox.Show(string.Format(Msg.IMPORTED, affectedRows));
+                        return;
+                    }
+                }
+                else
+                {
+                    // INVALID
+                    MessageBox.Show(Msg.IMPORT_DATA_INVALID);
+                    return;
+                }
+                MessageBox.Show(Msg.IMPORTED_FAILED);
+            }
         }
 
         private bool checkValidImportedDicList(List<Dictionary<String, String>> dicList)
         {
-            return false;
-            //return dicList != null && dicList.Count > 0 && Subject.idDictionaryKeysValid(dicList[0].Keys.ToArray());
+            return dicList != null && dicList.Count > 0 && SubjectHelper.idDictionaryKeysValid(dicList[0].Keys.ToArray());
         }
         //
 

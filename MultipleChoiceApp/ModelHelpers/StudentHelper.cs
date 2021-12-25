@@ -24,7 +24,7 @@ namespace MultipleChoiceApp.ModelHelpers
             return item;
         }
         //
-        public Dictionary<String, String> toDictionary(Student item)
+        public static Dictionary<String, String> toDictionary(Student item)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
             dic.Add("Id", item.Id + "");

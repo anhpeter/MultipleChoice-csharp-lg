@@ -25,7 +25,7 @@ namespace MultipleChoiceApp.ModelHelpers
         }
 
         //
-        public Dictionary<String, String> toDictionary(Manager manager)
+        public static Dictionary<String, String> toDictionary(Manager manager)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();
             dic.Add("Id", manager.Id + "");
