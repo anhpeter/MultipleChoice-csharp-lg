@@ -23,6 +23,7 @@ namespace MultipleChoiceSite.Services
         public abstract BaseDAO<T> getMainDAO();
 
         //FETCHES
+        [WebMethod]
         public List<T> getAllForSelectData()
         {
             return getMainDAO().getAllForSelectData();

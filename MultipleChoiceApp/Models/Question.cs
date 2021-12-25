@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultipleChoiceApp
+namespace MultipleChoiceApp.Models
 {
     public class Question
     {

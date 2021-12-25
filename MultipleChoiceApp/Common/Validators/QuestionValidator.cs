@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MultipleChoiceApp.Bi.Question;
 
 namespace MultipleChoiceApp.Common.Validators
 {

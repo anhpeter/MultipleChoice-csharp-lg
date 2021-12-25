@@ -164,7 +164,12 @@
     <Compile Include="Common\UtilForms\StudentQuestionAnswer.Designer.cs">
       <DependentUpon>StudentQuestionAnswer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connected Services\Bi\Reference.cs">
+    <Compile Include="Connected Services\Bi.Question\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Bi.Subject\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -430,109 +435,68 @@
     <EmbeddedResource Include="UserControls\Utilities\QuestionStatistic.resx">
       <DependentUpon>QuestionStatistic.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\Bi\ExamService.wsdl" />
-    <None Include="Connected Services\Bi\ManagerService.wsdl" />
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addManyResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addManyResponse1.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.addResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllBySubjectIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.addResponse1.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.Exam1.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllWithAnswerCountByExamIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.ExamOverview.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllWithAnswersBySubjectIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllByExamAndStudentIdResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getDetailsByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllByExamIdResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getRandomByLevelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllBySubjectIdResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.Question.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllForReportResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.searchByKeywordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllResponse.datasource">
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllResponse1.datasource">
+    <None Include="Connected Services\Bi.Question\QuestionService.wsdl" />
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllWithAnswerCountByExamIdResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.addResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAllWithAnswersBySubjectIdResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.getAllForSelectDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAvailableBySubjectIdResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.getAllResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getAvailableForExamResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.getAvailableForExamResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getByCodeAndPasswordResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.getDetailsByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getDetailByExamAndStudentIdResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.searchByKeywordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getDetailsByIdResponse.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.Subject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getDetailsByIdResponse1.datasource">
+    <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getExamOverviewByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getExamReportByIdResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.getRandomByLevelResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.Question.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.searchByKeywordResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.searchByKeywordResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.Student.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.StudentResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.StudentResult.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.Subject.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.updateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\MultipleChoiceApp.Bi.updateResponse1.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\Bi\QuestionService.wsdl" />
-    <None Include="Connected Services\Bi\StudentResponseService.wsdl" />
-    <None Include="Connected Services\Bi\StudentResultService.wsdl" />
-    <None Include="Connected Services\Bi\StudentService.wsdl" />
-    <None Include="Connected Services\Bi\SubjectService.wsdl" />
+    <None Include="Connected Services\Bi.Subject\SubjectService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.Answer.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.Models.Exam.datasource" />
@@ -597,19 +561,20 @@
     <None Include="Resources\incorrect.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Bi\QuestionService.disco" />
-    <None Include="Connected Services\Bi\configuration91.svcinfo" />
-    <None Include="Connected Services\Bi\configuration.svcinfo" />
-    <None Include="Connected Services\Bi\Reference.svcmap">
+    <None Include="Connected Services\Bi.Question\QuestionService.disco" />
+    <None Include="Connected Services\Bi.Question\configuration91.svcinfo" />
+    <None Include="Connected Services\Bi.Question\configuration.svcinfo" />
+    <None Include="Connected Services\Bi.Question\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi\StudentService.disco" />
-    <None Include="Connected Services\Bi\ManagerService.disco" />
-    <None Include="Connected Services\Bi\StudentResultService.disco" />
-    <None Include="Connected Services\Bi\StudentResponseService.disco" />
-    <None Include="Connected Services\Bi\ExamService.disco" />
-    <None Include="Connected Services\Bi\SubjectService.disco" />
+    <None Include="Connected Services\Bi.Subject\SubjectService.disco" />
+    <None Include="Connected Services\Bi.Subject\configuration91.svcinfo" />
+    <None Include="Connected Services\Bi.Subject\configuration.svcinfo" />
+    <None Include="Connected Services\Bi.Subject\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -628,7 +593,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Bi\" />
+    <WCFMetadataStorage Include="Connected Services\Bi.Question\" />
+    <WCFMetadataStorage Include="Connected Services\Bi.Subject\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
