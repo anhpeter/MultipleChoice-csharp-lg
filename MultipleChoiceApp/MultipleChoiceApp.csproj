@@ -514,6 +514,9 @@
     <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllBySubjectIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.getAllResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -715,7 +718,6 @@
     <None Include="Resources\incorrect.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Bi.Question\QuestionService.disco" />
     <None Include="Connected Services\Bi.Question\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.Question\configuration.svcinfo" />
     <None Include="Connected Services\Bi.Question\Reference.svcmap">
@@ -764,6 +766,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\Bi.Question\QuestionService.disco" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

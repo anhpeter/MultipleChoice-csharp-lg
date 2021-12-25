@@ -381,6 +381,13 @@ namespace MultipleChoiceApp.Bi.Question {
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
         
+        // CODEGEN: Generating message contract since element name getAllForSelectDataResult from namespace http://peteranh.com/Services/Question is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/getAllForSelectData", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse getAllForSelectData(MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/getAllForSelectData", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse> getAllForSelectDataAsync(MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest request);
+        
         // CODEGEN: Generating message contract since element name getAllResult from namespace http://peteranh.com/Services/Question is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/getAll", ReplyAction="*")]
         MultipleChoiceApp.Bi.Question.getAllResponse getAll(MultipleChoiceApp.Bi.Question.getAllRequest request);
@@ -1031,6 +1038,67 @@ namespace MultipleChoiceApp.Bi.Question {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getAllForSelectDataRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllForSelectData", Namespace="http://peteranh.com/Services/Question", Order=0)]
+        public MultipleChoiceApp.Bi.Question.getAllForSelectDataRequestBody Body;
+        
+        public getAllForSelectDataRequest() {
+        }
+        
+        public getAllForSelectDataRequest(MultipleChoiceApp.Bi.Question.getAllForSelectDataRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class getAllForSelectDataRequestBody {
+        
+        public getAllForSelectDataRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getAllForSelectDataResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllForSelectDataResponse", Namespace="http://peteranh.com/Services/Question", Order=0)]
+        public MultipleChoiceApp.Bi.Question.getAllForSelectDataResponseBody Body;
+        
+        public getAllForSelectDataResponse() {
+        }
+        
+        public getAllForSelectDataResponse(MultipleChoiceApp.Bi.Question.getAllForSelectDataResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Question")]
+    public partial class getAllForSelectDataResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Question.Question> getAllForSelectDataResult;
+        
+        public getAllForSelectDataResponseBody() {
+        }
+        
+        public getAllForSelectDataResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.Question.Question> getAllForSelectDataResult) {
+            this.getAllForSelectDataResult = getAllForSelectDataResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class getAllRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="getAll", Namespace="http://peteranh.com/Services/Question", Order=0)]
@@ -1375,6 +1443,29 @@ namespace MultipleChoiceApp.Bi.Question {
         
         public System.Threading.Tasks.Task<bool> deleteAsync(int id) {
             return base.Channel.deleteAsync(id);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse MultipleChoiceApp.Bi.Question.QuestionServiceSoap.getAllForSelectData(MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest request) {
+            return base.Channel.getAllForSelectData(request);
+        }
+        
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Question.Question> getAllForSelectData() {
+            MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest inValue = new MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Question.getAllForSelectDataRequestBody();
+            MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse retVal = ((MultipleChoiceApp.Bi.Question.QuestionServiceSoap)(this)).getAllForSelectData(inValue);
+            return retVal.Body.getAllForSelectDataResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse> MultipleChoiceApp.Bi.Question.QuestionServiceSoap.getAllForSelectDataAsync(MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest request) {
+            return base.Channel.getAllForSelectDataAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.getAllForSelectDataResponse> getAllForSelectDataAsync() {
+            MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest inValue = new MultipleChoiceApp.Bi.Question.getAllForSelectDataRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Question.getAllForSelectDataRequestBody();
+            return ((MultipleChoiceApp.Bi.Question.QuestionServiceSoap)(this)).getAllForSelectDataAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

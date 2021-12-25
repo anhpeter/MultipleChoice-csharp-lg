@@ -194,6 +194,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="getAllForSelectData">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllForSelectDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllForSelectDataResult" type="tns:ArrayOfQuestion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getAll">
         <s:complexType>
           <s:sequence>
@@ -287,6 +297,12 @@
   <wsdl:message name="deleteSoapOut">
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
+  <wsdl:message name="getAllForSelectDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllForSelectData" />
+  </wsdl:message>
+  <wsdl:message name="getAllForSelectDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllForSelectDataResponse" />
+  </wsdl:message>
   <wsdl:message name="getAllSoapIn">
     <wsdl:part name="parameters" element="tns:getAll" />
   </wsdl:message>
@@ -343,6 +359,10 @@
     <wsdl:operation name="delete">
       <wsdl:input message="tns:deleteSoapIn" />
       <wsdl:output message="tns:deleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <wsdl:input message="tns:getAllForSelectDataSoapIn" />
+      <wsdl:output message="tns:getAllForSelectDataSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getAll">
       <wsdl:input message="tns:getAllSoapIn" />
@@ -447,6 +467,15 @@
     </wsdl:operation>
     <wsdl:operation name="delete">
       <soap:operation soapAction="http://peteranh.com/Services/Question/delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <soap:operation soapAction="http://peteranh.com/Services/Question/getAllForSelectData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -567,6 +596,15 @@
     </wsdl:operation>
     <wsdl:operation name="delete">
       <soap12:operation soapAction="http://peteranh.com/Services/Question/delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllForSelectData">
+      <soap12:operation soapAction="http://peteranh.com/Services/Question/getAllForSelectData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
