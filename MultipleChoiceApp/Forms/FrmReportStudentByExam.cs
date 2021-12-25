@@ -1,7 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
-using MultipleChoiceApp.BLL;
+using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.StudentResult;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +16,10 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmReportStudentByExam : Form
     {
-        ExamBUS examBUS = new ExamBUS();
-        List<Exam> examList;
-        Exam exam;
-        StudentResultBUS studentResultBUS = new StudentResultBUS();
+        ExamServiceSoapClient examS = new ExamServiceSoapClient();
+        List<Bi.Exam.Exam> examList;
+        Bi.Exam.Exam exam;
+        StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
         public FrmReportStudentByExam()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmReportStudentBySubject_Load(object sender, EventArgs e)
         {
-            if (examList == null) examList = examBUS.getAllForSelectData();
+            if (examList == null) examList = examS.getAllForSelectData();
             drop_exam.DataSource = examList;
             drop_exam.ValueMember = "Id";
             drop_exam.DisplayMember = "Name";
@@ -45,9 +45,9 @@ namespace MultipleChoiceApp.Forms
 
         private void loadReportData()
         {
-            exam = examBUS.getExamReportById(getExamId());
-            List<ExamReport> examReport = new List<ExamReport>() {
-                 new ExamReport() { 
+            exam = examS.getExamReportById(getExamId());
+            List<Models.ExamReport> examReport = new List<Models.ExamReport>() {
+                 new Models.ExamReport() { 
                      Name = exam.Name,
                      Subject = exam.Subject.Name,
                      StartAt = Util.toMediumDateStr(exam.StartAt),
@@ -55,7 +55,7 @@ namespace MultipleChoiceApp.Forms
                  }
             };
 
-            List<StudentResultReport> list = getStudentResultReportList();
+            List<Models.StudentResultReport> list = getStudentResultReportList();
             ReportDataSource examRds = new ReportDataSource("ExamReport", examReport);
             ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
             report.Reset();
@@ -66,15 +66,15 @@ namespace MultipleChoiceApp.Forms
             report.RefreshReport();
         }
 
-        private List<StudentResultReport> getStudentResultReportList()
+        private List<Models.StudentResultReport> getStudentResultReportList()
         {
-            List<StudentResultReport> studentResultReportList = new List<StudentResultReport>();
+            List<Models.StudentResultReport> studentResultReportList = new List<Models.StudentResultReport>();
             int examId = getExamId();
-            List<StudentResult> studentResultList = studentResultBUS.getAllByExamId(examId);
+            List<StudentResult> studentResultList = studentResultS.getAllByExamId(examId);
             int i = 0;
             foreach (var item in studentResultList)
             {
-                StudentResultReport studentReport = new StudentResultReport()
+                Models.StudentResultReport studentReport = new Models.StudentResultReport()
                 {
                     No = i + 1,
                     Code = item.Student.Code,

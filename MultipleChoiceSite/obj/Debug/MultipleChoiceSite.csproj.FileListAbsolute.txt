@@ -56,3 +56,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Debug\MultipleChoiceSite.csproj.CopyComplete
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Debug\MultipleChoiceSite.dll
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Debug\MultipleChoiceSite.pdb
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceSite\obj\Debug\MultipleChoiceSite.csproj.AssemblyReference.cache

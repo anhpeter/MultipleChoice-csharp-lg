@@ -1,6 +1,7 @@
-﻿using MultipleChoiceApp.BLL;
+﻿using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Bi.Subject;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,13 @@ namespace MultipleChoiceApp.Forms
     public partial class FrmExamStart : Form
     {
         Auth auth = Auth.getIntace();
-        SubjectBUS subjectBUS = new SubjectBUS();
-        ExamBUS examBUS = new ExamBUS();
-        StudentResultBUS studentResultBUS = new StudentResultBUS();
-        List<Subject> subjectList;
+
+        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        ExamServiceSoapClient examS = new ExamServiceSoapClient();
+        StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
+        List<Bi.Subject.Subject> subjectList;
         //
-        Exam exam;
+        Bi.Exam.Exam exam;
         public FrmExamStart()
         {
             InitializeComponent();
@@ -55,7 +57,7 @@ namespace MultipleChoiceApp.Forms
             int subIndex = getSelectedSubjectIndex();
             if (subIndex >= 0)
             {
-                Subject subject = subjectList[subIndex];
+                Bi.Subject.Subject subject = subjectList[subIndex];
                 lbl_duration.Text = subject.Duration + "";
                 lbl_total_question.Text = subject.TotalQuestion + "";
             }
@@ -64,7 +66,7 @@ namespace MultipleChoiceApp.Forms
         private void LoadDrops()
         {
             // SUBJECTS
-            subjectList = subjectBUS.getAvailableForExam(DateTime.Now);
+            subjectList = subjectS.getAvailableForExam(DateTime.Now);
             if (subjectList.Count > 0)
             {
                 drop_subject.DataSource = subjectList;
@@ -79,7 +81,7 @@ namespace MultipleChoiceApp.Forms
             int subId = getSelectedSubjectId();
             if (subId > -1)
             {
-                exam = examBUS.getAvailableBySubjectId(subId, DateTime.Now);
+                exam = examS.getAvailableBySubjectId(subId, DateTime.Now);
                 lbl_exam_name.Text = exam.Name;
                 lbl_exam_start.Text = Util.toExamFormattedDate(exam.StartAt);
                 lbl_exam_end.Text = Util.toExamFormattedDate(exam.EndAt);
@@ -96,7 +98,7 @@ namespace MultipleChoiceApp.Forms
             if (drop_subject.SelectedValue != null) return drop_subject.SelectedIndex;
             return -1;
         }
-        private Subject getSelectedSubject()
+        private Bi.Subject.Subject getSelectedSubject()
         {
             int selectedSubIndex = getSelectedSubjectIndex();
             if (selectedSubIndex > -1) return subjectList[selectedSubIndex];
@@ -112,7 +114,7 @@ namespace MultipleChoiceApp.Forms
         {
             if (exam != null)
             {
-                bool isTaken = studentResultBUS.isExamTaken(Auth.getIntace().student.Id, exam.Id);
+                bool isTaken = studentResultS.isExamTaken(Auth.getIntace().student.Id, exam.Id);
                 if (!isTaken)
                 {
                     FormHelper.replaceForm(this, new FrmTakingExam(exam, getSelectedSubject()));

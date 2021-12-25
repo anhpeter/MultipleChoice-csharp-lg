@@ -1,7 +1,9 @@
 ﻿using Bunifu.Framework.UI;
-using MultipleChoiceApp.BLL;
+using MultipleChoiceApp.Bi.Question;
+using MultipleChoiceApp.Bi.Subject;
+using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.StudentResult;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,17 +18,17 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmTakingExam : Form
     {
-        Exam exam;
-        Subject subject;
+        Bi.Exam.Exam exam;
+        Bi.Subject.Subject subject;
         List<StudentResponse> studentResponseList;
 
         //
-        QuestionBUS questionBUS = new QuestionBUS();
-        StudentResultBUS studentResultBUS = new StudentResultBUS();
+        QuestionServiceSoapClient questionS = new QuestionServiceSoapClient();
+        StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
         int questionNumber = 1;
         int time;
         Timer timer;
-        public FrmTakingExam(Exam exam, Subject subject)
+        public FrmTakingExam(Bi.Exam.Exam exam, Bi.Subject.Subject subject)
         {
             this.exam = exam;
             this.subject = subject;
@@ -49,14 +51,14 @@ namespace MultipleChoiceApp.Forms
         private void setupExam()
         {
             studentResponseList = new List<StudentResponse>();
-            List<Question> questions = getQuestionList();
+            List<Bi.Question.Question> questions = getQuestionList();
             Random rnd = new Random();
-            foreach (var question in questions)
-            {
-                StudentResponse studentResponse = new StudentResponse(question);
-                studentResponse.genRandomOrder(rnd);
-                studentResponseList.Add(studentResponse);
-            }
+            //foreach (var question in questions)
+            //{
+            //    StudentResponse studentResponse = new StudentResponse(question);
+            //    studentResponse.genRandomOrder(rnd);
+            //    studentResponseList.Add(studentResponse);
+            //}
             if (studentResponseList.Count == subject.TotalQuestion)
             {
                 displayQuestion();
@@ -90,18 +92,18 @@ namespace MultipleChoiceApp.Forms
             pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2;
         }
 
-        private List<Question> getQuestionList()
+        private List<Bi.Question.Question> getQuestionList()
         {
             int easyQty = exam.EasyQty;
             int hardQty = exam.HardQty;
             int normalQty = subject.TotalQuestion - (easyQty + hardQty);
-            List<Question> questions = new List<Question>();
-            List<Question> easyList = new List<Question>();
-            List<Question> normalList = new List<Question>();
-            List<Question> hardList = new List<Question>();
-            if (easyQty > 0) easyList = questionBUS.getRandomByLevel(subject.Id, "easy", easyQty);
-            if (normalQty > 0) normalList = questionBUS.getRandomByLevel(subject.Id, "normal", normalQty);
-            if (hardQty > 0) hardList = questionBUS.getRandomByLevel(subject.Id, "hard", hardQty);
+            List<Bi.Question.Question> questions = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> easyList = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> normalList = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> hardList = new List<Bi.Question.Question>();
+            if (easyQty > 0) easyList = questionS.getRandomByLevel(subject.Id, "easy", easyQty);
+            if (normalQty > 0) normalList = questionS.getRandomByLevel(subject.Id, "normal", normalQty);
+            if (hardQty > 0) hardList = questionS.getRandomByLevel(subject.Id, "hard", hardQty);
             questions = questions.Concat(easyList).ToList();
             questions = questions.Concat(normalList).ToList();
             questions = questions.Concat(hardList).ToList();
@@ -144,14 +146,15 @@ namespace MultipleChoiceApp.Forms
                         //
                         int no = Util.parseToInt(answerPanel.Tag.ToString(), 1);
                         StudentResponse studentResponse = studentResponseList[no - 1];
-                        studentResponse.setRandomAnswerNo(answerNo);
+                        //studentResponse.setRandomAnswerNo(answerNo);
                     }
                 }
             }
 
-            StudentResult studentResult = new StudentResult(studentResponseList, subject, exam, Auth.getIntace().student.Id);
-            // SAVE TO DB
-            studentResultBUS.add(studentResult);
+            StudentResult studentResult = new StudentResult();
+            //StudentResult studentResult = new StudentResult(studentResponseList, subject, exam, Auth.getIntace().student.Id);
+            //// SAVE TO DB
+            //studentResultBUS.add(studentResult);
 
             //
             FormHelper.replaceForm(this, new FrmExamFinish(studentResult));
@@ -174,9 +177,9 @@ namespace MultipleChoiceApp.Forms
         private void displayQuestion()
         {
             StudentResponse studentResponse = studentResponseList[questionNumber - 1];
-            Question question = studentResponse.Question;
+            Bi.StudentResult.Question question = studentResponse.Question;
             lbl_question.Text = $"{questionNumber}. {question.Content}";
-            int[] answerOrder = studentResponse.AnswerOrder;
+            int[] answerOrder = studentResponse.AnswerOrder.ToArray();
             lbl_ans1.Text = question.Answers[answerOrder[0] - 1].Content;
             lbl_ans2.Text = question.Answers[answerOrder[1] - 1].Content;
             lbl_ans3.Text = question.Answers[answerOrder[2] - 1].Content;

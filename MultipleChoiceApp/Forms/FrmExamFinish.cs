@@ -1,5 +1,5 @@
-﻿using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
+﻿using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

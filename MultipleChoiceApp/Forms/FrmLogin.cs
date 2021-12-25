@@ -1,4 +1,6 @@
-﻿using MultipleChoiceApp.BLL;
+﻿using MultipleChoiceApp.Bi.Manager;
+using MultipleChoiceApp.Bi.Student;
+using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Models;
 using System;
@@ -8,8 +10,8 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmLogin : Form
     {
-        ManagerBUS managerBUS = new ManagerBUS();
-        StudentBUS studentBUS = new StudentBUS();
+        ManagerServiceSoapClient managerS = new ManagerServiceSoapClient();
+        StudentServiceSoapClient studentS = new StudentServiceSoapClient();
         public FrmLogin()
         {
             InitializeComponent();
@@ -39,7 +41,7 @@ namespace MultipleChoiceApp.Forms
         private void handleManagerLogin(String id, String password)
         {
             password = Util.md5(password);
-            Manager item = managerBUS.getByCodeAndPassword(id, password);
+            Bi.Manager.Manager item = managerS.getByCodeAndPassword(id, password);
             if (item != null)
             {
                 Auth.getIntace().manager = item;
@@ -54,7 +56,7 @@ namespace MultipleChoiceApp.Forms
         private void handleStudentLogin(String id, String password)
         {
             password = Util.md5(password);
-            Student item = studentBUS.getByCodeAndPassword(id, password);
+            Bi.Student.Student item = studentS.getByCodeAndPassword(id, password);
             if (item != null)
             {
                 Auth.getIntace().student = item;
