@@ -140,14 +140,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\BaseBUS.cs" />
-    <Compile Include="BLL\StudentResponseBUS.cs" />
-    <Compile Include="BLL\StudentResultBUS.cs" />
-    <Compile Include="BLL\ExamBUS.cs" />
-    <Compile Include="BLL\ManagerBUS.cs" />
-    <Compile Include="BLL\StudentBUS.cs" />
-    <Compile Include="BLL\SubjectBUS.cs" />
-    <Compile Include="BLL\QuestionBUS.cs" />
+    <Compile Include="ModelHelpers\Answer.cs" />
+    <Compile Include="ModelHelpers\Exam.cs" />
+    <Compile Include="ModelHelpers\ExamOverview.cs" />
+    <Compile Include="ModelHelpers\ExamReport.cs" />
+    <Compile Include="ModelHelpers\Manager.cs" />
+    <Compile Include="ModelHelpers\Question.cs" />
+    <Compile Include="ModelHelpers\Student.cs" />
+    <Compile Include="ModelHelpers\StudentResponse.cs" />
+    <Compile Include="ModelHelpers\StudentResult.cs" />
+    <Compile Include="ModelHelpers\StudentResultReport.cs" />
+    <Compile Include="ModelHelpers\Subject.cs" />
+    <Compile Include="ModelHelpers\User.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Common\Helpers\Auth.cs" />
     <Compile Include="Common\Helpers\Msg.cs" />
@@ -199,8 +203,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="DAL\StudentResultDAO.cs" />
-    <Compile Include="DAL\StudentResponseDAO.cs" />
     <Compile Include="Forms\FrmReportStudentByExam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,18 +221,6 @@
     <Compile Include="Forms\FrmExamReport.Designer.cs">
       <DependentUpon>FrmExamReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Answer.cs" />
-    <Compile Include="Models\ExamOverview.cs" />
-    <Compile Include="Models\Exam.cs" />
-    <Compile Include="Models\ExamReport.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Manager.cs" />
-    <Compile Include="Models\StudentResponse.cs" />
-    <Compile Include="Models\StudentResult.cs" />
-    <Compile Include="Models\StudentResultReport.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Subject.cs" />
     <Compile Include="Common\UtilForms\Alert.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,13 +239,6 @@
     <Compile Include="Common\Validators\StudentValidator.cs" />
     <Compile Include="Common\Validators\SubjectValidator.cs" />
     <Compile Include="Common\Validators\QuestionValidator.cs" />
-    <Compile Include="DAL\AnswerDAO.cs" />
-    <Compile Include="DAL\BaseDAO.cs" />
-    <Compile Include="DAL\ExamDAO.cs" />
-    <Compile Include="DAL\QuestionDAO.cs" />
-    <Compile Include="DAL\ManagerDAO.cs" />
-    <Compile Include="DAL\StudentDAO.cs" />
-    <Compile Include="DAL\SubjectDAO.cs" />
     <Compile Include="Forms\BaseForm.cs" />
     <Compile Include="Forms\FrmAdmin.cs">
       <SubType>Form</SubType>

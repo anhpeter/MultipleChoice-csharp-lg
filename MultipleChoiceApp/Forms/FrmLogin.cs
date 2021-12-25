@@ -1,8 +1,7 @@
 ﻿using MultipleChoiceApp.Bi.Manager;
 using MultipleChoiceApp.Bi.Student;
-using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
-using MultipleChoiceApp.Models;
+using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Windows.Forms;
 

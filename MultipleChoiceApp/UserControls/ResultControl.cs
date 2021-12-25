@@ -1,11 +1,10 @@
 ﻿using Bunifu.Framework.UI;
 using FluentValidation.Results;
-using MultipleChoiceApp.BLL;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
 using MultipleChoiceApp.Forms;
-using MultipleChoiceApp.Models;
+using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

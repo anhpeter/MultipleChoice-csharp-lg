@@ -46,8 +46,8 @@ namespace MultipleChoiceApp.Forms
         private void loadReportData()
         {
             exam = examS.getExamReportById(getExamId());
-            List<Models.ExamReport> examReport = new List<Models.ExamReport>() {
-                 new Models.ExamReport() { 
+            List<ModelHelpers.ExamReport> examReport = new List<ModelHelpers.ExamReport>() {
+                 new ModelHelpers.ExamReport() { 
                      Name = exam.Name,
                      Subject = exam.Subject.Name,
                      StartAt = Util.toMediumDateStr(exam.StartAt),
@@ -55,7 +55,7 @@ namespace MultipleChoiceApp.Forms
                  }
             };
 
-            List<Models.StudentResultReport> list = getStudentResultReportList();
+            List<ModelHelpers.StudentResultReport> list = getStudentResultReportList();
             ReportDataSource examRds = new ReportDataSource("ExamReport", examReport);
             ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
             report.Reset();
@@ -66,15 +66,15 @@ namespace MultipleChoiceApp.Forms
             report.RefreshReport();
         }
 
-        private List<Models.StudentResultReport> getStudentResultReportList()
+        private List<ModelHelpers.StudentResultReport> getStudentResultReportList()
         {
-            List<Models.StudentResultReport> studentResultReportList = new List<Models.StudentResultReport>();
+            List<ModelHelpers.StudentResultReport> studentResultReportList = new List<ModelHelpers.StudentResultReport>();
             int examId = getExamId();
             List<StudentResult> studentResultList = studentResultS.getAllByExamId(examId);
             int i = 0;
             foreach (var item in studentResultList)
             {
-                Models.StudentResultReport studentReport = new Models.StudentResultReport()
+                ModelHelpers.StudentResultReport studentReport = new ModelHelpers.StudentResultReport()
                 {
                     No = i + 1,
                     Code = item.Student.Code,
