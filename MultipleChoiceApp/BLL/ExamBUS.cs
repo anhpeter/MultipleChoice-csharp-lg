@@ -28,10 +28,6 @@ namespace MultipleChoiceApp.BLL
         {
             return mainDAO.getExamOverviewById(id);
         }
-        public List<Exam> getAllForSelectData()
-        {
-            return mainDAO.getAllForSelectData();
-        }
         public List<Exam> getAllForReport()
         {
             return mainDAO.getAllForReport();

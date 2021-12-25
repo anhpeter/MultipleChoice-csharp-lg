@@ -72,6 +72,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\AnswerDAO.cs" />
+    <Compile Include="DAL\BaseDAO.cs" />
+    <Compile Include="DAL\ExamDAO.cs" />
+    <Compile Include="DAL\ManagerDAO.cs" />
+    <Compile Include="DAL\QuestionDAO.cs" />
+    <Compile Include="DAL\StudentDAO.cs" />
+    <Compile Include="DAL\StudentResponseDAO.cs" />
+    <Compile Include="DAL\StudentResultDAO.cs" />
+    <Compile Include="DAL\SubjectDAO.cs" />
+    <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\ExamOverview.cs" />
+    <Compile Include="Models\ExamReport.cs" />
+    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentResponse.cs" />
+    <Compile Include="Models\StudentResult.cs" />
+    <Compile Include="Models\StudentResultReport.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Services\BaseService.asmx.cs">
       <DependentUpon>BaseService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -87,23 +108,6 @@
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
     <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
-    <Compile Include="DAL\AnswerDAO.cs" />
-    <Compile Include="DAL\BaseDAO.cs" />
-    <Compile Include="DAL\ExamDAO.cs" />
-    <Compile Include="DAL\ManagerDAO.cs" />
-    <Compile Include="DAL\QuestionDAO.cs" />
-    <Compile Include="DAL\StudentDAO.cs" />
-    <Compile Include="DAL\SubjectDAO.cs" />
-    <Compile Include="Models\Answer.cs" />
-    <Compile Include="Models\Exam.cs" />
-    <Compile Include="Models\ExamOverview.cs" />
-    <Compile Include="Models\Manager.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentResponse.cs" />
-    <Compile Include="Models\StudentResult.cs" />
-    <Compile Include="Models\Subject.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

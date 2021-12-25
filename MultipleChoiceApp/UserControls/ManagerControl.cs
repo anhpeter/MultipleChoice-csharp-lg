@@ -127,7 +127,7 @@ namespace MultipleChoiceApp.UserControls
             DialogResult dialogResult = savefiledialog_excel.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                List<Manager> list = mainBUS.getAll();
+                List<Manager> list = mainBUS.getAllForSelectData();
                 List<Dictionary<String, String>> dicList = list.Select(x => x.toDictionary()).ToList();
                 bool result = FormHelper.toExcel(dicList, savefiledialog_excel.FileName, controlName);
                 if (result)

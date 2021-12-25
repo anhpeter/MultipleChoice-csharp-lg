@@ -46,6 +46,13 @@ namespace MultipleChoiceApp.DAL
         }
 
         // FETCHES
+        public List<T> getAllForSelectData()
+        {
+            String sqlStr = $"select * from {tableName} order by {primaryKey} desc";
+            return getAll(sqlStr);
+        }
+
+
         public List<T> getAll(Pagination p)
         {
             return getAll(applyPagination(getAllSqlStr(), p));

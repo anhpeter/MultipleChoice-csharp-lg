@@ -13,13 +13,14 @@ namespace MultipleChoiceApp.BLL
         public abstract BaseDAO<T> getMainDAO();
 
         //FETCHES
+        public List<T> getAllForSelectData()
+        {
+            return getMainDAO().getAllForSelectData();
+        }
+
         public List<T> getAll(Pagination p)
         {
             return getMainDAO().getAll(p);
-        }
-        public virtual List<T> getAll()
-        {
-            return getMainDAO().getAll();
         }
         public virtual int countAll()
         {
