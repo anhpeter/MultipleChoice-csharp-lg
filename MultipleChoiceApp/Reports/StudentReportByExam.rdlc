@@ -9,7 +9,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Exam Report</Value>
+                <Value>MULTIPLE CHOICE EXAM REPORT</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -23,9 +23,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.355in</Top>
-        <Left>2.64668in</Left>
+        <Left>0.95501in</Left>
         <Height>0.25in</Height>
-        <Width>3.30833in</Width>
+        <Width>6.44999in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -563,7 +563,7 @@
         <Top>1.51334in</Top>
         <Left>0.95501in</Left>
         <Height>0.5in</Height>
-        <Width>6.45in</Width>
+        <Width>6.44999in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -642,7 +642,7 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
           <Paragraph>
@@ -661,13 +661,13 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Left</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
         <Top>0.855in</Top>
-        <Left>5.45501in</Left>
+        <Left>5.905in</Left>
         <Height>0.45in</Height>
         <Width>1.5in</Width>
         <ZIndex>3</ZIndex>

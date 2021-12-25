@@ -39,7 +39,7 @@ namespace MultipleChoiceApp.UserControls.ExamReportControls
 
         private void render()
         {
-            int end = offset + limit > questionList.Count + 1 ? questionList.Count + 1 : offset + limit;
+            int end = offset + limit > questionList.Count ? questionList.Count  : offset + limit;
             for (int i = offset; i < end; i++)
             {
                 Question question = questionList[i];
