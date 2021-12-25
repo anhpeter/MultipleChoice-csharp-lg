@@ -12,7 +12,7 @@ namespace MultipleChoiceSite.Services
     /// <summary>
     /// Summary description for SubjectService
     /// </summary>
-    [WebService(Namespace = Constant.ServiceNameSpace)]
+    [WebService(Namespace = Constant.ServiceNameSpace+"/Subject")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

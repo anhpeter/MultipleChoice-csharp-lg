@@ -1,4 +1,5 @@
-﻿using MultipleChoiceSite.DAL;
+﻿using MultipleChoiceSite.Common;
+using MultipleChoiceSite.DAL;
 using MultipleChoiceSite.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace MultipleChoiceSite.Services
     /// <summary>
     /// Summary description for ExamService
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace =Constant.ServiceNameSpace+"/Exam")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

@@ -8,6 +8,6 @@ namespace MultipleChoiceSite.Common
 {
     public class Constant
     {
-        public const String ServiceNameSpace = "http://peteranh.com/Services/";
+        public const String ServiceNameSpace = "http://peteranh.com/Services";
     }
 }
