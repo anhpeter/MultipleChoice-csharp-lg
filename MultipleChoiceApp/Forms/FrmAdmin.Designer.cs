@@ -46,6 +46,7 @@ namespace MultipleChoiceApp
             this.pnl_main = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbl_title = new System.Windows.Forms.Label();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuShadowPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnl_nav.SuspendLayout();
@@ -85,6 +86,7 @@ namespace MultipleChoiceApp
             // 
             // pnl_nav
             // 
+            this.pnl_nav.Controls.Add(this.bunifuFlatButton1);
             this.pnl_nav.Controls.Add(this.btn_exit);
             this.pnl_nav.Controls.Add(this.btn_exam);
             this.pnl_nav.Controls.Add(this.btn_result);
@@ -449,6 +451,45 @@ namespace MultipleChoiceApp
             this.lbl_title.Text = "Questions";
             this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Active = false;
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "Test";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = global::MultipleChoiceApp.Properties.Resources.Exit1;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 30;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = true;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 70D;
+            this.bunifuFlatButton1.IsTab = false;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 399);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.White;
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton1.selected = false;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(285, 57);
+            this.bunifuFlatButton1.TabIndex = 10;
+            this.bunifuFlatButton1.Tag = "Exit";
+            this.bunifuFlatButton1.Text = "Test";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.DimGray;
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.btn_test_Click);
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -494,6 +535,7 @@ namespace MultipleChoiceApp
         private Bunifu.Framework.UI.BunifuFlatButton btn_manager;
         private Bunifu.Framework.UI.BunifuFlatButton btn_student;
         private Bunifu.Framework.UI.BunifuFlatButton btn_exit;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
     }
 }
 

@@ -10,7 +10,13 @@ namespace MultipleChoiceApp.ModelHelpers
         public static void genRandomOrder(Random rnd, StudentResponse item)
         {
             int[] orderArr = { 1, 2, 3, 4 };
-            item.AnswerOrder = (ArrayOfInt)orderArr.OrderBy(x => rnd.Next(1000)).ToList();
+            int[] randomOrderArr = orderArr.OrderBy(x => rnd.Next(1000)).ToArray();
+            ArrayOfInt arr = new ArrayOfInt();
+            foreach (var x in randomOrderArr)
+            {
+                arr.Add(x);
+            }
+            item.AnswerOrder = arr;
         }
         public static bool isCorrect(StudentResponse item)
         {

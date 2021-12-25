@@ -139,35 +139,42 @@ namespace MultipleChoiceApp
                     List<Bi.Question.Question> questions = getQuestionList(exam, subject);
                     foreach (var question in questions)
                     {
-                        //Bi.StudentResult.StudentResponse studentResponse = new Bi.StudentResult.StudentResponse(question);
-                        //studentResponse.genRandomOrder(rnd);
-                        //studentResponseList.Add(studentResponse);
+                        Bi.StudentResult.Question stuResQuestion = Util.cvtObj<Bi.Question.Question, Bi.StudentResult.Question>(question);
+                        StudentResponse studentResponse = new StudentResponse()
+                        {
+                            Question = stuResQuestion,
+                            QuestionId = question.Id
+                        };
+                        StudentResponseHelper.genRandomOrder(rnd, studentResponse);
+                        studentResponseList.Add(studentResponse);
                     }
-                    //
-                    //for (int j = 0; j < studentResponseList.Count; j++)
-                    //{
-                    //    StudentResponse stuRes = studentResponseList[j];
-                    //    stuRes.RandomAnswerNo = 1;
-                    //    if (Util.getRandom(rnd, 1, 2) % 2 == 0)
-                    //    {
-                    //        int answerNo = stuRes.Question.CorrectAnswerNo;
-                    //        stuRes.AnswerNO = answerNo;
-                    //    }
-                    //    else
-                    //    {
-                    //        int answerNo = stuRes.Question.CorrectAnswerNo;
-                    //        if (answerNo == 1)
-                    //            answerNo = 2;
-                    //        else
-                    //            answerNo -= 1;
-                    //        stuRes.AnswerNO = answerNo;
-                    //    }
-                    //}
 
-                    //Bi.StudentResult.StudentResult studentResult = new Bi.StudentResult.StudentResult(studentResponseList, subject, exam, student.Id);
-                    // SAVE TO DB
-                    //bool result = studentResultS.add(studentResult);
-                    //if (result) successCount++;
+                    for (int j = 0; j < studentResponseList.Count; j++)
+                    {
+                        StudentResponse stuRes = studentResponseList[j];
+                        stuRes.RandomAnswerNo = 1;
+                        if (Util.getRandom(rnd, 1, 2) % 2 == 0)
+                        {
+                            int answerNo = stuRes.Question.CorrectAnswerNo;
+                            stuRes.AnswerNO = answerNo;
+                        }
+                        else
+                        {
+                            int answerNo = stuRes.Question.CorrectAnswerNo;
+                            if (answerNo == 1)
+                                answerNo = 2;
+                            else
+                                answerNo -= 1;
+                            stuRes.AnswerNO = answerNo;
+                        }
+                    }
+
+                    Bi.StudentResult.Subject stuResultSubject = Util.cvtObj<Bi.Subject.Subject, Bi.StudentResult.Subject>(subject);
+                    Bi.StudentResult.Exam stuResultExam = Util.cvtObj<Bi.Exam.Exam, Bi.StudentResult.Exam>(exam);
+                    StudentResult studentResult = StudentResultHelper.genStudentResult(studentResponseList, stuResultSubject, stuResultExam, student.Id);
+                    //SAVE TO DB
+                    bool result = studentResultS.add(studentResult);
+                    if (result) successCount++;
                 }
                 MessageBox.Show($"Add success: {successCount}");
             }

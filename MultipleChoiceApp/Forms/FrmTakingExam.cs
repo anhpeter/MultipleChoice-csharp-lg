@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MultipleChoiceApp.ModelHelpers;
 
 namespace MultipleChoiceApp.Forms
 {
@@ -53,12 +54,17 @@ namespace MultipleChoiceApp.Forms
             studentResponseList = new List<StudentResponse>();
             List<Bi.Question.Question> questions = getQuestionList();
             Random rnd = new Random();
-            //foreach (var question in questions)
-            //{
-            //    StudentResponse studentResponse = new StudentResponse(question);
-            //    studentResponse.genRandomOrder(rnd);
-            //    studentResponseList.Add(studentResponse);
-            //}
+            foreach (var question in questions)
+            {
+                Bi.StudentResult.Question stuResQuestion = Util.cvtObj<Bi.Question.Question, Bi.StudentResult.Question>(question);
+                StudentResponse studentResponse = new StudentResponse()
+                {
+                    Question = stuResQuestion,
+                    QuestionId = question.Id
+                };
+                StudentResponseHelper.genRandomOrder(rnd, studentResponse);
+                studentResponseList.Add(studentResponse);
+            }
             if (studentResponseList.Count == subject.TotalQuestion)
             {
                 displayQuestion();
@@ -146,15 +152,16 @@ namespace MultipleChoiceApp.Forms
                         //
                         int no = Util.parseToInt(answerPanel.Tag.ToString(), 1);
                         StudentResponse studentResponse = studentResponseList[no - 1];
-                        //studentResponse.setRandomAnswerNo(answerNo);
+                        StudentResponseHelper.setRandomAnswerNo(answerNo, studentResponse);
                     }
                 }
             }
 
-            StudentResult studentResult = new StudentResult();
-            //StudentResult studentResult = new StudentResult(studentResponseList, subject, exam, Auth.getIntace().student.Id);
-            //// SAVE TO DB
-            //studentResultBUS.add(studentResult);
+            Bi.StudentResult.Subject stuResultSubject = Util.cvtObj<Bi.Subject.Subject, Bi.StudentResult.Subject>(subject);
+            Bi.StudentResult.Exam stuResultExam = Util.cvtObj<Bi.Exam.Exam, Bi.StudentResult.Exam>(exam);
+            StudentResult studentResult = StudentResultHelper.genStudentResult(studentResponseList, stuResultSubject, stuResultExam, Auth.getIntace().student.Id);
+            // SAVE TO DB
+            studentResultS.add(studentResult);
 
             //
             FormHelper.replaceForm(this, new FrmExamFinish(studentResult));
