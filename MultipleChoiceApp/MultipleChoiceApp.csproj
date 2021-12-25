@@ -155,7 +155,6 @@
     <Compile Include="Common\Helpers\Util.cs" />
     <Compile Include="Common\Helpers\FormHelper.cs" />
     <Compile Include="Common\Interfaces\IAdminUserControl.cs" />
-    <Compile Include="Common\Interfaces\IBUS.cs" />
     <Compile Include="Common\Interfaces\IPagination.cs" />
     <Compile Include="Common\UtilForms\StudentQuestionAnswer.cs">
       <SubType>Form</SubType>
