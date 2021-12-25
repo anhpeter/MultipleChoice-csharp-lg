@@ -57,9 +57,9 @@ namespace MultipleChoiceSite.Services
             return questions;
         }
         [WebMethod]
-        public List<Question> getAllBySubjectId(int id, Pagination pagination)
+        public List<Question> getAllBySubjectId(int id, int itemsPerPage, int currentPage)
         {
-            return mainDAO.getAllBySubjectId(id, pagination);
+            return mainDAO.getAllBySubjectId(id, itemsPerPage, currentPage);
         }
 
         [WebMethod]

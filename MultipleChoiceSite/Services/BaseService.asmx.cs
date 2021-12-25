@@ -23,16 +23,15 @@ namespace MultipleChoiceSite.Services
         public abstract BaseDAO<T> getMainDAO();
 
         //FETCHES
-        [WebMethod]
-        public List<T> getAll(Pagination p)
+        public List<T> getAllForSelectData()
         {
-            return getMainDAO().getAll(p);
+            return getMainDAO().getAllForSelectData();
         }
-        //[WebMethod]
-        //public virtual List<T> getAll()
-        //{
-        //    return getMainDAO().getAll();
-        //}
+        [WebMethod]
+        public List<T> getAll(int itemsPerPage, int currentPage)
+        {
+            return getMainDAO().getAll(itemsPerPage, currentPage);
+        }
         [WebMethod]
         public virtual int countAll()
         {
