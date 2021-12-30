@@ -146,6 +146,8 @@ namespace MultipleChoiceApp.Bi.Student {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MajorField;
         
+        private int CreatedByField;
+        
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Major {
             get {
@@ -155,6 +157,19 @@ namespace MultipleChoiceApp.Bi.Student {
                 if ((object.ReferenceEquals(this.MajorField, value) != true)) {
                     this.MajorField = value;
                     this.RaisePropertyChanged("Major");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
                 }
             }
         }

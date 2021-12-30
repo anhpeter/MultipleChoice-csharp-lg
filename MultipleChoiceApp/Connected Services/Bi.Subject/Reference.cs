@@ -37,6 +37,8 @@ namespace MultipleChoiceApp.Bi.Subject {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LecturerField;
         
+        private int CreatedByField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -121,6 +123,19 @@ namespace MultipleChoiceApp.Bi.Subject {
                 if ((object.ReferenceEquals(this.LecturerField, value) != true)) {
                     this.LecturerField = value;
                     this.RaisePropertyChanged("Lecturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
                 }
             }
         }

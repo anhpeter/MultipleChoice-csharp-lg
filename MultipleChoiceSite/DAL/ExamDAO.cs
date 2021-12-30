@@ -134,6 +134,7 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("EndAt", Util.toSqlFormattedDate(item.EndAt));
             dataDict.Add("EasyQty", item.EasyQty + "");
             dataDict.Add("HardQty", item.HardQty + "");
+            dataDict.Add("CreatedBy", item.CreatedBy + "");
             return addWithDic(dataDict);
         }
 

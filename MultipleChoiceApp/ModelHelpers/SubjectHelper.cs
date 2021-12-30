@@ -45,6 +45,7 @@ namespace MultipleChoiceApp.ModelHelpers
             foreach (var dic in dicList)
             {
                 Subject item = SubjectHelper.fromDictionary(dic);
+                item.CreatedBy = Auth.getIntace().manager.Id;
                 list.Add(item);
             }
             return list;

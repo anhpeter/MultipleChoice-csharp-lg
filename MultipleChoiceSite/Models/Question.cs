@@ -19,6 +19,7 @@ namespace MultipleChoiceSite.Models
         public int Chapter { get; set; }
         public int CorrectAnswerNo { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int CreatedBy { get; set; }
         //
         public String Lecturer { get; set; }
         public int QuestionInExamCount { get; set; }
@@ -29,13 +30,14 @@ namespace MultipleChoiceSite.Models
             {
                 Id = Util.parseToInt(Util.getDrValue(dr, "Id")),
                 Content = Util.getDrValue(dr, "Content"),
-                SubjectId = Util.parseToInt(Util.getDrValue(dr, "SubjedctId"), -1),
+                SubjectId = Util.parseToInt(Util.getDrValue(dr, "SubjedctId")),
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
                 Level = Util.getDrValue(dr, "Level"),
-                Chapter = Util.parseToInt(Util.getDrValue(dr, "Chapter"), -1),
+                Chapter = Util.parseToInt(Util.getDrValue(dr, "Chapter")),
                 CreatedAt = Util.parseToDatetime(Util.getDrValue(dr, "CreatedAt")),
                 Lecturer = Util.getDrValue(dr, "Lecturer"),
-                CorrectAnswerNo = Util.parseToInt(Util.getDrValue(dr, "CorrectAnswerNo"), 1),
+                CorrectAnswerNo = Util.parseToInt(Util.getDrValue(dr, "CorrectAnswerNo")),
+                CreatedBy = Util.parseToInt(Util.getDrValue(dr, "CreatedBy")),
                 //
                 QuestionInExamCount = Util.parseToInt(Util.getDrValue(dr, "QuestionInExamCount"), 1),
             };

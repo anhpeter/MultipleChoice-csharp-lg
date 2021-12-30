@@ -62,6 +62,7 @@ namespace MultipleChoiceApp.ModelHelpers
                     item.Answers = answers;
                 }
                 item.SubjectId = subjectId;
+                item.CreatedBy = Auth.getIntace().manager.Id;
                 list.Add(item);
             }
             return list;

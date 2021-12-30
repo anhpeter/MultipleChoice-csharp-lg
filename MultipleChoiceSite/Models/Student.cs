@@ -11,6 +11,7 @@ namespace MultipleChoiceSite.Models
     public class Student : User
     {
         public String Major { get; set; }
+        public int CreatedBy { get; set; }
         public static Student fromDR(SqlDataReader dr)
         {
             Student item = new Student()
@@ -22,6 +23,7 @@ namespace MultipleChoiceSite.Models
                 Address = Util.getDrValue(dr, "Address"),
                 Major = Util.getDrValue(dr, "Major"),
                 DOB = Convert.ToDateTime(Util.getDrValue(dr, "DOB")),
+                CreatedBy = Util.parseToInt(Util.getDrValue(dr, "CreatedBy")),
             };
             return item;
         }

@@ -18,6 +18,7 @@ namespace MultipleChoiceSite.Models
         public DateTime EndAt { get; set; }
         public int EasyQty { get; set; }
         public int HardQty { get; set; }
+        public int CreatedBy { get; set; }
         //
         public String SubjectCode { get; set; }
         public int TotalQuestion { get; set; }
@@ -41,6 +42,7 @@ namespace MultipleChoiceSite.Models
                 EasyQty = Util.parseToInt(Util.getDrValue(dr, "EasyQty"), 0),
                 HardQty = Util.parseToInt(Util.getDrValue(dr, "HardQty"), 0),
                 TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), 0),
+                CreatedBy = Util.parseToInt(Util.getDrValue(dr, "CreatedBy"), 0),
                 //
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
                 StudentCount = Util.parseToInt(Util.getDrValue(dr, "StudentCount")),

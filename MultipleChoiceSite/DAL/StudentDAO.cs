@@ -53,6 +53,7 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("Address", item.Address);
             dataDict.Add("DOB", Util.toSqlFormattedDate(item.DOB));
             dataDict.Add("Major", item.Major);
+            dataDict.Add("CreatedBy", item.Major+"");
             return addWithDic(dataDict);
         }
 

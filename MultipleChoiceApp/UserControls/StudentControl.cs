@@ -52,15 +52,16 @@ namespace MultipleChoiceApp.UserControls
         // ACTIONS
         private void btn_add_Click(object sender, EventArgs e)
         {
-            Student question = getFormItem();
+            Student item = getFormItem();
+            item.CreatedBy = Auth.getIntace().manager.Id;
             if (handleValidation())
             {
-                bool result = mainS.add(question);
+                bool result = mainS.add(item);
                 if (result)
                 {
-                    FormHelper.notify(Msg.INSERTED);
                     clearForm();
                     refreshList();
+                    FormHelper.notify(Msg.INSERTED);
                 }
             }
         }
@@ -79,8 +80,8 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.update(item);
                 if (result)
                 {
-                    FormHelper.notify(Msg.UPDATED);
                     refreshList();
+                    FormHelper.notify(Msg.UPDATED);
                 }
             }
         }
@@ -99,9 +100,9 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.delete(formItem.Id);
                 if (result)
                 {
-                    FormHelper.notify(Msg.DELETED);
                     clearForm();
                     refreshList();
+                    FormHelper.notify(Msg.DELETED);
                 }
                 else
                 {

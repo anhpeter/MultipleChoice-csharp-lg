@@ -61,6 +61,7 @@ namespace MultipleChoiceApp.ModelHelpers
             foreach (var dic in dicList)
             {
                 Student item = StudentHelper.fromDictionary(dic);
+                item.CreatedBy = Auth.getIntace().manager.Id;
                 list.Add(item);
             }
             return list;

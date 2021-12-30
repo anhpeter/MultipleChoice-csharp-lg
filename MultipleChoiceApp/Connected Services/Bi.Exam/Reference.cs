@@ -128,6 +128,8 @@ namespace MultipleChoiceApp.Bi.Exam {
         
         private int HardQtyField;
         
+        private int CreatedByField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SubjectCodeField;
         
@@ -252,7 +254,20 @@ namespace MultipleChoiceApp.Bi.Exam {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public string SubjectCode {
             get {
                 return this.SubjectCodeField;
@@ -265,7 +280,7 @@ namespace MultipleChoiceApp.Bi.Exam {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public int TotalQuestion {
             get {
                 return this.TotalQuestionField;
@@ -278,7 +293,7 @@ namespace MultipleChoiceApp.Bi.Exam {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
         public int StudentCount {
             get {
                 return this.StudentCountField;
@@ -291,7 +306,7 @@ namespace MultipleChoiceApp.Bi.Exam {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
         public MultipleChoiceApp.Bi.Exam.Subject Subject {
             get {
                 return this.SubjectField;
@@ -337,6 +352,8 @@ namespace MultipleChoiceApp.Bi.Exam {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LecturerField;
+        
+        private int CreatedByField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -422,6 +439,19 @@ namespace MultipleChoiceApp.Bi.Exam {
                 if ((object.ReferenceEquals(this.LecturerField, value) != true)) {
                     this.LecturerField = value;
                     this.RaisePropertyChanged("Lecturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
                 }
             }
         }

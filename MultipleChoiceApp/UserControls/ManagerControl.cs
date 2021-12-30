@@ -60,9 +60,9 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.add(question);
                 if (result)
                 {
-                    FormHelper.notify(Msg.INSERTED);
                     clearForm();
                     refreshList();
+                    FormHelper.notify(Msg.INSERTED);
                 }
             }
         }
@@ -81,8 +81,8 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.update(item);
                 if (result)
                 {
-                    FormHelper.notify(Msg.UPDATED);
                     refreshList();
+                    FormHelper.notify(Msg.UPDATED);
                 }
             }
         }
@@ -101,9 +101,9 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.delete(formItem.Id);
                 if (result)
                 {
-                    FormHelper.notify(Msg.DELETED);
                     clearForm();
                     refreshList();
+                    FormHelper.notify(Msg.DELETED);
                 }
                 else
                 {

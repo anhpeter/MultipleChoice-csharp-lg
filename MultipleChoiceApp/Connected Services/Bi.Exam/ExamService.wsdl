@@ -65,6 +65,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="EndAt" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="EasyQty" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="HardQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="SubjectCode" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="StudentCount" type="s:int" />
@@ -79,6 +80,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Lecturer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="getExamReportById">

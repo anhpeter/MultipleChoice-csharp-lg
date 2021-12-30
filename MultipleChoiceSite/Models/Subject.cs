@@ -16,6 +16,7 @@ namespace MultipleChoiceSite.Models
         public int TotalQuestion { get; set; }
         public int Duration { get; set; }
         public String Lecturer { get; set; }
+        public int CreatedBy { get; set; }
         //
         public static Subject fromDR(SqlDataReader dr)
         {
@@ -26,7 +27,8 @@ namespace MultipleChoiceSite.Models
                 Name = Util.getDrValue(dr, "Name"),
                 Lecturer = Util.getDrValue(dr, "Lecturer"),
                 TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), -1),
-                Duration = Util.parseToInt(Util.getDrValue(dr, "Duration"), -1),
+                Duration = Util.parseToInt(Util.getDrValue(dr, "Duration")),
+                CreatedBy = Util.parseToInt(Util.getDrValue(dr, "CreatedBy")),
             };
             return item;
         }

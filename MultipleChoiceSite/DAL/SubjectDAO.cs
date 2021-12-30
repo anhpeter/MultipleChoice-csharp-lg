@@ -58,6 +58,7 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("Lecturer", item.Lecturer + "");
             dataDict.Add("TotalQuestion", item.TotalQuestion + "");
             dataDict.Add("Duration", item.Duration + "");
+            dataDict.Add("CreatedBy", item.CreatedBy + "");
             return addWithDic(dataDict);
         }
 

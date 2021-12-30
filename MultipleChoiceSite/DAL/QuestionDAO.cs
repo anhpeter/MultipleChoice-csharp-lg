@@ -117,6 +117,8 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("Level", item.Level);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");
+            dataDict.Add("CreatedBy", item.CreatedBy + "");
+
             return addWithDic(dataDict, true);
         }
 

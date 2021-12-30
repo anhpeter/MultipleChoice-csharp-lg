@@ -41,6 +41,8 @@ namespace MultipleChoiceApp.Bi.Question {
         
         private System.DateTime CreatedAtField;
         
+        private int CreatedByField;
+        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LecturerField;
         
@@ -163,7 +165,20 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public int CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((this.CreatedByField.Equals(value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public string Lecturer {
             get {
                 return this.LecturerField;
@@ -176,7 +191,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public int QuestionInExamCount {
             get {
                 return this.QuestionInExamCountField;
@@ -189,7 +204,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
         public System.Collections.Generic.List<MultipleChoiceApp.Bi.Question.Answer> Answers {
             get {
                 return this.AnswersField;
