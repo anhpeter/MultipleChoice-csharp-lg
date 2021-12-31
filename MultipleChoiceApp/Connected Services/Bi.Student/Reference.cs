@@ -23,6 +23,32 @@ namespace MultipleChoiceApp.Bi.Student {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://peteranh.com/Services/Student")]
+    [System.SerializableAttribute()]
+    public partial class Student : MultipleChoiceApp.Bi.Student.User {
+        
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -39,15 +65,10 @@ namespace MultipleChoiceApp.Bi.Student {
         
         private System.DateTime DOBField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MajorField;
+        
+        private int CreatedByField;
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Id {
@@ -127,28 +148,7 @@ namespace MultipleChoiceApp.Bi.Student {
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://peteranh.com/Services/Student")]
-    [System.SerializableAttribute()]
-    public partial class Student : MultipleChoiceApp.Bi.Student.User {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MajorField;
-        
-        private int CreatedByField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string Major {
             get {
                 return this.MajorField;
@@ -161,7 +161,7 @@ namespace MultipleChoiceApp.Bi.Student {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
         public int CreatedBy {
             get {
                 return this.CreatedByField;
@@ -192,6 +192,13 @@ namespace MultipleChoiceApp.Bi.Student {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/searchByKeyword", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.searchByKeywordResponse> searchByKeywordAsync(MultipleChoiceApp.Bi.Student.searchByKeywordRequest request);
+        
+        // CODEGEN: Generating message contract since element name code from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getByCode", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.getByCodeResponse getByCode(MultipleChoiceApp.Bi.Student.getByCodeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getByCode", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getByCodeResponse> getByCodeAsync(MultipleChoiceApp.Bi.Student.getByCodeRequest request);
         
         // CODEGEN: Generating message contract since element name getAllForSelectDataResult from namespace http://peteranh.com/Services/Student is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getAllForSelectData", ReplyAction="*")]
@@ -385,6 +392,74 @@ namespace MultipleChoiceApp.Bi.Student {
         
         public searchByKeywordResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> searchByKeywordResult) {
             this.searchByKeywordResult = searchByKeywordResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getByCodeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getByCode", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getByCodeRequestBody Body;
+        
+        public getByCodeRequest() {
+        }
+        
+        public getByCodeRequest(MultipleChoiceApp.Bi.Student.getByCodeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getByCodeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string code;
+        
+        public getByCodeRequestBody() {
+        }
+        
+        public getByCodeRequestBody(string code) {
+            this.code = code;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getByCodeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getByCodeResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getByCodeResponseBody Body;
+        
+        public getByCodeResponse() {
+        }
+        
+        public getByCodeResponse(MultipleChoiceApp.Bi.Student.getByCodeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getByCodeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public MultipleChoiceApp.Bi.Student.Student getByCodeResult;
+        
+        public getByCodeResponseBody() {
+        }
+        
+        public getByCodeResponseBody(MultipleChoiceApp.Bi.Student.Student getByCodeResult) {
+            this.getByCodeResult = getByCodeResult;
         }
     }
     
@@ -870,6 +945,31 @@ namespace MultipleChoiceApp.Bi.Student {
             inValue.Body = new MultipleChoiceApp.Bi.Student.searchByKeywordRequestBody();
             inValue.Body.keyword = keyword;
             return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).searchByKeywordAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.getByCodeResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.getByCode(MultipleChoiceApp.Bi.Student.getByCodeRequest request) {
+            return base.Channel.getByCode(request);
+        }
+        
+        public MultipleChoiceApp.Bi.Student.Student getByCode(string code) {
+            MultipleChoiceApp.Bi.Student.getByCodeRequest inValue = new MultipleChoiceApp.Bi.Student.getByCodeRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getByCodeRequestBody();
+            inValue.Body.code = code;
+            MultipleChoiceApp.Bi.Student.getByCodeResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getByCode(inValue);
+            return retVal.Body.getByCodeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getByCodeResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.getByCodeAsync(MultipleChoiceApp.Bi.Student.getByCodeRequest request) {
+            return base.Channel.getByCodeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getByCodeResponse> getByCodeAsync(string code) {
+            MultipleChoiceApp.Bi.Student.getByCodeRequest inValue = new MultipleChoiceApp.Bi.Student.getByCodeRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getByCodeRequestBody();
+            inValue.Body.code = code;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getByCodeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

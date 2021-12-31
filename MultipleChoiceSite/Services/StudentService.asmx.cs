@@ -37,5 +37,10 @@ namespace MultipleChoiceSite.Services
         {
             return mainDAO.searchByKeyWord(keyword);
         }
+        [WebMethod]
+        public Student getByCode(String code)
+        {
+            return mainDAO.getByCode(code);
+        }
     }
 }

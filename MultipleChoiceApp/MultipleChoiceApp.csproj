@@ -616,6 +616,9 @@
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getByCodeAndPasswordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getByCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getDetailsByIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

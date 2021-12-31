@@ -42,6 +42,10 @@ namespace MultipleChoiceSite.DAL
             String sqlStr = getAllSqlStr($"where FullName like '%{keyword}%'");
             return getAll(sqlStr);
         }
+        public Student getByCode(String code)
+        {
+            return this.getByField("Code", code);
+        }
 
         // ADD
         public override int add(Student item)
@@ -53,7 +57,7 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("Address", item.Address);
             dataDict.Add("DOB", Util.toSqlFormattedDate(item.DOB));
             dataDict.Add("Major", item.Major);
-            dataDict.Add("CreatedBy", item.Major+"");
+            dataDict.Add("CreatedBy", item.CreatedBy+"");
             return addWithDic(dataDict);
         }
 

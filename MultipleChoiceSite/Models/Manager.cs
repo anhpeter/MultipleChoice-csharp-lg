@@ -10,6 +10,12 @@ namespace MultipleChoiceSite.Models
 {
     public class Manager:User
     {
+        public int Id { get; set; }
+        public String Code { get; set; }
+        public String Password { get; set; }
+        public String FullName { get; set; }
+        public String Address { get; set; }
+        public DateTime DOB { get; set; }
         public String PhoneNumber { get; set; }
         public String Position { get; set; }
         public static Manager fromDR(SqlDataReader dr)

@@ -21,22 +21,19 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:User">
             <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="Major" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
       </s:complexType>
-      <s:complexType name="User">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
-        </s:sequence>
-      </s:complexType>
+      <s:complexType name="User" />
       <s:element name="searchByKeyword">
         <s:complexType>
           <s:sequence>
@@ -56,6 +53,20 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeResult" type="tns:Student" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getAllForSelectData">
         <s:complexType />
       </s:element>
@@ -175,6 +186,12 @@
   <wsdl:message name="searchByKeywordSoapOut">
     <wsdl:part name="parameters" element="tns:searchByKeywordResponse" />
   </wsdl:message>
+  <wsdl:message name="getByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getByCode" />
+  </wsdl:message>
+  <wsdl:message name="getByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getByCodeResponse" />
+  </wsdl:message>
   <wsdl:message name="getAllForSelectDataSoapIn">
     <wsdl:part name="parameters" element="tns:getAllForSelectData" />
   </wsdl:message>
@@ -232,6 +249,10 @@
       <wsdl:input message="tns:searchByKeywordSoapIn" />
       <wsdl:output message="tns:searchByKeywordSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <wsdl:input message="tns:getByCodeSoapIn" />
+      <wsdl:output message="tns:getByCodeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getAllForSelectData">
       <wsdl:input message="tns:getAllForSelectDataSoapIn" />
       <wsdl:output message="tns:getAllForSelectDataSoapOut" />
@@ -278,6 +299,15 @@
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
       <soap:operation soapAction="http://peteranh.com/Services/Student/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getByCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -371,6 +401,15 @@
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
       <soap12:operation soapAction="http://peteranh.com/Services/Student/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getByCode" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
