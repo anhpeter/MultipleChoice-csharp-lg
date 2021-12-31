@@ -53,7 +53,7 @@ namespace MultipleChoiceSite.Models
                 Points = Util.parseToDouble(Util.getDrValue(dr, "Points"), 0),
                 UnansweredCount = Util.parseToInt(Util.getDrValue(dr, "UnansweredCount")),
                 Rank = Util.parseToInt(Util.getDrValue(dr, "Rank")),
-                CreatedAt = Util.parseToDatetime(Util.getDrValue(dr, "Rank")),
+                CreatedAt = Util.parseToDatetime(Util.getDrValue(dr, "CreatedAt")),
                 //
                 Subject = subject,
                 Exam = exam,

@@ -1253,6 +1253,13 @@ namespace MultipleChoiceApp.Bi.StudentResult {
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/StudentResult/getAllByExamId", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.StudentResult.getAllByExamIdResponse> getAllByExamIdAsync(MultipleChoiceApp.Bi.StudentResult.getAllByExamIdRequest request);
         
+        // CODEGEN: Generating message contract since element name sortField from namespace http://peteranh.com/Services/StudentResult is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/StudentResult/getReportByExamId", ReplyAction="*")]
+        MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse getReportByExamId(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/StudentResult/getReportByExamId", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse> getReportByExamIdAsync(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest request);
+        
         // CODEGEN: Generating message contract since element name keyword from namespace http://peteranh.com/Services/StudentResult is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/StudentResult/searchByKeyword", ReplyAction="*")]
         MultipleChoiceApp.Bi.StudentResult.searchByKeywordResponse searchByKeyword(MultipleChoiceApp.Bi.StudentResult.searchByKeywordRequest request);
@@ -1452,6 +1459,82 @@ namespace MultipleChoiceApp.Bi.StudentResult {
         
         public getAllByExamIdResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.StudentResult.StudentResult> getAllByExamIdResult) {
             this.getAllByExamIdResult = getAllByExamIdResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getReportByExamIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getReportByExamId", Namespace="http://peteranh.com/Services/StudentResult", Order=0)]
+        public MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequestBody Body;
+        
+        public getReportByExamIdRequest() {
+        }
+        
+        public getReportByExamIdRequest(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/StudentResult")]
+    public partial class getReportByExamIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string sortField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string sortValue;
+        
+        public getReportByExamIdRequestBody() {
+        }
+        
+        public getReportByExamIdRequestBody(int id, string sortField, string sortValue) {
+            this.id = id;
+            this.sortField = sortField;
+            this.sortValue = sortValue;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getReportByExamIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getReportByExamIdResponse", Namespace="http://peteranh.com/Services/StudentResult", Order=0)]
+        public MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponseBody Body;
+        
+        public getReportByExamIdResponse() {
+        }
+        
+        public getReportByExamIdResponse(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/StudentResult")]
+    public partial class getReportByExamIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.StudentResult.StudentResult> getReportByExamIdResult;
+        
+        public getReportByExamIdResponseBody() {
+        }
+        
+        public getReportByExamIdResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.StudentResult.StudentResult> getReportByExamIdResult) {
+            this.getReportByExamIdResult = getReportByExamIdResult;
         }
     }
     
@@ -2013,6 +2096,35 @@ namespace MultipleChoiceApp.Bi.StudentResult {
             inValue.Body = new MultipleChoiceApp.Bi.StudentResult.getAllByExamIdRequestBody();
             inValue.Body.id = id;
             return ((MultipleChoiceApp.Bi.StudentResult.StudentResultServiceSoap)(this)).getAllByExamIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse MultipleChoiceApp.Bi.StudentResult.StudentResultServiceSoap.getReportByExamId(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest request) {
+            return base.Channel.getReportByExamId(request);
+        }
+        
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.StudentResult.StudentResult> getReportByExamId(int id, string sortField, string sortValue) {
+            MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest inValue = new MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.sortField = sortField;
+            inValue.Body.sortValue = sortValue;
+            MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse retVal = ((MultipleChoiceApp.Bi.StudentResult.StudentResultServiceSoap)(this)).getReportByExamId(inValue);
+            return retVal.Body.getReportByExamIdResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse> MultipleChoiceApp.Bi.StudentResult.StudentResultServiceSoap.getReportByExamIdAsync(MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest request) {
+            return base.Channel.getReportByExamIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.StudentResult.getReportByExamIdResponse> getReportByExamIdAsync(int id, string sortField, string sortValue) {
+            MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest inValue = new MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.StudentResult.getReportByExamIdRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.sortField = sortField;
+            inValue.Body.sortValue = sortValue;
+            return ((MultipleChoiceApp.Bi.StudentResult.StudentResultServiceSoap)(this)).getReportByExamIdAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

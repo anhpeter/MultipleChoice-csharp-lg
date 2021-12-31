@@ -167,6 +167,22 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="StudentResult" nillable="true" type="tns:StudentResult" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getReportByExamId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sortField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sortValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getReportByExamIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getReportByExamIdResult" type="tns:ArrayOfStudentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="searchByKeyword">
         <s:complexType>
           <s:sequence>
@@ -306,6 +322,12 @@
   <wsdl:message name="getAllByExamIdSoapOut">
     <wsdl:part name="parameters" element="tns:getAllByExamIdResponse" />
   </wsdl:message>
+  <wsdl:message name="getReportByExamIdSoapIn">
+    <wsdl:part name="parameters" element="tns:getReportByExamId" />
+  </wsdl:message>
+  <wsdl:message name="getReportByExamIdSoapOut">
+    <wsdl:part name="parameters" element="tns:getReportByExamIdResponse" />
+  </wsdl:message>
   <wsdl:message name="searchByKeywordSoapIn">
     <wsdl:part name="parameters" element="tns:searchByKeyword" />
   </wsdl:message>
@@ -373,6 +395,10 @@
       <wsdl:input message="tns:getAllByExamIdSoapIn" />
       <wsdl:output message="tns:getAllByExamIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getReportByExamId">
+      <wsdl:input message="tns:getReportByExamIdSoapIn" />
+      <wsdl:output message="tns:getReportByExamIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
       <wsdl:input message="tns:searchByKeywordSoapIn" />
       <wsdl:output message="tns:searchByKeywordSoapOut" />
@@ -432,6 +458,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllByExamId">
       <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getAllByExamId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportByExamId">
+      <soap:operation soapAction="http://peteranh.com/Services/StudentResult/getReportByExamId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -543,6 +578,15 @@
     </wsdl:operation>
     <wsdl:operation name="getAllByExamId">
       <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getAllByExamId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportByExamId">
+      <soap12:operation soapAction="http://peteranh.com/Services/StudentResult/getReportByExamId" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

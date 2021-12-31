@@ -45,6 +45,7 @@ namespace MultipleChoiceSite.DAL
                     stu.Id as StudentId, stu.Code as StudentCode, 
                     stu.FullName as StudentFullName, 
                     ex.Name as ExamName, 
+                    sr.CreatedAt as CreatedAt, 
                     ISNULL(unanswered.Unanswered, 0) as UnansweredCount, sr.Points 
                     FROM Students AS stu INNER JOIN StudentResults AS sr ON (stu.Id = sr.StudentId)
                         INNER JOIN Exams as ex ON (sr.ExamId = ex.Id) LEFT JOIN (
@@ -56,6 +57,15 @@ namespace MultipleChoiceSite.DAL
                 WHERE sr.ExamId = {0}
                 ORDER BY sr.Points desc
 ", id);
+            return getAll(sqlStr);
+        }
+        public List<StudentResult> getReportByExamId(int id, String sortField, String sortValue)
+        {
+            String sqlStr = string.Format(@"
+                SELECT * FROM StudentResultReport_View
+                where ExamId = {0}
+                order by {1} {2}", id, sortField, sortValue
+            );
             return getAll(sqlStr);
         }
         public List<StudentResult> searchByKeyWord(String keyword)

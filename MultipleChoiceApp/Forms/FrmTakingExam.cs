@@ -170,8 +170,12 @@ namespace MultipleChoiceApp.Forms
         // EVENTS
         private void btn_submit_Click(object sender, EventArgs e)
         {
-            timer.Dispose();
-            onExamSubmit();
+            DialogResult result = MessageBox.Show(Msg.SUBMIT_EXAM_CONFIRM, "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                timer.Dispose();
+                onExamSubmit();
+            }
         }
         private void onPaginationBtnClick(object sender, EventArgs e)
         {
@@ -212,7 +216,7 @@ namespace MultipleChoiceApp.Forms
             Util.log("TIME: " + this.time);
             double h = Math.Floor(this.time / 60 / 60 / 1000.0) % 60;
             double m = Math.Floor(this.time % (1000 * 60 * 60) / (1000 * 60 * 1.0));
-            double s = Math.Floor((this.time % (1000 * 60)) / 1000*1.0);
+            double s = Math.Floor((this.time % (1000 * 60)) / 1000 * 1.0);
 
             Util.log($"h: {h} - m: {m} - s: {s}");
             String hStr = Util.strPad(h + "", 2, "0");
@@ -277,6 +281,11 @@ namespace MultipleChoiceApp.Forms
             lbl.Dock = DockStyle.Fill;
             lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             lbl.BackColor = Color.Transparent;
+            lbl.Cursor = Cursors.Hand;
+            lbl.Tag = text;
+            lbl.Click += this.questionNumber_Click;
+            lbl.MouseEnter += this.questionNumber_MouseEnter;
+            lbl.MouseLeave += this.questionNumber_MouseLeave;
             return lbl;
         }
 
@@ -297,5 +306,58 @@ namespace MultipleChoiceApp.Forms
             return rdo;
         }
 
+        private void FrmTakingExam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Util.log(e.KeyChar + "");
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            int newQUestionNumber = questionNumber;
+            if (keyData == Keys.Right)
+            {
+                newQUestionNumber = newQUestionNumber < subject.TotalQuestion ? newQUestionNumber + 1 : subject.TotalQuestion;
+            }
+            else if (keyData == Keys.Left)
+            {
+                newQUestionNumber = newQUestionNumber > 1 ? newQUestionNumber - 1 : 1;
+            }
+            if (newQUestionNumber != questionNumber)
+            {
+                questionNumber = newQUestionNumber;
+                displayQuestion();
+            }
+            return true;
+            //return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void questionNumber_Click(object sender, EventArgs e)
+        {
+            int newQuestionNumber = Util.parseToInt(((Label)sender).Tag.ToString());
+            if (newQuestionNumber != questionNumber)
+            {
+                questionNumber = newQuestionNumber;
+                displayQuestion();
+            }
+        }
+
+        void questionNumber_MouseEnter(object sender, EventArgs e)
+        {
+            ((Label)sender).ForeColor = Color.DodgerBlue;
+        }
+        void questionNumber_MouseLeave(object sender, EventArgs e)
+        {
+            ((Label)sender).ForeColor = Color.Black;
+        }
+
+        private void FrmTakingExam_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Your exam not finished yet. Do you want to Exit?", "Confirmation",MessageBoxButtons.YesNo );
+            e.Cancel = (result == DialogResult.No);
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

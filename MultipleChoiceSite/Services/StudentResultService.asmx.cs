@@ -46,6 +46,12 @@ namespace MultipleChoiceSite.Services
         {
             return mainDAO.getAllByExamId(id);
         }
+        [WebMethod]
+
+        public List<StudentResult> getReportByExamId(int id, String sortField, String sortValue)
+        {
+            return mainDAO.getReportByExamId(id, sortField, sortValue);
+        }
 
         [WebMethod]
         public List<StudentResult> searchByKeyword(String keyword)

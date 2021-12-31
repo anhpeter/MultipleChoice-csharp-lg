@@ -367,7 +367,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 1;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -529,6 +529,7 @@ namespace MultipleChoiceApp.Forms
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
             this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // label10
             // 
@@ -553,7 +554,9 @@ namespace MultipleChoiceApp.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTakingExam";
             this.Text = "FrmTakingExam";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTakingExam_FormClosing);
             this.Load += new System.EventHandler(this.FrmTakingExam_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmTakingExam_KeyPress);
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
             this.pnl_pagination.ResumeLayout(false);
