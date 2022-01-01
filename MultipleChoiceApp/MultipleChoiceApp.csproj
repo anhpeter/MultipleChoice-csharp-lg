@@ -458,6 +458,18 @@
     <Compile Include="UserControls\ExamResultControl.Designer.cs">
       <DependentUpon>ExamResultControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\QuestionForm\ImageAnswersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QuestionForm\ImageAnswersControl.Designer.cs">
+      <DependentUpon>ImageAnswersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuestionForm\TextAnswersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\QuestionForm\TextAnswersControl.Designer.cs">
+      <DependentUpon>TextAnswersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ResultControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -564,6 +576,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ExamResultControl.resx">
       <DependentUpon>ExamResultControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QuestionForm\ImageAnswersControl.resx">
+      <DependentUpon>ImageAnswersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\QuestionForm\TextAnswersControl.resx">
+      <DependentUpon>TextAnswersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ResultControl.resx">
       <DependentUpon>ResultControl.cs</DependentUpon>
@@ -922,6 +940,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Connected Services\Bi.Question\QuestionService.disco" />
+    <None Include="Resources\empty_image.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

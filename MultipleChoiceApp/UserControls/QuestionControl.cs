@@ -78,18 +78,19 @@ namespace MultipleChoiceApp.UserControls
         // ACTIONS
         private void btn_add_Click(object sender, EventArgs e)
         {
-            Question item = getFormQuestion();
-            item.CreatedBy = Auth.getIntace().manager.Id;
-            if (handleValidation())
-            {
-                bool result = mainS.add(item);
-                if (result)
-                {
-                    clearForm();
-                    refreshList();
-                    FormHelper.notify(Msg.INSERTED);
-                }
-            }
+            new FrmQuestionForm(null).ShowDialog();
+            //Question item = getFormQuestion();
+            //item.CreatedBy = Auth.getIntace().manager.Id;
+            //if (handleValidation())
+            //{
+            //    bool result = mainS.add(item);
+            //    if (result)
+            //    {
+            //        clearForm();
+            //        refreshList();
+            //        FormHelper.notify(Msg.INSERTED);
+            //    }
+            //}
         }
 
         private void btn_update_Click(object sender, EventArgs e)
