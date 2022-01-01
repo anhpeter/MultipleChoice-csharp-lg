@@ -27,6 +27,11 @@ namespace MultipleChoiceSite.Services
             return mainDAO;
         }
 
+        [WebMethod]
+        public Manager getByCode(String code)
+        {
+            return mainDAO.getByCode(code);
+        }
 
         [WebMethod]
         public Manager getByCodeAndPassword(String id, String password)

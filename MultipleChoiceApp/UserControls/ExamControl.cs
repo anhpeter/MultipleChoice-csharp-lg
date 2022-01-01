@@ -197,8 +197,8 @@ namespace MultipleChoiceApp.UserControls
             txt_easy_qty.Text = "0";
             txt_hard_qty.Text = "0";
             DateTime now = DateTime.Now;
-            DateTime start = new DateTime(now.Year, now.Month, now.Day+1, 7, 0, 0, 0);
-            DateTime end = new DateTime(now.Year, now.Month, now.Day+1, 8, 0, 0, 0);
+            DateTime start = new DateTime(now.Year, now.Month, now.Day, 7, 0, 0, 0);
+            DateTime end = new DateTime(now.Year, now.Month, now.Day, 8, 0, 0, 0);
 
             datepicker_start_at.Text = start.ToString();
             datepicker_end_at.Text = end.ToString();

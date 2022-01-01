@@ -376,6 +376,17 @@ namespace MultipleChoiceApp.UserControls
             pagination = paginationControl.pagination;
             refreshList();
         }
+
+        async private void btn_question_image_Click(object sender, EventArgs e)
+        {
+            FileUpload fileUpload = new FileUpload();
+            openFileDialog_question.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
+            if (openFileDialog_question.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedFile = openFileDialog_question.FileName;
+                String imgUrl = await fileUpload.upload("Questions", selectedFile);
+            }
+        }
     }
 }
 

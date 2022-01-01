@@ -106,6 +106,7 @@ namespace MultipleChoiceApp.UserControls
             this.savefiledialog_excel = new System.Windows.Forms.SaveFileDialog();
             this.openfiledialog_excel = new System.Windows.Forms.OpenFileDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.openFileDialog_question = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -959,7 +960,7 @@ namespace MultipleChoiceApp.UserControls
             this.txt_question.SelectionLength = 0;
             this.txt_question.SelectionStart = 0;
             this.txt_question.ShortcutsEnabled = true;
-            this.txt_question.Size = new System.Drawing.Size(491, 34);
+            this.txt_question.Size = new System.Drawing.Size(376, 34);
             this.txt_question.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txt_question.TabIndex = 1;
             this.txt_question.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1293,6 +1294,10 @@ namespace MultipleChoiceApp.UserControls
             this.openfiledialog_excel.FileName = "openFileDialog1";
             this.openfiledialog_excel.Filter = "Excel|*.xlsx";
             // 
+            // openFileDialog_question
+            // 
+            this.openFileDialog_question.FileName = "openFileDialog1";
+            // 
             // QuestionControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1364,5 +1369,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.SaveFileDialog savefiledialog_excel;
         private System.Windows.Forms.OpenFileDialog openfiledialog_excel;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_question;
     }
 }

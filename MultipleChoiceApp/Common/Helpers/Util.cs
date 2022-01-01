@@ -120,6 +120,11 @@ namespace MultipleChoiceApp.Common.Helpers
             return true;
         }
 
+        public static int getRandom(int min, int max)
+        {
+            Random rnd = new Random();
+            return Convert.ToInt32(Math.Floor(rnd.Next(max- min+1) + min * 1.0));
+        }
         public static int getRandom(Random rnd, int min, int max)
         {
             return Convert.ToInt32(Math.Floor(rnd.Next(max- min+1) + min * 1.0));

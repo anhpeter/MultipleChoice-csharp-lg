@@ -12,12 +12,19 @@ namespace MultipleChoiceApp.Common.Validators
     public class ManagerValidator : AbstractValidator<Manager>
     {
 
+        ManagerServiceSoapClient managerS = new ManagerServiceSoapClient();
+
         public ManagerValidator()
         {
             RuleFor(p => p.Code)
                 .Cascade(CascadeMode.StopOnFirstFailure)
                 .NotEmpty().WithMessage(string.Format(Msg.VLD_REQURIED, "Manager code"))
-                .MaximumLength(50).WithMessage(string.Format(Msg.VLD_MAX_LENGTH, "Manager code", 50));
+                .MaximumLength(50).WithMessage(string.Format(Msg.VLD_MAX_LENGTH, "Manager code", 50))
+                .Must((Code) => {
+                    Manager student = managerS.getByCode(Code);
+                    bool result =  student == null;
+                    return result;
+                }).WithMessage((ex) => string.Format(Msg.VLD_UNIQUE,  "Manager code")); 
 
             RuleFor(p => p.FullName)
                 .Cascade(CascadeMode.StopOnFirstFailure)

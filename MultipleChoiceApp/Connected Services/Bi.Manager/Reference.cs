@@ -180,6 +180,13 @@ namespace MultipleChoiceApp.Bi.Manager {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.com/Services/Manager", ConfigurationName="Bi.Manager.ManagerServiceSoap")]
     public interface ManagerServiceSoap {
         
+        // CODEGEN: Generating message contract since element name code from namespace http://peteranh.com/Services/Manager is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Manager/getByCode", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Manager.getByCodeResponse getByCode(MultipleChoiceApp.Bi.Manager.getByCodeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Manager/getByCode", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Manager.getByCodeResponse> getByCodeAsync(MultipleChoiceApp.Bi.Manager.getByCodeRequest request);
+        
         // CODEGEN: Generating message contract since element name id from namespace http://peteranh.com/Services/Manager is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Manager/getByCodeAndPassword", ReplyAction="*")]
         MultipleChoiceApp.Bi.Manager.getByCodeAndPasswordResponse getByCodeAndPassword(MultipleChoiceApp.Bi.Manager.getByCodeAndPasswordRequest request);
@@ -247,6 +254,74 @@ namespace MultipleChoiceApp.Bi.Manager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Manager/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getByCodeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getByCode", Namespace="http://peteranh.com/Services/Manager", Order=0)]
+        public MultipleChoiceApp.Bi.Manager.getByCodeRequestBody Body;
+        
+        public getByCodeRequest() {
+        }
+        
+        public getByCodeRequest(MultipleChoiceApp.Bi.Manager.getByCodeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Manager")]
+    public partial class getByCodeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string code;
+        
+        public getByCodeRequestBody() {
+        }
+        
+        public getByCodeRequestBody(string code) {
+            this.code = code;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getByCodeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getByCodeResponse", Namespace="http://peteranh.com/Services/Manager", Order=0)]
+        public MultipleChoiceApp.Bi.Manager.getByCodeResponseBody Body;
+        
+        public getByCodeResponse() {
+        }
+        
+        public getByCodeResponse(MultipleChoiceApp.Bi.Manager.getByCodeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Manager")]
+    public partial class getByCodeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public MultipleChoiceApp.Bi.Manager.Manager getByCodeResult;
+        
+        public getByCodeResponseBody() {
+        }
+        
+        public getByCodeResponseBody(MultipleChoiceApp.Bi.Manager.Manager getByCodeResult) {
+            this.getByCodeResult = getByCodeResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -819,6 +894,31 @@ namespace MultipleChoiceApp.Bi.Manager {
         
         public ManagerServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Manager.getByCodeResponse MultipleChoiceApp.Bi.Manager.ManagerServiceSoap.getByCode(MultipleChoiceApp.Bi.Manager.getByCodeRequest request) {
+            return base.Channel.getByCode(request);
+        }
+        
+        public MultipleChoiceApp.Bi.Manager.Manager getByCode(string code) {
+            MultipleChoiceApp.Bi.Manager.getByCodeRequest inValue = new MultipleChoiceApp.Bi.Manager.getByCodeRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Manager.getByCodeRequestBody();
+            inValue.Body.code = code;
+            MultipleChoiceApp.Bi.Manager.getByCodeResponse retVal = ((MultipleChoiceApp.Bi.Manager.ManagerServiceSoap)(this)).getByCode(inValue);
+            return retVal.Body.getByCodeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Manager.getByCodeResponse> MultipleChoiceApp.Bi.Manager.ManagerServiceSoap.getByCodeAsync(MultipleChoiceApp.Bi.Manager.getByCodeRequest request) {
+            return base.Channel.getByCodeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Manager.getByCodeResponse> getByCodeAsync(string code) {
+            MultipleChoiceApp.Bi.Manager.getByCodeRequest inValue = new MultipleChoiceApp.Bi.Manager.getByCodeRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Manager.getByCodeRequestBody();
+            inValue.Body.code = code;
+            return ((MultipleChoiceApp.Bi.Manager.ManagerServiceSoap)(this)).getByCodeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

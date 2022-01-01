@@ -2,18 +2,17 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/Manager" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/Manager" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/Manager">
-      <s:element name="getByCodeAndPassword">
+      <s:element name="getByCode">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getByCodeAndPasswordResponse">
+      <s:element name="getByCodeResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getByCodeAndPasswordResult" type="tns:Manager" />
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeResult" type="tns:Manager" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -34,6 +33,21 @@
         </s:complexContent>
       </s:complexType>
       <s:complexType name="User" />
+      <s:element name="getByCodeAndPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCodeAndPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeAndPasswordResult" type="tns:Manager" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="searchByKeyword">
         <s:complexType>
           <s:sequence>
@@ -160,6 +174,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="getByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getByCode" />
+  </wsdl:message>
+  <wsdl:message name="getByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getByCodeResponse" />
+  </wsdl:message>
   <wsdl:message name="getByCodeAndPasswordSoapIn">
     <wsdl:part name="parameters" element="tns:getByCodeAndPassword" />
   </wsdl:message>
@@ -221,6 +241,10 @@
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
   <wsdl:portType name="ManagerServiceSoap">
+    <wsdl:operation name="getByCode">
+      <wsdl:input message="tns:getByCodeSoapIn" />
+      <wsdl:output message="tns:getByCodeSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <wsdl:input message="tns:getByCodeAndPasswordSoapIn" />
       <wsdl:output message="tns:getByCodeAndPasswordSoapOut" />
@@ -264,6 +288,15 @@
   </wsdl:portType>
   <wsdl:binding name="ManagerServiceSoap" type="tns:ManagerServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getByCode">
+      <soap:operation soapAction="http://peteranh.com/Services/Manager/getByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <soap:operation soapAction="http://peteranh.com/Services/Manager/getByCodeAndPassword" style="document" />
       <wsdl:input>
@@ -357,6 +390,15 @@
   </wsdl:binding>
   <wsdl:binding name="ManagerServiceSoap12" type="tns:ManagerServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getByCode">
+      <soap12:operation soapAction="http://peteranh.com/Services/Manager/getByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <soap12:operation soapAction="http://peteranh.com/Services/Manager/getByCodeAndPassword" style="document" />
       <wsdl:input>

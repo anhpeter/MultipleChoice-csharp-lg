@@ -23,7 +23,7 @@ namespace MultipleChoiceApp.Common.Validators
                     Student student = studentS.getByCode(Code);
                     bool result =  student == null;
                     return result;
-                }).WithMessage((ex) => "Student code must be unique"); 
+                }).WithMessage((ex) => string.Format(Msg.VLD_UNIQUE,  "Student code")); 
 
             RuleFor(p => p.FullName)
                 .Cascade(CascadeMode.StopOnFirstFailure)

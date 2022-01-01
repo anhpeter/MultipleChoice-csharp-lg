@@ -35,6 +35,11 @@ namespace MultipleChoiceSite.DAL
             dbHelper.closeConnection();
             return item;
         }
+
+        public Manager getByCode(String code)
+        {
+            return this.getByField("Code", code);
+        }
         public List<Manager> searchByKeyWord(String keyword)
         {
             String sqlStr = getAllSqlStr($"where FullName like '%{keyword}%'");

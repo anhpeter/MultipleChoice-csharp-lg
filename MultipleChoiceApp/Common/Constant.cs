@@ -8,6 +8,8 @@ namespace MultipleChoiceApp.Common
 {
     class Constant
     {
+        public static  String firestorageBucket = "wfmultiplechoice-db431.appspot.com";
+        //
         public String primaryColor = "#2196f3";
         public String secondaryColor = "#f50057";
         public String thridColor = "#AB987A";
