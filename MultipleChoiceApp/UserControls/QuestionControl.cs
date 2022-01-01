@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using MultipleChoiceApp.Bi.Question;
 using MultipleChoiceApp.Bi.Subject;
 using MultipleChoiceApp.ModelHelpers;
+using MultipleChoiceApp.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
@@ -386,6 +387,11 @@ namespace MultipleChoiceApp.UserControls
                 string selectedFile = openFileDialog_question.FileName;
                 String imgUrl = await fileUpload.upload("Questions", selectedFile);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new FrmQuestionForm().ShowDialog();
         }
     }
 }
