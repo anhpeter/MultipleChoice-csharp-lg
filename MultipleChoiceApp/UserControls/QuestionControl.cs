@@ -49,22 +49,22 @@ namespace MultipleChoiceApp.UserControls
             refreshList();
         }
 
-        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void gv_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = getSelectedId();
             if (id > 0)
             {
                 formItem = mainS.getDetailsById(id);
-                lbl_id.Text = "#" + formItem.Id.ToString();
-                txt_question.Text = formItem.Content.ToString();
-                txt_chapter.Text = formItem.Chapter.ToString();
-                txt_ans1.Text = formItem.Answers[0].Content.ToString();
-                txt_ans2.Text = formItem.Answers[1].Content.ToString();
-                txt_ans3.Text = formItem.Answers[2].Content.ToString();
-                txt_ans4.Text = formItem.Answers[3].Content.ToString();
+                onEdit(formItem);
+            }
+        }
+        private void gv_main_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-                drop_level.SelectedValue = formItem.Level;
-                checkRdoAnsCorrect(formItem.CorrectAnswerNo);
+            int id = getSelectedId();
+            if (id > 0)
+            {
+                formItem = mainS.getDetailsById(id);
             }
         }
 
@@ -78,39 +78,7 @@ namespace MultipleChoiceApp.UserControls
         // ACTIONS
         private void btn_add_Click(object sender, EventArgs e)
         {
-            new FrmQuestionForm(null).ShowDialog();
-            //Question item = getFormQuestion();
-            //item.CreatedBy = Auth.getIntace().manager.Id;
-            //if (handleValidation())
-            //{
-            //    bool result = mainS.add(item);
-            //    if (result)
-            //    {
-            //        clearForm();
-            //        refreshList();
-            //        FormHelper.notify(Msg.INSERTED);
-            //    }
-            //}
-        }
-
-        private void btn_update_Click(object sender, EventArgs e)
-        {
-            if (formItem == null)
-            {
-                FormHelper.showErrorMsg(Msg.CHOOSE_AN_ITEM);
-                return;
-            }
-            //
-            Question question = getFormQuestion();
-            if (handleValidation())
-            {
-                bool result = mainS.update(question);
-                if (result)
-                {
-                    refreshList();
-                    FormHelper.notify(Msg.UPDATED);
-                }
-            }
+            new FrmQuestionForm(this, null, getFormSubjectId()).ShowDialog();
         }
 
         private void btn_delete_Click(object sender, EventArgs e)
@@ -130,6 +98,10 @@ namespace MultipleChoiceApp.UserControls
                     clearForm();
                     refreshList();
                     FormHelper.notify(Msg.DELETED);
+                }
+                else
+                {
+                    FormHelper.showErrorMsg(Msg.DELETE_CONSTRAINT_ERROR);
                 }
             }
         }
@@ -193,53 +165,6 @@ namespace MultipleChoiceApp.UserControls
         }
 
         // HELPER METHODS
-        private bool handleValidation()
-        {
-            Question item = getFormQuestion();
-            QuestionValidator validator = new QuestionValidator();
-            ValidationResult results = validator.Validate(item);
-            if (results.IsValid)
-            {
-                return true;
-            }
-            else
-            {
-                FormHelper.showValidatorError(results.Errors);
-            }
-            return false;
-        }
-        private Question getFormQuestion()
-        {
-            // ANSWER LIST
-            List<Answer> answerList = new List<Answer>();
-            int questionId = formItem != null ? formItem.Id : -1;
-            BunifuTextBox[] ansTxts = { txt_ans1, txt_ans2, txt_ans3, txt_ans4 };
-            for (int i = 0; i < ansTxts.Length; i++)
-            {
-                answerList.Add(new Answer()
-                {
-                    QuestionId = questionId,
-                    No = i + 1,
-                    Content = ansTxts[i].Text.ToString(),
-                });
-            }
-
-            String level = drop_level.SelectedValue.ToString();
-            int correctAnsNo = getCorrectAnsNo();
-            int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
-
-            Question item = new Question()
-            {
-                Id = questionId,
-                Answers = answerList,
-                Content = txt_question.Text.ToString(),
-                SubjectId = getFormSubjectId(),
-                Level = level,
-                CorrectAnswerNo = correctAnsNo,
-                Chapter = chapter
-            };
-            return item;
-        }
 
         private int getFormSubjectId()
         {
@@ -252,15 +177,8 @@ namespace MultipleChoiceApp.UserControls
             return "";
         }
 
-        private int getCorrectAnsNo()
-        {
-            BunifuRadioButton radio = pnl_correct_ans_no.Controls.OfType<BunifuRadioButton>()
-                .FirstOrDefault(r => r.Checked);
 
-            return Util.parseToInt(radio.Tag.ToString(), 1);
-        }
-
-        private void refreshList()
+        public void refreshList()
         {
             int subjectId = getFormSubjectId();
             if (subjectId > 0)
@@ -307,34 +225,14 @@ namespace MultipleChoiceApp.UserControls
             test.Add("easy", "Easy");
             test.Add("normal", "Normal");
             test.Add("hard", "Hard");
-            drop_level.DataSource = new BindingSource(test, null);
-            drop_level.DisplayMember = "Value";
-            drop_level.ValueMember = "Key";
+            //drop_level.DataSource = new BindingSource(test, null);
+            //drop_level.DisplayMember = "Value";
+            //drop_level.ValueMember = "Key";
         }
 
-        private void clearForm()
+        public void clearForm()
         {
-            lbl_id.Text = "";
-            txt_question.Text = "";
-            txt_ans1.Text = "";
-            txt_ans2.Text = "";
-            txt_ans3.Text = "";
-            txt_ans4.Text = "";
-            txt_chapter.Text = "1";
-            drop_level.SelectedIndex = 0;
-            checkRdoAnsCorrect(1);
             formItem = null;
-
-        }
-
-        private void checkRdoAnsCorrect(int no)
-        {
-            BunifuRadioButton[] rdos = { rdo_ans1, rdo_ans2, rdo_ans3, rdo_ans4 };
-            for (int i = 0; i < rdos.Length; i++)
-            {
-                if (i == no - 1) rdos[i].Checked = true;
-                else rdos[i].Checked = false;
-            }
         }
 
         private int getSelectedId()
@@ -379,20 +277,9 @@ namespace MultipleChoiceApp.UserControls
             refreshList();
         }
 
-        async private void btn_question_image_Click(object sender, EventArgs e)
+        private void onEdit(Question item)
         {
-            FileUpload fileUpload = new FileUpload();
-            openFileDialog_question.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
-            if (openFileDialog_question.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string selectedFile = openFileDialog_question.FileName;
-                String imgUrl = await fileUpload.upload("Questions", selectedFile);
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new FrmQuestionForm().ShowDialog();
+            new FrmQuestionForm(this, item, getFormSubjectId()).ShowDialog();
         }
     }
 }

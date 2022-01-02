@@ -1,6 +1,12 @@
 ﻿using Bunifu.UI.WinForms;
+using FluentValidation.Results;
 using MultipleChoiceApp.Bi.Question;
+using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
+using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.UserControls;
 using MultipleChoiceApp.UserControls.QuestionForm;
+using MultipleChoiceApp.UserControls.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,34 +19,68 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms
 {
-    public partial class FrmQuestionForm : Form
+    public partial class FrmQuestionForm : Form, IUploadImage
     {
-        Question question;
+        QuestionServiceSoapClient mainS = new QuestionServiceSoapClient();
+        QuestionControl parent;
+        Question formItem;
+        int subjectId;
         String answerType = "text";
         TextAnswersControl textAnswersControl;
         ImageAnswersControl imageAnswersControl;
-        public FrmQuestionForm(Question question)
+        UploadImageControl questionImageControl;
+
+        public FrmQuestionForm(QuestionControl parent, Question question, int subjectId)
         {
             InitializeComponent();
             CenterToParent();
-            textAnswersControl = new TextAnswersControl();
-            textAnswersControl.Dock = DockStyle.Fill;
-            imageAnswersControl = new ImageAnswersControl();
-            imageAnswersControl.Dock = DockStyle.Fill;
-
+            formItem = question;
+            this.subjectId = subjectId;
+            this.parent = parent;
         }
 
         private void FrmQuestionForm_Load(object sender, EventArgs e)
         {
+            textAnswersControl = new TextAnswersControl(formItem);
+            textAnswersControl.Dock = DockStyle.Fill;
+            imageAnswersControl = new ImageAnswersControl(formItem, pnl_answers.Width);
+            imageAnswersControl.Dock = DockStyle.Fill;
             refreshAnswerType();
             refreshAnswerSheet();
+            initForm();
+        }
+
+        private void initForm()
+        {
+            initDrops();
+            pnl_question_pic.Controls.Clear();
+            questionImageControl = new UploadImageControl(this, "question", null);
+            questionImageControl.Dock = DockStyle.Fill;
+            pnl_question_pic.Controls.Add(questionImageControl);
+            lbl_id.Text = formItem != null ? "#" + formItem.Id.ToString() : "";
+            txt_question.Text = formItem?.Content.ToString() ?? "";
+            txt_chapter.Text = formItem?.Chapter.ToString() ?? "1";
+            drop_level.SelectedValue = formItem?.Level ?? "easy";
+        }
+
+        private void initDrops()
+        {
+
+            Dictionary<string, string> test = new Dictionary<string, string>();
+            test.Add("easy", "Easy");
+            test.Add("normal", "Normal");
+            test.Add("hard", "Hard");
+            drop_level.DataSource = new BindingSource(test, null);
+            drop_level.DisplayMember = "Value";
+            drop_level.ValueMember = "Key";
         }
 
 
         private void refreshAnswerSheet()
         {
             pnl_answers.Controls.Clear();
-            if (answerType.Equals("text")){
+            if (answerType.Equals("text"))
+            {
                 pnl_answers.Controls.Add(textAnswersControl);
             }
             else
@@ -71,5 +111,109 @@ namespace MultipleChoiceApp.Forms
                 refreshAnswerSheet();
             }
         }
+        //
+
+        private Question getFormQuestion()
+        {
+            // ANSWER LIST
+            Question item;
+            if (answerType.Equals("text"))
+            {
+                item = textAnswersControl.getFormQuestion();
+            }
+            else
+            {
+                item = imageAnswersControl.getFormQuestion();
+            }
+
+            String level = drop_level.SelectedValue.ToString();
+            int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
+
+            int questionId = formItem != null ? formItem.Id : -1;
+            item.Id = questionId;
+            item.Content = txt_question.Text.ToString();
+            item.SubjectId = subjectId;
+            item.Level = level;
+            item.Chapter = chapter;
+            return item;
+        }
+
+
+        private void clearForm()
+        {
+            lbl_id.Text = "";
+            txt_question.Text = "";
+            txt_chapter.Text = "1";
+            drop_level.SelectedIndex = 0;
+            if (answerType.Equals("text"))
+            {
+                textAnswersControl.clearForm();
+            }
+            else
+            {
+                imageAnswersControl.clearForm();
+            }
+            parent.clearForm();
+        }
+
+        private void btn_submit_Click(object sender, EventArgs e)
+        {
+
+            Question item = getFormQuestion();
+            if (formItem != null)
+            {
+                if (handleValidation())
+                {
+                    bool result = mainS.update(item);
+                    if (result)
+                    {
+                        parent.refreshList();
+                        FormHelper.notify(Msg.UPDATED);
+                    }
+                }
+            }
+            else
+            {
+                item.CreatedBy = Auth.getIntace().manager.Id;
+                if (handleValidation())
+                {
+                    bool result = mainS.add(item);
+                    if (result)
+                    {
+                        clearForm();
+                        parent.refreshList();
+                        FormHelper.notify(Msg.INSERTED);
+                    }
+                }
+            }
+        }
+
+        private bool handleValidation()
+        {
+            Question item = getFormQuestion();
+            QuestionValidator validator = new QuestionValidator();
+            ValidationResult results = validator.Validate(item);
+            if (results.IsValid)
+            {
+                return true;
+            }
+            else
+            {
+                FormHelper.showValidatorError(results.Errors);
+            }
+            return false;
+        }
+
+        public void onImageUploaded(string tag, string imgUrl)
+        {
+            pic_progress.Width = 0;
+            questionImageControl.setImgUrl(imgUrl);
+        }
+
+        public void onImageUploading(string tag, int percent)
+        {
+            pic_progress.Width = Convert.ToInt32(Math.Floor(Width * (percent / 100.0)));
+        }
+
     }
 }

@@ -277,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Helpers\FileUpload.cs" />
+    <Compile Include="Common\Interfaces\IUploadImage.cs" />
     <Compile Include="Forms\FrmQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,17 +495,23 @@
     <Compile Include="UserControls\SubjectControl.Designer.cs">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.cs">
+    <Compile Include="UserControls\Utilities\CorrectChart.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Utilities\CorrectChartControl - Copy.Designer.cs">
-      <DependentUpon>CorrectChartControl - Copy.cs</DependentUpon>
+    <Compile Include="UserControls\Utilities\CorrectChart.Designer.cs">
+      <DependentUpon>CorrectChart.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Utilities\QuestionStatistic.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\Utilities\QuestionStatistic.Designer.cs">
       <DependentUpon>QuestionStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Utilities\UploadImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Utilities\UploadImageControl.Designer.cs">
+      <DependentUpon>UploadImageControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\UtilForms\Alert.resx">
       <DependentUpon>Alert.cs</DependentUpon>
@@ -595,11 +602,14 @@
     <EmbeddedResource Include="UserControls\SubjectControl.resx">
       <DependentUpon>SubjectControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Utilities\CorrectChartControl - Copy.resx">
-      <DependentUpon>CorrectChartControl - Copy.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Utilities\CorrectChart.resx">
+      <DependentUpon>CorrectChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Utilities\QuestionStatistic.resx">
       <DependentUpon>QuestionStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Utilities\UploadImageControl.resx">
+      <DependentUpon>UploadImageControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\Bi.Exam\ExamService.wsdl" />
     <None Include="Connected Services\Bi.Exam\MultipleChoiceApp.Bi.Exam.addManyResponse.datasource">

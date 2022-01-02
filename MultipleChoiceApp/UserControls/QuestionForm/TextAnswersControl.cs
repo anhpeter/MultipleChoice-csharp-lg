@@ -21,9 +21,17 @@ namespace MultipleChoiceApp.UserControls.QuestionForm
         {
             InitializeComponent();
             formItem = question;
+            if (formItem != null)
+            {
+                txt_ans1.Text = formItem.Answers[0].Content.ToString();
+                txt_ans2.Text = formItem.Answers[1].Content.ToString();
+                txt_ans3.Text = formItem.Answers[2].Content.ToString();
+                txt_ans4.Text = formItem.Answers[3].Content.ToString();
+                checkRdoAnsCorrect(formItem.CorrectAnswerNo);
+            }
         }
 
-        private Question getFormQuestion()
+        public Question getFormQuestion()
         {
             // ANSWER LIST
             List<Answer> answerList = new List<Answer>();
@@ -43,7 +51,6 @@ namespace MultipleChoiceApp.UserControls.QuestionForm
 
             Question item = new Question()
             {
-                Id = questionId,
                 Answers = answerList,
                 CorrectAnswerNo = correctAnsNo,
             };
@@ -57,5 +64,26 @@ namespace MultipleChoiceApp.UserControls.QuestionForm
 
             return Util.parseToInt(radio.Tag.ToString(), 1);
         }
+
+        public void clearForm()
+        {
+            txt_ans1.Text = "";
+            txt_ans2.Text = "";
+            txt_ans3.Text = "";
+            txt_ans4.Text = "";
+            checkRdoAnsCorrect(1);
+        }
+
+
+        private void checkRdoAnsCorrect(int no)
+        {
+            BunifuRadioButton[] rdos = { rdo_ans1, rdo_ans2, rdo_ans3, rdo_ans4 };
+            for (int i = 0; i < rdos.Length; i++)
+            {
+                if (i == no - 1) rdos[i].Checked = true;
+                else rdos[i].Checked = false;
+            }
+        }
+
     }
 }

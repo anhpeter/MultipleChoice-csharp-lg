@@ -1,4 +1,5 @@
 ﻿using Firebase.Storage;
+using MultipleChoiceApp.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +11,12 @@ namespace MultipleChoiceApp.Common.Helpers
 {
     class FileUpload
     {
-        async public Task<String> upload(String folder, String filePath)
+        String tag;
+        public FileUpload(String tag)
+        {
+            this.tag = tag;
+        }
+        async public Task<String> upload(String folder, String filePath, IUploadImage context)
         {
             //var stream = File.Open(@"C:\YourFile.png", FileMode.Open);
             var stream = File.Open(filePath, FileMode.Open);
@@ -24,7 +30,12 @@ namespace MultipleChoiceApp.Common.Helpers
              .PutAsync(stream);
 
             // Track progress of the upload
-            task.Progress.ProgressChanged += (s, e) => Util.log($"Progress: {e.Percentage} %");
+
+            task.Progress.ProgressChanged += (s, e) =>
+            {
+                context.onImageUploading(tag, e.Percentage);
+                Util.log($"Progress: {e.Percentage} %");
+            };
 
             // Await the task to wait until upload is completed and get the download url
             var downloadUrl = await task;

@@ -30,15 +30,18 @@ namespace MultipleChoiceApp.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuestionForm));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pnl_question_pic = new System.Windows.Forms.Panel();
+            this.lbl_id = new System.Windows.Forms.Label();
+            this.btn_submit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnl_answer_type = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,16 +55,18 @@ namespace MultipleChoiceApp.Forms
             this.drop_level = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_question = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.lbl_id = new System.Windows.Forms.Label();
-            this.btn_submit = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.pic_progress = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.pnl_answer_type.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_progress)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.Controls.Add(this.pnl_question_pic);
+            this.panel4.Controls.Add(this.lbl_id);
             this.panel4.Controls.Add(this.btn_submit);
             this.panel4.Controls.Add(this.pnl_answer_type);
             this.panel4.Controls.Add(this.pnl_answers);
@@ -71,11 +76,67 @@ namespace MultipleChoiceApp.Forms
             this.panel4.Controls.Add(this.drop_level);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.txt_question);
-            this.panel4.Location = new System.Drawing.Point(106, 35);
+            this.panel4.Location = new System.Drawing.Point(67, 35);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(916, 445);
+            this.panel4.Size = new System.Drawing.Size(1153, 555);
             this.panel4.TabIndex = 5;
+            // 
+            // pnl_question_pic
+            // 
+            this.pnl_question_pic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_question_pic.Location = new System.Drawing.Point(959, 3);
+            this.pnl_question_pic.Name = "pnl_question_pic";
+            this.pnl_question_pic.Size = new System.Drawing.Size(191, 150);
+            this.pnl_question_pic.TabIndex = 20;
+            // 
+            // lbl_id
+            // 
+            this.lbl_id.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_id.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_id.Location = new System.Drawing.Point(3, 3);
+            this.lbl_id.Name = "lbl_id";
+            this.lbl_id.Size = new System.Drawing.Size(79, 23);
+            this.lbl_id.TabIndex = 16;
+            this.lbl_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_submit
+            // 
+            this.btn_submit.Active = false;
+            this.btn_submit.Activecolor = System.Drawing.Color.DodgerBlue;
+            this.btn_submit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_submit.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_submit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_submit.BorderRadius = 0;
+            this.btn_submit.ButtonText = "Submit";
+            this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_submit.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_submit.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_submit.Iconimage = null;
+            this.btn_submit.Iconimage_right = null;
+            this.btn_submit.Iconimage_right_Selected = null;
+            this.btn_submit.Iconimage_Selected = null;
+            this.btn_submit.IconMarginLeft = 0;
+            this.btn_submit.IconMarginRight = 0;
+            this.btn_submit.IconRightVisible = true;
+            this.btn_submit.IconRightZoom = 0D;
+            this.btn_submit.IconVisible = true;
+            this.btn_submit.IconZoom = 70D;
+            this.btn_submit.IsTab = false;
+            this.btn_submit.Location = new System.Drawing.Point(928, 439);
+            this.btn_submit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btn_submit.Name = "btn_submit";
+            this.btn_submit.Normalcolor = System.Drawing.Color.DodgerBlue;
+            this.btn_submit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.btn_submit.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_submit.selected = false;
+            this.btn_submit.Size = new System.Drawing.Size(221, 42);
+            this.btn_submit.TabIndex = 19;
+            this.btn_submit.Text = "Submit";
+            this.btn_submit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_submit.Textcolor = System.Drawing.Color.White;
+            this.btn_submit.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // pnl_answer_type
             // 
@@ -85,7 +146,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_answer_type.Controls.Add(this.rdo_image);
             this.pnl_answer_type.Controls.Add(this.label2);
             this.pnl_answer_type.Controls.Add(this.rdo_text);
-            this.pnl_answer_type.Location = new System.Drawing.Point(568, 49);
+            this.pnl_answer_type.Location = new System.Drawing.Point(605, 118);
             this.pnl_answer_type.Name = "pnl_answer_type";
             this.pnl_answer_type.Size = new System.Drawing.Size(345, 35);
             this.pnl_answer_type.TabIndex = 18;
@@ -156,9 +217,9 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_answers.Location = new System.Drawing.Point(7, 99);
+            this.pnl_answers.Location = new System.Drawing.Point(0, 210);
             this.pnl_answers.Name = "pnl_answers";
-            this.pnl_answers.Size = new System.Drawing.Size(906, 220);
+            this.pnl_answers.Size = new System.Drawing.Size(1153, 220);
             this.pnl_answers.TabIndex = 17;
             // 
             // txt_chapter
@@ -188,33 +249,33 @@ namespace MultipleChoiceApp.Forms
             this.txt_chapter.IconRight = null;
             this.txt_chapter.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_chapter.Lines = new string[0];
-            this.txt_chapter.Location = new System.Drawing.Point(441, 333);
+            this.txt_chapter.Location = new System.Drawing.Point(441, 446);
             this.txt_chapter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_chapter.MaxLength = 32767;
             this.txt_chapter.MinimumSize = new System.Drawing.Size(100, 34);
             this.txt_chapter.Modified = false;
             this.txt_chapter.Multiline = false;
             this.txt_chapter.Name = "txt_chapter";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.Empty;
-            stateProperties2.FillColor = System.Drawing.Color.White;
-            stateProperties2.ForeColor = System.Drawing.Color.Empty;
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_chapter.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnIdleState = stateProperties4;
+            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties9.FillColor = System.Drawing.Color.Empty;
+            stateProperties9.ForeColor = System.Drawing.Color.Empty;
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.Empty;
+            stateProperties10.FillColor = System.Drawing.Color.White;
+            stateProperties10.ForeColor = System.Drawing.Color.Empty;
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_chapter.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties11.FillColor = System.Drawing.Color.Empty;
+            stateProperties11.ForeColor = System.Drawing.Color.Empty;
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.Silver;
+            stateProperties12.FillColor = System.Drawing.Color.White;
+            stateProperties12.ForeColor = System.Drawing.Color.Empty;
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnIdleState = stateProperties12;
             this.txt_chapter.PasswordChar = '\0';
             this.txt_chapter.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_chapter.PlaceholderText = "";
@@ -239,7 +300,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(347, 335);
+            this.label8.Location = new System.Drawing.Point(347, 448);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 23);
             this.label8.TabIndex = 12;
@@ -249,7 +310,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 335);
+            this.label7.Location = new System.Drawing.Point(3, 448);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 23);
             this.label7.TabIndex = 11;
@@ -280,7 +341,7 @@ namespace MultipleChoiceApp.Forms
             this.drop_level.ItemForeColor = System.Drawing.Color.Black;
             this.drop_level.ItemHeight = 26;
             this.drop_level.ItemHighLightColor = System.Drawing.Color.WhiteSmoke;
-            this.drop_level.Location = new System.Drawing.Point(77, 335);
+            this.drop_level.Location = new System.Drawing.Point(77, 448);
             this.drop_level.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.drop_level.Name = "drop_level";
             this.drop_level.Size = new System.Drawing.Size(179, 32);
@@ -291,7 +352,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(2, 14);
+            this.label1.Location = new System.Drawing.Point(3, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 23);
             this.label1.TabIndex = 6;
@@ -326,33 +387,33 @@ namespace MultipleChoiceApp.Forms
             this.txt_question.IconRight = null;
             this.txt_question.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_question.Lines = new string[0];
-            this.txt_question.Location = new System.Drawing.Point(112, 10);
+            this.txt_question.Location = new System.Drawing.Point(113, 79);
             this.txt_question.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_question.MaxLength = 32767;
             this.txt_question.MinimumSize = new System.Drawing.Size(100, 34);
             this.txt_question.Modified = false;
             this.txt_question.Multiline = false;
             this.txt_question.Name = "txt_question";
-            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties5.FillColor = System.Drawing.Color.Empty;
-            stateProperties5.ForeColor = System.Drawing.Color.Empty;
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.Empty;
-            stateProperties6.FillColor = System.Drawing.Color.White;
-            stateProperties6.ForeColor = System.Drawing.Color.Empty;
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_question.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.Empty;
-            stateProperties7.ForeColor = System.Drawing.Color.Empty;
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.Silver;
-            stateProperties8.FillColor = System.Drawing.Color.White;
-            stateProperties8.ForeColor = System.Drawing.Color.Empty;
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnIdleState = stateProperties8;
+            stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties13.FillColor = System.Drawing.Color.Empty;
+            stateProperties13.ForeColor = System.Drawing.Color.Empty;
+            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnActiveState = stateProperties13;
+            stateProperties14.BorderColor = System.Drawing.Color.Empty;
+            stateProperties14.FillColor = System.Drawing.Color.White;
+            stateProperties14.ForeColor = System.Drawing.Color.Empty;
+            stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_question.OnDisabledState = stateProperties14;
+            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties15.FillColor = System.Drawing.Color.Empty;
+            stateProperties15.ForeColor = System.Drawing.Color.Empty;
+            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnHoverState = stateProperties15;
+            stateProperties16.BorderColor = System.Drawing.Color.Silver;
+            stateProperties16.FillColor = System.Drawing.Color.White;
+            stateProperties16.ForeColor = System.Drawing.Color.Empty;
+            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnIdleState = stateProperties16;
             this.txt_question.PasswordChar = '\0';
             this.txt_question.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_question.PlaceholderText = "";
@@ -362,7 +423,7 @@ namespace MultipleChoiceApp.Forms
             this.txt_question.SelectionLength = 0;
             this.txt_question.SelectionStart = 0;
             this.txt_question.ShortcutsEnabled = true;
-            this.txt_question.Size = new System.Drawing.Size(804, 34);
+            this.txt_question.Size = new System.Drawing.Size(840, 34);
             this.txt_question.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
             this.txt_question.TabIndex = 1;
             this.txt_question.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -373,59 +434,22 @@ namespace MultipleChoiceApp.Forms
             this.txt_question.UseSystemPasswordChar = false;
             this.txt_question.WordWrap = true;
             // 
-            // lbl_id
+            // pic_progress
             // 
-            this.lbl_id.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_id.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_id.Location = new System.Drawing.Point(102, 35);
-            this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(79, 23);
-            this.lbl_id.TabIndex = 16;
-            this.lbl_id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_submit
-            // 
-            this.btn_submit.Active = false;
-            this.btn_submit.Activecolor = System.Drawing.Color.DodgerBlue;
-            this.btn_submit.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btn_submit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_submit.BorderRadius = 0;
-            this.btn_submit.ButtonText = "Submit";
-            this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_submit.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_submit.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_submit.Iconimage = null;
-            this.btn_submit.Iconimage_right = null;
-            this.btn_submit.Iconimage_right_Selected = null;
-            this.btn_submit.Iconimage_Selected = null;
-            this.btn_submit.IconMarginLeft = 0;
-            this.btn_submit.IconMarginRight = 0;
-            this.btn_submit.IconRightVisible = true;
-            this.btn_submit.IconRightZoom = 0D;
-            this.btn_submit.IconVisible = true;
-            this.btn_submit.IconZoom = 70D;
-            this.btn_submit.IsTab = false;
-            this.btn_submit.Location = new System.Drawing.Point(692, 399);
-            this.btn_submit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
-            this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Normalcolor = System.Drawing.Color.DodgerBlue;
-            this.btn_submit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.btn_submit.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_submit.selected = false;
-            this.btn_submit.Size = new System.Drawing.Size(221, 42);
-            this.btn_submit.TabIndex = 19;
-            this.btn_submit.Text = "Submit";
-            this.btn_submit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_submit.Textcolor = System.Drawing.Color.White;
-            this.btn_submit.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pic_progress.BackColor = System.Drawing.Color.DodgerBlue;
+            this.pic_progress.Location = new System.Drawing.Point(0, 0);
+            this.pic_progress.Name = "pic_progress";
+            this.pic_progress.Size = new System.Drawing.Size(0, 5);
+            this.pic_progress.TabIndex = 6;
+            this.pic_progress.TabStop = false;
             // 
             // FrmQuestionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 532);
+            this.ClientSize = new System.Drawing.Size(1283, 601);
+            this.Controls.Add(this.pic_progress);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.lbl_id);
             this.MinimizeBox = false;
             this.Name = "FrmQuestionForm";
             this.Text = "Question Form";
@@ -434,6 +458,7 @@ namespace MultipleChoiceApp.Forms
             this.panel4.PerformLayout();
             this.pnl_answer_type.ResumeLayout(false);
             this.pnl_answer_type.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_progress)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,5 +481,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label2;
         private Bunifu.UI.WinForms.BunifuRadioButton rdo_text;
         private Bunifu.Framework.UI.BunifuFlatButton btn_submit;
+        private System.Windows.Forms.Panel pnl_question_pic;
+        private System.Windows.Forms.PictureBox pic_progress;
     }
 }

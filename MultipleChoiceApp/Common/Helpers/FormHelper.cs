@@ -28,7 +28,7 @@ namespace MultipleChoiceApp.Common.Helpers
         public static void notify(String msg)
         {
             Alert alert = new Alert(msg);
-            alert.ShowDialog();
+            alert.Show();
         }
         public static void showErrorMsg(String msg, String title = "!")
         {
