@@ -25,9 +25,8 @@ namespace MultipleChoiceApp.Forms
         QuestionControl parent;
         Question formItem;
         int subjectId;
-        String answerType = "text";
+        String questionImgUrl;
         TextAnswersControl textAnswersControl;
-        ImageAnswersControl imageAnswersControl;
         UploadImageControl questionImageControl;
 
         public FrmQuestionForm(QuestionControl parent, Question question, int subjectId)
@@ -43,10 +42,7 @@ namespace MultipleChoiceApp.Forms
         {
             textAnswersControl = new TextAnswersControl(formItem);
             textAnswersControl.Dock = DockStyle.Fill;
-            imageAnswersControl = new ImageAnswersControl(formItem, pnl_answers.Width);
-            imageAnswersControl.Dock = DockStyle.Fill;
-            refreshAnswerType();
-            refreshAnswerSheet();
+            pnl_answers.Controls.Add(textAnswersControl);
             initForm();
         }
 
@@ -54,7 +50,7 @@ namespace MultipleChoiceApp.Forms
         {
             initDrops();
             pnl_question_pic.Controls.Clear();
-            questionImageControl = new UploadImageControl(this, "question", null);
+            questionImageControl = new UploadImageControl(this, "question", formItem?.ImgUrl ?? null);
             questionImageControl.Dock = DockStyle.Fill;
             pnl_question_pic.Controls.Add(questionImageControl);
             lbl_id.Text = formItem != null ? "#" + formItem.Id.ToString() : "";
@@ -76,55 +72,11 @@ namespace MultipleChoiceApp.Forms
         }
 
 
-        private void refreshAnswerSheet()
-        {
-            pnl_answers.Controls.Clear();
-            if (answerType.Equals("text"))
-            {
-                pnl_answers.Controls.Add(textAnswersControl);
-            }
-            else
-            {
-                pnl_answers.Controls.Add(imageAnswersControl);
-            }
-        }
-
-        private void refreshAnswerType()
-        {
-            foreach (var control in pnl_answer_type.Controls)
-            {
-                if (control is BunifuRadioButton)
-                {
-                    BunifuRadioButton rdoButton = (BunifuRadioButton)control;
-                    String tag = rdoButton.Tag.ToString();
-                    if (tag.Equals(answerType)) rdoButton.Checked = true;
-                }
-            }
-        }
-
-        private void rdo_answer_type_Click(object sender, EventArgs e)
-        {
-            String tag = ((BunifuRadioButton)sender).Tag.ToString();
-            if (!answerType.Equals(tag))
-            {
-                answerType = tag;
-                refreshAnswerSheet();
-            }
-        }
-        //
 
         private Question getFormQuestion()
         {
             // ANSWER LIST
-            Question item;
-            if (answerType.Equals("text"))
-            {
-                item = textAnswersControl.getFormQuestion();
-            }
-            else
-            {
-                item = imageAnswersControl.getFormQuestion();
-            }
+            Question item = textAnswersControl.getFormQuestion();
 
             String level = drop_level.SelectedValue.ToString();
             int chapter = Util.parseToInt(txt_chapter.Text.ToString(), -1);
@@ -135,6 +87,7 @@ namespace MultipleChoiceApp.Forms
             item.SubjectId = subjectId;
             item.Level = level;
             item.Chapter = chapter;
+            item.ImgUrl = questionImgUrl;
             return item;
         }
 
@@ -145,14 +98,8 @@ namespace MultipleChoiceApp.Forms
             txt_question.Text = "";
             txt_chapter.Text = "1";
             drop_level.SelectedIndex = 0;
-            if (answerType.Equals("text"))
-            {
-                textAnswersControl.clearForm();
-            }
-            else
-            {
-                imageAnswersControl.clearForm();
-            }
+            questionImgUrl = null;
+            textAnswersControl.clearForm();
             parent.clearForm();
         }
 
@@ -208,6 +155,7 @@ namespace MultipleChoiceApp.Forms
         {
             pic_progress.Width = 0;
             questionImageControl.setImgUrl(imgUrl);
+            questionImgUrl = imgUrl;
         }
 
         public void onImageUploading(string tag, int percent)
@@ -215,5 +163,9 @@ namespace MultipleChoiceApp.Forms
             pic_progress.Width = Convert.ToInt32(Math.Floor(Width * (percent / 100.0)));
         }
 
+        public void onImageDeleted(string tag)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

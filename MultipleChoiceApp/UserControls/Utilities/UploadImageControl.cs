@@ -23,13 +23,17 @@ namespace MultipleChoiceApp.UserControls.Utilities
             //
             this.parent = parent;
             this.tag = tag;
-            this.imgUrl = imgUrl;
-            setImage(imgUrl);
+            setImgUrl(imgUrl);
         }
 
-        private void setImage(String url)
+        private void UploadImageControl_Load(object sender, EventArgs e)
         {
-            if (imgUrl == null)
+        }
+
+        public void setImgUrl(String url)
+        {
+            imgUrl = url;
+            if (String.IsNullOrEmpty(imgUrl))
             {
                 pic.Image = Properties.Resources.empty_image;
             }
@@ -37,8 +41,10 @@ namespace MultipleChoiceApp.UserControls.Utilities
             {
                 pic.Load(url);
             }
+            initPicContextMenu();
         }
 
+        // CHANGE IMAGE
         async private void pic_Click(object sender, EventArgs e)
         {
             openFileDialog.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
@@ -51,10 +57,28 @@ namespace MultipleChoiceApp.UserControls.Utilities
             }
         }
 
-        public void setImgUrl(String url)
+        private void menuItemClick(object sender, EventArgs e)
         {
-            imgUrl = url;
-            pic.Load(url);
+
+        }
+
+
+        private void initPicContextMenu()
+        {
+
+            if (!String.IsNullOrEmpty(imgUrl))
+            {
+                ContextMenuStrip menuStrip = new ContextMenuStrip();
+                ToolStripMenuItem menuItem = new ToolStripMenuItem("Remove");
+                menuItem.Click += new EventHandler(menuItemClick);
+                menuItem.Name = "Remove";
+                menuStrip.Items.Add(menuItem);
+                pic.ContextMenuStrip = menuStrip;
+            }
+            else
+            {
+                pic.ContextMenuStrip = null;
+            }
         }
     }
 }

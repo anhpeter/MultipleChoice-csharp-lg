@@ -186,6 +186,9 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LevelField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImgUrlField;
+        
         private int ChapterField;
         
         private int CorrectAnswerNoField;
@@ -277,7 +280,20 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string ImgUrl {
+            get {
+                return this.ImgUrlField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImgUrlField, value) != true)) {
+                    this.ImgUrlField = value;
+                    this.RaisePropertyChanged("ImgUrl");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public int Chapter {
             get {
                 return this.ChapterField;
@@ -290,7 +306,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
         public int CorrectAnswerNo {
             get {
                 return this.CorrectAnswerNoField;
@@ -303,7 +319,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
@@ -316,7 +332,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public int CreatedBy {
             get {
                 return this.CreatedByField;
@@ -329,7 +345,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
         public string Lecturer {
             get {
                 return this.LecturerField;
@@ -342,7 +358,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
         public int QuestionInExamCount {
             get {
                 return this.QuestionInExamCountField;
@@ -355,7 +371,7 @@ namespace MultipleChoiceApp.Bi.StudentResponse {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
         public System.Collections.Generic.List<MultipleChoiceApp.Bi.StudentResponse.Answer> Answers {
             get {
                 return this.AnswersField;

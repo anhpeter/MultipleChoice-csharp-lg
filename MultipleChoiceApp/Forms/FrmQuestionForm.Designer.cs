@@ -30,24 +30,18 @@ namespace MultipleChoiceApp.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuestionForm));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnl_question_pic = new System.Windows.Forms.Panel();
             this.lbl_id = new System.Windows.Forms.Label();
             this.btn_submit = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pnl_answer_type = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rdo_image = new Bunifu.UI.WinForms.BunifuRadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rdo_text = new Bunifu.UI.WinForms.BunifuRadioButton();
             this.pnl_answers = new System.Windows.Forms.Panel();
             this.txt_chapter = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,7 +51,6 @@ namespace MultipleChoiceApp.Forms
             this.txt_question = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.pic_progress = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
-            this.pnl_answer_type.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_progress)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +61,6 @@ namespace MultipleChoiceApp.Forms
             this.panel4.Controls.Add(this.pnl_question_pic);
             this.panel4.Controls.Add(this.lbl_id);
             this.panel4.Controls.Add(this.btn_submit);
-            this.panel4.Controls.Add(this.pnl_answer_type);
             this.panel4.Controls.Add(this.pnl_answers);
             this.panel4.Controls.Add(this.txt_chapter);
             this.panel4.Controls.Add(this.label8);
@@ -138,81 +130,6 @@ namespace MultipleChoiceApp.Forms
             this.btn_submit.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
-            // pnl_answer_type
-            // 
-            this.pnl_answer_type.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_answer_type.Controls.Add(this.label4);
-            this.pnl_answer_type.Controls.Add(this.label3);
-            this.pnl_answer_type.Controls.Add(this.rdo_image);
-            this.pnl_answer_type.Controls.Add(this.label2);
-            this.pnl_answer_type.Controls.Add(this.rdo_text);
-            this.pnl_answer_type.Location = new System.Drawing.Point(605, 118);
-            this.pnl_answer_type.Name = "pnl_answer_type";
-            this.pnl_answer_type.Size = new System.Drawing.Size(345, 35);
-            this.pnl_answer_type.TabIndex = 18;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 23);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Answer type";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(277, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 23);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Image";
-            // 
-            // rdo_image
-            // 
-            this.rdo_image.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.rdo_image.Checked = false;
-            this.rdo_image.Location = new System.Drawing.Point(246, 5);
-            this.rdo_image.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdo_image.Name = "rdo_image";
-            this.rdo_image.OutlineColor = System.Drawing.Color.Purple;
-            this.rdo_image.RadioColor = System.Drawing.Color.Purple;
-            this.rdo_image.Size = new System.Drawing.Size(25, 25);
-            this.rdo_image.TabIndex = 20;
-            this.rdo_image.Tag = "image";
-            this.rdo_image.Text = null;
-            this.rdo_image.Click += new System.EventHandler(this.rdo_answer_type_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(181, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 23);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Text";
-            // 
-            // rdo_text
-            // 
-            this.rdo_text.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.rdo_text.Checked = true;
-            this.rdo_text.Location = new System.Drawing.Point(150, 5);
-            this.rdo_text.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rdo_text.Name = "rdo_text";
-            this.rdo_text.OutlineColor = System.Drawing.Color.Purple;
-            this.rdo_text.RadioColor = System.Drawing.Color.Purple;
-            this.rdo_text.Size = new System.Drawing.Size(25, 25);
-            this.rdo_text.TabIndex = 10;
-            this.rdo_text.Tag = "text";
-            this.rdo_text.Text = null;
-            this.rdo_text.Click += new System.EventHandler(this.rdo_answer_type_Click);
-            // 
             // pnl_answers
             // 
             this.pnl_answers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -256,26 +173,26 @@ namespace MultipleChoiceApp.Forms
             this.txt_chapter.Modified = false;
             this.txt_chapter.Multiline = false;
             this.txt_chapter.Name = "txt_chapter";
-            stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties9.FillColor = System.Drawing.Color.Empty;
-            stateProperties9.ForeColor = System.Drawing.Color.Empty;
-            stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnActiveState = stateProperties9;
-            stateProperties10.BorderColor = System.Drawing.Color.Empty;
-            stateProperties10.FillColor = System.Drawing.Color.White;
-            stateProperties10.ForeColor = System.Drawing.Color.Empty;
-            stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_chapter.OnDisabledState = stateProperties10;
-            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties11.FillColor = System.Drawing.Color.Empty;
-            stateProperties11.ForeColor = System.Drawing.Color.Empty;
-            stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnHoverState = stateProperties11;
-            stateProperties12.BorderColor = System.Drawing.Color.Silver;
-            stateProperties12.FillColor = System.Drawing.Color.White;
-            stateProperties12.ForeColor = System.Drawing.Color.Empty;
-            stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_chapter.OnIdleState = stateProperties12;
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.Empty;
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_chapter.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.Silver;
+            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.ForeColor = System.Drawing.Color.Empty;
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_chapter.OnIdleState = stateProperties4;
             this.txt_chapter.PasswordChar = '\0';
             this.txt_chapter.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_chapter.PlaceholderText = "";
@@ -394,26 +311,26 @@ namespace MultipleChoiceApp.Forms
             this.txt_question.Modified = false;
             this.txt_question.Multiline = false;
             this.txt_question.Name = "txt_question";
-            stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties13.FillColor = System.Drawing.Color.Empty;
-            stateProperties13.ForeColor = System.Drawing.Color.Empty;
-            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnActiveState = stateProperties13;
-            stateProperties14.BorderColor = System.Drawing.Color.Empty;
-            stateProperties14.FillColor = System.Drawing.Color.White;
-            stateProperties14.ForeColor = System.Drawing.Color.Empty;
-            stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_question.OnDisabledState = stateProperties14;
-            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties15.FillColor = System.Drawing.Color.Empty;
-            stateProperties15.ForeColor = System.Drawing.Color.Empty;
-            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnHoverState = stateProperties15;
-            stateProperties16.BorderColor = System.Drawing.Color.Silver;
-            stateProperties16.FillColor = System.Drawing.Color.White;
-            stateProperties16.ForeColor = System.Drawing.Color.Empty;
-            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_question.OnIdleState = stateProperties16;
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.Empty;
+            stateProperties6.FillColor = System.Drawing.Color.White;
+            stateProperties6.ForeColor = System.Drawing.Color.Empty;
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_question.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Silver;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_question.OnIdleState = stateProperties8;
             this.txt_question.PasswordChar = '\0';
             this.txt_question.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_question.PlaceholderText = "";
@@ -456,8 +373,6 @@ namespace MultipleChoiceApp.Forms
             this.Load += new System.EventHandler(this.FrmQuestionForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.pnl_answer_type.ResumeLayout(false);
-            this.pnl_answer_type.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_progress)).EndInit();
             this.ResumeLayout(false);
 
@@ -474,12 +389,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label1;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_question;
         private System.Windows.Forms.Panel pnl_answers;
-        private System.Windows.Forms.Panel pnl_answer_type;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private Bunifu.UI.WinForms.BunifuRadioButton rdo_image;
-        private System.Windows.Forms.Label label2;
-        private Bunifu.UI.WinForms.BunifuRadioButton rdo_text;
         private Bunifu.Framework.UI.BunifuFlatButton btn_submit;
         private System.Windows.Forms.Panel pnl_question_pic;
         private System.Windows.Forms.PictureBox pic_progress;

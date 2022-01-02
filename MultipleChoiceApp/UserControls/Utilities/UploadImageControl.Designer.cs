@@ -52,13 +52,14 @@ namespace MultipleChoiceApp.UserControls.Utilities
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // UploadImage
+            // UploadImageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pic);
-            this.Name = "UploadImage";
+            this.Name = "UploadImageControl";
             this.Size = new System.Drawing.Size(200, 200);
+            this.Load += new System.EventHandler(this.UploadImageControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
 

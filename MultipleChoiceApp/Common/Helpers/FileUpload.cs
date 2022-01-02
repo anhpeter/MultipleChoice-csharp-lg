@@ -16,6 +16,12 @@ namespace MultipleChoiceApp.Common.Helpers
         {
             this.tag = tag;
         }
+        async public void remove(String folder, String filename, IUploadImage context)
+        {
+            var task = new FirebaseStorage(Constant.firestorageBucket);
+            //await task.Child(folder).Child(filename).DeleteAsync();
+            //context.onImageDeleted(tag);
+        }
         async public Task<String> upload(String folder, String filePath, IUploadImage context)
         {
             //var stream = File.Open(@"C:\YourFile.png", FileMode.Open);

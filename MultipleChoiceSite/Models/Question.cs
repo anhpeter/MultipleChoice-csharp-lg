@@ -16,6 +16,7 @@ namespace MultipleChoiceSite.Models
         public int SubjectId { get; set; }
         public String SubjectCode { get; set; }
         public String Level { get; set; }
+        public String ImgUrl { get; set; }
         public int Chapter { get; set; }
         public int CorrectAnswerNo { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -33,6 +34,7 @@ namespace MultipleChoiceSite.Models
                 SubjectId = Util.parseToInt(Util.getDrValue(dr, "SubjedctId")),
                 SubjectCode = Util.getDrValue(dr, "SubjectCode"),
                 Level = Util.getDrValue(dr, "Level"),
+                ImgUrl = Util.getDrValue(dr, "ImgUrl"),
                 Chapter = Util.parseToInt(Util.getDrValue(dr, "Chapter")),
                 CreatedAt = Util.parseToDatetime(Util.getDrValue(dr, "CreatedAt")),
                 Lecturer = Util.getDrValue(dr, "Lecturer"),

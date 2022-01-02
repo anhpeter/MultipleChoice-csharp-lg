@@ -459,12 +459,6 @@
     <Compile Include="UserControls\ExamResultControl.Designer.cs">
       <DependentUpon>ExamResultControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\QuestionForm\ImageAnswersControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\QuestionForm\ImageAnswersControl.Designer.cs">
-      <DependentUpon>ImageAnswersControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\QuestionForm\TextAnswersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -583,9 +577,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ExamResultControl.resx">
       <DependentUpon>ExamResultControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\QuestionForm\ImageAnswersControl.resx">
-      <DependentUpon>ImageAnswersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\QuestionForm\TextAnswersControl.resx">
       <DependentUpon>TextAnswersControl.cs</DependentUpon>
