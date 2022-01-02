@@ -100,7 +100,7 @@ namespace MultipleChoiceSite.DAL
             String sqlStr = String.Format(@"
                     SELECT DISTINCT 
                         q.Id, CAST(q.Content as nvarchar(255)) as Content, q.CorrectAnswerNo, q.Chapter, q.CreatedAt, s.Lecturer, s.Code as SubjectCode, 
-                        q.Level, q.ImgUrl
+                        q.Level, q.ImgFilename, q.ImgUrl
                     FROM Questions as q INNER JOIN Subjects as s ON (q.SubjectId = s.Id)
                     WHERE s.Id = '{0}' {1}
                     ORDER BY q.Id DESC
@@ -115,6 +115,7 @@ namespace MultipleChoiceSite.DAL
             dataDict.Add("Content", item.Content);
             dataDict.Add("SubjectId", item.SubjectId + "");
             dataDict.Add("Level", item.Level);
+            dataDict.Add("ImgFilename", item.ImgFilename);
             dataDict.Add("ImgUrl", item.ImgUrl);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");
@@ -124,12 +125,21 @@ namespace MultipleChoiceSite.DAL
         }
 
         // UPDATE
+
+        public bool updateImage(int id, String filename, String url)
+        {
+            Dictionary<String, String> dataDict = new Dictionary<String, String>();
+            dataDict.Add("ImgFilename", filename);
+            dataDict.Add("ImgUrl", url);
+            return base.updateWithDict(dataDict, $"WHERE Id={id}");
+        }
         public override bool update(Question item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
             dataDict.Add("Content", item.Content);
             dataDict.Add("SubjectId", item.SubjectId + "");
             dataDict.Add("Level", item.Level);
+            dataDict.Add("ImgFilename", item.ImgFilename);
             dataDict.Add("ImgUrl", item.ImgUrl);
             dataDict.Add("CorrectAnswerNo", item.CorrectAnswerNo + "");
             dataDict.Add("Chapter", item.Chapter + "");

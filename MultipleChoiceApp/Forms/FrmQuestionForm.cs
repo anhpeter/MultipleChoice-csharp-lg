@@ -25,6 +25,7 @@ namespace MultipleChoiceApp.Forms
         QuestionControl parent;
         Question formItem;
         int subjectId;
+        String questionImgFilename;
         String questionImgUrl;
         TextAnswersControl textAnswersControl;
         UploadImageControl questionImageControl;
@@ -50,7 +51,7 @@ namespace MultipleChoiceApp.Forms
         {
             initDrops();
             pnl_question_pic.Controls.Clear();
-            questionImageControl = new UploadImageControl(this, "question", formItem?.ImgUrl ?? null);
+            questionImageControl = new UploadImageControl(this, "question", formItem?.ImgFilename, formItem?.ImgUrl);
             questionImageControl.Dock = DockStyle.Fill;
             pnl_question_pic.Controls.Add(questionImageControl);
             lbl_id.Text = formItem != null ? "#" + formItem.Id.ToString() : "";
@@ -87,6 +88,7 @@ namespace MultipleChoiceApp.Forms
             item.SubjectId = subjectId;
             item.Level = level;
             item.Chapter = chapter;
+            item.ImgFilename = questionImgFilename;
             item.ImgUrl = questionImgUrl;
             return item;
         }
@@ -98,7 +100,9 @@ namespace MultipleChoiceApp.Forms
             txt_question.Text = "";
             txt_chapter.Text = "1";
             drop_level.SelectedIndex = 0;
-            questionImgUrl = null;
+            questionImgFilename = "";
+            questionImgUrl = "";
+            questionImageControl.setImg(null);
             textAnswersControl.clearForm();
             parent.clearForm();
         }
@@ -151,12 +155,6 @@ namespace MultipleChoiceApp.Forms
             return false;
         }
 
-        public void onImageUploaded(string tag, string imgUrl)
-        {
-            pic_progress.Width = 0;
-            questionImageControl.setImgUrl(imgUrl);
-            questionImgUrl = imgUrl;
-        }
 
         public void onImageUploading(string tag, int percent)
         {
@@ -165,7 +163,27 @@ namespace MultipleChoiceApp.Forms
 
         public void onImageDeleted(string tag)
         {
-            throw new NotImplementedException();
+            questionImgFilename = "";
+            questionImgUrl = "";
+            updateItemImage();
+            questionImageControl.setImg(null);
+        }
+
+        public void onImageUploaded(string tag, string filename, string url)
+        {
+            pic_progress.Width = 0;
+            questionImageControl.setImg(filename, url);
+            questionImgFilename = filename;
+            questionImgUrl = url;
+            updateItemImage();
+        }
+
+        private void updateItemImage()
+        {
+            if (formItem != null)
+            {
+                mainS.updateImage(formItem.Id, questionImgFilename, questionImgUrl);
+            }
         }
     }
 }

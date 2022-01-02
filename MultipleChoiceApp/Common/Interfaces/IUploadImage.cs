@@ -8,7 +8,7 @@ namespace MultipleChoiceApp.Common.Interfaces
 {
     public interface IUploadImage
     {
-        void onImageUploaded(String tag, String imgUrl);
+        void onImageUploaded(String tag, String filename, String url);
         void onImageDeleted(String tag);
         void onImageUploading(String tag, int percent);
     }

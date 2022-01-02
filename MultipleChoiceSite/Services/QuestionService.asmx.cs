@@ -110,6 +110,12 @@ namespace MultipleChoiceSite.Services
         }
 
         [WebMethod]
+        public bool updateImage(int id, String filename, String url)
+        {
+            bool result = mainDAO.updateImage(id, filename, url);
+            return result;
+        }
+        [WebMethod]
         public override bool update(Question item)
         {
             bool updateQuestionResult = mainDAO.update(item);

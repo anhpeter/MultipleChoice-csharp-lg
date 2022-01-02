@@ -196,6 +196,14 @@ namespace MultipleChoiceApp.Forms
             lbl_ans3.Text = question.Answers[answerOrder[2] - 1].Content;
             lbl_ans4.Text = question.Answers[answerOrder[3] - 1].Content;
             updatePagination();
+            if (String.IsNullOrEmpty(question.ImgUrl))
+            {
+                pic_question.Image = null;
+            }
+            else
+            {
+                pic_question.Load(question.ImgUrl);
+            }
         }
 
         private void updatePagination()
@@ -351,7 +359,7 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmTakingExam_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = MessageBox.Show("Your exam not finished yet. Do you want to Exit?", "Confirmation",MessageBoxButtons.YesNo );
+            var result = MessageBox.Show("Your exam not finished yet. Do you want to Exit?", "Confirmation", MessageBoxButtons.YesNo);
             e.Cancel = (result == DialogResult.No);
         }
 

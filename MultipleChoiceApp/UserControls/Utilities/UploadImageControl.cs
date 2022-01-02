@@ -16,30 +16,31 @@ namespace MultipleChoiceApp.UserControls.Utilities
     {
         IUploadImage parent;
         String tag;
+        String imgFilename;
         String imgUrl;
-        public UploadImageControl(IUploadImage parent, String tag, String imgUrl)
+        public UploadImageControl(IUploadImage parent, String tag, String imgFilename, String imgUrl)
         {
             InitializeComponent();
             //
             this.parent = parent;
             this.tag = tag;
-            setImgUrl(imgUrl);
+            setImg(imgFilename, imgUrl);
         }
 
         private void UploadImageControl_Load(object sender, EventArgs e)
         {
         }
-
-        public void setImgUrl(String url)
+        public void setImg(String filename, String url = null)
         {
+            imgFilename = filename;
             imgUrl = url;
-            if (String.IsNullOrEmpty(imgUrl))
+            if (String.IsNullOrEmpty(filename))
             {
                 pic.Image = Properties.Resources.empty_image;
             }
             else
             {
-                pic.Load(url);
+                pic.Load(imgUrl);
             }
             initPicContextMenu();
         }
@@ -52,25 +53,32 @@ namespace MultipleChoiceApp.UserControls.Utilities
             {
                 string selectedFile = openFileDialog.FileName;
                 FileUpload fileUpload = new FileUpload(tag);
-                String url = await fileUpload.upload("Questions", selectedFile, parent);
-                parent.onImageUploaded(tag, url);
+                string[] result = await fileUpload.upload(selectedFile, parent, imgFilename);
+                parent.onImageUploaded(tag, result[0], result[1]);
             }
         }
 
-        private void menuItemClick(object sender, EventArgs e)
+        async private void deleteMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (await FileUpload.deleteFile(imgFilename))
+            {
+                parent.onImageDeleted(tag);
+            }
+            else
+            {
+                FormHelper.showErrorMsg(Msg.FAILED_TO_DELETE);
+            }
         }
 
 
         private void initPicContextMenu()
         {
 
-            if (!String.IsNullOrEmpty(imgUrl))
+            if (!String.IsNullOrEmpty(imgFilename))
             {
                 ContextMenuStrip menuStrip = new ContextMenuStrip();
                 ToolStripMenuItem menuItem = new ToolStripMenuItem("Remove");
-                menuItem.Click += new EventHandler(menuItemClick);
+                menuItem.Click += new EventHandler(deleteMenuItem_Click);
                 menuItem.Name = "Remove";
                 menuStrip.Items.Add(menuItem);
                 pic.ContextMenuStrip = menuStrip;

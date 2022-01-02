@@ -81,7 +81,7 @@ namespace MultipleChoiceApp.UserControls
             new FrmQuestionForm(this, null, getFormSubjectId()).ShowDialog();
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        async private void btn_delete_Click(object sender, EventArgs e)
         {
             if (formItem == null)
             {
@@ -95,6 +95,10 @@ namespace MultipleChoiceApp.UserControls
                 bool result = mainS.delete(formItem.Id);
                 if (result)
                 {
+                    if (!String.IsNullOrEmpty(formItem.ImgFilename))
+                    {
+                        await FileUpload.deleteFile(formItem.ImgFilename);
+                    }
                     clearForm();
                     refreshList();
                     FormHelper.notify(Msg.DELETED);

@@ -38,6 +38,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_prev = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_first = new Bunifu.Framework.UI.BunifuImageButton();
             this.pnl_question_sheet = new System.Windows.Forms.Panel();
+            this.pic_question = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_ans4 = new System.Windows.Forms.Label();
             this.lbl_ans3 = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@ namespace MultipleChoiceApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_prev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_first)).BeginInit();
             this.pnl_question_sheet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_question)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_answer_sheet.SuspendLayout();
             this.pnl_answer.SuspendLayout();
@@ -184,6 +186,7 @@ namespace MultipleChoiceApp.Forms
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_question_sheet.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnl_question_sheet.Controls.Add(this.pic_question);
             this.pnl_question_sheet.Controls.Add(this.tableLayoutPanel1);
             this.pnl_question_sheet.Controls.Add(this.pnl_pagination);
             this.pnl_question_sheet.Controls.Add(this.lbl_question);
@@ -193,15 +196,26 @@ namespace MultipleChoiceApp.Forms
             this.pnl_question_sheet.Size = new System.Drawing.Size(1196, 270);
             this.pnl_question_sheet.TabIndex = 1;
             // 
-            // tableLayoutPanel1
+            // pic_question
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pic_question.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_question.Location = new System.Drawing.Point(1126, 102);
+            this.pic_question.Name = "pic_question";
+            this.pic_question.Size = new System.Drawing.Size(47, 90);
+            this.pic_question.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_question.TabIndex = 9;
+            this.pic_question.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.270109F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 95.72989F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.041246F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.95876F));
             this.tableLayoutPanel1.Controls.Add(this.lbl_ans4, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lbl_ans3, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.lbl_ans2, 1, 1);
@@ -220,7 +234,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1141, 90);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1091, 90);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // lbl_ans4
@@ -229,10 +243,10 @@ namespace MultipleChoiceApp.Forms
             this.lbl_ans4.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_ans4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans4.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans4.Location = new System.Drawing.Point(51, 284);
+            this.lbl_ans4.Location = new System.Drawing.Point(57, 284);
             this.lbl_ans4.Name = "lbl_ans4";
             this.lbl_ans4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans4.Size = new System.Drawing.Size(1071, 84);
+            this.lbl_ans4.Size = new System.Drawing.Size(999, 84);
             this.lbl_ans4.TabIndex = 14;
             this.lbl_ans4.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
@@ -244,10 +258,10 @@ namespace MultipleChoiceApp.Forms
             this.lbl_ans3.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_ans3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans3.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans3.Location = new System.Drawing.Point(51, 200);
+            this.lbl_ans3.Location = new System.Drawing.Point(57, 200);
             this.lbl_ans3.Name = "lbl_ans3";
             this.lbl_ans3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans3.Size = new System.Drawing.Size(1071, 84);
+            this.lbl_ans3.Size = new System.Drawing.Size(999, 84);
             this.lbl_ans3.TabIndex = 13;
             this.lbl_ans3.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
@@ -259,10 +273,10 @@ namespace MultipleChoiceApp.Forms
             this.lbl_ans2.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_ans2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans2.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans2.Location = new System.Drawing.Point(51, 116);
+            this.lbl_ans2.Location = new System.Drawing.Point(57, 116);
             this.lbl_ans2.Name = "lbl_ans2";
             this.lbl_ans2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans2.Size = new System.Drawing.Size(1071, 84);
+            this.lbl_ans2.Size = new System.Drawing.Size(999, 84);
             this.lbl_ans2.TabIndex = 12;
             this.lbl_ans2.Text = "Consequat deserunt ad duis adipisicing non minim excepteur commodo dolore adipisi" +
     "cing officia adipisicing.";
@@ -277,7 +291,7 @@ namespace MultipleChoiceApp.Forms
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label1.Size = new System.Drawing.Size(40, 116);
+            this.label1.Size = new System.Drawing.Size(45, 116);
             this.label1.TabIndex = 7;
             this.label1.Text = "A.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,7 +305,7 @@ namespace MultipleChoiceApp.Forms
             this.label2.Location = new System.Drawing.Point(3, 116);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label2.Size = new System.Drawing.Size(39, 84);
+            this.label2.Size = new System.Drawing.Size(44, 84);
             this.label2.TabIndex = 8;
             this.label2.Text = "B.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,7 +319,7 @@ namespace MultipleChoiceApp.Forms
             this.label3.Location = new System.Drawing.Point(3, 200);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label3.Size = new System.Drawing.Size(40, 84);
+            this.label3.Size = new System.Drawing.Size(45, 84);
             this.label3.TabIndex = 9;
             this.label3.Text = "C.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,7 +333,7 @@ namespace MultipleChoiceApp.Forms
             this.label4.Location = new System.Drawing.Point(3, 284);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.label4.Size = new System.Drawing.Size(42, 84);
+            this.label4.Size = new System.Drawing.Size(47, 84);
             this.label4.TabIndex = 10;
             this.label4.Text = "D.";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -330,10 +344,10 @@ namespace MultipleChoiceApp.Forms
             this.lbl_ans1.Dock = System.Windows.Forms.DockStyle.Left;
             this.lbl_ans1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ans1.ForeColor = System.Drawing.Color.Black;
-            this.lbl_ans1.Location = new System.Drawing.Point(51, 0);
+            this.lbl_ans1.Location = new System.Drawing.Point(57, 0);
             this.lbl_ans1.Name = "lbl_ans1";
             this.lbl_ans1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 15);
-            this.lbl_ans1.Size = new System.Drawing.Size(1034, 116);
+            this.lbl_ans1.Size = new System.Drawing.Size(1030, 116);
             this.lbl_ans1.TabIndex = 11;
             this.lbl_ans1.Text = resources.GetString("lbl_ans1.Text");
             this.lbl_ans1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -367,7 +381,7 @@ namespace MultipleChoiceApp.Forms
             // 
             this.pnl_answer.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.pnl_answer.ColumnCount = 1;
-            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.pnl_answer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.pnl_answer.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.pnl_answer.Location = new System.Drawing.Point(29, 58);
             this.pnl_answer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -566,6 +580,7 @@ namespace MultipleChoiceApp.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btn_first)).EndInit();
             this.pnl_question_sheet.ResumeLayout(false);
             this.pnl_question_sheet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_question)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.pnl_answer_sheet.ResumeLayout(false);
@@ -609,5 +624,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbl_ans4;
+        private System.Windows.Forms.PictureBox pic_question;
     }
 }

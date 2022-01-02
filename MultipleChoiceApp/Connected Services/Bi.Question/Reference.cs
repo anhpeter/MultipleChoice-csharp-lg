@@ -36,6 +36,9 @@ namespace MultipleChoiceApp.Bi.Question {
         private string LevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImgFilenameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImgUrlField;
         
         private int ChapterField;
@@ -130,6 +133,19 @@ namespace MultipleChoiceApp.Bi.Question {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string ImgFilename {
+            get {
+                return this.ImgFilenameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImgFilenameField, value) != true)) {
+                    this.ImgFilenameField = value;
+                    this.RaisePropertyChanged("ImgFilename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string ImgUrl {
             get {
                 return this.ImgUrlField;
@@ -142,7 +158,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
         public int Chapter {
             get {
                 return this.ChapterField;
@@ -155,7 +171,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public int CorrectAnswerNo {
             get {
                 return this.CorrectAnswerNoField;
@@ -168,7 +184,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public System.DateTime CreatedAt {
             get {
                 return this.CreatedAtField;
@@ -181,7 +197,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public int CreatedBy {
             get {
                 return this.CreatedByField;
@@ -194,7 +210,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
         public string Lecturer {
             get {
                 return this.LecturerField;
@@ -207,7 +223,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=12)]
         public int QuestionInExamCount {
             get {
                 return this.QuestionInExamCountField;
@@ -220,7 +236,7 @@ namespace MultipleChoiceApp.Bi.Question {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
         public System.Collections.Generic.List<MultipleChoiceApp.Bi.Question.Answer> Answers {
             get {
                 return this.AnswersField;
@@ -398,6 +414,13 @@ namespace MultipleChoiceApp.Bi.Question {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/addMany", ReplyAction="*")]
         System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.addManyResponse> addManyAsync(MultipleChoiceApp.Bi.Question.addManyRequest request);
+        
+        // CODEGEN: Generating message contract since element name filename from namespace http://peteranh.com/Services/Question is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/updateImage", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Question.updateImageResponse updateImage(MultipleChoiceApp.Bi.Question.updateImageRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/updateImage", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.updateImageResponse> updateImageAsync(MultipleChoiceApp.Bi.Question.updateImageRequest request);
         
         // CODEGEN: Generating message contract since element name item from namespace http://peteranh.com/Services/Question is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Question/update", ReplyAction="*")]
@@ -1001,6 +1024,82 @@ namespace MultipleChoiceApp.Bi.Question {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateImageRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateImage", Namespace="http://peteranh.com/Services/Question", Order=0)]
+        public MultipleChoiceApp.Bi.Question.updateImageRequestBody Body;
+        
+        public updateImageRequest() {
+        }
+        
+        public updateImageRequest(MultipleChoiceApp.Bi.Question.updateImageRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Question")]
+    public partial class updateImageRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string filename;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string url;
+        
+        public updateImageRequestBody() {
+        }
+        
+        public updateImageRequestBody(int id, string filename, string url) {
+            this.id = id;
+            this.filename = filename;
+            this.url = url;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class updateImageResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="updateImageResponse", Namespace="http://peteranh.com/Services/Question", Order=0)]
+        public MultipleChoiceApp.Bi.Question.updateImageResponseBody Body;
+        
+        public updateImageResponse() {
+        }
+        
+        public updateImageResponse(MultipleChoiceApp.Bi.Question.updateImageResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Question")]
+    public partial class updateImageResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool updateImageResult;
+        
+        public updateImageResponseBody() {
+        }
+        
+        public updateImageResponseBody(bool updateImageResult) {
+            this.updateImageResult = updateImageResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class updateRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="update", Namespace="http://peteranh.com/Services/Question", Order=0)]
@@ -1441,6 +1540,35 @@ namespace MultipleChoiceApp.Bi.Question {
             inValue.Body = new MultipleChoiceApp.Bi.Question.addManyRequestBody();
             inValue.Body.list = list;
             return ((MultipleChoiceApp.Bi.Question.QuestionServiceSoap)(this)).addManyAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Question.updateImageResponse MultipleChoiceApp.Bi.Question.QuestionServiceSoap.updateImage(MultipleChoiceApp.Bi.Question.updateImageRequest request) {
+            return base.Channel.updateImage(request);
+        }
+        
+        public bool updateImage(int id, string filename, string url) {
+            MultipleChoiceApp.Bi.Question.updateImageRequest inValue = new MultipleChoiceApp.Bi.Question.updateImageRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Question.updateImageRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.filename = filename;
+            inValue.Body.url = url;
+            MultipleChoiceApp.Bi.Question.updateImageResponse retVal = ((MultipleChoiceApp.Bi.Question.QuestionServiceSoap)(this)).updateImage(inValue);
+            return retVal.Body.updateImageResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.updateImageResponse> MultipleChoiceApp.Bi.Question.QuestionServiceSoap.updateImageAsync(MultipleChoiceApp.Bi.Question.updateImageRequest request) {
+            return base.Channel.updateImageAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Question.updateImageResponse> updateImageAsync(int id, string filename, string url) {
+            MultipleChoiceApp.Bi.Question.updateImageRequest inValue = new MultipleChoiceApp.Bi.Question.updateImageRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Question.updateImageRequestBody();
+            inValue.Body.id = id;
+            inValue.Body.filename = filename;
+            inValue.Body.url = url;
+            return ((MultipleChoiceApp.Bi.Question.QuestionServiceSoap)(this)).updateImageAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
