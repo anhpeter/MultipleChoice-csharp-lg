@@ -100,7 +100,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_submit.BackColor = System.Drawing.Color.DodgerBlue;
             this.btn_submit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_submit.BorderRadius = 0;
-            this.btn_submit.ButtonText = "Submit";
+            this.btn_submit.ButtonText = "Save";
             this.btn_submit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_submit.DisabledColor = System.Drawing.Color.Gray;
             this.btn_submit.Iconcolor = System.Drawing.Color.Transparent;
@@ -124,7 +124,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_submit.selected = false;
             this.btn_submit.Size = new System.Drawing.Size(221, 42);
             this.btn_submit.TabIndex = 19;
-            this.btn_submit.Text = "Submit";
+            this.btn_submit.Text = "Save";
             this.btn_submit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_submit.Textcolor = System.Drawing.Color.White;
             this.btn_submit.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

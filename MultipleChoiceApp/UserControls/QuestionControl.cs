@@ -28,6 +28,7 @@ namespace MultipleChoiceApp.UserControls
         Question formItem;
         List<Subject> subjectList;
         Boolean searchMode = false;
+        int totalItems = 0;
 
         public QuestionControl()
         {
@@ -273,7 +274,9 @@ namespace MultipleChoiceApp.UserControls
 
         public int count()
         {
-            return mainS.countBySubjectId(getFormSubjectId());
+            totalItems = mainS.countBySubjectId(getFormSubjectId());
+            lbl_total_count.Text = totalItems.ToString();
+            return totalItems;
         }
         public void onPage()
         {
@@ -284,6 +287,35 @@ namespace MultipleChoiceApp.UserControls
         private void onEdit(Question item)
         {
             new FrmQuestionForm(this, item, getFormSubjectId()).ShowDialog();
+        }
+
+        private void txt_items_per_page_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            FormHelper.txtNumber(sender, e);
+        }
+
+        private void txt_items_per_page_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int itemsPerPage = Util.parseToInt(txt_items_per_page.Text.ToString(), pagination.itemsPerPage);
+                if (itemsPerPage != pagination.itemsPerPage)
+                {
+                    if (itemsPerPage > 0 && itemsPerPage <= totalItems)
+                    {
+                        pagination.itemsPerPage = itemsPerPage;
+                        refreshList();
+                    }
+                    else
+                    {
+                        FormHelper.showErrorMsg("Items per page must greater than 0 and less than total items");
+                        txt_items_per_page.Text = pagination.itemsPerPage.ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
         }
     }
 }

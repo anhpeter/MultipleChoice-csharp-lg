@@ -170,7 +170,7 @@ namespace MultipleChoiceApp.Common.Helpers
                             object value = worksheet.Cells[i, j].Value;
                             if (value != null) dic.Add(headers[j - 1], value.ToString().Trim());
                         }
-                        if (dic.Count>0) dicList.Add(dic);
+                        if (dic.Count > 0) dicList.Add(dic);
                     }
                 }
             }
@@ -221,6 +221,22 @@ namespace MultipleChoiceApp.Common.Helpers
 
 
                 }
+            }
+        }
+
+
+        public static void txtNumber(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+    (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
 

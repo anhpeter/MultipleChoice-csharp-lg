@@ -29,15 +29,15 @@ namespace MultipleChoiceApp.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionControl));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.drop_subject = new Bunifu.UI.WinForms.BunifuDropdown();
             this.gv_main = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,7 +46,11 @@ namespace MultipleChoiceApp.UserControls
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnl = new System.Windows.Forms.Panel();
+            this.pnl_pagination_custom = new System.Windows.Forms.Panel();
+            this.lbl_total_count = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_items_per_page = new System.Windows.Forms.TextBox();
             this.pnl_pagination = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_add = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -60,7 +64,8 @@ namespace MultipleChoiceApp.UserControls
             this.openFileDialog_question = new System.Windows.Forms.OpenFileDialog();
             this.txt_search = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnl.SuspendLayout();
+            this.pnl_pagination_custom.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,25 +108,25 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.AllowUserToAddRows = false;
             this.gv_main.AllowUserToDeleteRows = false;
             this.gv_main.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            this.gv_main.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.gv_main.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.gv_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gv_main.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.gv_main.BackgroundColor = System.Drawing.Color.White;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gv_main.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gv_main.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.gv_main.ColumnHeadersHeight = 40;
             this.gv_main.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -146,14 +151,14 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.gv_main.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
             this.gv_main.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gv_main.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gv_main.DefaultCellStyle = dataGridViewCellStyle16;
             this.gv_main.EnableHeadersVisualStyles = false;
             this.gv_main.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(238)))), ((int)(((byte)(255)))));
             this.gv_main.HeaderBackColor = System.Drawing.Color.DodgerBlue;
@@ -212,25 +217,69 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column7
             // 
-            dataGridViewCellStyle19.Format = "d";
-            dataGridViewCellStyle19.NullValue = null;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle15.Format = "d";
+            dataGridViewCellStyle15.NullValue = null;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column7.HeaderText = "Created At";
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // panel1
+            // pnl
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pnl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.pnl_pagination);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(0, 481);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1155, 239);
-            this.panel1.TabIndex = 3;
+            this.pnl.Controls.Add(this.pnl_pagination_custom);
+            this.pnl.Controls.Add(this.pnl_pagination);
+            this.pnl.Controls.Add(this.flowLayoutPanel1);
+            this.pnl.Location = new System.Drawing.Point(0, 481);
+            this.pnl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnl.Name = "pnl";
+            this.pnl.Size = new System.Drawing.Size(1155, 239);
+            this.pnl.TabIndex = 3;
+            // 
+            // pnl_pagination_custom
+            // 
+            this.pnl_pagination_custom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_pagination_custom.Controls.Add(this.lbl_total_count);
+            this.pnl_pagination_custom.Controls.Add(this.label1);
+            this.pnl_pagination_custom.Controls.Add(this.txt_items_per_page);
+            this.pnl_pagination_custom.Location = new System.Drawing.Point(499, 9);
+            this.pnl_pagination_custom.Name = "pnl_pagination_custom";
+            this.pnl_pagination_custom.Size = new System.Drawing.Size(186, 43);
+            this.pnl_pagination_custom.TabIndex = 3;
+            // 
+            // lbl_total_count
+            // 
+            this.lbl_total_count.AutoSize = true;
+            this.lbl_total_count.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_total_count.Location = new System.Drawing.Point(131, 6);
+            this.lbl_total_count.Name = "lbl_total_count";
+            this.lbl_total_count.Size = new System.Drawing.Size(45, 28);
+            this.lbl_total_count.TabIndex = 6;
+            this.lbl_total_count.Text = "120";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(114, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(20, 28);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "/";
+            // 
+            // txt_items_per_page
+            // 
+            this.txt_items_per_page.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_items_per_page.Location = new System.Drawing.Point(39, 3);
+            this.txt_items_per_page.Name = "txt_items_per_page";
+            this.txt_items_per_page.Size = new System.Drawing.Size(69, 34);
+            this.txt_items_per_page.TabIndex = 4;
+            this.txt_items_per_page.Text = "15";
+            this.txt_items_per_page.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_items_per_page.TextChanged += new System.EventHandler(this.txt_items_per_page_TextChanged);
+            this.txt_items_per_page.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_items_per_page_KeyPress);
             // 
             // pnl_pagination
             // 
@@ -460,26 +509,26 @@ namespace MultipleChoiceApp.UserControls
             this.txt_search.Modified = false;
             this.txt_search.Multiline = false;
             this.txt_search.Name = "txt_search";
-            stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties17.FillColor = System.Drawing.Color.Empty;
-            stateProperties17.ForeColor = System.Drawing.Color.Empty;
-            stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnActiveState = stateProperties17;
-            stateProperties18.BorderColor = System.Drawing.Color.Empty;
-            stateProperties18.FillColor = System.Drawing.Color.White;
-            stateProperties18.ForeColor = System.Drawing.Color.Empty;
-            stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_search.OnDisabledState = stateProperties18;
-            stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties19.FillColor = System.Drawing.Color.Empty;
-            stateProperties19.ForeColor = System.Drawing.Color.Empty;
-            stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnHoverState = stateProperties19;
-            stateProperties20.BorderColor = System.Drawing.Color.Silver;
-            stateProperties20.FillColor = System.Drawing.Color.White;
-            stateProperties20.ForeColor = System.Drawing.Color.Empty;
-            stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txt_search.OnIdleState = stateProperties20;
+            stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties13.FillColor = System.Drawing.Color.Empty;
+            stateProperties13.ForeColor = System.Drawing.Color.Empty;
+            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnActiveState = stateProperties13;
+            stateProperties14.BorderColor = System.Drawing.Color.Empty;
+            stateProperties14.FillColor = System.Drawing.Color.White;
+            stateProperties14.ForeColor = System.Drawing.Color.Empty;
+            stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_search.OnDisabledState = stateProperties14;
+            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties15.FillColor = System.Drawing.Color.Empty;
+            stateProperties15.ForeColor = System.Drawing.Color.Empty;
+            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnHoverState = stateProperties15;
+            stateProperties16.BorderColor = System.Drawing.Color.Silver;
+            stateProperties16.FillColor = System.Drawing.Color.White;
+            stateProperties16.ForeColor = System.Drawing.Color.Empty;
+            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txt_search.OnIdleState = stateProperties16;
             this.txt_search.PasswordChar = '\0';
             this.txt_search.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txt_search.PlaceholderText = "Keyword";
@@ -507,7 +556,7 @@ namespace MultipleChoiceApp.UserControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnl);
             this.Controls.Add(this.gv_main);
             this.Controls.Add(this.drop_subject);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -515,7 +564,9 @@ namespace MultipleChoiceApp.UserControls
             this.Size = new System.Drawing.Size(1155, 742);
             this.Load += new System.EventHandler(this.QuestionControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gv_main)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnl.ResumeLayout(false);
+            this.pnl_pagination_custom.ResumeLayout(false);
+            this.pnl_pagination_custom.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -526,7 +577,7 @@ namespace MultipleChoiceApp.UserControls
 
         private Bunifu.UI.WinForms.BunifuDropdown drop_subject;
         private Bunifu.UI.WinForms.BunifuDataGridView gv_main;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -545,5 +596,9 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.OpenFileDialog openfiledialog_excel;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog_question;
+        private System.Windows.Forms.Panel pnl_pagination_custom;
+        private System.Windows.Forms.Label lbl_total_count;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_items_per_page;
     }
 }

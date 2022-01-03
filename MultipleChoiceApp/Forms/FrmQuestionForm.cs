@@ -37,6 +37,14 @@ namespace MultipleChoiceApp.Forms
             formItem = question;
             this.subjectId = subjectId;
             this.parent = parent;
+            if (formItem== null)
+            {
+                Text = "Add Question";
+            }
+            else
+            {
+                Text = $"Edit Question #{formItem.Id}";
+            }
         }
 
         private void FrmQuestionForm_Load(object sender, EventArgs e)

@@ -19,6 +19,7 @@ namespace MultipleChoiceApp.ModelHelpers
             }
             dic.Add("Id", question.Id + "");
             dic.Add("Content", question.Content);
+            dic.Add("Image Url", question.ImgUrl);
             dic.Add("Answers", answersString);
             dic.Add("Correct Answer No", question.CorrectAnswerNo + "");
             dic.Add("Subject Code", question.SubjectCode);
