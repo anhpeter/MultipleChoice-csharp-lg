@@ -36,6 +36,8 @@ namespace MultipleChoiceApp.Forms
             this.time = subject.Duration * 60 * 1000;
             InitializeComponent();
             FormHelper.MakeFullScreen(this);
+            lbl_question.MaximumSize = new Size(pnl_table_answer.Width, 0);
+            lbl_question.AutoSize = true;
         }
 
         private void FrmTakingExam_Load(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace MultipleChoiceApp.Forms
             else
             {
                 Util.log("Questions count " + studentResponseList.Count);
-                MessageBox.Show("Load enough questions!");
+                MessageBox.Show("Not load enough questions! ");
 
             }
         }
@@ -81,7 +83,6 @@ namespace MultipleChoiceApp.Forms
         private void MyTimer_Tick(object sender, EventArgs e)
         {
             this.time -= 1000;
-            Util.log($"time: {time}");
             renderTime();
             if (this.time == 0)
             {
@@ -113,7 +114,6 @@ namespace MultipleChoiceApp.Forms
             questions = questions.Concat(easyList).ToList();
             questions = questions.Concat(normalList).ToList();
             questions = questions.Concat(hardList).ToList();
-            Util.log($"\nEasy:{easyQty} - Normal:{normalQty} - Hard:{hardQty}");
             Util.log($"\nEasy:{easyList.Count} - Normal:{normalList.Count} - Hard:{hardList.Count}");
             return questions;
         }
@@ -221,12 +221,10 @@ namespace MultipleChoiceApp.Forms
         // TEMPLATE
         private void renderTime()
         {
-            Util.log("TIME: " + this.time);
             double h = Math.Floor(this.time / 60 / 60 / 1000.0) % 60;
             double m = Math.Floor(this.time % (1000 * 60 * 60) / (1000 * 60 * 1.0));
             double s = Math.Floor((this.time % (1000 * 60)) / 1000 * 1.0);
 
-            Util.log($"h: {h} - m: {m} - s: {s}");
             String hStr = Util.strPad(h + "", 2, "0");
             String mStr = Util.strPad(m + "", 2, "0");
             String sStr = Util.strPad(s + "", 2, "0");
@@ -316,7 +314,6 @@ namespace MultipleChoiceApp.Forms
 
         private void FrmTakingExam_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Util.log(e.KeyChar + "");
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -363,9 +360,15 @@ namespace MultipleChoiceApp.Forms
             e.Cancel = (result == DialogResult.No);
         }
 
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show(Msg.CANCEL_EXAM_CONFIRM, "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                FormClosing -= FrmTakingExam_FormClosing;
+                timer.Dispose();
+                FormHelper.replaceForm(this, new FrmLogin());
+            }
         }
     }
 }

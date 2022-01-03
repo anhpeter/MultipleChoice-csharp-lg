@@ -19,6 +19,7 @@ namespace MultipleChoiceApp.Common.Helpers
         //
         public static String DELETE_CONFIRM = "Do you want to delete this one?";
         public static String SUBMIT_EXAM_CONFIRM = "Do you want to submit your exam?";
+        public static String CANCEL_EXAM_CONFIRM = "Do you want to CANCEL your exam?";
         //
         public static String FAILED_TO_DELETE = "Failed to delete!";
         public static String CHOOSE_AN_ITEM = "Please choose an item!";

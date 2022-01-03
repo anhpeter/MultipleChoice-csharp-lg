@@ -200,6 +200,7 @@ namespace MultipleChoiceSite.DAL
         }
         private String standardizeValue(String value)
         {
+            if (String.IsNullOrEmpty(value)) return "";
             return value.Replace("'", "''");
         }
 
