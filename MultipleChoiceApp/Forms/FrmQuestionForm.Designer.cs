@@ -370,6 +370,7 @@ namespace MultipleChoiceApp.Forms
             this.MinimizeBox = false;
             this.Name = "FrmQuestionForm";
             this.Text = "Question Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmQuestionForm_FormClosing);
             this.Load += new System.EventHandler(this.FrmQuestionForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

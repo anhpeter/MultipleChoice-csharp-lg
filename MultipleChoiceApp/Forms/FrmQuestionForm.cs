@@ -185,5 +185,13 @@ namespace MultipleChoiceApp.Forms
                 mainS.updateImage(formItem.Id, questionImgFilename, questionImgUrl);
             }
         }
+
+        async private void FrmQuestionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (formItem == null && !String.IsNullOrEmpty(questionImgFilename))
+            {
+                await FileUpload.deleteFile(questionImgFilename);
+            }
+        }
     }
 }
