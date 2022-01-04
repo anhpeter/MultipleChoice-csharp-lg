@@ -164,6 +164,7 @@ namespace MultipleChoiceApp.Forms
             studentResultS.add(studentResult);
 
             //
+            FormClosing -= FrmTakingExam_FormClosing;
             FormHelper.replaceForm(this, new FrmExamFinish(studentResult));
         }
 

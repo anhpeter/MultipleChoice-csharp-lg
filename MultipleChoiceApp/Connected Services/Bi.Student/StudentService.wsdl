@@ -53,6 +53,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="Major" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExamStatus" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>

@@ -49,7 +49,6 @@ namespace MultipleChoiceApp.Forms
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.gv_student_in_exam = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -165,6 +164,7 @@ namespace MultipleChoiceApp.Forms
             this.gv_exam.RowTemplate.Height = 24;
             this.gv_exam.Size = new System.Drawing.Size(715, 259);
             this.gv_exam.TabIndex = 0;
+            this.gv_exam.SelectionChanged += new System.EventHandler(this.gv_exam_SelectionChanged);
             // 
             // Column1
             // 
@@ -240,7 +240,6 @@ namespace MultipleChoiceApp.Forms
             this.gv_student_in_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gv_student_in_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gv_student_in_exam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
             this.Column10,
             this.Column8,
             this.Column9,
@@ -252,12 +251,7 @@ namespace MultipleChoiceApp.Forms
             this.gv_student_in_exam.RowTemplate.Height = 24;
             this.gv_student_in_exam.Size = new System.Drawing.Size(963, 129);
             this.gv_student_in_exam.TabIndex = 0;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "STT";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
+            this.gv_student_in_exam.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.gv_student_in_exam_RowStateChanged);
             // 
             // Column10
             // 
@@ -333,12 +327,11 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.Label label3;
     }
 }

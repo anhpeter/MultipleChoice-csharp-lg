@@ -40,9 +40,19 @@ namespace MultipleChoiceSite.DAL
         public List<Student> getStudentInExam(int examId)
         {
             String sqlStr = string.Format(@"
-                select stu.*
-                from Students as stu left join StudentExam as stuEx on (stu.Id = stuEx.StudentId)
-                where stuEx.ExamId = {0}
+                select 
+                  stu.*, 
+                  CASE WHEN stuRes.Id is NULL THEN 0 ELSE 1 END AS ExamStatus 
+                from 
+                  Students as stu 
+                  left join StudentExam as stuEx on (stu.Id = stuEx.StudentId) 
+                  left join StudentResults as stuRes on (
+                    stuRes.StudentId = stuEx.StudentId 
+                    and stuRes.ExamId = stuEx.ExamId
+                  ) 
+                where 
+                  stuEx.ExamId = {0}
+
             ", examId);
             return getAll(sqlStr);
         }

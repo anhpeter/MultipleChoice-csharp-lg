@@ -18,6 +18,8 @@ namespace MultipleChoiceSite.Models
         public DateTime DOB { get; set; }
         public String Major { get; set; }
         public int CreatedBy { get; set; }
+        //
+        public int ExamStatus { get; set; }
         public static Student fromDR(SqlDataReader dr)
         {
             Student item = new Student()
@@ -30,6 +32,8 @@ namespace MultipleChoiceSite.Models
                 Major = Util.getDrValue(dr, "Major"),
                 DOB = Convert.ToDateTime(Util.getDrValue(dr, "DOB")),
                 CreatedBy = Util.parseToInt(Util.getDrValue(dr, "CreatedBy")),
+                //
+                ExamStatus = Util.parseToInt(Util.getDrValue(dr, "ExamStatus")),
             };
             return item;
         }
