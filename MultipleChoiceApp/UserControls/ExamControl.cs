@@ -7,16 +7,18 @@ using MultipleChoiceApp.Common.Validators;
 using MultipleChoiceApp.Forms;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class ExamControl : UserControl,IPagination
+    public partial class ExamControl : UserControl, IPagination
     {
         ExamServiceSoapClient mainS = new ExamServiceSoapClient();
         SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
         Exam formItem;
         List<Bi.Subject.Subject> subjectList;
+        List<Exam> examList;
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);
@@ -163,8 +165,8 @@ namespace MultipleChoiceApp.UserControls
 
         private void refreshList()
         {
-            List<Exam> list = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
-            refreshList(list);
+            examList = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
+            refreshList(examList);
         }
 
         private void refreshList(List<Exam> list)
@@ -207,6 +209,27 @@ namespace MultipleChoiceApp.UserControls
             formItem = null;
         }
 
+        private Exam getItemByRowIndex(int index)
+        {
+            int id = getIdByRowIndex(index);
+            if (id > -1)
+            {
+                return examList.Find(x => x.Id == id);
+            }
+            return null;
+        }
+
+        private int getIdByRowIndex(int rowIndex)
+        {
+            try
+            {
+                return Util.parseToInt(gv_main.Rows[rowIndex].Cells[0].Value.ToString(), -1);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
         private int getSelectedId()
         {
             try
@@ -227,8 +250,8 @@ namespace MultipleChoiceApp.UserControls
                 if (keyword.Trim() != "")
                 {
                     searchMode = true;
-                    List<Exam> list = mainS.searchByKeyword(txt_search.Text);
-                    refreshList(list);
+                    examList = mainS.searchByKeyword(txt_search.Text);
+                    refreshList(examList);
                 }
                 else
                 {
@@ -269,7 +292,45 @@ namespace MultipleChoiceApp.UserControls
 
         private void gv_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            new FrmExamDetails().ShowDialog();
+            //new FrmExamDetails().ShowDialog();
         }
+
+        // ROW ACTIONS
+        private void viewInfo(object sender, EventArgs e, int rowIndex)
+        {
+            MessageBox.Show("view info " + rowIndex);
+        }
+
+        private void mapStudents(object sender, EventArgs e, int rowIndex)
+        {
+            Exam item = getItemByRowIndex(rowIndex);
+            new FrmExamDetails(item).ShowDialog();
+        }
+
+        // CONTEXT MENU FOR GRID ROWS
+        private void gv_main_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Right)
+            {
+                int currentMouseOverRow = gv_main.HitTest(e.X, e.Y).RowIndex;
+                if (currentMouseOverRow >= 0)
+                {
+                    ContextMenu m = new ContextMenu();
+                    //
+                    MenuItem viewInfoItem = new MenuItem("View Info");
+                    viewInfoItem.Click += (s, ev) => viewInfo(s, ev, currentMouseOverRow);
+                    //
+                    MenuItem mapStudentsItem = new MenuItem("Map students");
+                    mapStudentsItem.Click += (s, ev) => mapStudents(s, ev, currentMouseOverRow);
+                    //
+                    m.MenuItems.Add(viewInfoItem);
+                    m.MenuItems.Add(mapStudentsItem);
+                    m.Show(gv_main, new Point(e.X, e.Y));
+                }
+            }
+        }
+
+        // HELPER METHODS
     }
 }

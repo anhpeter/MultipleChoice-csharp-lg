@@ -1,4 +1,5 @@
-﻿using MultipleChoiceApp.Common.Helpers;
+﻿using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,29 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmExamDetails : Form
     {
-        public FrmExamDetails()
+        Exam exam;
+        public FrmExamDetails(Exam exam)
         {
             InitializeComponent();
 
+            this.exam = exam;
             FormHelper.setFormSizeRatioOfScreen(this, 0.8);
             CenterToScreen();
+        }
+
+        private void FrmExamDetails_Load(object sender, EventArgs e)
+        {
+
             setupInterface();
+            fillInfo();
+        }
+
+        private void fillInfo()
+        {
+            lbl_exam_name.Text = exam.Name;
+            lbl_semester.Text = exam.Semester.ToString();
+            lbl_subject.Text = exam.Subject.Name;
+            lbl_start_at.Text = Util.toMediumDateStr(exam.StartAt);
         }
 
         private void setupInterface()
@@ -43,5 +60,6 @@ namespace MultipleChoiceApp.Forms
         {
             MessageBox.Show("Saved");
         }
+
     }
 }

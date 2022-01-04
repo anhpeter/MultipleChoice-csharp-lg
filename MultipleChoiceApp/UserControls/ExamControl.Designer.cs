@@ -873,7 +873,7 @@ namespace MultipleChoiceApp.UserControls
             this.gv_main.TabIndex = 21;
             this.gv_main.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.gv_main.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellClick);
-            this.gv_main.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gv_main_CellDoubleClick);
+            this.gv_main.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gv_main_MouseClick);
             // 
             // Column3
             // 

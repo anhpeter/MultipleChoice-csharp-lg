@@ -38,11 +38,6 @@ namespace MultipleChoiceSite.DAL
         }
 
         // FETCHS
-        public List<Exam> getAllForSelectData()
-        {
-            String sqlStr = $"select * from {tableName} order by Id desc";
-            return getAll(sqlStr);
-        }
         public Exam getExamReportById(int id)
         {
             Exam item = null;
@@ -114,7 +109,7 @@ namespace MultipleChoiceSite.DAL
         protected override String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
-                    SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion
+                    SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion, s.Name as SubjectName
                     FROM Exams as e
                         INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
                         {0}

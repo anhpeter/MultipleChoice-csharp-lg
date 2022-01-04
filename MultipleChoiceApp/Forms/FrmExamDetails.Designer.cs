@@ -32,7 +32,7 @@ namespace MultipleChoiceApp.Forms
             this.pnl_header = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_start_at = new System.Windows.Forms.Label();
-            this.lbl_major = new System.Windows.Forms.Label();
+            this.lbl_semester = new System.Windows.Forms.Label();
             this.lbl_subject = new System.Windows.Forms.Label();
             this.lbl_exam_name = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -93,7 +93,7 @@ namespace MultipleChoiceApp.Forms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.23404F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.70213F));
             this.tableLayoutPanel1.Controls.Add(this.lbl_start_at, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lbl_major, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lbl_semester, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.lbl_subject, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.lbl_exam_name, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
@@ -120,16 +120,16 @@ namespace MultipleChoiceApp.Forms
             this.lbl_start_at.Text = "02/01/2022";
             this.lbl_start_at.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lbl_major
+            // lbl_semester
             // 
-            this.lbl_major.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_major.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_major.Location = new System.Drawing.Point(122, 55);
-            this.lbl_major.Name = "lbl_major";
-            this.lbl_major.Size = new System.Drawing.Size(214, 56);
-            this.lbl_major.TabIndex = 34;
-            this.lbl_major.Text = "QL181";
-            this.lbl_major.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_semester.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_semester.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_semester.Location = new System.Drawing.Point(122, 55);
+            this.lbl_semester.Name = "lbl_semester";
+            this.lbl_semester.Size = new System.Drawing.Size(214, 56);
+            this.lbl_semester.TabIndex = 34;
+            this.lbl_semester.Text = "2131";
+            this.lbl_semester.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_subject
             // 
@@ -172,7 +172,7 @@ namespace MultipleChoiceApp.Forms
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 56);
             this.label1.TabIndex = 29;
-            this.label1.Text = "Major:";
+            this.label1.Text = "Semester:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label2
@@ -435,6 +435,7 @@ namespace MultipleChoiceApp.Forms
             this.MinimizeBox = false;
             this.Name = "FrmExamDetails";
             this.Text = "Exam Information";
+            this.Load += new System.EventHandler(this.FrmExamDetails_Load);
             this.pnl_header.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnl_student_exam.ResumeLayout(false);
@@ -452,7 +453,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_start_at;
-        private System.Windows.Forms.Label lbl_major;
+        private System.Windows.Forms.Label lbl_semester;
         private System.Windows.Forms.Label lbl_subject;
         private System.Windows.Forms.Label lbl_exam_name;
         private System.Windows.Forms.Label label1;
