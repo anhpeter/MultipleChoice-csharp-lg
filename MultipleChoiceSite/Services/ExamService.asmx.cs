@@ -26,6 +26,11 @@ namespace MultipleChoiceSite.Services
             return mainDAO;
         }
         [WebMethod]
+        public List<Exam> getAllBetweenDate(DateTime from, DateTime to)
+        {
+            return mainDAO.getAllBetweenDate(from, to);
+        }
+        [WebMethod]
         public bool isAvailableBetweenDate(DateTime start, DateTime end, int subjectId)
         {
             return mainDAO.isAvailableBetweenDate(start, end, subjectId);

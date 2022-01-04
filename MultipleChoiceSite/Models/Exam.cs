@@ -29,7 +29,7 @@ namespace MultipleChoiceSite.Models
             {
                 Name = Util.getDrValue(dr, "SubjectName"),
                 TotalQuestion = Util.parseToInt(Util.getDrValue(dr, "TotalQuestion"), 0),
-                Duration = Util.parseToInt(Util.getDrValue(dr, "duration"), 0),
+                Duration = Util.parseToInt(Util.getDrValue(dr, "Duration"), 0),
             };
             Exam item = new Exam()
             {

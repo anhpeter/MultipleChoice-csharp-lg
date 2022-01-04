@@ -15,95 +15,6 @@ namespace MultipleChoiceApp.Bi.Exam {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ExamOverview", Namespace="http://peteranh.com/Services/Exam")]
-    [System.SerializableAttribute()]
-    public partial class ExamOverview : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        private int TakenStudentCountField;
-        
-        private double AveragePointsField;
-        
-        private int DurationField;
-        
-        private int TotalQuestionField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public int TakenStudentCount {
-            get {
-                return this.TakenStudentCountField;
-            }
-            set {
-                if ((this.TakenStudentCountField.Equals(value) != true)) {
-                    this.TakenStudentCountField = value;
-                    this.RaisePropertyChanged("TakenStudentCount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public double AveragePoints {
-            get {
-                return this.AveragePointsField;
-            }
-            set {
-                if ((this.AveragePointsField.Equals(value) != true)) {
-                    this.AveragePointsField = value;
-                    this.RaisePropertyChanged("AveragePoints");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public int Duration {
-            get {
-                return this.DurationField;
-            }
-            set {
-                if ((this.DurationField.Equals(value) != true)) {
-                    this.DurationField = value;
-                    this.RaisePropertyChanged("Duration");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int TotalQuestion {
-            get {
-                return this.TotalQuestionField;
-            }
-            set {
-                if ((this.TotalQuestionField.Equals(value) != true)) {
-                    this.TotalQuestionField = value;
-                    this.RaisePropertyChanged("TotalQuestion");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Exam", Namespace="http://peteranh.com/Services/Exam")]
     [System.SerializableAttribute()]
     public partial class Exam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -466,9 +377,105 @@ namespace MultipleChoiceApp.Bi.Exam {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExamOverview", Namespace="http://peteranh.com/Services/Exam")]
+    [System.SerializableAttribute()]
+    public partial class ExamOverview : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int TakenStudentCountField;
+        
+        private double AveragePointsField;
+        
+        private int DurationField;
+        
+        private int TotalQuestionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int TakenStudentCount {
+            get {
+                return this.TakenStudentCountField;
+            }
+            set {
+                if ((this.TakenStudentCountField.Equals(value) != true)) {
+                    this.TakenStudentCountField = value;
+                    this.RaisePropertyChanged("TakenStudentCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public double AveragePoints {
+            get {
+                return this.AveragePointsField;
+            }
+            set {
+                if ((this.AveragePointsField.Equals(value) != true)) {
+                    this.AveragePointsField = value;
+                    this.RaisePropertyChanged("AveragePoints");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public int Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((this.DurationField.Equals(value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int TotalQuestion {
+            get {
+                return this.TotalQuestionField;
+            }
+            set {
+                if ((this.TotalQuestionField.Equals(value) != true)) {
+                    this.TotalQuestionField = value;
+                    this.RaisePropertyChanged("TotalQuestion");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.com/Services/Exam", ConfigurationName="Bi.Exam.ExamServiceSoap")]
     public interface ExamServiceSoap {
+        
+        // CODEGEN: Generating message contract since element name getAllBetweenDateResult from namespace http://peteranh.com/Services/Exam is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Exam/getAllBetweenDate", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse getAllBetweenDate(MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Exam/getAllBetweenDate", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse> getAllBetweenDateAsync(MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Exam/isAvailableBetweenDate", ReplyAction="*")]
         bool isAvailableBetweenDate(System.DateTime start, System.DateTime end, int subjectId);
@@ -564,6 +571,78 @@ namespace MultipleChoiceApp.Bi.Exam {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Exam/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getAllBetweenDateRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBetweenDate", Namespace="http://peteranh.com/Services/Exam", Order=0)]
+        public MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequestBody Body;
+        
+        public getAllBetweenDateRequest() {
+        }
+        
+        public getAllBetweenDateRequest(MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Exam")]
+    public partial class getAllBetweenDateRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public System.DateTime from;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public System.DateTime to;
+        
+        public getAllBetweenDateRequestBody() {
+        }
+        
+        public getAllBetweenDateRequestBody(System.DateTime from, System.DateTime to) {
+            this.from = from;
+            this.to = to;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getAllBetweenDateResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getAllBetweenDateResponse", Namespace="http://peteranh.com/Services/Exam", Order=0)]
+        public MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponseBody Body;
+        
+        public getAllBetweenDateResponse() {
+        }
+        
+        public getAllBetweenDateResponse(MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Exam")]
+    public partial class getAllBetweenDateResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Exam.Exam> getAllBetweenDateResult;
+        
+        public getAllBetweenDateResponseBody() {
+        }
+        
+        public getAllBetweenDateResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.Exam.Exam> getAllBetweenDateResult) {
+            this.getAllBetweenDateResult = getAllBetweenDateResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1333,6 +1412,33 @@ namespace MultipleChoiceApp.Bi.Exam {
         
         public ExamServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse MultipleChoiceApp.Bi.Exam.ExamServiceSoap.getAllBetweenDate(MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest request) {
+            return base.Channel.getAllBetweenDate(request);
+        }
+        
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Exam.Exam> getAllBetweenDate(System.DateTime from, System.DateTime to) {
+            MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest inValue = new MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequestBody();
+            inValue.Body.from = from;
+            inValue.Body.to = to;
+            MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse retVal = ((MultipleChoiceApp.Bi.Exam.ExamServiceSoap)(this)).getAllBetweenDate(inValue);
+            return retVal.Body.getAllBetweenDateResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse> MultipleChoiceApp.Bi.Exam.ExamServiceSoap.getAllBetweenDateAsync(MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest request) {
+            return base.Channel.getAllBetweenDateAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Exam.getAllBetweenDateResponse> getAllBetweenDateAsync(System.DateTime from, System.DateTime to) {
+            MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest inValue = new MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Exam.getAllBetweenDateRequestBody();
+            inValue.Body.from = from;
+            inValue.Body.to = to;
+            return ((MultipleChoiceApp.Bi.Exam.ExamServiceSoap)(this)).getAllBetweenDateAsync(inValue);
         }
         
         public bool isAvailableBetweenDate(System.DateTime start, System.DateTime end, int subjectId) {

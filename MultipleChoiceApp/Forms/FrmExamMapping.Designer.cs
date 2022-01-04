@@ -1,7 +1,7 @@
 ﻿
 namespace MultipleChoiceApp.Forms
 {
-    partial class FrmExamDetails
+    partial class FrmExamMapping
     {
         /// <summary>
         /// Required designer variable.
@@ -428,7 +428,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // FrmExamDetails
+            // FrmExamMapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -437,8 +437,8 @@ namespace MultipleChoiceApp.Forms
             this.Controls.Add(this.pnl_header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
-            this.Name = "FrmExamDetails";
-            this.Text = "Exam Information";
+            this.Name = "FrmExamMapping";
+            this.Text = "Exam Mapping";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmExamDetails_FormClosing);
             this.Load += new System.EventHandler(this.FrmExamDetails_Load);
             this.pnl_header.ResumeLayout(false);

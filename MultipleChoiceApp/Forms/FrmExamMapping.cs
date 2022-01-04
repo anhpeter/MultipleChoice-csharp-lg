@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms
 {
-    public partial class FrmExamDetails : Form
+    public partial class FrmExamMapping : Form
     {
         Exam exam;
         IAdminUserControl parent;
@@ -24,7 +24,7 @@ namespace MultipleChoiceApp.Forms
         List<Student> studentInExamListDefault;
         List<Student> studentList;
         List<Student> studentInExamList;
-        public FrmExamDetails(IAdminUserControl parent, Exam exam)
+        public FrmExamMapping(IAdminUserControl parent, Exam exam)
         {
             InitializeComponent();
 

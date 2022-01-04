@@ -298,13 +298,14 @@ namespace MultipleChoiceApp.UserControls
         // ROW ACTIONS
         private void viewInfo(object sender, EventArgs e, int rowIndex)
         {
-            MessageBox.Show("view info " + rowIndex);
+            Exam item = getItemByRowIndex(rowIndex);
+            new FrmExamInfo(this, item).ShowDialog();
         }
 
         private void mapStudents(object sender, EventArgs e, int rowIndex)
         {
             Exam item = getItemByRowIndex(rowIndex);
-            new FrmExamDetails(this, item).ShowDialog();
+            new FrmExamMapping(this, item).ShowDialog();
         }
 
         // CONTEXT MENU FOR GRID ROWS

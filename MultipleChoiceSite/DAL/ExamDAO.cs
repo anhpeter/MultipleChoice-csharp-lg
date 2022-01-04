@@ -72,6 +72,16 @@ namespace MultipleChoiceSite.DAL
             dbHelper.closeConnection();
             return item;
         }
+
+        public List<Exam> getAllBetweenDate(DateTime from, DateTime to)
+        {
+            String sqlStr = getAllSqlStr(string.Format(@"
+                where
+                    StartAt >= '{0}' and
+                    StartAt <= '{1}'
+            ", from, to));
+            return getAll(sqlStr);
+        }
         public List<Exam> getAllForReport()
         {
             String sqlStr = string.Format(@"
@@ -109,7 +119,7 @@ namespace MultipleChoiceSite.DAL
         protected override String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
-              SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion, s.Name as SubjectName, isnull(c.StudentCount,0) as StudentCount
+              SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion, s.Duration, s.Name as SubjectName, isnull(c.StudentCount,0) as StudentCount
                 FROM Exams as e INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
                     left join (
                         select ExamId,  count(StudentId) as StudentCount
