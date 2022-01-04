@@ -270,6 +270,7 @@ namespace MultipleChoiceApp.Forms
             this.gv_students.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gv_students.Location = new System.Drawing.Point(3, 42);
             this.gv_students.Name = "gv_students";
+            this.gv_students.ReadOnly = true;
             this.gv_students.RowHeadersWidth = 51;
             this.gv_students.RowTemplate.Height = 24;
             this.gv_students.Size = new System.Drawing.Size(417, 363);
@@ -280,6 +281,7 @@ namespace MultipleChoiceApp.Forms
             this.Column1.HeaderText = "Id";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
@@ -287,18 +289,21 @@ namespace MultipleChoiceApp.Forms
             this.Column2.HeaderText = "Student Code";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Full Name";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Major";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // gv_students_in_exam
             // 
@@ -312,6 +317,7 @@ namespace MultipleChoiceApp.Forms
             this.gv_students_in_exam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gv_students_in_exam.Location = new System.Drawing.Point(520, 42);
             this.gv_students_in_exam.Name = "gv_students_in_exam";
+            this.gv_students_in_exam.ReadOnly = true;
             this.gv_students_in_exam.RowHeadersWidth = 51;
             this.gv_students_in_exam.RowTemplate.Height = 24;
             this.gv_students_in_exam.Size = new System.Drawing.Size(417, 363);
@@ -322,6 +328,7 @@ namespace MultipleChoiceApp.Forms
             this.dataGridViewTextBoxColumn1.HeaderText = "Id";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
@@ -329,18 +336,21 @@ namespace MultipleChoiceApp.Forms
             this.dataGridViewTextBoxColumn2.HeaderText = "Student Code";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Full Name";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Major";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // pnl_map
             // 

@@ -16,11 +16,10 @@ namespace MultipleChoiceApp.Forms
 {
     public partial class FrmExamInfo : Form
     {
-        Exam selectedExam;
         List<Exam> examList;
         ExamServiceSoapClient examS = new ExamServiceSoapClient();
         StudentServiceSoapClient studentS = new StudentServiceSoapClient();
-        public FrmExamInfo(IAdminUserControl parent, Exam exam)
+        public FrmExamInfo(IAdminUserControl parent)
         {
             InitializeComponent();
             //

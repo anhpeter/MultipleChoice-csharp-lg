@@ -160,6 +160,7 @@ namespace MultipleChoiceApp.Forms
             this.Column6});
             this.gv_exam.Location = new System.Drawing.Point(12, 12);
             this.gv_exam.Name = "gv_exam";
+            this.gv_exam.ReadOnly = true;
             this.gv_exam.RowHeadersWidth = 51;
             this.gv_exam.RowTemplate.Height = 24;
             this.gv_exam.Size = new System.Drawing.Size(715, 259);
@@ -171,6 +172,7 @@ namespace MultipleChoiceApp.Forms
             this.Column1.HeaderText = "Id";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
@@ -178,18 +180,21 @@ namespace MultipleChoiceApp.Forms
             this.Column2.HeaderText = "Exam Name";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Subject";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "No. Of Student";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
@@ -199,12 +204,14 @@ namespace MultipleChoiceApp.Forms
             this.Column5.HeaderText = "Date";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Duration";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // bunifuShadowPanel1
             // 
@@ -247,6 +254,7 @@ namespace MultipleChoiceApp.Forms
             this.Column12});
             this.gv_student_in_exam.Location = new System.Drawing.Point(12, 44);
             this.gv_student_in_exam.Name = "gv_student_in_exam";
+            this.gv_student_in_exam.ReadOnly = true;
             this.gv_student_in_exam.RowHeadersWidth = 51;
             this.gv_student_in_exam.RowTemplate.Height = 24;
             this.gv_student_in_exam.Size = new System.Drawing.Size(963, 129);
@@ -258,12 +266,14 @@ namespace MultipleChoiceApp.Forms
             this.Column10.HeaderText = "Student Code";
             this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Full Name";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
@@ -273,18 +283,21 @@ namespace MultipleChoiceApp.Forms
             this.Column9.HeaderText = "DOB";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
             // 
             // Column11
             // 
             this.Column11.HeaderText = "Major";
             this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
             this.Column12.HeaderText = "Status";
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // FrmExamInfo
             // 

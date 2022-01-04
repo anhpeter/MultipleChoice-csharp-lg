@@ -299,7 +299,7 @@ namespace MultipleChoiceApp.UserControls
         private void viewInfo(object sender, EventArgs e, int rowIndex)
         {
             Exam item = getItemByRowIndex(rowIndex);
-            new FrmExamInfo(this, item).ShowDialog();
+            new FrmExamInfo(this).ShowDialog();
         }
 
         private void mapStudents(object sender, EventArgs e, int rowIndex)
@@ -317,20 +317,28 @@ namespace MultipleChoiceApp.UserControls
                 int currentMouseOverRow = gv_main.HitTest(e.X, e.Y).RowIndex;
                 if (currentMouseOverRow >= 0)
                 {
+                    gv_main.ClearSelection();
+                    gv_main.Rows[currentMouseOverRow].Selected = true;
                     ContextMenu m = new ContextMenu();
                     //
-                    MenuItem viewInfoItem = new MenuItem("View Info");
-                    viewInfoItem.Click += (s, ev) => viewInfo(s, ev, currentMouseOverRow);
+                    //MenuItem viewInfoItem = new MenuItem("View Info");
+                    //viewInfoItem.Click += (s, ev) => viewInfo(s, ev, currentMouseOverRow);
                     //
                     MenuItem mapStudentsItem = new MenuItem("Map students");
                     mapStudentsItem.Click += (s, ev) => mapStudents(s, ev, currentMouseOverRow);
                     //
-                    m.MenuItems.Add(viewInfoItem);
+                    //m.MenuItems.Add(viewInfoItem);
                     m.MenuItems.Add(mapStudentsItem);
                     m.Show(gv_main, new Point(e.X, e.Y));
                 }
             }
         }
+
+        private void btn_view_details_Click(object sender, EventArgs e)
+        {
+            new FrmExamInfo(this).ShowDialog();
+        }
+
 
         // HELPER METHODS
     }

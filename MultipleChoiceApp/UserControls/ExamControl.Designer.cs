@@ -88,6 +88,7 @@ namespace MultipleChoiceApp.UserControls
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_view_details = new Bunifu.Framework.UI.BunifuFlatButton();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -808,7 +809,6 @@ namespace MultipleChoiceApp.UserControls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gv_main.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -937,10 +937,48 @@ namespace MultipleChoiceApp.UserControls
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
+            // btn_view_details
+            // 
+            this.btn_view_details.Active = false;
+            this.btn_view_details.Activecolor = System.Drawing.Color.SeaGreen;
+            this.btn_view_details.BackColor = System.Drawing.Color.SeaGreen;
+            this.btn_view_details.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_view_details.BorderRadius = 0;
+            this.btn_view_details.ButtonText = "View details";
+            this.btn_view_details.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_view_details.DisabledColor = System.Drawing.Color.Gray;
+            this.btn_view_details.Iconcolor = System.Drawing.Color.Transparent;
+            this.btn_view_details.Iconimage = null;
+            this.btn_view_details.Iconimage_right = null;
+            this.btn_view_details.Iconimage_right_Selected = null;
+            this.btn_view_details.Iconimage_Selected = null;
+            this.btn_view_details.IconMarginLeft = 0;
+            this.btn_view_details.IconMarginRight = 0;
+            this.btn_view_details.IconRightVisible = true;
+            this.btn_view_details.IconRightZoom = 0D;
+            this.btn_view_details.IconVisible = true;
+            this.btn_view_details.IconZoom = 70D;
+            this.btn_view_details.IsTab = false;
+            this.btn_view_details.Location = new System.Drawing.Point(28, 9);
+            this.btn_view_details.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
+            this.btn_view_details.Name = "btn_view_details";
+            this.btn_view_details.Normalcolor = System.Drawing.Color.SeaGreen;
+            this.btn_view_details.OnHovercolor = System.Drawing.Color.MediumAquamarine;
+            this.btn_view_details.OnHoverTextColor = System.Drawing.Color.White;
+            this.btn_view_details.selected = false;
+            this.btn_view_details.Size = new System.Drawing.Size(221, 42);
+            this.btn_view_details.TabIndex = 23;
+            this.btn_view_details.Text = "View details";
+            this.btn_view_details.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_view_details.Textcolor = System.Drawing.Color.White;
+            this.btn_view_details.TextFont = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_view_details.Click += new System.EventHandler(this.btn_view_details_Click);
+            // 
             // ExamControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_view_details);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gv_main);
@@ -990,5 +1028,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private Bunifu.Framework.UI.BunifuFlatButton btn_view_details;
     }
 }

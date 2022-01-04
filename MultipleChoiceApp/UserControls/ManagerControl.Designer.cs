@@ -912,7 +912,6 @@ namespace MultipleChoiceApp.UserControls
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_main.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gv_main.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.gv_main.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gv_main.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.gv_main.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
