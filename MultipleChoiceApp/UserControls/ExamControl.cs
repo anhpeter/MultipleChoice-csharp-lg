@@ -4,6 +4,7 @@ using MultipleChoiceApp.Bi.Subject;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.Common.Validators;
+using MultipleChoiceApp.Forms;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -264,6 +265,11 @@ namespace MultipleChoiceApp.UserControls
         {
             pagination = paginationControl.pagination;
             refreshList();
+        }
+
+        private void gv_main_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            new FrmExamDetails().ShowDialog();
         }
     }
 }

@@ -278,6 +278,12 @@
   <ItemGroup>
     <Compile Include="Common\Helpers\FileUpload.cs" />
     <Compile Include="Common\Interfaces\IUploadImage.cs" />
+    <Compile Include="Forms\FrmExamDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmExamDetails.Designer.cs">
+      <DependentUpon>FrmExamDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmQuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -519,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmExamDetails.resx">
+      <DependentUpon>FrmExamDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmExamFinish.resx">
       <DependentUpon>FrmExamFinish.cs</DependentUpon>
