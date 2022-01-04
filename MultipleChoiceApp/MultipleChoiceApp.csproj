@@ -788,6 +788,9 @@
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.addResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.addStudentsToExamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getAllForSelectDataResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -801,6 +804,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getDetailsByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getStudentInExamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.searchByKeywordResponse.datasource">

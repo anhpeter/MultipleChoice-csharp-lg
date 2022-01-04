@@ -1,4 +1,5 @@
 ﻿using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Bi.Student;
 using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace MultipleChoiceApp.Forms
     public partial class FrmExamDetails : Form
     {
         Exam exam;
+        StudentServiceSoapClient studentS = new StudentServiceSoapClient();
         public FrmExamDetails(Exam exam)
         {
             InitializeComponent();
@@ -29,7 +31,37 @@ namespace MultipleChoiceApp.Forms
 
             setupInterface();
             fillInfo();
+            refreshLists();
         }
+
+        private void refreshLists()
+        {
+            refreshStudentList();
+            refreshStudentInExamList();
+        }
+
+        private void refreshStudentList()
+        {
+            List<Student> list = studentS.getStudentsNotInExam(exam.Id);
+            refreshGridView(gv_students, list);
+        }
+        private void refreshStudentInExamList()
+        {
+            List<Student> list = studentS.getStudentInExam(exam.Id);
+            refreshGridView(gv_students_in_exam, list);
+        }
+
+        private void refreshGridView(DataGridView gv, List<Student> list)
+        {
+            gv.Rows.Clear();
+            foreach (var item in list)
+            {
+                gv.Rows.Add(new object[] {
+                    item.Id, item.Code, item.FullName, item.Major
+                });
+            }
+        }
+        //
 
         private void fillInfo()
         {

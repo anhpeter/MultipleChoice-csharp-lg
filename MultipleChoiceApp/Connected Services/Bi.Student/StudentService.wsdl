@@ -2,21 +2,25 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/Student" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/Student" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/Student">
-      <s:element name="getByCodeAndPassword">
+      <s:element name="getStudentsNotInExam">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getByCodeAndPasswordResponse">
+      <s:element name="getStudentsNotInExamResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getByCodeAndPasswordResult" type="tns:Student" />
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentsNotInExamResult" type="tns:ArrayOfStudent" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="ArrayOfStudent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Student">
         <s:complexContent mixed="false">
           <s:extension base="tns:User">
@@ -34,6 +38,70 @@
         </s:complexContent>
       </s:complexType>
       <s:complexType name="User" />
+      <s:element name="getStudentInExam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentInExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentInExamResult" type="tns:ArrayOfStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addStudentsToExam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="addStudentsToExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="addStudentsToExamResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeStudentsFromExam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeStudentsFromExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="removeStudentsFromExamResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCodeAndPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCodeAndPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeAndPasswordResult" type="tns:Student" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="searchByKeyword">
         <s:complexType>
           <s:sequence>
@@ -48,11 +116,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfStudent">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="getByCode">
         <s:complexType>
           <s:sequence>
@@ -174,6 +237,30 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="getStudentsNotInExamSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentsNotInExam" />
+  </wsdl:message>
+  <wsdl:message name="getStudentsNotInExamSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentsNotInExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStudentInExamSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentInExam" />
+  </wsdl:message>
+  <wsdl:message name="getStudentInExamSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentInExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="addStudentsToExamSoapIn">
+    <wsdl:part name="parameters" element="tns:addStudentsToExam" />
+  </wsdl:message>
+  <wsdl:message name="addStudentsToExamSoapOut">
+    <wsdl:part name="parameters" element="tns:addStudentsToExamResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeStudentsFromExamSoapIn">
+    <wsdl:part name="parameters" element="tns:removeStudentsFromExam" />
+  </wsdl:message>
+  <wsdl:message name="removeStudentsFromExamSoapOut">
+    <wsdl:part name="parameters" element="tns:removeStudentsFromExamResponse" />
+  </wsdl:message>
   <wsdl:message name="getByCodeAndPasswordSoapIn">
     <wsdl:part name="parameters" element="tns:getByCodeAndPassword" />
   </wsdl:message>
@@ -241,6 +328,22 @@
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
   <wsdl:portType name="StudentServiceSoap">
+    <wsdl:operation name="getStudentsNotInExam">
+      <wsdl:input message="tns:getStudentsNotInExamSoapIn" />
+      <wsdl:output message="tns:getStudentsNotInExamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStudentInExam">
+      <wsdl:input message="tns:getStudentInExamSoapIn" />
+      <wsdl:output message="tns:getStudentInExamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addStudentsToExam">
+      <wsdl:input message="tns:addStudentsToExamSoapIn" />
+      <wsdl:output message="tns:addStudentsToExamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeStudentsFromExam">
+      <wsdl:input message="tns:removeStudentsFromExamSoapIn" />
+      <wsdl:output message="tns:removeStudentsFromExamSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <wsdl:input message="tns:getByCodeAndPasswordSoapIn" />
       <wsdl:output message="tns:getByCodeAndPasswordSoapOut" />
@@ -288,6 +391,42 @@
   </wsdl:portType>
   <wsdl:binding name="StudentServiceSoap" type="tns:StudentServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStudentsNotInExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentInExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getStudentInExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStudentsToExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/addStudentsToExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeStudentsFromExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/removeStudentsFromExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <soap:operation soapAction="http://peteranh.com/Services/Student/getByCodeAndPassword" style="document" />
       <wsdl:input>
@@ -390,6 +529,42 @@
   </wsdl:binding>
   <wsdl:binding name="StudentServiceSoap12" type="tns:StudentServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStudentsNotInExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStudentInExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getStudentInExam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStudentsToExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/addStudentsToExam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeStudentsFromExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/removeStudentsFromExam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getByCodeAndPassword">
       <soap12:operation soapAction="http://peteranh.com/Services/Student/getByCodeAndPassword" style="document" />
       <wsdl:input>

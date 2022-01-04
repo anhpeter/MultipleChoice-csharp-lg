@@ -111,6 +111,19 @@ namespace MultipleChoiceSite.DAL
         }
 
         // ADD
+        protected int addWithDics(List<Dictionary<String, String>> dataDicts)
+        {
+            String sqlStr = genInsertSqlStr(dataDicts);
+            //foreach (var key in dataDict.Keys.ToArray())
+            //{
+            //    String value = standardizeValue(dataDict[key]);
+            //    sqlStr = sqlStr.Replace($"@{key}", $"N'{value}'");
+            //}
+            Debug.WriteLine(sqlStr);
+            SqlCommand com = new SqlCommand(sqlStr);
+            //addParamValueToCom(dataDict, com);
+            return dbHelper.execWrite(com);
+        }
         protected int addWithDic(Dictionary<String, String> dataDict, bool output = false)
         {
             String sqlStr = genInsertSqlStr(dataDict, output);
@@ -175,6 +188,24 @@ namespace MultipleChoiceSite.DAL
             {
                 com.Parameters.Add(new SqlParameter($"@{key}", "N" + dataDict[key]));
             }
+        }
+        private String genInsertSqlStr(List<Dictionary<String, String>> dataDicts)
+        {
+            // fields
+            String[] keys = new List<string>(dataDicts[0].Keys).ToArray();
+            String updateFieldsStr = string.Join(" , ", keys);
+            // values
+            List<String> valueList = new List<string>();
+            //String[] valueParams = keys.Select(k => $"@{k}").ToArray();
+            foreach (var dic in dataDicts)
+            {
+                String[] valueParams = dic.Values.Select(v => $"N'{v}'").ToArray();
+                String valueParamsStr = string.Join(" , ", valueParams);
+                valueList.Add($"({valueParamsStr})");
+            }
+            String valueString = string.Join(",", valueList);
+            String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) VALUES ({valueString})";
+            return sqlStr;
         }
         private String genInsertSqlStr(Dictionary<String, String> dataDict, bool output = false)
         {

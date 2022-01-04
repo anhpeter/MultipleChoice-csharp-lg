@@ -15,36 +15,6 @@ namespace MultipleChoiceApp.Bi.Student {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://peteranh.com/Services/Student")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MultipleChoiceApp.Bi.Student.Student))]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://peteranh.com/Services/Student")]
     [System.SerializableAttribute()]
     public partial class Student : MultipleChoiceApp.Bi.Student.User {
@@ -175,9 +145,74 @@ namespace MultipleChoiceApp.Bi.Student {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://peteranh.com/Services/Student")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(MultipleChoiceApp.Bi.Student.Student))]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://peteranh.com/Services/Student", ItemName="int")]
+    [System.SerializableAttribute()]
+    public class ArrayOfInt : System.Collections.Generic.List<int> {
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.com/Services/Student", ConfigurationName="Bi.Student.StudentServiceSoap")]
     public interface StudentServiceSoap {
+        
+        // CODEGEN: Generating message contract since element name getStudentsNotInExamResult from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getStudentsNotInExam", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse getStudentsNotInExam(MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getStudentsNotInExam", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse> getStudentsNotInExamAsync(MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest request);
+        
+        // CODEGEN: Generating message contract since element name getStudentInExamResult from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getStudentInExam", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.getStudentInExamResponse getStudentInExam(MultipleChoiceApp.Bi.Student.getStudentInExamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getStudentInExam", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentInExamResponse> getStudentInExamAsync(MultipleChoiceApp.Bi.Student.getStudentInExamRequest request);
+        
+        // CODEGEN: Generating message contract since element name studentIds from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/addStudentsToExam", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.addStudentsToExamResponse addStudentsToExam(MultipleChoiceApp.Bi.Student.addStudentsToExamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/addStudentsToExam", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.addStudentsToExamResponse> addStudentsToExamAsync(MultipleChoiceApp.Bi.Student.addStudentsToExamRequest request);
+        
+        // CODEGEN: Generating message contract since element name studentIds from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/removeStudentsFromExam", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse removeStudentsFromExam(MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/removeStudentsFromExam", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse> removeStudentsFromExamAsync(MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest request);
         
         // CODEGEN: Generating message contract since element name id from namespace http://peteranh.com/Services/Student is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getByCodeAndPassword", ReplyAction="*")]
@@ -253,6 +288,286 @@ namespace MultipleChoiceApp.Bi.Student {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getStudentsNotInExamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getStudentsNotInExam", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequestBody Body;
+        
+        public getStudentsNotInExamRequest() {
+        }
+        
+        public getStudentsNotInExamRequest(MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getStudentsNotInExamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int examId;
+        
+        public getStudentsNotInExamRequestBody() {
+        }
+        
+        public getStudentsNotInExamRequestBody(int examId) {
+            this.examId = examId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getStudentsNotInExamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getStudentsNotInExamResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponseBody Body;
+        
+        public getStudentsNotInExamResponse() {
+        }
+        
+        public getStudentsNotInExamResponse(MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getStudentsNotInExamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentsNotInExamResult;
+        
+        public getStudentsNotInExamResponseBody() {
+        }
+        
+        public getStudentsNotInExamResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentsNotInExamResult) {
+            this.getStudentsNotInExamResult = getStudentsNotInExamResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getStudentInExamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getStudentInExam", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getStudentInExamRequestBody Body;
+        
+        public getStudentInExamRequest() {
+        }
+        
+        public getStudentInExamRequest(MultipleChoiceApp.Bi.Student.getStudentInExamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getStudentInExamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int examId;
+        
+        public getStudentInExamRequestBody() {
+        }
+        
+        public getStudentInExamRequestBody(int examId) {
+            this.examId = examId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getStudentInExamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getStudentInExamResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.getStudentInExamResponseBody Body;
+        
+        public getStudentInExamResponse() {
+        }
+        
+        public getStudentInExamResponse(MultipleChoiceApp.Bi.Student.getStudentInExamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class getStudentInExamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentInExamResult;
+        
+        public getStudentInExamResponseBody() {
+        }
+        
+        public getStudentInExamResponseBody(System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentInExamResult) {
+            this.getStudentInExamResult = getStudentInExamResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addStudentsToExamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addStudentsToExam", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.addStudentsToExamRequestBody Body;
+        
+        public addStudentsToExamRequest() {
+        }
+        
+        public addStudentsToExamRequest(MultipleChoiceApp.Bi.Student.addStudentsToExamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class addStudentsToExamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int examId;
+        
+        public addStudentsToExamRequestBody() {
+        }
+        
+        public addStudentsToExamRequestBody(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            this.studentIds = studentIds;
+            this.examId = examId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class addStudentsToExamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="addStudentsToExamResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.addStudentsToExamResponseBody Body;
+        
+        public addStudentsToExamResponse() {
+        }
+        
+        public addStudentsToExamResponse(MultipleChoiceApp.Bi.Student.addStudentsToExamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class addStudentsToExamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int addStudentsToExamResult;
+        
+        public addStudentsToExamResponseBody() {
+        }
+        
+        public addStudentsToExamResponseBody(int addStudentsToExamResult) {
+            this.addStudentsToExamResult = addStudentsToExamResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class removeStudentsFromExamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="removeStudentsFromExam", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequestBody Body;
+        
+        public removeStudentsFromExamRequest() {
+        }
+        
+        public removeStudentsFromExamRequest(MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class removeStudentsFromExamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int examId;
+        
+        public removeStudentsFromExamRequestBody() {
+        }
+        
+        public removeStudentsFromExamRequestBody(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            this.studentIds = studentIds;
+            this.examId = examId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class removeStudentsFromExamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="removeStudentsFromExamResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponseBody Body;
+        
+        public removeStudentsFromExamResponse() {
+        }
+        
+        public removeStudentsFromExamResponse(MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class removeStudentsFromExamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public bool removeStudentsFromExamResult;
+        
+        public removeStudentsFromExamResponseBody() {
+        }
+        
+        public removeStudentsFromExamResponseBody(bool removeStudentsFromExamResult) {
+            this.removeStudentsFromExamResult = removeStudentsFromExamResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -893,6 +1208,110 @@ namespace MultipleChoiceApp.Bi.Student {
         
         public StudentServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.getStudentsNotInExam(MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest request) {
+            return base.Channel.getStudentsNotInExam(request);
+        }
+        
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentsNotInExam(int examId) {
+            MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest inValue = new MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequestBody();
+            inValue.Body.examId = examId;
+            MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getStudentsNotInExam(inValue);
+            return retVal.Body.getStudentsNotInExamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.getStudentsNotInExamAsync(MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest request) {
+            return base.Channel.getStudentsNotInExamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentsNotInExamResponse> getStudentsNotInExamAsync(int examId) {
+            MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest inValue = new MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getStudentsNotInExamRequestBody();
+            inValue.Body.examId = examId;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getStudentsNotInExamAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.getStudentInExamResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.getStudentInExam(MultipleChoiceApp.Bi.Student.getStudentInExamRequest request) {
+            return base.Channel.getStudentInExam(request);
+        }
+        
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Student.Student> getStudentInExam(int examId) {
+            MultipleChoiceApp.Bi.Student.getStudentInExamRequest inValue = new MultipleChoiceApp.Bi.Student.getStudentInExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getStudentInExamRequestBody();
+            inValue.Body.examId = examId;
+            MultipleChoiceApp.Bi.Student.getStudentInExamResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getStudentInExam(inValue);
+            return retVal.Body.getStudentInExamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentInExamResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.getStudentInExamAsync(MultipleChoiceApp.Bi.Student.getStudentInExamRequest request) {
+            return base.Channel.getStudentInExamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.getStudentInExamResponse> getStudentInExamAsync(int examId) {
+            MultipleChoiceApp.Bi.Student.getStudentInExamRequest inValue = new MultipleChoiceApp.Bi.Student.getStudentInExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.getStudentInExamRequestBody();
+            inValue.Body.examId = examId;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).getStudentInExamAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.addStudentsToExamResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.addStudentsToExam(MultipleChoiceApp.Bi.Student.addStudentsToExamRequest request) {
+            return base.Channel.addStudentsToExam(request);
+        }
+        
+        public int addStudentsToExam(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.addStudentsToExamRequest inValue = new MultipleChoiceApp.Bi.Student.addStudentsToExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.addStudentsToExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            MultipleChoiceApp.Bi.Student.addStudentsToExamResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).addStudentsToExam(inValue);
+            return retVal.Body.addStudentsToExamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.addStudentsToExamResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.addStudentsToExamAsync(MultipleChoiceApp.Bi.Student.addStudentsToExamRequest request) {
+            return base.Channel.addStudentsToExamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.addStudentsToExamResponse> addStudentsToExamAsync(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.addStudentsToExamRequest inValue = new MultipleChoiceApp.Bi.Student.addStudentsToExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.addStudentsToExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).addStudentsToExamAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.removeStudentsFromExam(MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest request) {
+            return base.Channel.removeStudentsFromExam(request);
+        }
+        
+        public bool removeStudentsFromExam(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest inValue = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).removeStudentsFromExam(inValue);
+            return retVal.Body.removeStudentsFromExamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.removeStudentsFromExamAsync(MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest request) {
+            return base.Channel.removeStudentsFromExamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.removeStudentsFromExamResponse> removeStudentsFromExamAsync(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest inValue = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).removeStudentsFromExamAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

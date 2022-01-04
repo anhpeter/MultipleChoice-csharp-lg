@@ -25,7 +25,32 @@ namespace MultipleChoiceSite.Services
         {
             return mainDAO;
         }
+        //
+        [WebMethod]
+        public List<Student> getStudentsNotInExam(int examId)
+        {
+            return mainDAO.getStudentsNotInExam(examId);
+        }
 
+        [WebMethod]
+        public List<Student> getStudentInExam(int examId)
+        {
+            return mainDAO.getStudentInExam(examId);
+        }
+
+        [WebMethod]
+        public int addStudentsToExam(List<int> studentIds, int examId)
+        {
+            return mainDAO.addStudentsToExam(studentIds, examId);
+        }
+
+        [WebMethod]
+        public bool removeStudentsFromExam(List<int> studentIds, int examId)
+        {
+            return mainDAO.removeStudentsFromExam(studentIds, examId);
+        }
+
+        //
         [WebMethod]
         public Student getByCodeAndPassword(String id, String password)
         {

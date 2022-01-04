@@ -23,6 +23,54 @@ namespace MultipleChoiceSite.DAL
         }
 
         // FETCHS
+        //
+        public List<Student> getStudentsNotInExam(int examId)
+        {
+            String sqlStr = string.Format(@"
+                select stu.*
+                from Students as stu left join StudentExam as stuEx on (stu.Id = stuEx.StudentId)
+                where stuEx.ExamId != {0} or stuEx.ExamId is null
+            ", examId);
+            return getAll(sqlStr);
+        }
+
+        public List<Student> getStudentInExam(int examId)
+        {
+            String sqlStr = string.Format(@"
+                select stu.*
+                from Students as stu left join StudentExam as stuEx on (stu.Id = stuEx.StudentId)
+                where stuEx.ExamId = {0}
+            ", examId);
+            return getAll(sqlStr);
+        }
+
+        public int addStudentsToExam(List<int> studentIds, int examId)
+        {
+            List<Dictionary<String, String>> dics = new List<Dictionary<string, string>>();
+            foreach (int id in studentIds)
+            {
+                Dictionary<String, String> dataDict = new Dictionary<String, String>();
+                dataDict.Add("StudentId", id + "");
+                dataDict.Add("ExamId", examId + "");
+                dics.Add(dataDict);
+            }
+            int result = addWithDics(dics);
+            return result;
+        }
+
+        public bool removeStudentsFromExam(List<int> studentIds, int examId)
+        {
+            String sqlStr = string.Format(@"
+                delete from StudentExam
+                where StudentId in ({0}) and ExamId = {1}
+            ", string.Join(",", studentIds), examId);
+            int affectedRows = dbHelper.execWrite(sqlStr);
+            return affectedRows > 0;
+
+        }
+        //
+
+
         public Student getByCodeAndPassword(String id, String password)
         {
             String sqlStr = $"SELECT * from {tableName} WHERE Code='{id}' AND Password='{password}'";
@@ -35,7 +83,7 @@ namespace MultipleChoiceSite.DAL
             dbHelper.closeConnection();
             return item;
         }
-        
+
 
         public List<Student> searchByKeyWord(String keyword)
         {
@@ -51,13 +99,13 @@ namespace MultipleChoiceSite.DAL
         public override int add(Student item)
         {
             Dictionary<String, String> dataDict = new Dictionary<String, String>();
-            dataDict.Add("Password",Util.md5("loveguitar"));
+            dataDict.Add("Password", Util.md5("loveguitar"));
             dataDict.Add("Code", item.Code);
             dataDict.Add("FullName", item.FullName);
             dataDict.Add("Address", item.Address);
             dataDict.Add("DOB", Util.toSqlFormattedDate(item.DOB));
             dataDict.Add("Major", item.Major);
-            dataDict.Add("CreatedBy", item.CreatedBy+"");
+            dataDict.Add("CreatedBy", item.CreatedBy + "");
             return addWithDic(dataDict);
         }
 
