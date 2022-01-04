@@ -50,7 +50,7 @@ namespace MultipleChoiceSite.Services
         }
 
         [WebMethod]
-        public bool removeStudentsFromExam(List<int> studentIds, int examId)
+        public int removeStudentsFromExam(List<int> studentIds, int examId)
         {
             return mainDAO.removeStudentsFromExam(studentIds, examId);
         }

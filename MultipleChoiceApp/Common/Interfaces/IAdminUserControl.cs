@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.Common.Interfaces
 {
-    interface IAdminUserControl
+    public interface IAdminUserControl
     {
+        void refreshList();
     }
 }

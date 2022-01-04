@@ -85,7 +85,6 @@ namespace MultipleChoiceApp.UserControls
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -828,7 +827,6 @@ namespace MultipleChoiceApp.UserControls
             this.Column2,
             this.Column4,
             this.Column5,
-            this.Column6,
             this.Column8,
             this.Column7,
             this.Column9});
@@ -907,21 +905,14 @@ namespace MultipleChoiceApp.UserControls
             // 
             // Column5
             // 
-            this.Column5.HeaderText = "Easy Question";
+            this.Column5.HeaderText = "Total Question";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Hard Question";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // Column8
             // 
-            this.Column8.HeaderText = "Total Question";
+            this.Column8.HeaderText = "No. of students";
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -996,7 +987,6 @@ namespace MultipleChoiceApp.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;

@@ -27,13 +27,12 @@ namespace MultipleChoiceSite.DAL
         public List<Student> getStudentsNotInExam(int examId)
         {
             String sqlStr = string.Format(@"
-                select stu.*
-                from Students as stu left join StudentExam as stuEx on (stu.Id = stuEx.StudentId)
+                select *
+                from Students 
                 where not exists (
                     select 1
-                    from StudentExam where ExamId = {0}
+                    from StudentExam where StudentId = Id and ExamId = {0}
                 )
-                or stuEx.ExamId is null
             ", examId);
             return getAll(sqlStr);
         }
@@ -87,14 +86,14 @@ namespace MultipleChoiceSite.DAL
             return 0;
         }
 
-        public bool removeStudentsFromExam(List<int> studentIds, int examId)
+        public int removeStudentsFromExam(List<int> studentIds, int examId)
         {
             String sqlStr = string.Format(@"
                 delete from StudentExam
                 where StudentId in ({0}) and ExamId = {1}
             ", string.Join(",", studentIds), examId);
             int affectedRows = dbHelper.execWrite(sqlStr);
-            return affectedRows > 0;
+            return affectedRows;
 
         }
         //

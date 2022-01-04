@@ -109,12 +109,16 @@ namespace MultipleChoiceSite.DAL
         protected override String getAllSqlStr(String otherWhereStr = "")
         {
             String sqlStr = String.Format(@"
-                    SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion, s.Name as SubjectName
-                    FROM Exams as e
-                        INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
-                        {0}
-                    ORDER BY e.Id DESC
-                ", otherWhereStr);
+              SELECT DISTINCT e.*, s.Code as SubjectCode, s.TotalQuestion as TotalQuestion, s.Name as SubjectName, isnull(c.StudentCount,0) as StudentCount
+                FROM Exams as e INNER JOIN Subjects as s ON (e.SubjectId = s.Id)
+                    left join (
+                        select ExamId,  count(StudentId) as StudentCount
+                        from StudentExam
+                        group by ExamId
+                    ) as c on (c.ExamId = e.Id)
+                {0}
+                ORDER BY e.Id DESC
+            ", otherWhereStr);
             return sqlStr;
         }
 

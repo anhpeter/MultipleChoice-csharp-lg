@@ -1,6 +1,7 @@
 ﻿using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Bi.Student;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.Common.Interfaces;
 using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
@@ -17,15 +18,17 @@ namespace MultipleChoiceApp.Forms
     public partial class FrmExamDetails : Form
     {
         Exam exam;
+        IAdminUserControl parent;
         StudentServiceSoapClient studentS = new StudentServiceSoapClient();
         List<Student> studentListDefault;
         List<Student> studentInExamListDefault;
         List<Student> studentList;
         List<Student> studentInExamList;
-        public FrmExamDetails(Exam exam)
+        public FrmExamDetails(IAdminUserControl parent, Exam exam)
         {
             InitializeComponent();
 
+            this.parent = parent;
             this.exam = exam;
             FormHelper.setFormSizeRatioOfScreen(this, 0.8);
             CenterToScreen();
@@ -122,20 +125,19 @@ namespace MultipleChoiceApp.Forms
             List<int> studentInExamIds = getIds(studentInExamList);
             List<int> removedIds = studentInExamIdsDefault.Except(studentInExamIds).ToList();
             List<int> addedIds = studentInExamIds.Except(studentInExamIdsDefault).ToList();
-            int changesRows = 0;
+            int affectedRows = 0;
             if (removedIds.Count > 0)
             {
-                studentS.removeStudentsFromExam(StudentHelper.toArrayOfInt(removedIds), exam.Id);
-                changesRows = removedIds.Count;
+                affectedRows = studentS.removeStudentsFromExam(StudentHelper.toArrayOfInt(removedIds), exam.Id);
             }
             if (addedIds.Count > 0)
             {
-                studentS.addStudentsToExam(StudentHelper.toArrayOfInt(addedIds), exam.Id);
-                changesRows = addedIds.Count;
+                affectedRows = studentS.addStudentsToExam(StudentHelper.toArrayOfInt(addedIds), exam.Id);
             }
-            if (changesRows > 0)
+            if (affectedRows > 0)
             {
-                MessageBox.Show($"Changes saved ({changesRows})");
+                parent.refreshList();
+                MessageBox.Show($"Changes saved ({affectedRows})");
             }
         }
 
@@ -235,7 +237,8 @@ namespace MultipleChoiceApp.Forms
             int changesRows = getChangesRows();
             if (changesRows > 0)
             {
-                MessageBox.Show("Your changes not saved yet. Do you want to exit?");
+                var result = MessageBox.Show("Your changes not saved yet. Do you want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+                e.Cancel = (result == DialogResult.No);
             }
         }
         private int getChangesRows()

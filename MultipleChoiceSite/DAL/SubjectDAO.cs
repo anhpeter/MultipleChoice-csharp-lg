@@ -23,15 +23,21 @@ namespace MultipleChoiceSite.DAL
         }
 
         // FETCHS
-        public List<Subject> getAvailableForExam(DateTime date)
+        public List<Subject> getAvailableForExam(DateTime date, int studentId)
         {
             String sqlStr = string.Format(@"
                 select *
                 from Subjects as s inner join Exams as e on (s.Id = e.SubjectId)
                 where 
                     e.StartAt <= '{0}' and
-                    e.EndAt >= '{0}'
-                order by s.Name", date.ToString());
+                    e.EndAt >= '{0}' and
+                    exists (
+                        select 1
+                        from StudentExam 
+                        where StudentId = '{1}' and ExamId=e.Id
+                    )
+                order by s.Name
+                ", date.ToString(), studentId);
             return getAll(sqlStr);
         }
         public override List<Subject> getAllForSelectData()

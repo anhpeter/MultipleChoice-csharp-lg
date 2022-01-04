@@ -639,12 +639,12 @@ namespace MultipleChoiceApp.Bi.Student {
     public partial class removeStudentsFromExamResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public bool removeStudentsFromExamResult;
+        public int removeStudentsFromExamResult;
         
         public removeStudentsFromExamResponseBody() {
         }
         
-        public removeStudentsFromExamResponseBody(bool removeStudentsFromExamResult) {
+        public removeStudentsFromExamResponseBody(int removeStudentsFromExamResult) {
             this.removeStudentsFromExamResult = removeStudentsFromExamResult;
         }
     }
@@ -1398,7 +1398,7 @@ namespace MultipleChoiceApp.Bi.Student {
             return base.Channel.removeStudentsFromExam(request);
         }
         
-        public bool removeStudentsFromExam(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+        public int removeStudentsFromExam(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
             MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest inValue = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequest();
             inValue.Body = new MultipleChoiceApp.Bi.Student.removeStudentsFromExamRequestBody();
             inValue.Body.studentIds = studentIds;

@@ -27,9 +27,9 @@ namespace MultipleChoiceSite.Services
         }
 
         [WebMethod]
-        public List<Subject> getAvailableForExam(DateTime d)
+        public List<Subject> getAvailableForExam(DateTime d, int studentId)
         {
-            return mainDAO.getAvailableForExam(d);
+            return mainDAO.getAvailableForExam(d, studentId);
         }
 
         [WebMethod]

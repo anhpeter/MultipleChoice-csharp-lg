@@ -98,7 +98,7 @@
       <s:element name="removeStudentsFromExamResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="removeStudentsFromExamResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeStudentsFromExamResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>

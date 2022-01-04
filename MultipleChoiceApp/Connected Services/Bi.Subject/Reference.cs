@@ -249,11 +249,15 @@ namespace MultipleChoiceApp.Bi.Subject {
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
         public System.DateTime d;
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int studentId;
+        
         public getAvailableForExamRequestBody() {
         }
         
-        public getAvailableForExamRequestBody(System.DateTime d) {
+        public getAvailableForExamRequestBody(System.DateTime d, int studentId) {
             this.d = d;
+            this.studentId = studentId;
         }
     }
     
@@ -796,10 +800,11 @@ namespace MultipleChoiceApp.Bi.Subject {
             return base.Channel.getAvailableForExam(request);
         }
         
-        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Subject.Subject> getAvailableForExam(System.DateTime d) {
+        public System.Collections.Generic.List<MultipleChoiceApp.Bi.Subject.Subject> getAvailableForExam(System.DateTime d, int studentId) {
             MultipleChoiceApp.Bi.Subject.getAvailableForExamRequest inValue = new MultipleChoiceApp.Bi.Subject.getAvailableForExamRequest();
             inValue.Body = new MultipleChoiceApp.Bi.Subject.getAvailableForExamRequestBody();
             inValue.Body.d = d;
+            inValue.Body.studentId = studentId;
             MultipleChoiceApp.Bi.Subject.getAvailableForExamResponse retVal = ((MultipleChoiceApp.Bi.Subject.SubjectServiceSoap)(this)).getAvailableForExam(inValue);
             return retVal.Body.getAvailableForExamResult;
         }
@@ -809,10 +814,11 @@ namespace MultipleChoiceApp.Bi.Subject {
             return base.Channel.getAvailableForExamAsync(request);
         }
         
-        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Subject.getAvailableForExamResponse> getAvailableForExamAsync(System.DateTime d) {
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Subject.getAvailableForExamResponse> getAvailableForExamAsync(System.DateTime d, int studentId) {
             MultipleChoiceApp.Bi.Subject.getAvailableForExamRequest inValue = new MultipleChoiceApp.Bi.Subject.getAvailableForExamRequest();
             inValue.Body = new MultipleChoiceApp.Bi.Subject.getAvailableForExamRequestBody();
             inValue.Body.d = d;
+            inValue.Body.studentId = studentId;
             return ((MultipleChoiceApp.Bi.Subject.SubjectServiceSoap)(this)).getAvailableForExamAsync(inValue);
         }
         

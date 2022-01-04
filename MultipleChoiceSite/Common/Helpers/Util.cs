@@ -117,7 +117,7 @@ namespace MultipleChoiceSite.Common.Helpers
 
         public static int getRandom(Random rnd, int min, int max)
         {
-            return Convert.ToInt32(Math.Floor(rnd.Next(max- min+1) + min * 1.0));
+            return Convert.ToInt32(Math.Floor(rnd.Next(max - min + 1) + min * 1.0));
         }
 
     }

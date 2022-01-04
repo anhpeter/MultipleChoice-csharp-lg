@@ -66,7 +66,7 @@ namespace MultipleChoiceApp.Forms
         private void LoadDrops()
         {
             // SUBJECTS
-            subjectList = subjectS.getAvailableForExam(DateTime.Now);
+            subjectList = subjectS.getAvailableForExam(DateTime.Now, Auth.getIntace().student.Id);
             if (subjectList.Count > 0)
             {
                 drop_subject.DataSource = subjectList;

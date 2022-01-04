@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.UserControls
 {
-    public partial class ExamControl : UserControl, IPagination
+    public partial class ExamControl : UserControl, IPagination,IAdminUserControl
     {
         ExamServiceSoapClient mainS = new ExamServiceSoapClient();
         SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
@@ -163,20 +163,20 @@ namespace MultipleChoiceApp.UserControls
             return item;
         }
 
-        private void refreshList()
+        public void refreshList()
         {
             examList = mainS.getAll(pagination.itemsPerPage, pagination.currentPage);
             refreshList(examList);
         }
 
-        private void refreshList(List<Exam> list)
+        public void refreshList(List<Exam> list)
         {
             gv_main.Rows.Clear();
             foreach (var item in list)
             {
                 gv_main.Rows.Add(new object[] {
                     item.Id, item.Name, item.Semester,
-                    item.SubjectCode, item.EasyQty, item.HardQty, item.TotalQuestion,
+                    item.SubjectCode,  item.TotalQuestion, item.StudentCount,
                      item.StartAt, item.EndAt
                 });
             }
@@ -304,7 +304,7 @@ namespace MultipleChoiceApp.UserControls
         private void mapStudents(object sender, EventArgs e, int rowIndex)
         {
             Exam item = getItemByRowIndex(rowIndex);
-            new FrmExamDetails(item).ShowDialog();
+            new FrmExamDetails(this, item).ShowDialog();
         }
 
         // CONTEXT MENU FOR GRID ROWS

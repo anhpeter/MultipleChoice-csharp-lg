@@ -64,6 +64,7 @@ namespace MultipleChoiceSite.DAL
             try
             {
                 sqlStr = sqlStr != null ? sqlStr : getAllSqlStr();
+                Util.log(sqlStr);
                 SqlDataReader dr = dbHelper.execRead(sqlStr);
                 while (dr.Read())
                 {
