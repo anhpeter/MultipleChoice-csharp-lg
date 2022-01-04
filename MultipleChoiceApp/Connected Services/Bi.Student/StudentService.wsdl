@@ -2,6 +2,26 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/Student" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/Student" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/Student">
+      <s:element name="setStudentsForExam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="setStudentsForExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="setStudentsForExamResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="getStudentsNotInExam">
         <s:complexType>
           <s:sequence>
@@ -60,11 +80,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfInt">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="addStudentsToExamResponse">
         <s:complexType>
           <s:sequence>
@@ -237,6 +252,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="setStudentsForExamSoapIn">
+    <wsdl:part name="parameters" element="tns:setStudentsForExam" />
+  </wsdl:message>
+  <wsdl:message name="setStudentsForExamSoapOut">
+    <wsdl:part name="parameters" element="tns:setStudentsForExamResponse" />
+  </wsdl:message>
   <wsdl:message name="getStudentsNotInExamSoapIn">
     <wsdl:part name="parameters" element="tns:getStudentsNotInExam" />
   </wsdl:message>
@@ -328,6 +349,10 @@
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
   <wsdl:portType name="StudentServiceSoap">
+    <wsdl:operation name="setStudentsForExam">
+      <wsdl:input message="tns:setStudentsForExamSoapIn" />
+      <wsdl:output message="tns:setStudentsForExamSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="getStudentsNotInExam">
       <wsdl:input message="tns:getStudentsNotInExamSoapIn" />
       <wsdl:output message="tns:getStudentsNotInExamSoapOut" />
@@ -391,6 +416,15 @@
   </wsdl:portType>
   <wsdl:binding name="StudentServiceSoap" type="tns:StudentServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setStudentsForExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/setStudentsForExam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getStudentsNotInExam">
       <soap:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
       <wsdl:input>
@@ -529,6 +563,15 @@
   </wsdl:binding>
   <wsdl:binding name="StudentServiceSoap12" type="tns:StudentServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setStudentsForExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/setStudentsForExam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getStudentsNotInExam">
       <soap12:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
       <wsdl:input>

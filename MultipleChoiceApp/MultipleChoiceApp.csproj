@@ -818,6 +818,9 @@
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.searchByKeywordResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.setStudentsForExamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.Student.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

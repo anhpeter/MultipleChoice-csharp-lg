@@ -111,9 +111,10 @@ namespace MultipleChoiceSite.DAL
         }
 
         // ADD
-        protected int addWithDics(List<Dictionary<String, String>> dataDicts)
+        protected int addWithDics(List<Dictionary<String, String>> dataDicts, String tableName = null)
         {
-            String sqlStr = genInsertSqlStr(dataDicts);
+            tableName = tableName == null ? this.tableName : tableName;
+            String sqlStr = genInsertSqlStr(dataDicts, tableName);
             //foreach (var key in dataDict.Keys.ToArray())
             //{
             //    String value = standardizeValue(dataDict[key]);
@@ -189,7 +190,7 @@ namespace MultipleChoiceSite.DAL
                 com.Parameters.Add(new SqlParameter($"@{key}", "N" + dataDict[key]));
             }
         }
-        private String genInsertSqlStr(List<Dictionary<String, String>> dataDicts)
+        private String genInsertSqlStr(List<Dictionary<String, String>> dataDicts, String tableName)
         {
             // fields
             String[] keys = new List<string>(dataDicts[0].Keys).ToArray();
@@ -204,7 +205,7 @@ namespace MultipleChoiceSite.DAL
                 valueList.Add($"({valueParamsStr})");
             }
             String valueString = string.Join(",", valueList);
-            String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) VALUES ({valueString})";
+            String sqlStr = $"INSERT INTO {tableName} ({updateFieldsStr}) VALUES {valueString}";
             return sqlStr;
         }
         private String genInsertSqlStr(Dictionary<String, String> dataDict, bool output = false)

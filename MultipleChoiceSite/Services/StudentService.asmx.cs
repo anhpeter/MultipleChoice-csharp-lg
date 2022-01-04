@@ -12,7 +12,7 @@ namespace MultipleChoiceSite.Services
     /// <summary>
     /// Summary description for StudentService
     /// </summary>
-    [WebService(Namespace =Constant.ServiceNameSpace+"/Student")]
+    [WebService(Namespace = Constant.ServiceNameSpace + "/Student")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -26,6 +26,11 @@ namespace MultipleChoiceSite.Services
             return mainDAO;
         }
         //
+        [WebMethod]
+        public int setStudentsForExam(List<int> studentIds, int examId)
+        {
+            return mainDAO.setStudentsForExam(studentIds, examId);
+        }
         [WebMethod]
         public List<Student> getStudentsNotInExam(int examId)
         {

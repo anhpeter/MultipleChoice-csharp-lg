@@ -366,6 +366,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_all_student_exam.TabIndex = 0;
             this.btn_all_student_exam.Text = ">>";
             this.btn_all_student_exam.UseVisualStyleBackColor = true;
+            this.btn_all_student_exam.Click += new System.EventHandler(this.btn_all_student_exam_Click);
             // 
             // btn_selected_student_exam
             // 
@@ -377,6 +378,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_selected_student_exam.TabIndex = 1;
             this.btn_selected_student_exam.Text = ">";
             this.btn_selected_student_exam.UseVisualStyleBackColor = true;
+            this.btn_selected_student_exam.Click += new System.EventHandler(this.btn_selected_student_exam_Click);
             // 
             // btn_selected_exam_student
             // 
@@ -388,6 +390,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_selected_exam_student.TabIndex = 2;
             this.btn_selected_exam_student.Text = "<";
             this.btn_selected_exam_student.UseVisualStyleBackColor = true;
+            this.btn_selected_exam_student.Click += new System.EventHandler(this.btn_selected_exam_student_Click);
             // 
             // btn_all_exam_student
             // 
@@ -399,6 +402,7 @@ namespace MultipleChoiceApp.Forms
             this.btn_all_exam_student.TabIndex = 3;
             this.btn_all_exam_student.Text = "<<";
             this.btn_all_exam_student.UseVisualStyleBackColor = true;
+            this.btn_all_exam_student.Click += new System.EventHandler(this.btn_all_exam_student_Click);
             // 
             // btn_save
             // 
@@ -435,6 +439,7 @@ namespace MultipleChoiceApp.Forms
             this.MinimizeBox = false;
             this.Name = "FrmExamDetails";
             this.Text = "Exam Information";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmExamDetails_FormClosing);
             this.Load += new System.EventHandler(this.FrmExamDetails_Load);
             this.pnl_header.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

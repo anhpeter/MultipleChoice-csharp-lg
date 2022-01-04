@@ -29,7 +29,11 @@ namespace MultipleChoiceSite.DAL
             String sqlStr = string.Format(@"
                 select stu.*
                 from Students as stu left join StudentExam as stuEx on (stu.Id = stuEx.StudentId)
-                where stuEx.ExamId != {0} or stuEx.ExamId is null
+                where not exists (
+                    select 1
+                    from StudentExam where ExamId = {0}
+                )
+                or stuEx.ExamId is null
             ", examId);
             return getAll(sqlStr);
         }
@@ -44,6 +48,28 @@ namespace MultipleChoiceSite.DAL
             return getAll(sqlStr);
         }
 
+        public int setStudentsForExam(List<int> studentIds, int examId)
+        {
+            // EMPTY STUDENTS IN EXAM
+            String sqlStr = string.Format(@"
+                delete from StudentExam where ExamId = {0}
+            ", examId);
+            dbHelper.execWrite(sqlStr);
+            //
+            List<Dictionary<String, String>> dics = new List<Dictionary<string, string>>();
+            foreach (int id in studentIds)
+            {
+                Dictionary<String, String> dataDict = new Dictionary<String, String>();
+                dataDict.Add("StudentId", id + "");
+                dataDict.Add("ExamId", examId + "");
+                dics.Add(dataDict);
+            }
+            if (dics.Count > 0)
+            {
+                return addWithDics(dics, "StudentExam");
+            }
+            return 0;
+        }
         public int addStudentsToExam(List<int> studentIds, int examId)
         {
             List<Dictionary<String, String>> dics = new List<Dictionary<string, string>>();
@@ -54,8 +80,11 @@ namespace MultipleChoiceSite.DAL
                 dataDict.Add("ExamId", examId + "");
                 dics.Add(dataDict);
             }
-            int result = addWithDics(dics);
-            return result;
+            if (dics.Count > 0)
+            {
+                return addWithDics(dics, "StudentExam");
+            }
+            return 0;
         }
 
         public bool removeStudentsFromExam(List<int> studentIds, int examId)

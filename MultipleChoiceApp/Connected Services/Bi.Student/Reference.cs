@@ -15,6 +15,13 @@ namespace MultipleChoiceApp.Bi.Student {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://peteranh.com/Services/Student", ItemName="int")]
+    [System.SerializableAttribute()]
+    public class ArrayOfInt : System.Collections.Generic.List<int> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Student", Namespace="http://peteranh.com/Services/Student")]
     [System.SerializableAttribute()]
     public partial class Student : MultipleChoiceApp.Bi.Student.User {
@@ -175,16 +182,16 @@ namespace MultipleChoiceApp.Bi.Student {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://peteranh.com/Services/Student", ItemName="int")]
-    [System.SerializableAttribute()]
-    public class ArrayOfInt : System.Collections.Generic.List<int> {
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://peteranh.com/Services/Student", ConfigurationName="Bi.Student.StudentServiceSoap")]
     public interface StudentServiceSoap {
+        
+        // CODEGEN: Generating message contract since element name studentIds from namespace http://peteranh.com/Services/Student is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/setStudentsForExam", ReplyAction="*")]
+        MultipleChoiceApp.Bi.Student.setStudentsForExamResponse setStudentsForExam(MultipleChoiceApp.Bi.Student.setStudentsForExamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/setStudentsForExam", ReplyAction="*")]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.setStudentsForExamResponse> setStudentsForExamAsync(MultipleChoiceApp.Bi.Student.setStudentsForExamRequest request);
         
         // CODEGEN: Generating message contract since element name getStudentsNotInExamResult from namespace http://peteranh.com/Services/Student is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/getStudentsNotInExam", ReplyAction="*")]
@@ -288,6 +295,78 @@ namespace MultipleChoiceApp.Bi.Student {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://peteranh.com/Services/Student/delete", ReplyAction="*")]
         System.Threading.Tasks.Task<bool> deleteAsync(int id);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setStudentsForExamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setStudentsForExam", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.setStudentsForExamRequestBody Body;
+        
+        public setStudentsForExamRequest() {
+        }
+        
+        public setStudentsForExamRequest(MultipleChoiceApp.Bi.Student.setStudentsForExamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class setStudentsForExamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int examId;
+        
+        public setStudentsForExamRequestBody() {
+        }
+        
+        public setStudentsForExamRequestBody(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            this.studentIds = studentIds;
+            this.examId = examId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class setStudentsForExamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="setStudentsForExamResponse", Namespace="http://peteranh.com/Services/Student", Order=0)]
+        public MultipleChoiceApp.Bi.Student.setStudentsForExamResponseBody Body;
+        
+        public setStudentsForExamResponse() {
+        }
+        
+        public setStudentsForExamResponse(MultipleChoiceApp.Bi.Student.setStudentsForExamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://peteranh.com/Services/Student")]
+    public partial class setStudentsForExamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int setStudentsForExamResult;
+        
+        public setStudentsForExamResponseBody() {
+        }
+        
+        public setStudentsForExamResponseBody(int setStudentsForExamResult) {
+            this.setStudentsForExamResult = setStudentsForExamResult;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1208,6 +1287,33 @@ namespace MultipleChoiceApp.Bi.Student {
         
         public StudentServiceSoapClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        MultipleChoiceApp.Bi.Student.setStudentsForExamResponse MultipleChoiceApp.Bi.Student.StudentServiceSoap.setStudentsForExam(MultipleChoiceApp.Bi.Student.setStudentsForExamRequest request) {
+            return base.Channel.setStudentsForExam(request);
+        }
+        
+        public int setStudentsForExam(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.setStudentsForExamRequest inValue = new MultipleChoiceApp.Bi.Student.setStudentsForExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.setStudentsForExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            MultipleChoiceApp.Bi.Student.setStudentsForExamResponse retVal = ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).setStudentsForExam(inValue);
+            return retVal.Body.setStudentsForExamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.setStudentsForExamResponse> MultipleChoiceApp.Bi.Student.StudentServiceSoap.setStudentsForExamAsync(MultipleChoiceApp.Bi.Student.setStudentsForExamRequest request) {
+            return base.Channel.setStudentsForExamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<MultipleChoiceApp.Bi.Student.setStudentsForExamResponse> setStudentsForExamAsync(MultipleChoiceApp.Bi.Student.ArrayOfInt studentIds, int examId) {
+            MultipleChoiceApp.Bi.Student.setStudentsForExamRequest inValue = new MultipleChoiceApp.Bi.Student.setStudentsForExamRequest();
+            inValue.Body = new MultipleChoiceApp.Bi.Student.setStudentsForExamRequestBody();
+            inValue.Body.studentIds = studentIds;
+            inValue.Body.examId = examId;
+            return ((MultipleChoiceApp.Bi.Student.StudentServiceSoap)(this)).setStudentsForExamAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

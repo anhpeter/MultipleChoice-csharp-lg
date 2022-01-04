@@ -66,5 +66,14 @@ namespace MultipleChoiceApp.ModelHelpers
             }
             return list;
         }
+
+        public static ArrayOfInt toArrayOfInt(List<int> list) { 
+            ArrayOfInt arr = new ArrayOfInt();
+            foreach (var x in list)
+            {
+                arr.Add(x);
+            }
+            return arr;
+        }
     }
 }
