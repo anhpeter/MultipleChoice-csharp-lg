@@ -134,7 +134,12 @@ namespace MultipleChoiceApp.Forms
 
         private void btn_gen_sheets_Click(object sender, EventArgs e)
         {
-            new FrmGenExamSheets().ShowDialog();
+            int id = getSelectedExamId();
+            if (id > 0)
+            {
+                Exam exam = examList.Where(x => x.Id == id).SingleOrDefault();
+                new FrmGenExamSheets(exam).ShowDialog();
+            }
         }
     }
 }
