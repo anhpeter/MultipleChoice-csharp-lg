@@ -56,6 +56,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.btn_preview = new System.Windows.Forms.Button();
             this.btn_gen = new System.Windows.Forms.Button();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.table_wrapper.SuspendLayout();
             this.table_info.SuspendLayout();
             this.table_info_and_action.SuspendLayout();
@@ -472,5 +473,6 @@ namespace MultipleChoiceApp.Forms.Utils
         private System.Windows.Forms.Button btn_print_to_files;
         private System.Windows.Forms.Button btn_preview;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }
