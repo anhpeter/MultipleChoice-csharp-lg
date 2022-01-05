@@ -18,8 +18,9 @@ namespace MultipleChoiceApp.Forms.Utils
     public partial class FrmExamSheet : Form
     {
 
-        Bi.Exam.Exam exam;
-        public FrmExamSheet(Bi.Exam.Exam exam)
+        List<ExamData> examDatas;
+        int examDataIndex = 0;
+        public FrmExamSheet(List<ExamData> examDatas)
         {
             InitializeComponent();
             //
@@ -27,53 +28,86 @@ namespace MultipleChoiceApp.Forms.Utils
             Width = Convert.ToInt32(screen.Width * 0.6);
             Height = screen.Height - 50;
             CenterToScreen();
-            this.exam = exam;
+            this.examDatas = examDatas;
         }
 
         private void FrmExamSheet_Load(object sender, EventArgs e)
         {
-            loadReportData();
+            loadReportData(examDatas[0]);
+            handlePagiButtonStyle();
 
         }
-        private void loadReportData()
+        private void loadReportData(ExamData examData)
         {
-            List<ModelHelpers.ExamSheet> examSheet = new List<ModelHelpers.ExamSheet>() {
-                 new ModelHelpers.ExamSheet() {
-                     SheetCode =1,
-                     ExamName = exam.Name,
-                     Subject = exam.Subject.Name,
-                     Semester = exam.Semester.ToString(),
-                     Duration = exam.Subject.Duration.ToString(),
-                     TotalQuestion = exam.Subject.TotalQuestion.ToString()
-                 }
+            txt_sheet_code.Text = (examDataIndex + 1).ToString();
+            List<ExamSheet> examSheets = new List<ExamSheet>()
+            {
+                examData.ExamSheet
             };
 
-            List<Bi.Question.Question> questionList = QuestionHelper.genQuestionListForExam(exam.EasyQty, ExamHelper.getNormalQty(exam), exam.HardQty, exam.SubjectId);
-            List<StudentResponse> studentResponseList = StudentResponseHelper.genStudentResponseList(questionList);
-            List<QuestionInExamSheet> questionInExamSheets = studentResponseList.Select((stuRes, i) =>
-            {
-                Bi.StudentResult.Question question = stuRes.Question;
-                int[] answerOrder = stuRes.AnswerOrder.ToArray();
-                return new QuestionInExamSheet()
-                {
-                    No = i + 1,
-                    Question = question.Content,
-                    A = question.Answers[answerOrder[0] - 1].Content,
-                    B = question.Answers[answerOrder[1] - 1].Content,
-                    C = question.Answers[answerOrder[2] - 1].Content,
-                    D = question.Answers[answerOrder[3] - 1].Content,
-                };
-            }).ToList();
-            ReportDataSource examSheetDS = new ReportDataSource("ExamSheet", examSheet);
-            ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", questionInExamSheets);
+            ReportDataSource examSheetDS = new ReportDataSource("ExamSheet", examSheets);
+            ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", examData.QuestionInExamSheets);
             report.Reset();
             report.LocalReport.DataSources.Clear();
             report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\ExamSheet.rdlc";
             report.LocalReport.DataSources.Add(examSheetDS);
             report.LocalReport.DataSources.Add(questionInExamSheetDS);
             report.RefreshReport();
-
         }
 
+
+        private void btn_prev_Click(object sender, EventArgs e)
+        {
+            examDataIndex--;
+            loadReportData(examDatas[examDataIndex]);
+            handlePagiButtonStyle();
+        }
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            examDataIndex++;
+            loadReportData(examDatas[examDataIndex]);
+            handlePagiButtonStyle();
+        }
+
+        private void handlePagiButtonStyle()
+        {
+            if (examDataIndex == examDatas.Count - 1)
+            {
+                btn_prev.Enabled = true;
+                btn_first.Enabled = true;
+                btn_next.Enabled = false;
+                btn_last.Enabled = false;
+            }
+            else if (examDataIndex == 0)
+            {
+                btn_prev.Enabled = false;
+                btn_first.Enabled = false;
+                btn_next.Enabled = true;
+                btn_last.Enabled = true;
+            }
+            else
+            {
+                btn_prev.Enabled = true;
+                btn_first.Enabled = true;
+                btn_next.Enabled = true;
+                btn_last.Enabled = true;
+            }
+        }
+
+        private void btn_last_Click(object sender, EventArgs e)
+        {
+            examDataIndex = examDatas.Count - 1;
+            loadReportData(examDatas[examDataIndex]);
+            handlePagiButtonStyle();
+        }
+
+        private void btn_first_Click(object sender, EventArgs e)
+        {
+
+            examDataIndex = 0;
+            loadReportData(examDatas[examDataIndex]);
+            handlePagiButtonStyle();
+        }
     }
 }

@@ -308,6 +308,7 @@
     <Compile Include="Forms\Utils\FrmGenExamSheets.Designer.cs">
       <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelHelpers\ExamData.cs" />
     <Compile Include="ModelHelpers\ExamHelper.cs" />
     <Compile Include="ModelHelpers\ExamReport.cs" />
     <Compile Include="ModelHelpers\ExamSheet.cs" />

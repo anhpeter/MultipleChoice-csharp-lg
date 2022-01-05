@@ -52,9 +52,9 @@ namespace MultipleChoiceApp.Forms.Utils
             this.lbl_normal_qty = new System.Windows.Forms.Label();
             this.lbl_hard_qty = new System.Windows.Forms.Label();
             this.pnl_action = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_print_to_files = new System.Windows.Forms.Button();
             this.btn_preview = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_gen = new System.Windows.Forms.Button();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.table_wrapper.SuspendLayout();
             this.table_info.SuspendLayout();
@@ -365,26 +365,28 @@ namespace MultipleChoiceApp.Forms.Utils
             // 
             this.pnl_action.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnl_action.Controls.Add(this.button3);
+            this.pnl_action.Controls.Add(this.btn_print_to_files);
             this.pnl_action.Controls.Add(this.btn_preview);
-            this.pnl_action.Controls.Add(this.button1);
+            this.pnl_action.Controls.Add(this.btn_gen);
             this.pnl_action.Location = new System.Drawing.Point(644, 259);
             this.pnl_action.Name = "pnl_action";
             this.pnl_action.Size = new System.Drawing.Size(222, 171);
             this.pnl_action.TabIndex = 5;
             // 
-            // button3
+            // btn_print_to_files
             // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(10, 120);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(202, 37);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Print to words";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_print_to_files.Enabled = false;
+            this.btn_print_to_files.Location = new System.Drawing.Point(10, 120);
+            this.btn_print_to_files.Name = "btn_print_to_files";
+            this.btn_print_to_files.Size = new System.Drawing.Size(202, 37);
+            this.btn_print_to_files.TabIndex = 2;
+            this.btn_print_to_files.Text = "Print to words";
+            this.btn_print_to_files.UseVisualStyleBackColor = true;
+            this.btn_print_to_files.Click += new System.EventHandler(this.btn_print_to_files_Click);
             // 
             // btn_preview
             // 
+            this.btn_preview.Enabled = false;
             this.btn_preview.Location = new System.Drawing.Point(10, 77);
             this.btn_preview.Name = "btn_preview";
             this.btn_preview.Size = new System.Drawing.Size(202, 37);
@@ -393,14 +395,15 @@ namespace MultipleChoiceApp.Forms.Utils
             this.btn_preview.UseVisualStyleBackColor = true;
             this.btn_preview.Click += new System.EventHandler(this.btn_preview_Click);
             // 
-            // button1
+            // btn_gen
             // 
-            this.button1.Location = new System.Drawing.Point(10, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generate Random Sheets";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_gen.Location = new System.Drawing.Point(10, 20);
+            this.btn_gen.Name = "btn_gen";
+            this.btn_gen.Size = new System.Drawing.Size(202, 51);
+            this.btn_gen.TabIndex = 0;
+            this.btn_gen.Text = "Generate Random Sheets";
+            this.btn_gen.UseVisualStyleBackColor = true;
+            this.btn_gen.Click += new System.EventHandler(this.btn_gen_Click);
             // 
             // bunifuShadowPanel1
             // 
@@ -465,8 +468,8 @@ namespace MultipleChoiceApp.Forms.Utils
         private System.Windows.Forms.Label lbl_total_question;
         private System.Windows.Forms.TableLayoutPanel table_info_and_action;
         private System.Windows.Forms.Panel pnl_action;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_gen;
+        private System.Windows.Forms.Button btn_print_to_files;
         private System.Windows.Forms.Button btn_preview;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
     }

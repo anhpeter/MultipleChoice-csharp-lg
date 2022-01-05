@@ -1,4 +1,5 @@
 ﻿using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MultipleChoiceApp.Forms.Utils
     public partial class FrmGenExamSheets : Form
     {
         Exam exam;
+        List<ExamData> examDatas;
         public FrmGenExamSheets(Exam exam)
         {
             InitializeComponent();
@@ -44,7 +46,33 @@ namespace MultipleChoiceApp.Forms.Utils
 
         private void btn_preview_Click(object sender, EventArgs e)
         {
-            new FrmExamSheet(exam).ShowDialog();
+            new FrmExamSheet(examDatas).ShowDialog();
+        }
+
+        private void btn_gen_Click(object sender, EventArgs e)
+        {
+
+            examDatas = new List<ExamData>();
+            for (int i = 0; i < exam.StudentCount; i++)
+            {
+                ExamSheet examSheet = ExamHelper.genExamSheet(exam);
+                examSheet.SheetCode = i + 1;
+                List<QuestionInExamSheet> questionInExamSheets = ExamHelper.genQuestionInExamList(exam);
+                examDatas.Add(new ExamData()
+                {
+                    ExamSheet = examSheet,
+                    QuestionInExamSheets = questionInExamSheets
+                });
+            }
+            //
+            MessageBox.Show($"Generated {exam.StudentCount} exam sheets");
+            btn_preview.Enabled = true;
+            btn_print_to_files.Enabled = true;
+        }
+
+        private void btn_print_to_files_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
