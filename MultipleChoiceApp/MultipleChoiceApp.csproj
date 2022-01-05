@@ -296,6 +296,12 @@
     <Compile Include="Forms\FrmQuestionForm.Designer.cs">
       <DependentUpon>FrmQuestionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Utils\FrmGenExamSheets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utils\FrmGenExamSheets.Designer.cs">
+      <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelHelpers\ExamReport.cs" />
     <Compile Include="ModelHelpers\ManagerHelper.cs" />
     <Compile Include="ModelHelpers\QuestionHelper.cs" />
@@ -561,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTakingExam.resx">
       <DependentUpon>FrmTakingExam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utils\FrmGenExamSheets.resx">
+      <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

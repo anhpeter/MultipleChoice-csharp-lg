@@ -141,3 +141,4 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.UserControls.Utilities.UploadImageControl.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmExamInfo.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmExamMapping.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.Utils.FrmGenExamSheets.resources

@@ -29,9 +29,9 @@ namespace MultipleChoiceApp.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_header = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,7 +39,6 @@ namespace MultipleChoiceApp.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.datepicker_to = new System.Windows.Forms.DateTimePicker();
             this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.gv_exam = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +56,8 @@ namespace MultipleChoiceApp.Forms
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_gen_sheets = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.pnl_header.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_exam)).BeginInit();
@@ -88,6 +89,7 @@ namespace MultipleChoiceApp.Forms
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.datepicker_to);
             this.flowLayoutPanel1.Controls.Add(this.btn_refresh);
+            this.flowLayoutPanel1.Controls.Add(this.btn_gen_sheets);
             this.flowLayoutPanel1.Controls.Add(this.btn_exit);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(748, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -140,16 +142,6 @@ namespace MultipleChoiceApp.Forms
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // btn_exit
-            // 
-            this.btn_exit.Location = new System.Drawing.Point(3, 164);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(211, 36);
-            this.btn_exit.TabIndex = 17;
-            this.btn_exit.Text = "Exit";
-            this.btn_exit.UseVisualStyleBackColor = true;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // gv_exam
             // 
@@ -214,9 +206,9 @@ namespace MultipleChoiceApp.Forms
             // 
             // Column5
             // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = "dd/MM/yyyy";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = "dd/MM/yyyy";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column5.HeaderText = "Start At";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -224,9 +216,9 @@ namespace MultipleChoiceApp.Forms
             // 
             // Column13
             // 
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "dd/MM/yyyy";
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = "dd/MM/yyyy";
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column13.HeaderText = "End At";
             this.Column13.MinimumWidth = 6;
             this.Column13.Name = "Column13";
@@ -306,9 +298,9 @@ namespace MultipleChoiceApp.Forms
             // 
             // Column9
             // 
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column9.HeaderText = "DOB";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
@@ -327,6 +319,25 @@ namespace MultipleChoiceApp.Forms
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
+            // 
+            // btn_gen_sheets
+            // 
+            this.btn_gen_sheets.Location = new System.Drawing.Point(3, 164);
+            this.btn_gen_sheets.Name = "btn_gen_sheets";
+            this.btn_gen_sheets.Size = new System.Drawing.Size(211, 36);
+            this.btn_gen_sheets.TabIndex = 18;
+            this.btn_gen_sheets.Text = "Generate sheets";
+            this.btn_gen_sheets.UseVisualStyleBackColor = true;
+            this.btn_gen_sheets.Click += new System.EventHandler(this.btn_gen_sheets_Click);
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(3, 206);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(211, 36);
+            this.btn_exit.TabIndex = 19;
+            this.btn_exit.Text = "Exit";
+            this.btn_exit.UseVisualStyleBackColor = true;
             // 
             // FrmExamInfo
             // 
@@ -368,7 +379,6 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker datepicker_to;
         private System.Windows.Forms.Button btn_refresh;
-        private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -376,5 +386,7 @@ namespace MultipleChoiceApp.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.Button btn_gen_sheets;
+        private System.Windows.Forms.Button btn_exit;
     }
 }

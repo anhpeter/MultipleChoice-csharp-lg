@@ -2,6 +2,7 @@
 using MultipleChoiceApp.Bi.Student;
 using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.Common.Interfaces;
+using MultipleChoiceApp.Forms.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -129,6 +130,11 @@ namespace MultipleChoiceApp.Forms
         private void btn_exit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_gen_sheets_Click(object sender, EventArgs e)
+        {
+            new FrmGenExamSheets().ShowDialog();
         }
     }
 }
