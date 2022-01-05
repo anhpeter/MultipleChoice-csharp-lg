@@ -8,6 +8,23 @@ namespace MultipleChoiceApp.ModelHelpers
 {
     public class QuestionHelper
     {
+
+        public static List<Question> genQuestionListForExam(int easyQty, int normalQty, int hardQty, int subjectId)
+        {
+            QuestionServiceSoapClient questionS = new QuestionServiceSoapClient();
+            List<Bi.Question.Question> questions = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> easyList = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> normalList = new List<Bi.Question.Question>();
+            List<Bi.Question.Question> hardList = new List<Bi.Question.Question>();
+            if (easyQty > 0) easyList = questionS.getRandomByLevel(subjectId, "easy", easyQty);
+            if (normalQty > 0) normalList = questionS.getRandomByLevel(subjectId, "normal", normalQty);
+            if (hardQty > 0) hardList = questionS.getRandomByLevel(subjectId, "hard", hardQty);
+            questions = questions.Concat(easyList).ToList();
+            questions = questions.Concat(normalList).ToList();
+            questions = questions.Concat(hardList).ToList();
+            Util.log($"\nEasy:{easyList.Count} - Normal:{normalList.Count} - Hard:{hardList.Count}");
+            return questions;
+        }
         public static Dictionary<String, String> toDictionary(Question question)
         {
             Dictionary<String, String> dic = new Dictionary<string, string>();

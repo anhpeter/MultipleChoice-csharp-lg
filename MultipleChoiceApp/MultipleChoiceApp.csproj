@@ -296,15 +296,24 @@
     <Compile Include="Forms\FrmQuestionForm.Designer.cs">
       <DependentUpon>FrmQuestionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Utils\FrmExamSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Utils\FrmExamSheet.Designer.cs">
+      <DependentUpon>FrmExamSheet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Utils\FrmGenExamSheets.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Utils\FrmGenExamSheets.Designer.cs">
       <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModelHelpers\ExamHelper.cs" />
     <Compile Include="ModelHelpers\ExamReport.cs" />
+    <Compile Include="ModelHelpers\ExamSheet.cs" />
     <Compile Include="ModelHelpers\ManagerHelper.cs" />
     <Compile Include="ModelHelpers\QuestionHelper.cs" />
+    <Compile Include="ModelHelpers\QuestionInExamSheet.cs" />
     <Compile Include="ModelHelpers\StudentHelper.cs" />
     <Compile Include="ModelHelpers\StudentResponseHelper.cs" />
     <Compile Include="ModelHelpers\StudentResultHelper.cs" />
@@ -568,6 +577,9 @@
     <EmbeddedResource Include="Forms\FrmTakingExam.resx">
       <DependentUpon>FrmTakingExam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Utils\FrmExamSheet.resx">
+      <DependentUpon>FrmExamSheet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Utils\FrmGenExamSheets.resx">
       <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
     </EmbeddedResource>
@@ -581,6 +593,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\ExamSheet.rdlc" />
     <EmbeddedResource Include="Reports\StudentReportByExam.rdlc" />
     <EmbeddedResource Include="UserControls\ExamControl.resx">
       <DependentUpon>ExamControl.cs</DependentUpon>
@@ -878,12 +891,8 @@
     </None>
     <None Include="Connected Services\Bi.Subject\SubjectService.wsdl" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.Answer.datasource" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.Exam.datasource" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.ExamReport.datasource" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResponse.datasource" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResult.datasource" />
-    <None Include="Properties\DataSources\MultipleChoiceApp.Models.StudentResultReport.datasource" />
+    <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.ExamSheet.datasource" />
+    <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.QuestionInExamSheet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

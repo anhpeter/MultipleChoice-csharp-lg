@@ -1,12 +1,30 @@
 ﻿using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Common.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MultipleChoiceApp.ModelHelpers
 {
     public class StudentResponseHelper
     {
-
+        public static List<StudentResponse> genStudentResponseList(List<Bi.Question.Question> questions)
+        {
+            List<StudentResponse> studentResponseList = new List<StudentResponse>();
+            Random rnd = new Random();
+            foreach (var question in questions)
+            {
+                Bi.StudentResult.Question stuResQuestion = Util.cvtObj<Bi.Question.Question, Bi.StudentResult.Question>(question);
+                StudentResponse studentResponse = new StudentResponse()
+                {
+                    Question = stuResQuestion,
+                    QuestionId = question.Id
+                };
+                StudentResponseHelper.genRandomOrder(rnd, studentResponse);
+                studentResponseList.Add(studentResponse);
+            }
+            return studentResponseList;
+        }
         public static void genRandomOrder(Random rnd, StudentResponse item)
         {
             int[] orderArr = { 1, 2, 3, 4 };

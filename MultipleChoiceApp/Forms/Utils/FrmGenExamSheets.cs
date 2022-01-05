@@ -41,5 +41,10 @@ namespace MultipleChoiceApp.Forms.Utils
             lbl_student_count.Text = exam.StudentCount.ToString();
 
         }
+
+        private void btn_preview_Click(object sender, EventArgs e)
+        {
+            new FrmExamSheet(exam).ShowDialog();
+        }
     }
 }

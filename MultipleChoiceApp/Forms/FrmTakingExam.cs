@@ -54,19 +54,8 @@ namespace MultipleChoiceApp.Forms
         private void setupExam()
         {
             studentResponseList = new List<StudentResponse>();
-            List<Bi.Question.Question> questions = getQuestionList();
-            Random rnd = new Random();
-            foreach (var question in questions)
-            {
-                Bi.StudentResult.Question stuResQuestion = Util.cvtObj<Bi.Question.Question, Bi.StudentResult.Question>(question);
-                StudentResponse studentResponse = new StudentResponse()
-                {
-                    Question = stuResQuestion,
-                    QuestionId = question.Id
-                };
-                StudentResponseHelper.genRandomOrder(rnd, studentResponse);
-                studentResponseList.Add(studentResponse);
-            }
+            List<Bi.Question.Question> questions = QuestionHelper.genQuestionListForExam(exam.EasyQty, ExamHelper.getNormalQty(exam, subject.TotalQuestion), exam.HardQty, subject.Id);
+            studentResponseList = StudentResponseHelper.genStudentResponseList(questions);
             if (studentResponseList.Count == subject.TotalQuestion)
             {
                 displayQuestion();
@@ -99,24 +88,6 @@ namespace MultipleChoiceApp.Forms
             pnl_pagination.Left = (pnl_question_sheet.Width - pnl_pagination.Width) / 2;
         }
 
-        private List<Bi.Question.Question> getQuestionList()
-        {
-            int easyQty = exam.EasyQty;
-            int hardQty = exam.HardQty;
-            int normalQty = subject.TotalQuestion - (easyQty + hardQty);
-            List<Bi.Question.Question> questions = new List<Bi.Question.Question>();
-            List<Bi.Question.Question> easyList = new List<Bi.Question.Question>();
-            List<Bi.Question.Question> normalList = new List<Bi.Question.Question>();
-            List<Bi.Question.Question> hardList = new List<Bi.Question.Question>();
-            if (easyQty > 0) easyList = questionS.getRandomByLevel(subject.Id, "easy", easyQty);
-            if (normalQty > 0) normalList = questionS.getRandomByLevel(subject.Id, "normal", normalQty);
-            if (hardQty > 0) hardList = questionS.getRandomByLevel(subject.Id, "hard", hardQty);
-            questions = questions.Concat(easyList).ToList();
-            questions = questions.Concat(normalList).ToList();
-            questions = questions.Concat(hardList).ToList();
-            Util.log($"\nEasy:{easyList.Count} - Normal:{normalList.Count} - Hard:{hardList.Count}");
-            return questions;
-        }
 
         private void onExamTimeout()
         {
