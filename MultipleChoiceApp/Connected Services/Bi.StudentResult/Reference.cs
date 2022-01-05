@@ -632,6 +632,8 @@ namespace MultipleChoiceApp.Bi.StudentResult {
         
         private int CreatedByField;
         
+        private int ExamStatusField;
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Id {
             get {
@@ -732,6 +734,19 @@ namespace MultipleChoiceApp.Bi.StudentResult {
                 if ((this.CreatedByField.Equals(value) != true)) {
                     this.CreatedByField = value;
                     this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        public int ExamStatus {
+            get {
+                return this.ExamStatusField;
+            }
+            set {
+                if ((this.ExamStatusField.Equals(value) != true)) {
+                    this.ExamStatusField = value;
+                    this.RaisePropertyChanged("ExamStatus");
                 }
             }
         }

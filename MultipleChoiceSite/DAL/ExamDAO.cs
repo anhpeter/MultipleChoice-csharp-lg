@@ -76,9 +76,10 @@ namespace MultipleChoiceSite.DAL
         public List<Exam> getAllBetweenDate(DateTime from, DateTime to)
         {
             String sqlStr = getAllSqlStr(string.Format(@"
-                where
-                    StartAt >= '{0}' and
-                    StartAt <= '{1}'
+            where
+                (e.StartAt BETWEEN '{0}' AND '{1}') OR 
+                (e.EndAt BETWEEN '{0}' AND '{1}') OR 
+                (e.StartAt <= '{0}' AND e.EndAt >= '{1}')
             ", from, to));
             return getAll(sqlStr);
         }

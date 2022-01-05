@@ -25,16 +25,23 @@ namespace MultipleChoiceApp.Forms
             //
             Rectangle screen = Screen.FromControl(this).Bounds;
             Width = Convert.ToInt32(screen.Width * 0.6);
-            Height = screen.Height -50;
+            Height = screen.Height - 50;
             CenterToScreen();
 
         }
 
         private void FrmExamInfo_Load(object sender, EventArgs e)
         {
-            refreshExamList();
-            if (examList.Count > 0) gv_exam.Rows[0].Selected = true;
-            refreshStudentInExamList();
+            setupInterface();
+            refreshLists();
+        }
+
+        private void setupInterface()
+        {
+            datepicker_from.CustomFormat = "dd/MM/yyyy";
+            datepicker_from.Text = DateTime.Now.AddMonths(-1).ToString();
+            datepicker_to.CustomFormat = "dd/MM/yyyy";
+            datepicker_to.Text = DateTime.Now.ToString();
         }
 
         private void refreshLists()
@@ -45,32 +52,49 @@ namespace MultipleChoiceApp.Forms
 
         private void refreshExamList()
         {
-            examList = examS.getAllBetweenDate(new DateTime(2021, 01, 01), new DateTime(2022, 12, 31));
+            DateTime from = Convert.ToDateTime(datepicker_from.Value.ToString());
+            DateTime to = Convert.ToDateTime(datepicker_to.Value.ToString());
+            examList = examS.getAllBetweenDate(from, to);
 
             gv_exam.Rows.Clear();
             foreach (var item in examList)
             {
                 gv_exam.Rows.Add(new object[] {
                     item.Id, item.Name, item.Subject.Name,
-                    item.StudentCount,  item.StartAt, item.Subject.Duration
+                    item.StudentCount,item.Subject.Duration,  item.StartAt,item.EndAt,
                 });
             }
+            if (examList.Count > 0) gv_exam.Rows[0].Selected = true;
         }
         private void refreshStudentInExamList()
         {
-            int id = getSelectedExamId();
-            if (id > 0)
+            if (examList.Count > 0)
             {
-                List<Student> list = studentS.getStudentInExam(id);
-                gv_student_in_exam.Rows.Clear();
-                foreach (var item in list)
+                int id = getSelectedExamId();
+                if (id > 0)
                 {
-                    String examStatus = item.ExamStatus == 0 ? "Not Taken" : "Taken";
-                    gv_student_in_exam.Rows.Add(new object[] {
-                     item.Code, item.FullName,
-                    item.DOB,  item.Major, examStatus
-                });
+                    List<Student> list = studentS.getStudentInExam(id);
+                    gv_student_in_exam.Rows.Clear();
+                    int i = 0;
+                    foreach (var item in list)
+                    {
+                        String examStatus = item.ExamStatus == 0 ? "Not Taken" : "Taken";
+                        gv_student_in_exam.Rows.Add(
+                            new object[] {
+                         1, item.Code, item.FullName,
+                        item.DOB,  item.Major, examStatus
+                        });
+                        if (item.ExamStatus == 1)
+                        {
+                            gv_student_in_exam.Rows[i].Cells[5].Style.ForeColor = Color.Green;
+                        }
+                        i++;
+                    }
                 }
+            }
+            else
+            {
+                gv_student_in_exam.Rows.Clear();
             }
         }
         private int getSelectedExamId()
@@ -85,14 +109,26 @@ namespace MultipleChoiceApp.Forms
             }
         }
 
-        private void gv_student_in_exam_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
-        {
-            //(sender as DataGridView).Rows[e.Row.Index].Cells[0].Value = e.Row.Index + 1;
-        }
 
         private void gv_exam_SelectionChanged(object sender, EventArgs e)
         {
             refreshStudentInExamList();
+        }
+
+
+        private void gv_student_in_exam_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            gv_student_in_exam.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            refreshLists();
+        }
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

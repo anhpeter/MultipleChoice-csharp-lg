@@ -31,12 +31,13 @@ namespace MultipleChoiceApp.Forms
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_header = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_from = new System.Windows.Forms.TextBox();
+            this.datepicker_from = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.txt_to = new System.Windows.Forms.TextBox();
+            this.datepicker_to = new System.Windows.Forms.DateTimePicker();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_exit = new System.Windows.Forms.Button();
             this.gv_exam = new System.Windows.Forms.DataGridView();
@@ -44,11 +45,13 @@ namespace MultipleChoiceApp.Forms
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.gv_student_in_exam = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,9 +84,9 @@ namespace MultipleChoiceApp.Forms
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.txt_from);
+            this.flowLayoutPanel1.Controls.Add(this.datepicker_from);
             this.flowLayoutPanel1.Controls.Add(this.label2);
-            this.flowLayoutPanel1.Controls.Add(this.txt_to);
+            this.flowLayoutPanel1.Controls.Add(this.datepicker_to);
             this.flowLayoutPanel1.Controls.Add(this.btn_refresh);
             this.flowLayoutPanel1.Controls.Add(this.btn_exit);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(748, 12);
@@ -101,12 +104,13 @@ namespace MultipleChoiceApp.Forms
             this.label1.Text = "From:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_from
+            // datepicker_from
             // 
-            this.txt_from.Location = new System.Drawing.Point(3, 26);
-            this.txt_from.Name = "txt_from";
-            this.txt_from.Size = new System.Drawing.Size(211, 22);
-            this.txt_from.TabIndex = 1;
+            this.datepicker_from.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datepicker_from.Location = new System.Drawing.Point(3, 26);
+            this.datepicker_from.Name = "datepicker_from";
+            this.datepicker_from.Size = new System.Drawing.Size(200, 22);
+            this.datepicker_from.TabIndex = 9;
             // 
             // label2
             // 
@@ -114,16 +118,17 @@ namespace MultipleChoiceApp.Forms
             this.label2.Location = new System.Drawing.Point(3, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(211, 23);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 10;
             this.label2.Text = "To:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txt_to
+            // datepicker_to
             // 
-            this.txt_to.Location = new System.Drawing.Point(3, 77);
-            this.txt_to.Name = "txt_to";
-            this.txt_to.Size = new System.Drawing.Size(211, 22);
-            this.txt_to.TabIndex = 3;
+            this.datepicker_to.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datepicker_to.Location = new System.Drawing.Point(3, 77);
+            this.datepicker_to.Name = "datepicker_to";
+            this.datepicker_to.Size = new System.Drawing.Size(200, 22);
+            this.datepicker_to.TabIndex = 14;
             // 
             // btn_refresh
             // 
@@ -131,21 +136,24 @@ namespace MultipleChoiceApp.Forms
             this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(211, 36);
-            this.btn_refresh.TabIndex = 4;
+            this.btn_refresh.TabIndex = 16;
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_exit
             // 
             this.btn_exit.Location = new System.Drawing.Point(3, 164);
             this.btn_exit.Name = "btn_exit";
             this.btn_exit.Size = new System.Drawing.Size(211, 36);
-            this.btn_exit.TabIndex = 7;
+            this.btn_exit.TabIndex = 17;
             this.btn_exit.Text = "Exit";
             this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // gv_exam
             // 
+            this.gv_exam.AllowUserToAddRows = false;
             this.gv_exam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -156,8 +164,9 @@ namespace MultipleChoiceApp.Forms
             this.Column2,
             this.Column3,
             this.Column4,
+            this.Column6,
             this.Column5,
-            this.Column6});
+            this.Column13});
             this.gv_exam.Location = new System.Drawing.Point(12, 12);
             this.gv_exam.Name = "gv_exam";
             this.gv_exam.ReadOnly = true;
@@ -196,22 +205,32 @@ namespace MultipleChoiceApp.Forms
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-            // Column5
-            // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column5.HeaderText = "Date";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
             // Column6
             // 
             this.Column6.HeaderText = "Duration";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = "dd/MM/yyyy";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column5.HeaderText = "Start At";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "dd/MM/yyyy";
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column13.HeaderText = "End At";
+            this.Column13.MinimumWidth = 6;
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
             // 
             // bunifuShadowPanel1
             // 
@@ -241,12 +260,14 @@ namespace MultipleChoiceApp.Forms
             // 
             // gv_student_in_exam
             // 
+            this.gv_student_in_exam.AllowUserToAddRows = false;
             this.gv_student_in_exam.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gv_student_in_exam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gv_student_in_exam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gv_student_in_exam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.Column10,
             this.Column8,
             this.Column9,
@@ -259,7 +280,15 @@ namespace MultipleChoiceApp.Forms
             this.gv_student_in_exam.RowTemplate.Height = 24;
             this.gv_student_in_exam.Size = new System.Drawing.Size(963, 129);
             this.gv_student_in_exam.TabIndex = 0;
-            this.gv_student_in_exam.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.gv_student_in_exam_RowStateChanged);
+            this.gv_student_in_exam.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.gv_student_in_exam_RowPostPaint);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "#";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column10
             // 
@@ -277,9 +306,9 @@ namespace MultipleChoiceApp.Forms
             // 
             // Column9
             // 
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column9.HeaderText = "DOB";
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
@@ -313,7 +342,6 @@ namespace MultipleChoiceApp.Forms
             this.Load += new System.EventHandler(this.FrmExamInfo_Load);
             this.pnl_header.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_exam)).EndInit();
             this.bunifuShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gv_student_in_exam)).EndInit();
@@ -325,26 +353,28 @@ namespace MultipleChoiceApp.Forms
 
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel pnl_header;
         private System.Windows.Forms.DataGridView gv_exam;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_from;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_to;
-        private System.Windows.Forms.Button btn_refresh;
-        private System.Windows.Forms.Button btn_exit;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel1;
         private System.Windows.Forms.DataGridView gv_student_in_exam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker datepicker_from;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker datepicker_to;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
     }
 }
