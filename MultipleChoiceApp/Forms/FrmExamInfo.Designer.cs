@@ -39,6 +39,8 @@ namespace MultipleChoiceApp.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.datepicker_to = new System.Windows.Forms.DateTimePicker();
             this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_gen_sheets = new System.Windows.Forms.Button();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.gv_exam = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +58,6 @@ namespace MultipleChoiceApp.Forms
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_gen_sheets = new System.Windows.Forms.Button();
-            this.btn_exit = new System.Windows.Forms.Button();
             this.pnl_header.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_exam)).BeginInit();
@@ -142,6 +142,25 @@ namespace MultipleChoiceApp.Forms
             this.btn_refresh.Text = "Refresh";
             this.btn_refresh.UseVisualStyleBackColor = true;
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_gen_sheets
+            // 
+            this.btn_gen_sheets.Location = new System.Drawing.Point(3, 164);
+            this.btn_gen_sheets.Name = "btn_gen_sheets";
+            this.btn_gen_sheets.Size = new System.Drawing.Size(211, 36);
+            this.btn_gen_sheets.TabIndex = 18;
+            this.btn_gen_sheets.Text = "Gen test sheets";
+            this.btn_gen_sheets.UseVisualStyleBackColor = true;
+            this.btn_gen_sheets.Click += new System.EventHandler(this.btn_gen_sheets_Click);
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(3, 206);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(211, 36);
+            this.btn_exit.TabIndex = 19;
+            this.btn_exit.Text = "Exit";
+            this.btn_exit.UseVisualStyleBackColor = true;
             // 
             // gv_exam
             // 
@@ -319,25 +338,6 @@ namespace MultipleChoiceApp.Forms
             this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            // 
-            // btn_gen_sheets
-            // 
-            this.btn_gen_sheets.Location = new System.Drawing.Point(3, 164);
-            this.btn_gen_sheets.Name = "btn_gen_sheets";
-            this.btn_gen_sheets.Size = new System.Drawing.Size(211, 36);
-            this.btn_gen_sheets.TabIndex = 18;
-            this.btn_gen_sheets.Text = "Generate sheets";
-            this.btn_gen_sheets.UseVisualStyleBackColor = true;
-            this.btn_gen_sheets.Click += new System.EventHandler(this.btn_gen_sheets_Click);
-            // 
-            // btn_exit
-            // 
-            this.btn_exit.Location = new System.Drawing.Point(3, 206);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(211, 36);
-            this.btn_exit.TabIndex = 19;
-            this.btn_exit.Text = "Exit";
-            this.btn_exit.UseVisualStyleBackColor = true;
             // 
             // FrmExamInfo
             // 

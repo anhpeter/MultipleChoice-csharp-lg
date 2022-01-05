@@ -17,7 +17,7 @@ namespace MultipleChoiceApp.Forms.Utils
     public partial class FrmGenExamSheets : Form
     {
         Exam exam;
-        List<ExamData> examDatas;
+        List<Test> tests;
         public FrmGenExamSheets(Exam exam)
         {
             InitializeComponent();
@@ -48,19 +48,19 @@ namespace MultipleChoiceApp.Forms.Utils
 
         private void btn_preview_Click(object sender, EventArgs e)
         {
-            new FrmExamSheet(examDatas).ShowDialog();
+            new FrmExamSheet(tests).ShowDialog();
         }
 
         private void btn_gen_Click(object sender, EventArgs e)
         {
 
-            examDatas = new List<ExamData>();
+            tests = new List<Test>();
             for (int i = 0; i < exam.StudentCount; i++)
             {
                 ExamSheet examSheet = ExamHelper.genExamSheet(exam);
                 examSheet.SheetCode = i + 1;
                 List<QuestionInExamSheet> questionInExamSheets = ExamHelper.genQuestionInExamList(exam);
-                examDatas.Add(new ExamData()
+                tests.Add(new Test()
                 {
                     ExamSheet = examSheet,
                     QuestionInExamSheets = questionInExamSheets
@@ -78,35 +78,45 @@ namespace MultipleChoiceApp.Forms.Utils
             {
                 string folderPath = folderBrowserDialog.SelectedPath;
                 // ...
-                string deviceInfo = "";
-                string[] streamIds;
-                Warning[] warnings;
-
-                string mimeType = string.Empty;
-                string encoding = string.Empty;
-                string extension = string.Empty;
-
-                ReportViewer viewer = new ReportViewer();
-                viewer.ProcessingMode = ProcessingMode.Local;
-                viewer.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\ExamSheet.rdlc";
-                //
-                List<ExamSheet> examSheets = new List<ExamSheet>()
+                //System.Diagnostics.Process.Start(filename);
+                int i = 0;
+                foreach (var item in tests)
                 {
-                    examDatas[0].ExamSheet
+                    string filePath = string.Format(@"{0}\{1}", folderPath, $"Test{i + 1}.doc");
+                    exportReport(item, filePath);
+                    i++;
+                }
+                MessageBox.Show($"Generated {tests.Count} tests");
+            }
+        }
+
+        private void exportReport(Test test, string filePath)
+        {
+            string deviceInfo = "";
+            string[] streamIds;
+            Warning[] warnings;
+
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+
+            ReportViewer viewer = new ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+            viewer.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\ExamSheet.rdlc";
+            //
+            List<ExamSheet> examSheets = new List<ExamSheet>()
+                {
+                    test.ExamSheet
                 };
 
-                ReportDataSource examSheetDS = new ReportDataSource("ExamSheet", examSheets);
-                ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", examDatas[0].QuestionInExamSheets);
-                viewer.LocalReport.DataSources.Add(examSheetDS);
-                viewer.LocalReport.DataSources.Add(questionInExamSheetDS);
-                viewer.RefreshReport();
-                var bytes = viewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding,
-                    out extension, out streamIds, out warnings);
-                string filename = string.Format(@"{0}\{1}", folderPath, "sheet1.pdf");
-                File.WriteAllBytes(filename, bytes);
-                //System.Diagnostics.Process.Start(filename);
-                MessageBox.Show("Generated word files");
-            }
+            ReportDataSource examSheetDS = new ReportDataSource("ExamSheet", examSheets);
+            ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", test.QuestionInExamSheets);
+            viewer.LocalReport.DataSources.Add(examSheetDS);
+            viewer.LocalReport.DataSources.Add(questionInExamSheetDS);
+            viewer.RefreshReport();
+            var bytes = viewer.LocalReport.Render("Word", deviceInfo, out mimeType, out encoding,
+                out extension, out streamIds, out warnings);
+            File.WriteAllBytes(filePath, bytes);
         }
     }
 }

@@ -402,7 +402,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.btn_gen.Name = "btn_gen";
             this.btn_gen.Size = new System.Drawing.Size(202, 51);
             this.btn_gen.TabIndex = 0;
-            this.btn_gen.Text = "Generate Random Sheets";
+            this.btn_gen.Text = "Generate random tests";
             this.btn_gen.UseVisualStyleBackColor = true;
             this.btn_gen.Click += new System.EventHandler(this.btn_gen_Click);
             // 
@@ -432,7 +432,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "FrmGenExamSheets";
-            this.Text = "Generate Exam Sheets";
+            this.Text = "Generate test files";
             this.Load += new System.EventHandler(this.FrmGenExamSheets_Load);
             this.table_wrapper.ResumeLayout(false);
             this.table_info.ResumeLayout(false);

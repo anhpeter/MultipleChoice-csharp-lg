@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MultipleChoiceApp.ModelHelpers
 {
-    public class ExamData
+    public class Test
     {
         public ExamSheet ExamSheet { get; set; }
         public List<QuestionInExamSheet> QuestionInExamSheets { get; set; }

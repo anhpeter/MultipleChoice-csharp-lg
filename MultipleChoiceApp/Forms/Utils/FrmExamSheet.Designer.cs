@@ -153,7 +153,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.Controls.Add(this.pnl_pagi);
             this.Controls.Add(this.report);
             this.Name = "FrmExamSheet";
-            this.Text = "FrmExamSheet";
+            this.Text = "Test";
             this.Load += new System.EventHandler(this.FrmExamSheet_Load);
             this.pnl_pagi.ResumeLayout(false);
             this.pnl_pagi.PerformLayout();

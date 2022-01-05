@@ -22,7 +22,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.355in</Top>
+        <Top>0.22167in</Top>
         <Left>3.89668in</Left>
         <Height>0.25in</Height>
         <Width>3.50832in</Width>
@@ -560,7 +560,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>StudentResultReport</DataSetName>
-        <Top>1.73834in</Top>
+        <Top>1.60501in</Top>
         <Left>0.95501in</Left>
         <Height>0.5in</Height>
         <Width>6.44999in</Width>
@@ -609,7 +609,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>1.08in</Top>
+        <Top>0.94667in</Top>
         <Left>0.95501in</Left>
         <Height>0.45in</Height>
         <Width>2.54167in</Width>
@@ -666,7 +666,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>1.08in</Top>
+        <Top>0.94667in</Top>
         <Left>5.905in</Left>
         <Height>0.45in</Height>
         <Width>1.5in</Width>
@@ -685,7 +685,6 @@
         <Source>Embedded</Source>
         <Value>logohsuvie</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>0.13333in</Top>
         <Left>0.95501in</Left>
         <Height>0.78333in</Height>
         <Width>1.56667in</Width>
@@ -697,13 +696,13 @@
         </Style>
       </Image>
     </ReportItems>
-    <Height>4.43334in</Height>
+    <Height>2.21667in</Height>
     <Style />
   </Body>
   <Width>8.17167in</Width>
   <Page>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
     <TopMargin>1in</TopMargin>
     <BottomMargin>1in</BottomMargin>
     <Style />
