@@ -53,7 +53,7 @@ namespace MultipleChoiceApp.Forms.Utils
 
         private void btn_gen_Click(object sender, EventArgs e)
         {
-
+            btn_gen.Enabled = false;
             tests = new List<Test>();
             for (int i = 0; i < exam.StudentCount; i++)
             {
@@ -67,13 +67,15 @@ namespace MultipleChoiceApp.Forms.Utils
                 });
             }
             //
-            MessageBox.Show($"Generated {exam.StudentCount} exam sheets");
+            MessageBox.Show($"Generated {exam.StudentCount} tests");
+            btn_gen.Enabled = true;
             btn_preview.Enabled = true;
             btn_print_to_files.Enabled = true;
         }
 
         private void btn_print_to_files_Click(object sender, EventArgs e)
         {
+            btn_print_to_files.Enabled = false;
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 string folderPath = folderBrowserDialog.SelectedPath;
@@ -88,6 +90,7 @@ namespace MultipleChoiceApp.Forms.Utils
                 }
                 MessageBox.Show($"Generated {tests.Count} tests");
             }
+            btn_print_to_files.Enabled = true;
         }
 
         private void exportReport(Test test, string filePath)

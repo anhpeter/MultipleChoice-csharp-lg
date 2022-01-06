@@ -463,7 +463,6 @@
     <Compile Include="UserControls\ExamReportControls\SummaryControl.Designer.cs">
       <DependentUpon>SummaryControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FileHelper.cs" />
     <Compile Include="UserControls\ManagerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
