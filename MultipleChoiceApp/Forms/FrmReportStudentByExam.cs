@@ -1,12 +1,14 @@
 ﻿using Microsoft.Reporting.WinForms;
 using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Common;
 using MultipleChoiceApp.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,7 +78,7 @@ namespace MultipleChoiceApp.Forms
             ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
             report.Reset();
             report.LocalReport.DataSources.Clear();
-            report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\StudentReportByExam.rdlc";
+            report.LocalReport.ReportPath = FormHelper.getReportPath(Constant.EXAM_RESULT_REPORT_NAME);
             report.LocalReport.DataSources.Add(rds);
             report.LocalReport.DataSources.Add(examRds);
             report.RefreshReport();

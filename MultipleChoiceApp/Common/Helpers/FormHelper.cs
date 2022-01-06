@@ -240,6 +240,13 @@ namespace MultipleChoiceApp.Common.Helpers
             }
         }
 
+        public static string getReportPath(string reportName)
+        {
+            string exeFolder = Application.StartupPath;
+            string reportPath = Path.Combine(exeFolder, @"Reports\"+reportName);
+            return reportPath;
+        }
+
 
     }
 }

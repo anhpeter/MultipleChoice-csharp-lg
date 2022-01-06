@@ -119,7 +119,6 @@ namespace MultipleChoiceSite.Common.Helpers
         {
             return Convert.ToInt32(Math.Floor(rnd.Next(max - min + 1) + min * 1.0));
         }
-
     }
 
 }

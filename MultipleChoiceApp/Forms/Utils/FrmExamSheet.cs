@@ -2,6 +2,8 @@
 using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Bi.Question;
 using MultipleChoiceApp.Bi.StudentResult;
+using MultipleChoiceApp.Common;
+using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
@@ -49,7 +51,7 @@ namespace MultipleChoiceApp.Forms.Utils
             ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", test.QuestionInExamSheets);
             report.Reset();
             report.LocalReport.DataSources.Clear();
-            report.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\ExamSheet.rdlc";
+            report.LocalReport.ReportPath = FormHelper.getReportPath(Constant.TEST_REPORT_NAME);
             report.LocalReport.DataSources.Add(examSheetDS);
             report.LocalReport.DataSources.Add(questionInExamSheetDS);
             report.RefreshReport();

@@ -142,4 +142,3 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.FrmExamMapping.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.Utils.FrmGenExamSheets.resources
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.Forms.Utils.FrmExamSheet.resources
-E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Debug\MultipleChoiceApp.csproj.AssemblyReference.cache

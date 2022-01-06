@@ -9,6 +9,8 @@ namespace MultipleChoiceApp.Common
     class Constant
     {
         public static  String firestorageBucket = "wfmultiplechoice-db431.appspot.com";
+        public static String TEST_REPORT_NAME = "ExamSheet.rdlc";
+        public static String EXAM_RESULT_REPORT_NAME = "StudentReportByExam.rdlc";
         //
         public String primaryColor = "#2196f3";
         public String secondaryColor = "#f50057";
