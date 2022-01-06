@@ -138,7 +138,7 @@ namespace MultipleChoiceApp.Forms
             if (id > 0)
             {
                 Exam exam = examList.Where(x => x.Id == id).SingleOrDefault();
-                new FrmGenExamSheets(exam).ShowDialog();
+                new FrmGenTest(exam).ShowDialog();
             }
         }
     }

@@ -296,17 +296,17 @@
     <Compile Include="Forms\FrmQuestionForm.Designer.cs">
       <DependentUpon>FrmQuestionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Utils\FrmExamSheet.cs">
+    <Compile Include="Forms\Utils\FrmTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Utils\FrmExamSheet.Designer.cs">
-      <DependentUpon>FrmExamSheet.cs</DependentUpon>
+    <Compile Include="Forms\Utils\FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Utils\FrmGenExamSheets.cs">
+    <Compile Include="Forms\Utils\FrmGenTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Utils\FrmGenExamSheets.Designer.cs">
-      <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
+    <Compile Include="Forms\Utils\FrmGenTest.Designer.cs">
+      <DependentUpon>FrmGenTest.cs</DependentUpon>
     </Compile>
     <Compile Include="ModelHelpers\Test.cs" />
     <Compile Include="ModelHelpers\ExamHelper.cs" />
@@ -577,11 +577,11 @@
     <EmbeddedResource Include="Forms\FrmTakingExam.resx">
       <DependentUpon>FrmTakingExam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Utils\FrmExamSheet.resx">
-      <DependentUpon>FrmExamSheet.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Utils\FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Utils\FrmGenExamSheets.resx">
-      <DependentUpon>FrmGenExamSheets.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Utils\FrmGenTest.resx">
+      <DependentUpon>FrmGenTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

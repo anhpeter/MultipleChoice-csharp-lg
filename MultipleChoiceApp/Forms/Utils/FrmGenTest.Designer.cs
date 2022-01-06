@@ -1,7 +1,7 @@
 ﻿
 namespace MultipleChoiceApp.Forms.Utils
 {
-    partial class FrmGenExamSheets
+    partial class FrmGenTest
     {
         /// <summary>
         /// Required designer variable.

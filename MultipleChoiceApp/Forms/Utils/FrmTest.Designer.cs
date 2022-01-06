@@ -37,6 +37,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.btn_last = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_prev = new Bunifu.Framework.UI.BunifuImageButton();
             this.btn_first = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnl_pagi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_next)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_last)).BeginInit();
@@ -62,7 +63,7 @@ namespace MultipleChoiceApp.Forms.Utils
             this.pnl_pagi.Controls.Add(this.btn_last);
             this.pnl_pagi.Controls.Add(this.btn_prev);
             this.pnl_pagi.Controls.Add(this.btn_first);
-            this.pnl_pagi.Location = new System.Drawing.Point(12, 12);
+            this.pnl_pagi.Location = new System.Drawing.Point(94, 8);
             this.pnl_pagi.Name = "pnl_pagi";
             this.pnl_pagi.Size = new System.Drawing.Size(246, 31);
             this.pnl_pagi.TabIndex = 1;
@@ -145,11 +146,23 @@ namespace MultipleChoiceApp.Forms.Utils
             this.btn_first.Zoom = 0;
             this.btn_first.Click += new System.EventHandler(this.btn_first_Click);
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 8);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.label6.Size = new System.Drawing.Size(80, 30);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Test";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmExamSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 796);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.pnl_pagi);
             this.Controls.Add(this.report);
             this.Name = "FrmExamSheet";
@@ -174,5 +187,6 @@ namespace MultipleChoiceApp.Forms.Utils
         private Bunifu.Framework.UI.BunifuImageButton btn_first;
         private Bunifu.Framework.UI.BunifuImageButton btn_next;
         private Bunifu.Framework.UI.BunifuImageButton btn_last;
+        private System.Windows.Forms.Label label6;
     }
 }

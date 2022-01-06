@@ -131,3 +131,15 @@ E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.exe
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.pdb
 E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.csproj.AssemblyReference.cache
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\Firebase.Storage.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\Newtonsoft.Json.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\System.Diagnostics.DiagnosticSource.dll
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\Newtonsoft.Json.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\bin\Release\System.Diagnostics.DiagnosticSource.xml
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Forms.FrmExamInfo.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Forms.FrmExamMapping.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Forms.FrmQuestionForm.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Forms.Utils.FrmExamSheet.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.UserControls.QuestionForm.TextAnswersControl.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.UserControls.Utilities.UploadImageControl.resources
+E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\obj\Release\MultipleChoiceApp.Forms.Utils.FrmGenTest.resources

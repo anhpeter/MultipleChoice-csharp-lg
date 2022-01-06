@@ -14,11 +14,11 @@ using System.Windows.Forms;
 
 namespace MultipleChoiceApp.Forms.Utils
 {
-    public partial class FrmGenExamSheets : Form
+    public partial class FrmGenTest : Form
     {
         Exam exam;
         List<Test> tests;
-        public FrmGenExamSheets(Exam exam)
+        public FrmGenTest(Exam exam)
         {
             InitializeComponent();
             //
