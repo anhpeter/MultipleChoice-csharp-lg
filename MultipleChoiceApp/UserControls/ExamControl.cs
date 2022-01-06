@@ -15,7 +15,7 @@ namespace MultipleChoiceApp.UserControls
     public partial class ExamControl : UserControl, IPagination,IAdminUserControl
     {
         ExamServiceSoapClient mainS = new ExamServiceSoapClient();
-        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient subjectS = new SubjectApiServiceSoapClient();
         Exam formItem;
         List<Bi.Subject.Subject> subjectList;
         List<Exam> examList;

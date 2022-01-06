@@ -889,7 +889,7 @@
     <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.Subject\SubjectService.wsdl" />
+    <None Include="Connected Services\Bi.Subject\SubjectApiService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.ExamSheet.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.QuestionInExamSheet.datasource" />
@@ -999,7 +999,7 @@
     </None>
     <None Include="Connected Services\Bi.Question\QuestionService.disco" />
     <None Include="Resources\empty_image.png" />
-    <None Include="Connected Services\Bi.Subject\SubjectService.disco" />
+    <None Include="Connected Services\Bi.Subject\SubjectApiService.disco" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

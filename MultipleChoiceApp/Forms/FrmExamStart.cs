@@ -18,7 +18,7 @@ namespace MultipleChoiceApp.Forms
     {
         Auth auth = Auth.getIntace();
 
-        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient subjectS = new SubjectApiServiceSoapClient();
         ExamServiceSoapClient examS = new ExamServiceSoapClient();
         StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
         List<Bi.Subject.Subject> subjectList;

@@ -20,7 +20,7 @@ namespace MultipleChoiceApp.UserControls
     {
         String controlName = "Questions";
         QuestionServiceSoapClient mainS = new QuestionServiceSoapClient();
-        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient subjectS = new SubjectApiServiceSoapClient();
         //
         PaginationControl paginationControl;
         Pagination pagination = new Pagination(0, 1, 15, 3);

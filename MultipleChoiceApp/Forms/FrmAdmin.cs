@@ -22,7 +22,7 @@ namespace MultipleChoiceApp
         Dictionary<String, Bitmap> iconDict = new Dictionary<string, Bitmap>();
         StudentServiceSoapClient studentS = new StudentServiceSoapClient();
         ExamServiceSoapClient examS = new ExamServiceSoapClient();
-        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient subjectS = new SubjectApiServiceSoapClient();
         QuestionServiceSoapClient questionS = new QuestionServiceSoapClient();
         StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
         ManagerServiceSoapClient managerS = new ManagerServiceSoapClient();

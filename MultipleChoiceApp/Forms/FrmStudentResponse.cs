@@ -23,7 +23,7 @@ namespace MultipleChoiceApp.Forms
         Bi.Subject.Subject subject;
         StudentResult studentResult;
         StudentResponseServiceSoapClient studentResponseS = new StudentResponseServiceSoapClient();
-        SubjectServiceSoapClient subjectS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient subjectS = new SubjectApiServiceSoapClient();
         List<Bi.StudentResponse.StudentResponse> studentResponsesList;
         //
         int studentCount;

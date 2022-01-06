@@ -19,7 +19,7 @@ namespace MultipleChoiceApp.UserControls
     public partial class SubjectControl : UserControl, IPagination
     {
         String controlName = "Subjects";
-        SubjectServiceSoapClient mainS = new SubjectServiceSoapClient();
+        SubjectApiServiceSoapClient mainS = new SubjectApiServiceSoapClient();
         Subject formItem;
         //
         PaginationControl paginationControl;

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 
@@ -27,7 +28,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public List<Subject> searchByKeyword(String keyword)
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/search/{keyword}");
             List<Subject> items = JsonConvert.DeserializeObject<List<Subject>>(response);
             return items;
@@ -36,7 +39,9 @@ namespace MultipleChoiceSite.Services
 
         public List<Subject> getAvailableForExam(DateTime d, int studentId)
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/get-available-for-exam/{d}/{studentId}");
             List<Subject> items = JsonConvert.DeserializeObject<List<Subject>>(response);
             return items;
@@ -45,7 +50,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public List<Subject> getAllForSelectData()
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/get-all-for-select-data");
             List<Subject> items = JsonConvert.DeserializeObject<List<Subject>>(response);
             return items;
@@ -53,7 +60,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public List<Subject> getAll(int itemsPerPage, int currentPage)
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/get-all/{itemsPerPage}/{currentPage}");
             List<Subject> items = JsonConvert.DeserializeObject<List<Subject>>(response);
             return items;
@@ -61,7 +70,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public int countAll()
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/count-all");
             int result = JsonConvert.DeserializeObject<int>(response);
             return result;
@@ -69,7 +80,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public Subject getDetailsById(int id)
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.DownloadString(URI + $"/{id}");
             Subject item = JsonConvert.DeserializeObject<Subject>(response);
             return item;
@@ -79,7 +92,9 @@ namespace MultipleChoiceSite.Services
         public bool add(Subject item)
         {
             String data = JsonConvert.SerializeObject(item);
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             client.Headers[HttpRequestHeader.ContentType] = "application/json";
             String response = client.UploadString(URI, "POST", data);
             bool result = bool.Parse(response);
@@ -100,7 +115,9 @@ namespace MultipleChoiceSite.Services
         public bool update(Subject item)
         {
             String data = JsonConvert.SerializeObject(item);
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             client.Headers[HttpRequestHeader.ContentType] = "application/json";
             String response = client.UploadString(URI + $"/{item.Id}", "PUT", data);
             bool result = bool.Parse(response);
@@ -110,7 +127,9 @@ namespace MultipleChoiceSite.Services
         [WebMethod]
         public virtual bool delete(int id)
         {
-            WebClient client = new WebClient();
+            WebClient client = new WebClient() { 
+                Encoding = Encoding.UTF8
+            };
             String response = client.UploadString(URI + $"/{id}", "DELETE", "");
             bool result = bool.Parse(response);
             return result;
