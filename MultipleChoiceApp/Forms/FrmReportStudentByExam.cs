@@ -65,7 +65,7 @@ namespace MultipleChoiceApp.Forms
         {
             exam = examS.getExamReportById(getExamId());
             List<ModelHelpers.ExamReport> examReport = new List<ModelHelpers.ExamReport>() {
-                 new ModelHelpers.ExamReport() { 
+                 new ModelHelpers.ExamReport() {
                      Name = exam.Name,
                      Subject = exam.Subject.Name,
                      StartAt = Util.toMediumDateStr(exam.StartAt),
@@ -121,6 +121,34 @@ namespace MultipleChoiceApp.Forms
             sortField = split[0];
             sortValue = split[1];
             loadReportData();
+        }
+
+        private void btn_send_mail_Click(object sender, EventArgs e)
+        {
+            String email = txt_email.Text.ToString().Trim();
+            if (!String.IsNullOrEmpty(email))
+            {
+                MailHelper mailHelper = new MailHelper();
+                try
+                {
+                    btn_send_mail.Enabled = false;
+                    mailHelper.send(email, "peteranh.testemail@gmail.com", "Hey Yo", "Ngon");
+                    MessageBox.Show("Send mail success");
+                }
+                catch (Exception ex)
+                {
+                    btn_send_mail.Text = "Send again";
+                    MessageBox.Show("err: " + ex.Message);
+                }
+                finally
+                {
+                    btn_send_mail.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter an valid email");
+            }
         }
     }
 }

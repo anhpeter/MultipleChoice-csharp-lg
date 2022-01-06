@@ -277,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Helpers\FileUpload.cs" />
+    <Compile Include="Common\Helpers\MailHelper.cs" />
     <Compile Include="Common\Interfaces\IUploadImage.cs" />
     <Compile Include="Forms\FrmExamMapping.cs">
       <SubType>Form</SubType>
