@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultipleChoiceApi.Models
+namespace MultipleChoiceApi.DTO
 {
     public class Subject
     {
