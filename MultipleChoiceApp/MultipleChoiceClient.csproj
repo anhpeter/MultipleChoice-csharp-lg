@@ -956,7 +956,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.Subject\SubjectService.disco" />
     <None Include="Connected Services\Bi.Subject\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.Subject\configuration.svcinfo" />
     <None Include="Connected Services\Bi.Subject\Reference.svcmap">
@@ -1000,6 +999,7 @@
     </None>
     <None Include="Connected Services\Bi.Question\QuestionService.disco" />
     <None Include="Resources\empty_image.png" />
+    <None Include="Connected Services\Bi.Subject\SubjectService.disco" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
