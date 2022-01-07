@@ -20,8 +20,8 @@ namespace MultipleChoiceApp.Forms
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             txt_message.Visible = false;
-            txt_id.Text = "MNG01";
-            txt_password.Text = "loveguitar";
+            //txt_id.Text = "MNG01";
+            //txt_password.Text = "loveguitar";
         }
 
         private void btn_login_Click(object sender, EventArgs e)

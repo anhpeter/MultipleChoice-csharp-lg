@@ -108,7 +108,11 @@ namespace MultipleChoiceApp
 
         private void btn_exit_Click(object sender, EventArgs e)
         {
-            FormHelper.replaceForm(this, new FrmLogin());
+            DialogResult result = MessageBox.Show("Do you want to exit?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                FormHelper.replaceForm(this, new FrmLogin());
+            }
         }
 
         private void btn_result_Click(object sender, EventArgs e)
