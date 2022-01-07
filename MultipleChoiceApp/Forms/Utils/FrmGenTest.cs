@@ -1,5 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using MultipleChoiceApp.Bi.Exam;
+using MultipleChoiceApp.Common;
+using MultipleChoiceApp.Common.Helpers;
 using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
@@ -95,17 +97,10 @@ namespace MultipleChoiceApp.Forms.Utils
 
         private void exportReport(Test test, string filePath)
         {
-            string deviceInfo = "";
-            string[] streamIds;
-            Warning[] warnings;
-
-            string mimeType = string.Empty;
-            string encoding = string.Empty;
-            string extension = string.Empty;
 
             ReportViewer viewer = new ReportViewer();
             viewer.ProcessingMode = ProcessingMode.Local;
-            viewer.LocalReport.ReportPath = @"E:\public\projects\HSU\software_app_dev\MultipleChoiceApp\MultipleChoiceApp\Reports\ExamSheet.rdlc";
+            viewer.LocalReport.ReportPath = FormHelper.getReportPath(Constant.TEST_REPORT_NAME);
             //
             List<ExamSheet> examSheets = new List<ExamSheet>()
                 {
@@ -116,10 +111,7 @@ namespace MultipleChoiceApp.Forms.Utils
             ReportDataSource questionInExamSheetDS = new ReportDataSource("QuestionInExamSheet", test.QuestionInExamSheets);
             viewer.LocalReport.DataSources.Add(examSheetDS);
             viewer.LocalReport.DataSources.Add(questionInExamSheetDS);
-            viewer.RefreshReport();
-            var bytes = viewer.LocalReport.Render("Word", deviceInfo, out mimeType, out encoding,
-                out extension, out streamIds, out warnings);
-            File.WriteAllBytes(filePath, bytes);
+            ExamHelper.genFileReportViewer(viewer, filePath, "Word");
         }
     }
 }

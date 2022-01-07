@@ -16,10 +16,13 @@ namespace MultipleChoiceApi.Controllers
         SubjectDAO mainDAO = new SubjectDAO();
 
         [HttpGet]
-        [Route("api/subjects/get-available-for-exam/{d}/{studentId}")]
-        public List<Subject> getAvailableForExam(DateTime d, int studentId)
+        [Route("api/subjects/get-available-for-exam/{studentId}")]
+        public List<Subject> getAvailableForExam(int studentId)
         {
-            return mainDAO.getAvailableForExam(d, studentId);
+            var allUrlKeyValues = ControllerContext.Request.GetQueryNameValuePairs();
+            string dateStr = allUrlKeyValues.LastOrDefault(x => x.Key == "date").Value;
+            DateTime date = Convert.ToDateTime(dateStr);
+            return mainDAO.getAvailableForExam(date, studentId);
         }
         [HttpGet]
         [Route("api/subjects/search/{keyword}")]

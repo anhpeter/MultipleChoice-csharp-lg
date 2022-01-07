@@ -1,7 +1,9 @@
-﻿using MultipleChoiceApp.Bi.Exam;
+﻿using Microsoft.Reporting.WinForms;
+using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Bi.StudentResult;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,21 @@ namespace MultipleChoiceApp.ModelHelpers
 {
     class ExamHelper
     {
+        public static void genFileReportViewer(ReportViewer viewer, string filePath, string format)
+        {
+
+            string deviceInfo = "";
+            string[] streamIds;
+            Warning[] warnings;
+
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+            viewer.RefreshReport();
+            var bytes = viewer.LocalReport.Render(format, deviceInfo, out mimeType, out encoding,
+                out extension, out streamIds, out warnings);
+            File.WriteAllBytes(filePath, bytes);
+        }
         public static ExamSheet genExamSheet(Bi.Exam.Exam exam)
         {
             ExamSheet examSheet =

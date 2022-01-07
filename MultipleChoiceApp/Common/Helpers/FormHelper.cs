@@ -239,11 +239,16 @@ namespace MultipleChoiceApp.Common.Helpers
                 e.Handled = true;
             }
         }
+        public static string getAppRootPath()
+        {
+            string exeFolder = Application.StartupPath;
+            return exeFolder;
+        }
 
         public static string getReportPath(string reportName)
         {
             string exeFolder = Application.StartupPath;
-            string reportPath = Path.Combine(exeFolder, @"Reports\"+reportName);
+            string reportPath = Path.Combine(exeFolder, @"Reports\" + reportName);
             return reportPath;
         }
 

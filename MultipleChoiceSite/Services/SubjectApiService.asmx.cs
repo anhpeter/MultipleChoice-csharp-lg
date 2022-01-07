@@ -42,7 +42,7 @@ namespace MultipleChoiceSite.Services
             WebClient client = new WebClient() { 
                 Encoding = Encoding.UTF8
             };
-            String response = client.DownloadString(URI + $"/get-available-for-exam/{d}/{studentId}");
+            String response = client.DownloadString(URI + $"/get-available-for-exam/{studentId}?date={d}");
             List<Subject> items = JsonConvert.DeserializeObject<List<Subject>>(response);
             return items;
         }

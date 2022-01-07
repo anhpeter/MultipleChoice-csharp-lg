@@ -24,8 +24,8 @@
     <MetadataSource Address="http://localhost:3902/Services/QuestionService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="QuestionService.wsdl" MetadataType="Wsdl" ID="defb0f0e-faca-4714-af85-9e580d2b4389" SourceId="1" SourceUrl="http://localhost:3902/Services/QuestionService.asmx?wsdl" />
-    <MetadataFile FileName="QuestionService.disco" MetadataType="Disco" ID="a8321723-ce37-46ef-abc4-1fa0c0af8de9" SourceId="1" SourceUrl="http://localhost:3902/Services/QuestionService.asmx?disco" />
+    <MetadataFile FileName="QuestionService1.wsdl" MetadataType="Wsdl" ID="02ffa67b-cf95-4840-acaf-43bcab6a94dd" SourceId="1" SourceUrl="http://localhost:3902/Services/QuestionService.asmx?wsdl" />
+    <MetadataFile FileName="QuestionService1.disco" MetadataType="Disco" ID="0b53ec9b-0f8f-483f-8696-7bde7442b85e" SourceId="1" SourceUrl="http://localhost:3902/Services/QuestionService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

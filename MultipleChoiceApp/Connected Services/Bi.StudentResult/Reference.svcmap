@@ -24,8 +24,8 @@
     <MetadataSource Address="http://localhost:3902/Services/StudentResultService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StudentResultService.wsdl" MetadataType="Wsdl" ID="8e3f6808-bed8-4786-909a-f36861ba341e" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResultService.asmx?wsdl" />
-    <MetadataFile FileName="StudentResultService.disco" MetadataType="Disco" ID="30f14350-b7c0-4197-bf13-6779db5cab18" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResultService.asmx?disco" />
+    <MetadataFile FileName="StudentResultService1.wsdl" MetadataType="Wsdl" ID="1f534741-1de2-4818-b884-69d95ab4fc48" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResultService.asmx?wsdl" />
+    <MetadataFile FileName="StudentResultService1.disco" MetadataType="Disco" ID="01f834cf-3e44-4612-9ce2-c89bb667e7b9" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResultService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

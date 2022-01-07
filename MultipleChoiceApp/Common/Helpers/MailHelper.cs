@@ -11,9 +11,9 @@ namespace MultipleChoiceApp.Common.Helpers
     {
         public SmtpClient client = new SmtpClient();
         public MailMessage msg = new MailMessage();
-        public System.Net.NetworkCredential smtpCreds = new System.Net.NetworkCredential("peteranh.testmail@gmail.com", "Peteranhhsu*");
+        public System.Net.NetworkCredential smtpCreds = new System.Net.NetworkCredential(Constant.EMAIL,Constant.PASSWORD);
 
-        public void send(string sendTo, string sendFrom, string subject, string body)
+        public void send(string sendTo, string subject, string body, Attachment attachment = null)
         {
             //setup SMTP Host Here
             client.Host = "smtp.gmail.com";
@@ -25,7 +25,7 @@ namespace MultipleChoiceApp.Common.Helpers
             //converte string to MailAdress
 
             MailAddress to = new MailAddress(sendTo);
-            MailAddress from = new MailAddress(sendFrom);
+            MailAddress from = new MailAddress(Constant.EMAIL);
 
             //set up message settings
 
@@ -33,10 +33,18 @@ namespace MultipleChoiceApp.Common.Helpers
             msg.Body = body;
             msg.From = from;
             msg.To.Add(to);
+            if (attachment != null) msg.Attachments.Add(attachment);
 
             // Enviar E-mail
 
-            client.Send(msg);
+            try
+            {
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
 
         }
     }
