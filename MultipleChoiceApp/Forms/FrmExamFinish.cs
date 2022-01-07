@@ -32,7 +32,6 @@ namespace MultipleChoiceApp.Forms
             lbl_incorrect_qty.Text = studentResult.IncorrectAnswerCount + "";
             lbl_mark.Text = studentResult.Points+"";
         }
-
         private void btn_done_Click(object sender, EventArgs e)
         {
             FormHelper.replaceForm(this, new FrmExamStart());
