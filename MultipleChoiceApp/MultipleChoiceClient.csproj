@@ -644,7 +644,7 @@
     <EmbeddedResource Include="UserControls\Utilities\UploadImageControl.resx">
       <DependentUpon>UploadImageControl.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\Bi.Exam\ExamService.wsdl" />
+    <None Include="Connected Services\Bi.Exam\ExamService1.wsdl" />
     <None Include="Connected Services\Bi.Exam\MultipleChoiceApp.Bi.Exam.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -687,7 +687,7 @@
     <None Include="Connected Services\Bi.Exam\MultipleChoiceApp.Bi.Exam.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.Manager\ManagerService.wsdl" />
+    <None Include="Connected Services\Bi.Manager\ManagerService1.wsdl" />
     <None Include="Connected Services\Bi.Manager\MultipleChoiceApp.Bi.Manager.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -757,7 +757,7 @@
     <None Include="Connected Services\Bi.Question\MultipleChoiceApp.Bi.Question.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.Question\QuestionService.wsdl" />
+    <None Include="Connected Services\Bi.Question\QuestionService1.wsdl" />
     <None Include="Connected Services\Bi.StudentResponse\MultipleChoiceApp.Bi.StudentResponse.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -782,7 +782,7 @@
     <None Include="Connected Services\Bi.StudentResponse\MultipleChoiceApp.Bi.StudentResponse.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.StudentResponse\StudentResponseService.wsdl" />
+    <None Include="Connected Services\Bi.StudentResponse\StudentResponseService1.wsdl" />
     <None Include="Connected Services\Bi.StudentResult\MultipleChoiceApp.Bi.StudentResult.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -816,7 +816,7 @@
     <None Include="Connected Services\Bi.StudentResult\MultipleChoiceApp.Bi.StudentResult.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.StudentResult\StudentResultService.wsdl" />
+    <None Include="Connected Services\Bi.StudentResult\StudentResultService1.wsdl" />
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -862,7 +862,7 @@
     <None Include="Connected Services\Bi.Student\MultipleChoiceApp.Bi.Student.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.Student\StudentService.wsdl" />
+    <None Include="Connected Services\Bi.Student\StudentService1.wsdl" />
     <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.addManyResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -890,7 +890,7 @@
     <None Include="Connected Services\Bi.Subject\MultipleChoiceApp.Bi.Subject.updateResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\Bi.Subject\SubjectApiService.wsdl" />
+    <None Include="Connected Services\Bi.Subject\SubjectApiService1.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.ExamSheet.datasource" />
     <None Include="Properties\DataSources\MultipleChoiceApp.ModelHelpers.QuestionInExamSheet.datasource" />
@@ -963,44 +963,44 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.Student\StudentService.disco" />
     <None Include="Connected Services\Bi.Student\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.Student\configuration.svcinfo" />
     <None Include="Connected Services\Bi.Student\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.Manager\ManagerService.disco" />
     <None Include="Connected Services\Bi.Manager\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.Manager\configuration.svcinfo" />
     <None Include="Connected Services\Bi.Manager\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.StudentResult\StudentResultService.disco" />
     <None Include="Connected Services\Bi.StudentResult\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.StudentResult\configuration.svcinfo" />
     <None Include="Connected Services\Bi.StudentResult\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.StudentResponse\StudentResponseService.disco" />
     <None Include="Connected Services\Bi.StudentResponse\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.StudentResponse\configuration.svcinfo" />
     <None Include="Connected Services\Bi.StudentResponse\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.Exam\ExamService.disco" />
     <None Include="Connected Services\Bi.Exam\configuration91.svcinfo" />
     <None Include="Connected Services\Bi.Exam\configuration.svcinfo" />
     <None Include="Connected Services\Bi.Exam\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Bi.Question\QuestionService.disco" />
     <None Include="Resources\empty_image.png" />
-    <None Include="Connected Services\Bi.Subject\SubjectApiService.disco" />
+    <None Include="Connected Services\Bi.Exam\ExamService1.disco" />
+    <None Include="Connected Services\Bi.Manager\ManagerService1.disco" />
+    <None Include="Connected Services\Bi.Question\QuestionService1.disco" />
+    <None Include="Connected Services\Bi.Student\StudentService1.disco" />
+    <None Include="Connected Services\Bi.StudentResponse\StudentResponseService1.disco" />
+    <None Include="Connected Services\Bi.StudentResult\StudentResultService1.disco" />
+    <None Include="Connected Services\Bi.Subject\SubjectApiService1.disco" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

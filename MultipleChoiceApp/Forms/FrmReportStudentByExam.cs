@@ -3,6 +3,7 @@ using MultipleChoiceApp.Bi.Exam;
 using MultipleChoiceApp.Bi.StudentResult;
 using MultipleChoiceApp.Common;
 using MultipleChoiceApp.Common.Helpers;
+using MultipleChoiceApp.ModelHelpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +25,8 @@ namespace MultipleChoiceApp.Forms
         ExamServiceSoapClient examS = new ExamServiceSoapClient();
         List<Bi.Exam.Exam> examList;
         Bi.Exam.Exam exam;
+        ReportDataSource examReportDS;
+        ReportDataSource studentListDS;
         StudentResultServiceSoapClient studentResultS = new StudentResultServiceSoapClient();
         public FrmReportStudentByExam()
         {
@@ -74,13 +78,13 @@ namespace MultipleChoiceApp.Forms
             };
 
             List<ModelHelpers.StudentResultReport> list = getStudentResultReportList();
-            ReportDataSource examRds = new ReportDataSource("ExamReport", examReport);
-            ReportDataSource rds = new ReportDataSource("StudentResultReport", list);
+            examReportDS = new ReportDataSource("ExamReport", examReport);
+            studentListDS = new ReportDataSource("StudentResultReport", list);
             report.Reset();
             report.LocalReport.DataSources.Clear();
             report.LocalReport.ReportPath = FormHelper.getReportPath(Constant.EXAM_RESULT_REPORT_NAME);
-            report.LocalReport.DataSources.Add(rds);
-            report.LocalReport.DataSources.Add(examRds);
+            report.LocalReport.DataSources.Add(examReportDS);
+            report.LocalReport.DataSources.Add(studentListDS);
             report.RefreshReport();
         }
 
@@ -125,6 +129,21 @@ namespace MultipleChoiceApp.Forms
 
         private void btn_send_mail_Click(object sender, EventArgs e)
         {
+            genExamResultFile();
+            sendMail();
+        }
+
+        private void genExamResultFile()
+        {
+            ReportViewer viewer = new ReportViewer();
+            viewer.ProcessingMode = ProcessingMode.Local;
+            viewer.LocalReport.ReportPath = FormHelper.getReportPath(Constant.EXAM_RESULT_REPORT_NAME);
+            viewer.LocalReport.DataSources.Add(examReportDS);
+            viewer.LocalReport.DataSources.Add(studentListDS);
+            ExamHelper.genFileReportViewer(viewer, FormHelper.getAppRootPath() + "/ExamResult.pdf", "PDF");
+        }
+        private void sendMail()
+        {
             String email = txt_email.Text.ToString().Trim();
             if (!String.IsNullOrEmpty(email))
             {
@@ -132,16 +151,17 @@ namespace MultipleChoiceApp.Forms
                 try
                 {
                     btn_send_mail.Enabled = false;
-                    mailHelper.send(email, "peteranh.testemail@gmail.com", "Hey Yo", "Ngon");
-                    MessageBox.Show("Send mail success");
+                    Attachment attachment = new Attachment(FormHelper.getAppRootPath() + "/ExamResult.pdf");
+                    mailHelper.send(email, $"{exam.Name} exam result", $"Hello,\n\nThis is the report for {exam.Name}.", attachment);
+                    MessageBox.Show($"Sent to {email}");
                 }
                 catch (Exception ex)
                 {
-                    btn_send_mail.Text = "Send again";
-                    MessageBox.Show("err: " + ex.Message);
+                    MessageBox.Show("Failed to send mail");
                 }
                 finally
                 {
+                    btn_send_mail.Text = "Send again";
                     btn_send_mail.Enabled = true;
                 }
             }

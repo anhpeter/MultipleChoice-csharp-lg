@@ -21,11 +21,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:3902/Services/SubjectApiService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://bsite.net/chimlachoai/Services/SubjectApiService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SubjectApiService.wsdl" MetadataType="Wsdl" ID="16c1326e-7025-44c8-81b6-4d8813031af3" SourceId="1" SourceUrl="http://localhost:3902/Services/SubjectApiService.asmx?wsdl" />
-    <MetadataFile FileName="SubjectApiService.disco" MetadataType="Disco" ID="cdae562d-1009-495c-aaf8-476facc640a1" SourceId="1" SourceUrl="http://localhost:3902/Services/SubjectApiService.asmx?disco" />
+    <MetadataFile FileName="SubjectApiService1.wsdl" MetadataType="Wsdl" ID="db1a80fb-6e4d-4de1-84a0-2443587b8539" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/SubjectApiService.asmx?wsdl" />
+    <MetadataFile FileName="SubjectApiService1.disco" MetadataType="Disco" ID="a23a280a-add8-42e3-bea9-bf2c18ec4d1b" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/SubjectApiService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

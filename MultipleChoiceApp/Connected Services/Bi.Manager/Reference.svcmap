@@ -21,11 +21,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:3902/Services/ManagerService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://bsite.net/chimlachoai/Services/ManagerService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ManagerService.wsdl" MetadataType="Wsdl" ID="18932b2d-0b95-4beb-8e05-1a4125e1d295" SourceId="1" SourceUrl="http://localhost:3902/Services/ManagerService.asmx?wsdl" />
-    <MetadataFile FileName="ManagerService.disco" MetadataType="Disco" ID="d3e95f11-9c44-48f4-bd8c-7690dc287edf" SourceId="1" SourceUrl="http://localhost:3902/Services/ManagerService.asmx?disco" />
+    <MetadataFile FileName="ManagerService1.wsdl" MetadataType="Wsdl" ID="181688b3-f6a1-482d-b9e7-10381f781cda" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/ManagerService.asmx?wsdl" />
+    <MetadataFile FileName="ManagerService1.disco" MetadataType="Disco" ID="dadf4074-9627-4605-b1e1-8a55d79590a8" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/ManagerService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

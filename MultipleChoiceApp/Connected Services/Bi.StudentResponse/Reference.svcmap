@@ -21,11 +21,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:3902/Services/StudentResponseService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://bsite.net/chimlachoai/Services/StudentResponseService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="StudentResponseService.disco" MetadataType="Disco" ID="477ad819-ae8d-4cfb-8280-82d01571c0a5" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResponseService.asmx?disco" />
-    <MetadataFile FileName="StudentResponseService.wsdl" MetadataType="Wsdl" ID="54ac1e10-a757-441b-afa5-34b564c650ad" SourceId="1" SourceUrl="http://localhost:3902/Services/StudentResponseService.asmx?wsdl" />
+    <MetadataFile FileName="StudentResponseService1.wsdl" MetadataType="Wsdl" ID="4007654e-c4c6-4bc0-8cdb-0d4a6004bdc2" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/StudentResponseService.asmx?wsdl" />
+    <MetadataFile FileName="StudentResponseService1.disco" MetadataType="Disco" ID="46f73296-6922-4e16-9d68-f8d35616f60e" SourceId="1" SourceUrl="https://bsite.net/chimlachoai/Services/StudentResponseService.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

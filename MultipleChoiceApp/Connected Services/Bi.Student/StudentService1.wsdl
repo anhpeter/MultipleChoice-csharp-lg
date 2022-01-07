@@ -1,129 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/Exam" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://peteranh.com/Services/Student" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://peteranh.com/Services/Student" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/Exam">
-      <s:element name="getAllBetweenDate">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://peteranh.com/Services/Student">
+      <s:element name="setStudentsForExam">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:dateTime" />
-            <s:element minOccurs="1" maxOccurs="1" name="to" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getAllBetweenDateResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getAllBetweenDateResult" type="tns:ArrayOfExam" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfExam">
+      <s:complexType name="ArrayOfInt">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Exam" nillable="true" type="tns:Exam" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Exam">
+      <s:element name="setStudentsForExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="setStudentsForExamResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentsNotInExam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStudentsNotInExamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentsNotInExamResult" type="tns:ArrayOfStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStudent">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Semester" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="SubjectId" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="StartAt" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="EndAt" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="EasyQty" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="HardQty" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="SubjectCode" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="StudentCount" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="tns:Subject" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Subject">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Lecturer" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
-        </s:sequence>
+      <s:complexType name="Student">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:User">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Major" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExamStatus" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
       </s:complexType>
-      <s:element name="isAvailableBetweenDate">
+      <s:complexType name="User" />
+      <s:element name="getStudentInExam">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
-            <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime" />
-            <s:element minOccurs="1" maxOccurs="1" name="subjectId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="isAvailableBetweenDateResponse">
+      <s:element name="getStudentInExamResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="isAvailableBetweenDateResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="getStudentInExamResult" type="tns:ArrayOfStudent" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getExamOverviewById">
+      <s:element name="addStudentsToExam">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getExamOverviewByIdResponse">
+      <s:element name="addStudentsToExamResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getExamOverviewByIdResult" type="tns:ExamOverview" />
+            <s:element minOccurs="1" maxOccurs="1" name="addStudentsToExamResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ExamOverview">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="TakenStudentCount" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="AveragePoints" type="s:double" />
-          <s:element minOccurs="1" maxOccurs="1" name="Duration" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="TotalQuestion" type="s:int" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="getAllForReport">
-        <s:complexType />
-      </s:element>
-      <s:element name="getAllForReportResponse">
+      <s:element name="removeStudentsFromExam">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getAllForReportResult" type="tns:ArrayOfExam" />
+            <s:element minOccurs="0" maxOccurs="1" name="studentIds" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="examId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getExamReportById">
+      <s:element name="removeStudentsFromExamResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="removeStudentsFromExamResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getExamReportByIdResponse">
+      <s:element name="getByCodeAndPassword">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getExamReportByIdResult" type="tns:Exam" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="getAvailableBySubjectId">
+      <s:element name="getByCodeAndPasswordResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="SubjectId" type="s:int" />
-            <s:element minOccurs="1" maxOccurs="1" name="d" type="s:dateTime" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getAvailableBySubjectIdResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getAvailableBySubjectIdResult" type="tns:Exam" />
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeAndPasswordResult" type="tns:Student" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -137,7 +128,21 @@
       <s:element name="searchByKeywordResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="searchByKeywordResult" type="tns:ArrayOfExam" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchByKeywordResult" type="tns:ArrayOfStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getByCodeResult" type="tns:Student" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -147,7 +152,7 @@
       <s:element name="getAllForSelectDataResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getAllForSelectDataResult" type="tns:ArrayOfExam" />
+            <s:element minOccurs="0" maxOccurs="1" name="getAllForSelectDataResult" type="tns:ArrayOfStudent" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -162,7 +167,7 @@
       <s:element name="getAllResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getAllResult" type="tns:ArrayOfExam" />
+            <s:element minOccurs="0" maxOccurs="1" name="getAllResult" type="tns:ArrayOfStudent" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -186,14 +191,14 @@
       <s:element name="getDetailsByIdResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getDetailsByIdResult" type="tns:Exam" />
+            <s:element minOccurs="0" maxOccurs="1" name="getDetailsByIdResult" type="tns:Student" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="add">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Exam" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Student" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -207,7 +212,7 @@
       <s:element name="addMany">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfExam" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfStudent" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -221,7 +226,7 @@
       <s:element name="update">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Exam" />
+            <s:element minOccurs="0" maxOccurs="1" name="item" type="tns:Student" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -248,47 +253,53 @@
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="getAllBetweenDateSoapIn">
-    <wsdl:part name="parameters" element="tns:getAllBetweenDate" />
+  <wsdl:message name="setStudentsForExamSoapIn">
+    <wsdl:part name="parameters" element="tns:setStudentsForExam" />
   </wsdl:message>
-  <wsdl:message name="getAllBetweenDateSoapOut">
-    <wsdl:part name="parameters" element="tns:getAllBetweenDateResponse" />
+  <wsdl:message name="setStudentsForExamSoapOut">
+    <wsdl:part name="parameters" element="tns:setStudentsForExamResponse" />
   </wsdl:message>
-  <wsdl:message name="isAvailableBetweenDateSoapIn">
-    <wsdl:part name="parameters" element="tns:isAvailableBetweenDate" />
+  <wsdl:message name="getStudentsNotInExamSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentsNotInExam" />
   </wsdl:message>
-  <wsdl:message name="isAvailableBetweenDateSoapOut">
-    <wsdl:part name="parameters" element="tns:isAvailableBetweenDateResponse" />
+  <wsdl:message name="getStudentsNotInExamSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentsNotInExamResponse" />
   </wsdl:message>
-  <wsdl:message name="getExamOverviewByIdSoapIn">
-    <wsdl:part name="parameters" element="tns:getExamOverviewById" />
+  <wsdl:message name="getStudentInExamSoapIn">
+    <wsdl:part name="parameters" element="tns:getStudentInExam" />
   </wsdl:message>
-  <wsdl:message name="getExamOverviewByIdSoapOut">
-    <wsdl:part name="parameters" element="tns:getExamOverviewByIdResponse" />
+  <wsdl:message name="getStudentInExamSoapOut">
+    <wsdl:part name="parameters" element="tns:getStudentInExamResponse" />
   </wsdl:message>
-  <wsdl:message name="getAllForReportSoapIn">
-    <wsdl:part name="parameters" element="tns:getAllForReport" />
+  <wsdl:message name="addStudentsToExamSoapIn">
+    <wsdl:part name="parameters" element="tns:addStudentsToExam" />
   </wsdl:message>
-  <wsdl:message name="getAllForReportSoapOut">
-    <wsdl:part name="parameters" element="tns:getAllForReportResponse" />
+  <wsdl:message name="addStudentsToExamSoapOut">
+    <wsdl:part name="parameters" element="tns:addStudentsToExamResponse" />
   </wsdl:message>
-  <wsdl:message name="getExamReportByIdSoapIn">
-    <wsdl:part name="parameters" element="tns:getExamReportById" />
+  <wsdl:message name="removeStudentsFromExamSoapIn">
+    <wsdl:part name="parameters" element="tns:removeStudentsFromExam" />
   </wsdl:message>
-  <wsdl:message name="getExamReportByIdSoapOut">
-    <wsdl:part name="parameters" element="tns:getExamReportByIdResponse" />
+  <wsdl:message name="removeStudentsFromExamSoapOut">
+    <wsdl:part name="parameters" element="tns:removeStudentsFromExamResponse" />
   </wsdl:message>
-  <wsdl:message name="getAvailableBySubjectIdSoapIn">
-    <wsdl:part name="parameters" element="tns:getAvailableBySubjectId" />
+  <wsdl:message name="getByCodeAndPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:getByCodeAndPassword" />
   </wsdl:message>
-  <wsdl:message name="getAvailableBySubjectIdSoapOut">
-    <wsdl:part name="parameters" element="tns:getAvailableBySubjectIdResponse" />
+  <wsdl:message name="getByCodeAndPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:getByCodeAndPasswordResponse" />
   </wsdl:message>
   <wsdl:message name="searchByKeywordSoapIn">
     <wsdl:part name="parameters" element="tns:searchByKeyword" />
   </wsdl:message>
   <wsdl:message name="searchByKeywordSoapOut">
     <wsdl:part name="parameters" element="tns:searchByKeywordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:getByCode" />
+  </wsdl:message>
+  <wsdl:message name="getByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:getByCodeResponse" />
   </wsdl:message>
   <wsdl:message name="getAllForSelectDataSoapIn">
     <wsdl:part name="parameters" element="tns:getAllForSelectData" />
@@ -338,34 +349,38 @@
   <wsdl:message name="deleteSoapOut">
     <wsdl:part name="parameters" element="tns:deleteResponse" />
   </wsdl:message>
-  <wsdl:portType name="ExamServiceSoap">
-    <wsdl:operation name="getAllBetweenDate">
-      <wsdl:input message="tns:getAllBetweenDateSoapIn" />
-      <wsdl:output message="tns:getAllBetweenDateSoapOut" />
+  <wsdl:portType name="StudentServiceSoap">
+    <wsdl:operation name="setStudentsForExam">
+      <wsdl:input message="tns:setStudentsForExamSoapIn" />
+      <wsdl:output message="tns:setStudentsForExamSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="isAvailableBetweenDate">
-      <wsdl:input message="tns:isAvailableBetweenDateSoapIn" />
-      <wsdl:output message="tns:isAvailableBetweenDateSoapOut" />
+    <wsdl:operation name="getStudentsNotInExam">
+      <wsdl:input message="tns:getStudentsNotInExamSoapIn" />
+      <wsdl:output message="tns:getStudentsNotInExamSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getExamOverviewById">
-      <wsdl:input message="tns:getExamOverviewByIdSoapIn" />
-      <wsdl:output message="tns:getExamOverviewByIdSoapOut" />
+    <wsdl:operation name="getStudentInExam">
+      <wsdl:input message="tns:getStudentInExamSoapIn" />
+      <wsdl:output message="tns:getStudentInExamSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getAllForReport">
-      <wsdl:input message="tns:getAllForReportSoapIn" />
-      <wsdl:output message="tns:getAllForReportSoapOut" />
+    <wsdl:operation name="addStudentsToExam">
+      <wsdl:input message="tns:addStudentsToExamSoapIn" />
+      <wsdl:output message="tns:addStudentsToExamSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getExamReportById">
-      <wsdl:input message="tns:getExamReportByIdSoapIn" />
-      <wsdl:output message="tns:getExamReportByIdSoapOut" />
+    <wsdl:operation name="removeStudentsFromExam">
+      <wsdl:input message="tns:removeStudentsFromExamSoapIn" />
+      <wsdl:output message="tns:removeStudentsFromExamSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="getAvailableBySubjectId">
-      <wsdl:input message="tns:getAvailableBySubjectIdSoapIn" />
-      <wsdl:output message="tns:getAvailableBySubjectIdSoapOut" />
+    <wsdl:operation name="getByCodeAndPassword">
+      <wsdl:input message="tns:getByCodeAndPasswordSoapIn" />
+      <wsdl:output message="tns:getByCodeAndPasswordSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
       <wsdl:input message="tns:searchByKeywordSoapIn" />
       <wsdl:output message="tns:searchByKeywordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <wsdl:input message="tns:getByCodeSoapIn" />
+      <wsdl:output message="tns:getByCodeSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="getAllForSelectData">
       <wsdl:input message="tns:getAllForSelectDataSoapIn" />
@@ -400,10 +415,10 @@
       <wsdl:output message="tns:deleteSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="ExamServiceSoap" type="tns:ExamServiceSoap">
+  <wsdl:binding name="StudentServiceSoap" type="tns:StudentServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getAllBetweenDate">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getAllBetweenDate" style="document" />
+    <wsdl:operation name="setStudentsForExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/setStudentsForExam" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -411,8 +426,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="isAvailableBetweenDate">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/isAvailableBetweenDate" style="document" />
+    <wsdl:operation name="getStudentsNotInExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -420,8 +435,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getExamOverviewById">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getExamOverviewById" style="document" />
+    <wsdl:operation name="getStudentInExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getStudentInExam" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -429,8 +444,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getAllForReport">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getAllForReport" style="document" />
+    <wsdl:operation name="addStudentsToExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/addStudentsToExam" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -438,8 +453,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getExamReportById">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getExamReportById" style="document" />
+    <wsdl:operation name="removeStudentsFromExam">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/removeStudentsFromExam" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -447,8 +462,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getAvailableBySubjectId">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getAvailableBySubjectId" style="document" />
+    <wsdl:operation name="getByCodeAndPassword">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getByCodeAndPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -457,7 +472,16 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/searchByKeyword" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getByCode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -466,7 +490,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllForSelectData">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getAllForSelectData" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getAllForSelectData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -475,7 +499,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAll">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getAll" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -484,7 +508,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="countAll">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/countAll" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/countAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -493,7 +517,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getDetailsById">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/getDetailsById" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/getDetailsById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -502,7 +526,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="add">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/add" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/add" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -511,7 +535,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addMany">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/addMany" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/addMany" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -520,7 +544,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="update">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/update" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -529,7 +553,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delete">
-      <soap:operation soapAction="http://peteranh.com/Services/Exam/delete" style="document" />
+      <soap:operation soapAction="http://peteranh.com/Services/Student/delete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -538,10 +562,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="ExamServiceSoap12" type="tns:ExamServiceSoap">
+  <wsdl:binding name="StudentServiceSoap12" type="tns:StudentServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="getAllBetweenDate">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getAllBetweenDate" style="document" />
+    <wsdl:operation name="setStudentsForExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/setStudentsForExam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -549,8 +573,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="isAvailableBetweenDate">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/isAvailableBetweenDate" style="document" />
+    <wsdl:operation name="getStudentsNotInExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getStudentsNotInExam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -558,8 +582,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getExamOverviewById">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getExamOverviewById" style="document" />
+    <wsdl:operation name="getStudentInExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getStudentInExam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -567,8 +591,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getAllForReport">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getAllForReport" style="document" />
+    <wsdl:operation name="addStudentsToExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/addStudentsToExam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -576,8 +600,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getExamReportById">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getExamReportById" style="document" />
+    <wsdl:operation name="removeStudentsFromExam">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/removeStudentsFromExam" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -585,8 +609,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getAvailableBySubjectId">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getAvailableBySubjectId" style="document" />
+    <wsdl:operation name="getByCodeAndPassword">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getByCodeAndPassword" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -595,7 +619,16 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="searchByKeyword">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/searchByKeyword" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/searchByKeyword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getByCode">
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getByCode" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -604,7 +637,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAllForSelectData">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getAllForSelectData" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getAllForSelectData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -613,7 +646,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getAll">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getAll" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -622,7 +655,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="countAll">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/countAll" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/countAll" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -631,7 +664,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getDetailsById">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/getDetailsById" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/getDetailsById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -640,7 +673,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="add">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/add" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/add" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -649,7 +682,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="addMany">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/addMany" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/addMany" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -658,7 +691,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="update">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/update" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/update" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -667,7 +700,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="delete">
-      <soap12:operation soapAction="http://peteranh.com/Services/Exam/delete" style="document" />
+      <soap12:operation soapAction="http://peteranh.com/Services/Student/delete" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -676,12 +709,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="ExamService">
-    <wsdl:port name="ExamServiceSoap" binding="tns:ExamServiceSoap">
-      <soap:address location="http://localhost:3902/Services/ExamService.asmx" />
+  <wsdl:service name="StudentService">
+    <wsdl:port name="StudentServiceSoap" binding="tns:StudentServiceSoap">
+      <soap:address location="https://bsite.net/chimlachoai/Services/StudentService.asmx" />
     </wsdl:port>
-    <wsdl:port name="ExamServiceSoap12" binding="tns:ExamServiceSoap12">
-      <soap12:address location="http://localhost:3902/Services/ExamService.asmx" />
+    <wsdl:port name="StudentServiceSoap12" binding="tns:StudentServiceSoap12">
+      <soap12:address location="https://bsite.net/chimlachoai/Services/StudentService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
